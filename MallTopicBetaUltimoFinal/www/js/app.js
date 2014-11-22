@@ -616,30 +616,34 @@ function CargarCines()
 		url = WebService + "GetPromos?IdPromo='"+ Promo +"'&IdMall=''";
 		loadDataArray(url);
 		var APromo = arrayInfo;
+		var HtmlAcordeon = '';
 
-		//Falta cargar Logo Promo e imagen promo
-		$("#ImagenPromo").attr('src', RutaRecursos +'Promociones/'+Promo+'.jpg')
-		$("#NombrePromo").html(APromo.nombre);
-		$("#Descripcion").html("<p>"+ APromo.descripcion +"</p>");
+		$.each(APromo.value, function(index, item) {
+			//Falta cargar Logo Promo e imagen promo
+			$("#ImagenPromo").attr('src', RutaRecursos +'Promociones/'+Promo+'.jpg')
+			$("#NombrePromo").html(item.nombre);
+			//$("#Descripcion").html("<p>"+ APromo.descripcion +"</p>");
 
-        //Cargo como participar
-        var HtmlAcordeon = '<h3>Cómo Participar?</h3><div>';
-        HtmlAcordeon += '<p>'+ APromo.comoParticipar +'</p>';
-        HtmlAcordeon += '</div>';
+	        //Cargo como participar
+	        HtmlAcordeon = '<h3>Cómo Participar?</h3><div>';
+	        HtmlAcordeon += '<p>'+ item.comoParticipar +'</p>';
+	        HtmlAcordeon += '</div>';
 
-        //Cargar fecha final
-		HtmlAcordeon += '<h3>Fecha Límite</h3><div>';
-        HtmlAcordeon += '<p>'+FormatoFecha(APromo.fechaInicio,APromo.fechaFinal)+'</p>';
-        HtmlAcordeon += '</div>';
+	        //Cargar fecha final
+			HtmlAcordeon += '<h3>Fecha Límite</h3><div>';
+	        HtmlAcordeon += '<p>'+FormatoFecha(item.fechaInicio,item.fechaFinal)+'</p>';
+	        HtmlAcordeon += '</div>';
 
-        //Cargo requisitos
-        HtmlAcordeon += '<h3>Condiciones y Restricciones</h3><div>';
-        HtmlAcordeon += '<p>'+ APromo.requisitosParaParticipar +'</p>';
-        HtmlAcordeon += '</div>';
+	        //Cargo requisitos
+	        HtmlAcordeon += '<h3>Condiciones y Restricciones</h3><div>';
+	        HtmlAcordeon += '<p>'+ item.requisitosParaParticipar +'</p>';
+	        HtmlAcordeon += '</div>';
+		});
 
-        $("#AcordeonPromo").html(HtmlAcordeon);
-        $("#AcordeonPromo").accordion({collapsible: true});
+		$("#AcordeonPromo").html(HtmlAcordeon);
+	    $("#AcordeonPromo").accordion({collapsible: true});
 		$("#AcordeonPromo").accordion( "refresh" );
+		
 
 	}
 
