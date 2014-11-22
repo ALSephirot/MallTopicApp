@@ -41,5 +41,37 @@ function GuardarDatosUsuario(red, InfoUser) {
 	    };
 	}
 
-	InsertObject('regis_user', DatosUsuario);
+	InsertRegis('regis_user', DatosUsuario);
+}
+
+function InsertRegis(tabla, object)
+{
+    if(tabla == "" || tabla == undefined)
+    {
+        alert('No hay tabla en que guardar');
+    }
+    else
+    {
+        if(object == "" || object == undefined)
+        {
+            alert('No hay datos que guardar');
+
+        }
+        else
+        {
+            var TablaInsert = client.getTable(tabla);
+            TablaInsert.insert(object).then(RegistroCorrecto, HandleError);
+        }
+        
+    }
+    
+}
+
+function HandleError(error) {
+    var text = error + (error.request ? ' - ' + error.request.status : '');
+    alert(text);
+}
+
+function RegistroCorrecto() {
+	alert('Tu favorito ha sido guardado correctamente.');
 }
