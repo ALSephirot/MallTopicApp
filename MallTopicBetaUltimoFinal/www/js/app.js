@@ -542,18 +542,20 @@ function CargarCines()
 		{
 			if(FiltroMalls == "" || FiltroMalls == undefined)
 			{
-				url = WebService + "Promos?$filter=fechaInicio le datetime'"+ FechaActual.toString() +"' and fechaFinal ge datetime'"+ FechaActual.toString() +"'";	
+				//url = WebService + "Promos?$filter=fechaInicio le datetime'"+ FechaActual.toString() +"' and fechaFinal ge datetime'"+ FechaActual.toString() +"'";	
 				url = WebService + "GetPromos?IdPromo=''&IdMall=''";	
 			}
 			else
 			{
-				url = WebService + "Malls(guid'"+ FiltroMalls +"')/Stores?$expand=Promos";
+				//url = WebService + "Malls(guid'"+ FiltroMalls +"')/Stores?$expand=Promos";
+				url = WebService + "GetPromos?IdPromo=''&IdMall='"+ FiltroMalls +"'";	
 			}
 			
 		}
 		else
 		{
-			url = WebService + "Malls(guid'"+ Mall +"')/Stores?$expand=Promos";
+			//url = WebService + "Malls(guid'"+ Mall +"')/Stores?$expand=Promos";
+			url = WebService + "GetPromos?IdPromo=''&IdMall='"+ FiltroMalls +"'";
 		}
 
 		loadDataArray(url);
@@ -566,110 +568,26 @@ function CargarCines()
 			if(FiltroMalls == "" || FiltroMalls == undefined)
 			{
 				$.each(APromociones.value, function(index, item) {
-					url = WebService + "Stores(guid'"+ item.fk_idLocal +"')/";
-					loadDataArray(url);
-					var ALocal = arrayInfo;
-
-					if(ComprobarMasCercanos(ALocal.fk_idCC, index, APromociones.value.length))
+					if(ComprobarMasCercanos(item1.fk_idCC, index, APromociones.length))
 					{
-						url = WebService + "Malls(guid'"+ ALocal.fk_idCC +"')/";
-						loadDataArray(url);
-						var AMall = arrayInfo;
-
-						htmlPromos += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetallePromos" data-transition="slide"><img src="'+ RutaRecursos +'Promociones/'+item.id+'.jpg"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p style="color: #0e79b7; font-style: italic;">'+ AMall.nombre +' - '+ ALocal.nombre +'</p><p>'+ item.descripcion +'</p></div><div class="FlechaLocales">Ir</div></a></li>';
-						estado = true;
+						htmlPromos += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetallePromos" data-transition="slide"><img src="'+ RutaRecursos +'Promociones/'+item.id+'.jpg"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p style="color: #0e79b7; font-style: italic;">'+ item.NombreMall +' - '+ item.NombreLocal +'</p></div><div class="FlechaLocales">Ir</div></a></li>';
+					 	estado = true;
 					}
 				});
 			}
 			else
 			{
-				$.each(APromociones.value, function(index, item1) {
-					if(ComprobarMasCercanos(item1.fk_idCC, index, APromociones.value.length))
-					{
-						url = WebService + "Malls(guid'"+ item1.fk_idCC +"')/";
-						loadDataArray(url);
-						var AMall = arrayInfo;
-
-						if(EstadoPromo == "" || EstadoPromo == undefined)
-						{
-							$.each(item1.Promos, function(index, item) {
-								htmlPromos += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetallePromos" data-transition="slide"><img src="'+ RutaRecursos +'Promociones/'+item.id+'.jpg"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p style="color: #0e79b7; font-style: italic;">'+ AMall.nombre +' - '+ item1.nombre +'</p><p>'+ item.descripcion +'</p></div><div class="FlechaLocales">Ir</div></a></li>';
-							 	estado = true;
-							});
-						}
-						else
-						{
-							$.each(item1.Promos, function(index, item) {
-								var FecIni = item.fechaInicio;
-								var FecFin = item.fechaFinal;
-								if(EstadoPromo == "Activas")
-								{
-									if(FecIni <= FechaActual && FecFin >= FechaActual)
-									{
-										htmlPromos += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetallePromos" data-transition="slide"><img src="'+ RutaRecursos +'Promociones/'+item.id+'.jpg"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p style="color: #0e79b7; font-style: italic;">'+ AMall.nombre +' - '+ item1.nombre +'</p><p>'+ item.descripcion +'</p></div><div class="FlechaLocales">Ir</div></a></li>';		
-									}
-								}
-								else if(EstadoPromo == "Proximas")
-								{
-									if(FecIni >= FechaActual)
-									{
-										htmlPromos += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetallePromos" data-transition="slide"><img src="'+ RutaRecursos +'Promociones/'+item.id+'.jpg"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p style="color: #0e79b7; font-style: italic;">'+ AMall.nombre +' - '+ item1.nombre +'</p><p>'+ item.descripcion +'</p></div><div class="FlechaLocales">Ir</div></a></li>';			
-									}
-								}
-								else if(EstadoPromo == "Vencidas")
-								{
-									if(FecFin <= FechaActual)
-									{
-										htmlPromos += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetallePromos" data-transition="slide"><img src="'+ RutaRecursos +'Promociones/'+item.id+'.jpg"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p style="color:#0e79b7; font-style: italic;">'+ AMall.nombre +' - '+ item1.nombre +'</p><p>'+ item.descripcion +'</p></div><div class="FlechaLocales">Ir</div></a></li>';		
-									}
-								}
-								
-							 	estado = true;
-							});
-						}
-					}
+				$.each(APromociones.value, function(index, item) {
+					htmlPromos += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetallePromos" data-transition="slide"><img src="'+ RutaRecursos +'Promociones/'+item.id+'.jpg"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p style="color: #0e79b7; font-style: italic;">'+ item.NombreMall +' - '+ item.NombreLocal +'</p></div><div class="FlechaLocales">Ir</div></a></li>';
+					estado = true;
 				});
 			}
 		}
 		else
 		{
-			$.each(APromociones.value, function(index, item1) {
-				if(EstadoPromo == "" || EstadoPromo == undefined)
-				{
-					$.each(item1.Promos, function(index, item) {
-						htmlPromos += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetallePromos" data-transition="slide"><img src="'+ RutaRecursos +'Promociones/'+item.id+'.jpg"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p>'+ item.descripcion +'</p></div><div class="FlechaLocales">Ir</div></a></li>';
-					 	estado = true;
-					});
-				}
-				else
-				{
-					$.each(item1.Promos, function(index, item) {
-						var FecIni = item.fechaInicio;
-						var FecFin = item.fechaFinal;
-						if(EstadoPromo == "Activas")
-						{
-							if(FecIni <= FechaActual && FecFin >= FechaActual)
-							{
-								htmlPromos += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetallePromos" data-transition="slide"><img src="'+ RutaRecursos +'Promociones/'+item.id+'.jpg"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p>'+ item.descripcion +'</p></div><div class="FlechaLocales">Ir</div></a></li>';		
-							}
-						}
-						else if(EstadoPromo == "Proximas")
-						{
-							if(FecIni >= FechaActual)
-							{
-								htmlPromos += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetallePromos" data-transition="slide"><img src="'+ RutaRecursos +'Promociones/'+item.id+'.jpg"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p>'+ item.descripcion +'</p></div><div class="FlechaLocales">Ir</div></a></li>';			
-							}
-						}
-						else if(EstadoPromo == "Vencidas")
-						{
-							if(FecFin <= FechaActual)
-							{
-								htmlPromos += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetallePromos" data-transition="slide"><img src="'+ RutaRecursos +'Promociones/'+item.id+'.jpg"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p>'+ item.descripcion +'</p></div><div class="FlechaLocales">Ir</div></a></li>';		
-							}
-						}
-					 	estado = true;
-					});
-				}
+			$.each(APromociones.value, function(index, item) {
+				htmlPromos += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetallePromos" data-transition="slide"><img src="'+ RutaRecursos +'Promociones/'+item.id+'.jpg"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3></div><div class="FlechaLocales">Ir</div></a></li>';
+				estado = true;
 			});
 		}
 
@@ -695,7 +613,7 @@ function CargarCines()
 	function CargarDetallePromo()
 	{
 		var Promo = getPromo();
-		url = WebService + "Promos(guid'"+ Promo +"')/"
+		url = WebService + "GetPromos?IdPromo='"+ Promo +"'&IdMall=''";
 		loadDataArray(url);
 		var APromo = arrayInfo;
 
