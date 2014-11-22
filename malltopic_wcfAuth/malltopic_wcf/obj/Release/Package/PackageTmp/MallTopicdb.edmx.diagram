@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cbc096b11bad4666b1f73e5714b6c67f" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="MallTopicFinalModel.Aprovaciones" Width="1.5" PointX="10.25" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Categories" Width="1.5" PointX="5.25" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Cinema" Width="1.5" PointX="5.25" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Cities" Width="1.5" PointX="0.75" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Colections" Width="1.5" PointX="7.5" PointY="46.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Colections_detail" Width="1.5" PointX="9.75" PointY="54.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Countries" Width="1.5" PointX="1.5" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Events" Width="1.5" PointX="10.5" PointY="48.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Favorites" Width="1.5" PointX="10.5" PointY="44.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Gallery" Width="1.5" PointX="10.5" PointY="40.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Gallery_detail" Width="1.5" PointX="12.75" PointY="40.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Malls" Width="1.5" PointX="3" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Movies" Width="1.5" PointX="0.75" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.PilasPs" Width="1.5" PointX="5.25" PointY="52.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Products" Width="1.5" PointX="7.5" PointY="59.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Promos" Width="1.5" PointX="7.5" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Room_movie" Width="1.5" PointX="5.25" PointY="30.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Schedule_movie" Width="1.5" PointX="7.5" PointY="30.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Services" Width="1.5" PointX="6" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.services_detail" Width="1.5" PointX="8.375" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Stores" Width="1.5" PointX="5.25" PointY="58" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.StoresXCategories" Width="1.5" PointX="7.5" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.transport" Width="1.5" PointX="5.25" PointY="65" IsExpanded="true" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Aprovaciones_0" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Aprovaciones_1" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Aprovaciones_2" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Categories_0" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_StoresXCategories_0" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Cines_mall" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Horarios_cine" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Ciudades_Paises" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Mall_Ciudades" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Colections_0" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Colections_1" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_detalle_coleccion_coleccion" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_detalle_coleccion_Productos" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Eventos_Mall" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Events_Stores" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Favorites_0" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Favorites_1" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Gallery_detail_Gallery" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Gallery_Gallery1" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Gallery_Stores" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Locales_Mall" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_PilasPs_0" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Promos_0" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Room_movie_1" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_services_detail_0" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Horarios_Pelicula" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Room_movie_0" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Productos_Locales" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Promociones_Locales" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_Horarios_Sala" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_services_detail_1" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.FK_StoresXCategories_1" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.Malls_transport" ManuallyRouted="false" />
+        <AssociationConnector Association="MallTopicFinalModel.Movies_Malls" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

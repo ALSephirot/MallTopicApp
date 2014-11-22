@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MallTopicFinalModelStoreContainer" CdmEntityContainer="MallTopicFinalEntities">
+    <EntitySetMapping Name="Aprovaciones">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Aprovaciones">
+        <MappingFragment StoreEntitySet="Aprovaciones">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fk_promo" ColumnName="fk_promo" />
+          <ScalarProperty Name="fk_evento" ColumnName="fk_evento" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="user_creado" ColumnName="user_creado" />
+          <ScalarProperty Name="user_modificado" ColumnName="user_modificado" />
+          <ScalarProperty Name="Aprovado" ColumnName="Aprovado" />
+          <ScalarProperty Name="fk_cc" ColumnName="fk_cc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Categories">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fk_idLocales" ColumnName="fk_idLocales" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="icono" ColumnName="icono" />
+          <ScalarProperty Name="especial" ColumnName="especial" />
+          <ScalarProperty Name="fk_idCC" ColumnName="fk_idCC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cinema">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Cinema">
+        <MappingFragment StoreEntitySet="Cinema">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="publicar" ColumnName="publicar" />
+          <ScalarProperty Name="fk_mall" ColumnName="fk_mall" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="portada" ColumnName="portada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Cities">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fk_idPais" ColumnName="fk_idPais" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="Indicativo" ColumnName="Indicativo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Colections">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Colections">
+        <MappingFragment StoreEntitySet="Colections">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fechaLanzamiento" ColumnName="fechaLanzamiento" />
+          <ScalarProperty Name="publicar" ColumnName="publicar" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="fk_IdStore" ColumnName="fk_IdStore" />
+          <ScalarProperty Name="año" ColumnName="año" />
+          <ScalarProperty Name="especial" ColumnName="especial" />
+          <ScalarProperty Name="fk_idCC" ColumnName="fk_idCC" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Colections_detail">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Colections_detail">
+        <MappingFragment StoreEntitySet="Colections_detail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fk_idDetallecoleccion" ColumnName="fk_idDetallecoleccion" />
+          <ScalarProperty Name="fk_idProductos" ColumnName="fk_idProductos" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Countries">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="complete" ColumnName="complete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Events">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fk_idCC" ColumnName="fk_idCC" />
+          <ScalarProperty Name="fk_idStore" ColumnName="fk_idStore" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="lugar" ColumnName="lugar" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+          <ScalarProperty Name="organizador" ColumnName="organizador" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="web" ColumnName="web" />
+          <ScalarProperty Name="publicar" ColumnName="publicar" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="favorito" ColumnName="favorito" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Favorites">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Favorites">
+        <MappingFragment StoreEntitySet="Favorites">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdMall" ColumnName="IdMall" />
+          <ScalarProperty Name="IdLocal" ColumnName="IdLocal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gallery">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Gallery">
+        <MappingFragment StoreEntitySet="Gallery">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portada" ColumnName="portada" />
+          <ScalarProperty Name="fk_idMall" ColumnName="fk_idMall" />
+          <ScalarProperty Name="fk_idStore" ColumnName="fk_idStore" />
+          <ScalarProperty Name="user_create" ColumnName="user_create" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gallery_detail">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Gallery_detail">
+        <MappingFragment StoreEntitySet="Gallery_detail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fk_idGallery" ColumnName="fk_idGallery" />
+          <ScalarProperty Name="fotos" ColumnName="fotos" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Malls">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Malls">
+        <MappingFragment StoreEntitySet="Malls">
+          <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
+          <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
+          <ScalarProperty Name="H_lunes_a_viernes" ColumnName="H_lunes_a_viernes" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="mapa" ColumnName="mapa" />
+          <ScalarProperty Name="web" ColumnName="web" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="horarios" ColumnName="horarios" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="slogan" ColumnName="slogan" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="colorFondo" ColumnName="colorFondo" />
+          <ScalarProperty Name="colorLetra" ColumnName="colorLetra" />
+          <ScalarProperty Name="cantParqueadero" ColumnName="cantParqueadero" />
+          <ScalarProperty Name="cantLocales" ColumnName="cantLocales" />
+          <ScalarProperty Name="galeriaImagenes" ColumnName="galeriaImagenes" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="publicar" ColumnName="publicar" />
+          <ScalarProperty Name="fk_ciudad" ColumnName="fk_ciudad" />
+          <ScalarProperty Name="latitud" ColumnName="latitud" />
+          <ScalarProperty Name="longitud" ColumnName="longitud" />
+          <ScalarProperty Name="facebook" ColumnName="facebook" />
+          <ScalarProperty Name="twitter" ColumnName="twitter" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Movies">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Movies">
+        <MappingFragment StoreEntitySet="Movies">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="actores" ColumnName="actores" />
+          <ScalarProperty Name="censura" ColumnName="censura" />
+          <ScalarProperty Name="duracion" ColumnName="duracion" />
+          <ScalarProperty Name="estreno" ColumnName="estreno" />
+          <ScalarProperty Name="genero" ColumnName="genero" />
+          <ScalarProperty Name="portada" ColumnName="portada" />
+          <ScalarProperty Name="formato" ColumnName="formato" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="publicar" ColumnName="publicar" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="sinopsis" ColumnName="sinopsis" />
+          <ScalarProperty Name="trailer" ColumnName="trailer" />
+          <ScalarProperty Name="director" ColumnName="director" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PilasPs">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.PilasPs">
+        <MappingFragment StoreEntitySet="PilasPs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="fk_idCC" ColumnName="fk_idCC" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="link" ColumnName="link" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fk_idLocal" ColumnName="fk_idLocal" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fk_idMarca" ColumnName="fk_idMarca" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="fk_idDetallecoleccion" ColumnName="fk_idDetallecoleccion" />
+          <ScalarProperty Name="publicar" ColumnName="publicar" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Promos">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Promos">
+        <MappingFragment StoreEntitySet="Promos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fk_idLocal" ColumnName="fk_idLocal" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="web" ColumnName="web" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="quienEstaDirigido" ColumnName="quienEstaDirigido" />
+          <ScalarProperty Name="comoParticipar" ColumnName="comoParticipar" />
+          <ScalarProperty Name="requisitosParaParticipar" ColumnName="requisitosParaParticipar" />
+          <ScalarProperty Name="quienesNoPuedenParticipar" ColumnName="quienesNoPuedenParticipar" />
+          <ScalarProperty Name="publicar" ColumnName="publicar" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="fk_idcc" ColumnName="fk_idcc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Room_movie">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Room_movie">
+        <MappingFragment StoreEntitySet="Room_movie">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="capacidad" ColumnName="capacidad" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="publicar" ColumnName="publicar" />
+          <ScalarProperty Name="fk_cine" ColumnName="fk_cine" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="fk_idCC" ColumnName="fk_idCC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schedule_movie">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Schedule_movie">
+        <MappingFragment StoreEntitySet="Schedule_movie">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="fechaProyeccion" ColumnName="fechaProyeccion" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="fk_cine" ColumnName="fk_cine" />
+          <ScalarProperty Name="fk_pelicula" ColumnName="fk_pelicula" />
+          <ScalarProperty Name="fk_sala" ColumnName="fk_sala" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Services">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="servicio" ColumnName="servicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="services_detail">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.services_detail">
+        <MappingFragment StoreEntitySet="services_detail">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="fk_IdCC" ColumnName="fk_IdCC" />
+          <ScalarProperty Name="fk_IdServicio" ColumnName="fk_IdServicio" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stores">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.Stores">
+        <MappingFragment StoreEntitySet="Stores">
+          <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+          <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
+          <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
+          <ScalarProperty Name="H_lunes_a_viernes" ColumnName="H_lunes_a_viernes" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="numLocal" ColumnName="numLocal" />
+          <ScalarProperty Name="fk_idCC" ColumnName="fk_idCC" />
+          <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+          <ScalarProperty Name="horario" ColumnName="horario" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="publicar" ColumnName="publicar" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="nombreMall" ColumnName="nombreMall" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+          <ScalarProperty Name="website" ColumnName="website" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StoresXCategories">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.StoresXCategories">
+        <MappingFragment StoreEntitySet="StoresXCategories">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fk_idCategory" ColumnName="fk_idCategory" />
+          <ScalarProperty Name="fk_idstore" ColumnName="fk_idstore" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transport">
+      <EntityTypeMapping TypeName="MallTopicFinalModel.transport">
+        <MappingFragment StoreEntitySet="transport">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="transporte" ColumnName="transporte" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Malls_transport" TypeName="MallTopicFinalModel.Malls_transport" StoreEntitySet="Malls_transport">
+      <EndProperty Name="Malls">
+        <ScalarProperty Name="id" ColumnName="fk_idcc" />
+      </EndProperty>
+      <EndProperty Name="transport">
+        <ScalarProperty Name="ID" ColumnName="fk_transporte" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Movies_Malls" TypeName="MallTopicFinalModel.Movies_Malls" StoreEntitySet="Movies_Malls">
+      <EndProperty Name="Movies">
+        <ScalarProperty Name="id" ColumnName="fk_idMovie" />
+      </EndProperty>
+      <EndProperty Name="Malls">
+        <ScalarProperty Name="id" ColumnName="fk_idCC" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="SP_Consulta_Categorias" FunctionName="MallTopicFinalModel.Store.SP_Consulta_Categorias">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Consulta_Categorias_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fk_idLocales" ColumnName="fk_idLocales" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="icono" ColumnName="icono" />
+          <ScalarProperty Name="especial" ColumnName="especial" />
+          <ScalarProperty Name="fk_idCC" ColumnName="fk_idCC" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCategories" FunctionName="MallTopicFinalModel.Store.SP_Consulta_Categorias" />
+    <FunctionImportMapping FunctionImportName="SP_Tiendas_x_Categorias" FunctionName="MallTopicFinalModel.Store.SP_Tiendas_x_Categorias">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Tiendas_x_Categorias_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="numlocal" ColumnName="numlocal" />
+          <ScalarProperty Name="nombre1" ColumnName="nombre1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetStoresxCategories" FunctionName="MallTopicFinalModel.Store.SP_Tiendas_x_Categorias">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MallTopicFinalModel.GetStoresxCategories">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fk_idCC" ColumnName="fk_idCC" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="numLocal" ColumnName="numLocal" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="nombreMall" ColumnName="nombreMall" />
+          <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+          <ScalarProperty Name="horario" ColumnName="horario" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="publicar" ColumnName="publicar" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="facebook" ColumnName="facebook" />
+          <ScalarProperty Name="twitter" ColumnName="twitter" />
+          <ScalarProperty Name="website" ColumnName="website" />
+          <ScalarProperty Name="H_lunes_a_viernes" ColumnName="H_lunes_a_viernes" />
+          <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
+          <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
+          <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+          <ScalarProperty Name="fk_idcategory" ColumnName="fk_idcategory" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Promos" FunctionName="MallTopicFinalModel.Store.SP_Promos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Promos_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fk_idLocal" ColumnName="fk_idLocal" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="web" ColumnName="web" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="quienEstaDirigido" ColumnName="quienEstaDirigido" />
+          <ScalarProperty Name="comoParticipar" ColumnName="comoParticipar" />
+          <ScalarProperty Name="requisitosParaParticipar" ColumnName="requisitosParaParticipar" />
+          <ScalarProperty Name="quienesNoPuedenParticipar" ColumnName="quienesNoPuedenParticipar" />
+          <ScalarProperty Name="publicar" ColumnName="publicar" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="fk_idcc" ColumnName="fk_idcc" />
+          <ScalarProperty Name="NombreMall" ColumnName="NombreMall" />
+          <ScalarProperty Name="NombreLocal" ColumnName="NombreLocal" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

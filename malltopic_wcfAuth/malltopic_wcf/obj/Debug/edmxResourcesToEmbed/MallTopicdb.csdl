@@ -1,0 +1,1101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MallTopicFinalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Aprovaciones">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="fk_promo" Type="Guid" />
+    <Property Name="fk_evento" Type="Guid" />
+    <Property Name="tipo" Type="Int32" Nullable="false" />
+    <Property Name="creado" Type="DateTime" Precision="3" />
+    <Property Name="modificado" Type="DateTime" Precision="3" />
+    <Property Name="user_creado" Type="Guid" />
+    <Property Name="user_modificado" Type="Guid" />
+    <Property Name="Aprovado" Type="Boolean" Nullable="false" />
+    <Property Name="fk_cc" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Promos" Relationship="Self.FK_Aprovaciones_0" FromRole="Aprovaciones" ToRole="Promos" />
+    <NavigationProperty Name="Events" Relationship="Self.FK_Aprovaciones_1" FromRole="Aprovaciones" ToRole="Events" />
+    <NavigationProperty Name="Malls" Relationship="Self.FK_Aprovaciones_2" FromRole="Aprovaciones" ToRole="Malls" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fk_idLocales" Type="Guid" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="creado" Type="DateTime" Precision="0" />
+    <Property Name="modificado" Type="DateTime" Precision="0" />
+    <Property Name="user_created" Type="Guid" />
+    <Property Name="user_modified" Type="Guid" />
+    <Property Name="icono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="especial" Type="Boolean" />
+    <Property Name="fk_idCC" Type="Guid" />
+    <NavigationProperty Name="Malls" Relationship="Self.FK_Categories_0" FromRole="Categories" ToRole="Malls" />
+    <NavigationProperty Name="StoresXCategories" Relationship="Self.FK_StoresXCategories_0" FromRole="Categories" ToRole="StoresXCategories" />
+  </EntityType>
+  <EntityType Name="Cinema">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="publicar" Type="Boolean" />
+    <Property Name="fk_mall" Type="Guid" />
+    <Property Name="user_modified" Type="Guid" />
+    <Property Name="creado" Type="DateTime" Precision="0" />
+    <Property Name="modificado" Type="DateTime" Precision="0" />
+    <Property Name="user_created" Type="Guid" />
+    <Property Name="portada" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Malls" Relationship="Self.FK_Cines_mall" FromRole="Cinema" ToRole="Malls" />
+    <NavigationProperty Name="Schedule_movie" Relationship="Self.FK_Horarios_cine" FromRole="Cinema" ToRole="Schedule_movie" />
+  </EntityType>
+  <EntityType Name="Cities">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fk_idPais" Type="Guid" />
+    <Property Name="creado" Type="DateTime" Precision="0" />
+    <Property Name="modificado" Type="DateTime" Precision="0" />
+    <Property Name="user_created" Type="Guid" />
+    <Property Name="user_modified" Type="Guid" />
+    <Property Name="Indicativo" Type="Int32" />
+    <NavigationProperty Name="Countries" Relationship="Self.FK_Ciudades_Paises" FromRole="Cities" ToRole="Countries" />
+    <NavigationProperty Name="Malls" Relationship="Self.FK_Mall_Ciudades" FromRole="Cities" ToRole="Malls" />
+  </EntityType>
+  <EntityType Name="Colections">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaLanzamiento" Type="DateTime" Precision="0" />
+    <Property Name="publicar" Type="Boolean" />
+    <Property Name="creado" Type="DateTime" Precision="0" />
+    <Property Name="modificado" Type="DateTime" Precision="0" />
+    <Property Name="user_created" Type="Guid" />
+    <Property Name="user_modified" Type="Guid" />
+    <Property Name="fk_IdStore" Type="Guid" />
+    <Property Name="año" Type="Int32" />
+    <Property Name="especial" Type="Boolean" />
+    <Property Name="fk_idCC" Type="Guid" />
+    <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Stores" Relationship="Self.FK_Colections_0" FromRole="Colections" ToRole="Stores" />
+    <NavigationProperty Name="Malls" Relationship="Self.FK_Colections_1" FromRole="Colections" ToRole="Malls" />
+    <NavigationProperty Name="Colections_detail" Relationship="Self.FK_detalle_coleccion_coleccion" FromRole="Colections" ToRole="Colections_detail" />
+  </EntityType>
+  <EntityType Name="Colections_detail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="fk_idDetallecoleccion" Type="Guid" />
+    <Property Name="fk_idProductos" Type="Guid" />
+    <Property Name="creado" Type="DateTime" Precision="0" />
+    <Property Name="modificado" Type="DateTime" Precision="0" />
+    <Property Name="user_created" Type="Guid" />
+    <Property Name="user_modified" Type="Guid" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Colections" Relationship="Self.FK_detalle_coleccion_coleccion" FromRole="Colections_detail" ToRole="Colections" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_detalle_coleccion_Productos" FromRole="Colections_detail" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="creado" Type="DateTime" Precision="0" />
+    <Property Name="modificado" Type="DateTime" Precision="0" />
+    <Property Name="user_created" Type="Guid" />
+    <Property Name="user_modified" Type="Guid" />
+    <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="complete" Type="Boolean" />
+    <NavigationProperty Name="Cities" Relationship="Self.FK_Ciudades_Paises" FromRole="Countries" ToRole="Cities" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="fk_idCC" Type="Guid" />
+    <Property Name="fk_idStore" Type="Guid" />
+    <Property Name="imagen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lugar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaInicio" Type="DateTime" Precision="0" />
+    <Property Name="fechaFinal" Type="DateTime" Precision="0" />
+    <Property Name="organizador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="web" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="publicar" Type="Boolean" />
+    <Property Name="creado" Type="DateTime" Precision="0" />
+    <Property Name="modificado" Type="DateTime" Precision="0" />
+    <Property Name="user_created" Type="Guid" />
+    <Property Name="user_modified" Type="Guid" />
+    <Property Name="favorito" Type="Boolean" />
+    <NavigationProperty Name="Aprovaciones" Relationship="Self.FK_Aprovaciones_1" FromRole="Events" ToRole="Aprovaciones" />
+    <NavigationProperty Name="Malls" Relationship="Self.FK_Eventos_Mall" FromRole="Events" ToRole="Malls" />
+    <NavigationProperty Name="Stores" Relationship="Self.FK_Events_Stores" FromRole="Events" ToRole="Stores" />
+  </EntityType>
+  <EntityType Name="Favorites">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="IdMall" Type="Guid" />
+    <Property Name="IdLocal" Type="Guid" />
+    <NavigationProperty Name="Malls" Relationship="Self.FK_Favorites_0" FromRole="Favorites" ToRole="Malls" />
+    <NavigationProperty Name="Stores" Relationship="Self.FK_Favorites_1" FromRole="Favorites" ToRole="Stores" />
+  </EntityType>
+  <EntityType Name="Gallery">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="portada" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fk_idMall" Type="Guid" />
+    <Property Name="fk_idStore" Type="Guid" />
+    <Property Name="user_create" Type="Guid" />
+    <Property Name="user_modified" Type="Guid" />
+    <Property Name="creado" Type="DateTime" Precision="0" />
+    <Property Name="modificado" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Gallery_detail" Relationship="Self.FK_Gallery_detail_Gallery" FromRole="Gallery" ToRole="Gallery_detail" />
+    <NavigationProperty Name="Malls" Relationship="Self.FK_Gallery_Gallery1" FromRole="Gallery" ToRole="Malls" />
+    <NavigationProperty Name="Stores" Relationship="Self.FK_Gallery_Stores" FromRole="Gallery" ToRole="Stores" />
+  </EntityType>
+  <EntityType Name="Gallery_detail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="fk_idGallery" Type="Guid" />
+    <Property Name="fotos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_created" Type="Guid" />
+    <Property Name="user_modified" Type="Guid" />
+    <Property Name="creado" Type="DateTime" Precision="0" />
+    <Property Name="modificado" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Gallery" Relationship="Self.FK_Gallery_detail_Gallery" FromRole="Gallery_detail" ToRole="Gallery" />
+  </EntityType>
+  <EntityType Name="Malls">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="mapa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="web" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="telefono" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="horarios" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="slogan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="imagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="colorFondo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="colorLetra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="cantParqueadero" Type="Int32" />
+    <Property Name="cantLocales" Type="Int32" />
+    <Property Name="galeriaImagenes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="correo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="creado" Type="DateTime" Precision="0" />
+    <Property Name="modificado" Type="DateTime" Precision="0" />
+    <Property Name="user_created" Type="Guid" />
+    <Property Name="user_modified" Type="Guid" />
+    <Property Name="publicar" Type="Boolean" />
+    <Property Name="fk_ciudad" Type="Guid" />
+    <Property Name="latitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="longitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="facebook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="twitter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="orden" Type="Int32" />
+    <NavigationProperty Name="Aprovaciones" Relationship="Self.FK_Aprovaciones_2" FromRole="Malls" ToRole="Aprovaciones" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK_Categories_0" FromRole="Malls" ToRole="Categories" />
+    <NavigationProperty Name="Cinema" Relationship="Self.FK_Cines_mall" FromRole="Malls" ToRole="Cinema" />
+    <NavigationProperty Name="Cities" Relationship="Self.FK_Mall_Ciudades" FromRole="Malls" ToRole="Cities" />
+    <NavigationProperty Name="Colections" Relationship="Self.FK_Colections_1" FromRole="Malls" ToRole="Colections" />
+    <NavigationProperty Name="Events" Relationship="Self.FK_Eventos_Mall" FromRole="Malls" ToRole="Events" />
+    <NavigationProperty Name="Favorites" Relationship="Self.FK_Favorites_0" FromRole="Malls" ToRole="Favorites" />
+    <NavigationProperty Name="Gallery" Relationship="Self.FK_Gallery_Gallery1" FromRole="Malls" ToRole="Gallery" />
+    <NavigationProperty Name="Stores" Relationship="Self.FK_Locales_Mall" FromRole="Malls" ToRole="Stores" />
+    <NavigationProperty Name="PilasPs" Relationship="Self.FK_PilasPs_0" FromRole="Malls" ToRole="PilasPs" />
+    <NavigationProperty Name="Promos" Relationship="Self.FK_Promos_0" FromRole="Malls" ToRole="Promos" />
+    <NavigationProperty Name="Room_movie" Relationship="Self.FK_Room_movie_1" FromRole="Malls" ToRole="Room_movie" />
+    <NavigationProperty Name="services_detail" Relationship="Self.FK_services_detail_0" FromRole="Malls" ToRole="services_detail" />
+    <NavigationProperty Name="transport" Relationship="Self.Malls_transport" FromRole="Malls" ToRole="transport" />
+    <NavigationProperty Name="Movies" Relationship="Self.Movies_Malls" FromRole="Malls" ToRole="Movies" />
+    <Property Name="H_lunes_a_viernes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="H_sabado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="H_domingos_y_festivos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Movies">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="actores" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="censura" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="duracion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="estreno" Type="Boolean" />
+    <Property Name="genero" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="portada" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="formato" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="titulo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="publicar" Type="Boolean" />
+    <Property Name="user_created" Type="Guid" />
+    <Property Name="user_modified" Type="Guid" />
+    <Property Name="creado" Type="DateTime" Precision="0" />
+    <Property Name="modificado" Type="DateTime" Precision="0" />
+    <Property Name="sinopsis" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="trailer" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="director" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Schedule_movie" Relationship="Self.FK_Horarios_Pelicula" FromRole="Movies" ToRole="Schedule_movie" />
+    <NavigationProperty Name="Room_movie" Relationship="Self.FK_Room_movie_0" FromRole="Movies" ToRole="Room_movie" />
+    <NavigationProperty Name="Malls" Relationship="Self.Movies_Malls" FromRole="Movies" ToRole="Malls" />
+  </EntityType>
+  <EntityType Name="PilasPs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="fk_idCC" Type="Guid" />
+    <Property Name="titulo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Malls" Relationship="Self.FK_PilasPs_0" FromRole="PilasPs" ToRole="Malls" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="fk_idLocal" Type="Guid" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fk_idMarca" Type="Guid" />
+    <Property Name="imagen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fk_idDetallecoleccion" Type="Guid" />
+    <Property Name="publicar" Type="Boolean" />
+    <Property Name="creado" Type="DateTime" Precision="0" />
+    <Property Name="modificado" Type="DateTime" Precision="0" />
+    <Property Name="user_created" Type="Guid" />
+    <Property Name="user_modified" Type="Guid" />
+    <NavigationProperty Name="Colections_detail" Relationship="Self.FK_detalle_coleccion_Productos" FromRole="Products" ToRole="Colections_detail" />
+    <NavigationProperty Name="Stores" Relationship="Self.FK_Productos_Locales" FromRole="Products" ToRole="Stores" />
+  </EntityType>
+  <EntityType Name="Promos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="fk_idLocal" Type="Guid" />
+    <Property Name="imagen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="web" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaInicio" Type="DateTime" Precision="0" />
+    <Property Name="fechaFinal" Type="DateTime" Precision="0" />
+    <Property Name="telefono" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="quienEstaDirigido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="comoParticipar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="requisitosParaParticipar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="quienesNoPuedenParticipar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="publicar" Type="Boolean" />
+    <Property Name="creado" Type="DateTime" Precision="0" />
+    <Property Name="modificado" Type="DateTime" Precision="0" />
+    <Property Name="user_created" Type="Guid" />
+    <Property Name="user_modified" Type="Guid" />
+    <Property Name="fk_idcc" Type="Guid" />
+    <NavigationProperty Name="Aprovaciones" Relationship="Self.FK_Aprovaciones_0" FromRole="Promos" ToRole="Aprovaciones" />
+    <NavigationProperty Name="Malls" Relationship="Self.FK_Promos_0" FromRole="Promos" ToRole="Malls" />
+    <NavigationProperty Name="Stores" Relationship="Self.FK_Promociones_Locales" FromRole="Promos" ToRole="Stores" />
+  </EntityType>
+  <EntityType Name="Room_movie">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="capacidad" Type="Int32" />
+    <Property Name="descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="publicar" Type="Boolean" />
+    <Property Name="fk_cine" Type="Guid" />
+    <Property Name="user_created" Type="Guid" />
+    <Property Name="user_modified" Type="Guid" />
+    <Property Name="creado" Type="DateTime" Precision="0" />
+    <Property Name="modificado" Type="DateTime" Precision="0" />
+    <Property Name="fk_idCC" Type="Guid" />
+    <NavigationProperty Name="Malls" Relationship="Self.FK_Room_movie_1" FromRole="Room_movie" ToRole="Malls" />
+    <NavigationProperty Name="Movies" Relationship="Self.FK_Room_movie_0" FromRole="Room_movie" ToRole="Movies" />
+    <NavigationProperty Name="Schedule_movie" Relationship="Self.FK_Horarios_Sala" FromRole="Room_movie" ToRole="Schedule_movie" />
+  </EntityType>
+  <EntityType Name="Schedule_movie">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="fechaProyeccion" Type="DateTime" Precision="0" />
+    <Property Name="hora" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="precio" Type="Double" />
+    <Property Name="user_created" Type="Guid" />
+    <Property Name="user_modified" Type="Guid" />
+    <Property Name="creado" Type="DateTime" Precision="0" />
+    <Property Name="modificado" Type="DateTime" Precision="0" />
+    <Property Name="fk_cine" Type="Guid" />
+    <Property Name="fk_pelicula" Type="Guid" />
+    <Property Name="fk_sala" Type="Guid" />
+    <NavigationProperty Name="Cinema" Relationship="Self.FK_Horarios_cine" FromRole="Schedule_movie" ToRole="Cinema" />
+    <NavigationProperty Name="Movies" Relationship="Self.FK_Horarios_Pelicula" FromRole="Schedule_movie" ToRole="Movies" />
+    <NavigationProperty Name="Room_movie" Relationship="Self.FK_Horarios_Sala" FromRole="Schedule_movie" ToRole="Room_movie" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="servicio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="services_detail" Relationship="Self.FK_services_detail_1" FromRole="Services" ToRole="services_detail" />
+  </EntityType>
+  <EntityType Name="services_detail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="fk_IdCC" Type="Guid" />
+    <Property Name="fk_IdServicio" Type="Guid" />
+    <Property Name="orden" Type="Int32" />
+    <NavigationProperty Name="Malls" Relationship="Self.FK_services_detail_0" FromRole="services_detail" ToRole="Malls" />
+    <NavigationProperty Name="Services" Relationship="Self.FK_services_detail_1" FromRole="services_detail" ToRole="Services" />
+  </EntityType>
+  <EntityType Name="Stores">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="numLocal" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="fk_idCC" Type="Guid" />
+    <Property Name="ubicacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="horario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="publicar" Type="Boolean" />
+    <Property Name="creado" Type="DateTime" Precision="0" />
+    <Property Name="modificado" Type="DateTime" Precision="0" />
+    <Property Name="user_created" Type="Guid" />
+    <Property Name="user_modified" Type="Guid" />
+    <Property Name="correo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="nombreMall" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Facebook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Twitter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Colections" Relationship="Self.FK_Colections_0" FromRole="Stores" ToRole="Colections" />
+    <NavigationProperty Name="Events" Relationship="Self.FK_Events_Stores" FromRole="Stores" ToRole="Events" />
+    <NavigationProperty Name="Favorites" Relationship="Self.FK_Favorites_1" FromRole="Stores" ToRole="Favorites" />
+    <NavigationProperty Name="Gallery" Relationship="Self.FK_Gallery_Stores" FromRole="Stores" ToRole="Gallery" />
+    <NavigationProperty Name="Malls" Relationship="Self.FK_Locales_Mall" FromRole="Stores" ToRole="Malls" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Productos_Locales" FromRole="Stores" ToRole="Products" />
+    <NavigationProperty Name="Promos" Relationship="Self.FK_Promociones_Locales" FromRole="Stores" ToRole="Promos" />
+    <NavigationProperty Name="StoresXCategories" Relationship="Self.FK_StoresXCategories_1" FromRole="Stores" ToRole="StoresXCategories" />
+    <Property Name="H_lunes_a_viernes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="H_sabado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="H_domingos_y_festivos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NombreCategoria" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StoresXCategories">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Guid" Nullable="false" />
+    <Property Name="fk_idCategory" Type="Guid" />
+    <Property Name="fk_idstore" Type="Guid" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK_StoresXCategories_0" FromRole="StoresXCategories" ToRole="Categories" />
+    <NavigationProperty Name="Stores" Relationship="Self.FK_StoresXCategories_1" FromRole="StoresXCategories" ToRole="Stores" />
+  </EntityType>
+  <EntityType Name="transport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="transporte" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Malls" Relationship="Self.Malls_transport" FromRole="transport" ToRole="Malls" />
+  </EntityType>
+  <Association Name="FK_Aprovaciones_0">
+    <End Role="Promos" Type="Self.Promos" Multiplicity="0..1" />
+    <End Role="Aprovaciones" Type="Self.Aprovaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Promos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Aprovaciones">
+        <PropertyRef Name="fk_promo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Aprovaciones_1">
+    <End Role="Events" Type="Self.Events" Multiplicity="0..1" />
+    <End Role="Aprovaciones" Type="Self.Aprovaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Events">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Aprovaciones">
+        <PropertyRef Name="fk_evento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Aprovaciones_2">
+    <End Role="Malls" Type="Self.Malls" Multiplicity="1" />
+    <End Role="Aprovaciones" Type="Self.Aprovaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Malls">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Aprovaciones">
+        <PropertyRef Name="fk_cc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Categories_0">
+    <End Role="Malls" Type="Self.Malls" Multiplicity="0..1" />
+    <End Role="Categories" Type="Self.Categories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Malls">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Categories">
+        <PropertyRef Name="fk_idCC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StoresXCategories_0">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+    <End Role="StoresXCategories" Type="Self.StoresXCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="StoresXCategories">
+        <PropertyRef Name="fk_idCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cines_mall">
+    <End Role="Malls" Type="Self.Malls" Multiplicity="0..1" />
+    <End Role="Cinema" Type="Self.Cinema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Malls">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cinema">
+        <PropertyRef Name="fk_mall" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Horarios_cine">
+    <End Role="Cinema" Type="Self.Cinema" Multiplicity="0..1" />
+    <End Role="Schedule_movie" Type="Self.Schedule_movie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cinema">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Schedule_movie">
+        <PropertyRef Name="fk_cine" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ciudades_Paises">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cities">
+        <PropertyRef Name="fk_idPais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mall_Ciudades">
+    <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+    <End Role="Malls" Type="Self.Malls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cities">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Malls">
+        <PropertyRef Name="fk_ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colections_0">
+    <End Role="Stores" Type="Self.Stores" Multiplicity="0..1" />
+    <End Role="Colections" Type="Self.Colections" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stores">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Colections">
+        <PropertyRef Name="fk_IdStore" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Colections_1">
+    <End Role="Malls" Type="Self.Malls" Multiplicity="0..1" />
+    <End Role="Colections" Type="Self.Colections" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Malls">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Colections">
+        <PropertyRef Name="fk_idCC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_detalle_coleccion_coleccion">
+    <End Role="Colections" Type="Self.Colections" Multiplicity="0..1" />
+    <End Role="Colections_detail" Type="Self.Colections_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colections">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Colections_detail">
+        <PropertyRef Name="fk_idDetallecoleccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_detalle_coleccion_Productos">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="Colections_detail" Type="Self.Colections_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Colections_detail">
+        <PropertyRef Name="fk_idProductos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Eventos_Mall">
+    <End Role="Malls" Type="Self.Malls" Multiplicity="0..1" />
+    <End Role="Events" Type="Self.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Malls">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="fk_idCC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Events_Stores">
+    <End Role="Stores" Type="Self.Stores" Multiplicity="0..1" />
+    <End Role="Events" Type="Self.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stores">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="fk_idStore" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Favorites_0">
+    <End Role="Malls" Type="Self.Malls" Multiplicity="0..1" />
+    <End Role="Favorites" Type="Self.Favorites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Malls">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Favorites">
+        <PropertyRef Name="IdMall" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Favorites_1">
+    <End Role="Stores" Type="Self.Stores" Multiplicity="0..1" />
+    <End Role="Favorites" Type="Self.Favorites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stores">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Favorites">
+        <PropertyRef Name="IdLocal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gallery_detail_Gallery">
+    <End Role="Gallery" Type="Self.Gallery" Multiplicity="0..1" />
+    <End Role="Gallery_detail" Type="Self.Gallery_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gallery">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Gallery_detail">
+        <PropertyRef Name="fk_idGallery" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gallery_Gallery1">
+    <End Role="Malls" Type="Self.Malls" Multiplicity="0..1" />
+    <End Role="Gallery" Type="Self.Gallery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Malls">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Gallery">
+        <PropertyRef Name="fk_idMall" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gallery_Stores">
+    <End Role="Stores" Type="Self.Stores" Multiplicity="0..1" />
+    <End Role="Gallery" Type="Self.Gallery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stores">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Gallery">
+        <PropertyRef Name="fk_idStore" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Locales_Mall">
+    <End Role="Malls" Type="Self.Malls" Multiplicity="0..1" />
+    <End Role="Stores" Type="Self.Stores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Malls">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Stores">
+        <PropertyRef Name="fk_idCC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PilasPs_0">
+    <End Role="Malls" Type="Self.Malls" Multiplicity="0..1" />
+    <End Role="PilasPs" Type="Self.PilasPs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Malls">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PilasPs">
+        <PropertyRef Name="fk_idCC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Promos_0">
+    <End Role="Malls" Type="Self.Malls" Multiplicity="0..1" />
+    <End Role="Promos" Type="Self.Promos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Malls">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Promos">
+        <PropertyRef Name="fk_idcc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Room_movie_1">
+    <End Role="Malls" Type="Self.Malls" Multiplicity="0..1" />
+    <End Role="Room_movie" Type="Self.Room_movie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Malls">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Room_movie">
+        <PropertyRef Name="fk_idCC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_services_detail_0">
+    <End Role="Malls" Type="Self.Malls" Multiplicity="0..1" />
+    <End Role="services_detail" Type="Self.services_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Malls">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="services_detail">
+        <PropertyRef Name="fk_IdCC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Horarios_Pelicula">
+    <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+    <End Role="Schedule_movie" Type="Self.Schedule_movie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movies">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Schedule_movie">
+        <PropertyRef Name="fk_pelicula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Room_movie_0">
+    <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+    <End Role="Room_movie" Type="Self.Room_movie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movies">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Room_movie">
+        <PropertyRef Name="fk_cine" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Locales">
+    <End Role="Stores" Type="Self.Stores" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stores">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="fk_idLocal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Promociones_Locales">
+    <End Role="Stores" Type="Self.Stores" Multiplicity="0..1" />
+    <End Role="Promos" Type="Self.Promos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stores">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Promos">
+        <PropertyRef Name="fk_idLocal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Horarios_Sala">
+    <End Role="Room_movie" Type="Self.Room_movie" Multiplicity="0..1" />
+    <End Role="Schedule_movie" Type="Self.Schedule_movie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room_movie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Schedule_movie">
+        <PropertyRef Name="fk_sala" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_services_detail_1">
+    <End Role="Services" Type="Self.Services" Multiplicity="0..1" />
+    <End Role="services_detail" Type="Self.services_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Services">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="services_detail">
+        <PropertyRef Name="fk_IdServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StoresXCategories_1">
+    <End Role="Stores" Type="Self.Stores" Multiplicity="0..1" />
+    <End Role="StoresXCategories" Type="Self.StoresXCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stores">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="StoresXCategories">
+        <PropertyRef Name="fk_idstore" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Malls_transport">
+    <End Role="Malls" Type="Self.Malls" Multiplicity="*" />
+    <End Role="transport" Type="Self.transport" Multiplicity="*" />
+  </Association>
+  <Association Name="Movies_Malls">
+    <End Role="Movies" Type="Self.Movies" Multiplicity="*" />
+    <End Role="Malls" Type="Self.Malls" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="MallTopicFinalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Aprovaciones" EntityType="Self.Aprovaciones" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" />
+    <EntitySet Name="Cinema" EntityType="Self.Cinema" />
+    <EntitySet Name="Cities" EntityType="Self.Cities" />
+    <EntitySet Name="Colections" EntityType="Self.Colections" />
+    <EntitySet Name="Colections_detail" EntityType="Self.Colections_detail" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" />
+    <EntitySet Name="Events" EntityType="Self.Events" />
+    <EntitySet Name="Favorites" EntityType="Self.Favorites" />
+    <EntitySet Name="Gallery" EntityType="Self.Gallery" />
+    <EntitySet Name="Gallery_detail" EntityType="Self.Gallery_detail" />
+    <EntitySet Name="Malls" EntityType="Self.Malls" />
+    <EntitySet Name="Movies" EntityType="Self.Movies" />
+    <EntitySet Name="PilasPs" EntityType="Self.PilasPs" />
+    <EntitySet Name="Products" EntityType="Self.Products" />
+    <EntitySet Name="Promos" EntityType="Self.Promos" />
+    <EntitySet Name="Room_movie" EntityType="Self.Room_movie" />
+    <EntitySet Name="Schedule_movie" EntityType="Self.Schedule_movie" />
+    <EntitySet Name="Services" EntityType="Self.Services" />
+    <EntitySet Name="services_detail" EntityType="Self.services_detail" />
+    <EntitySet Name="Stores" EntityType="Self.Stores" />
+    <EntitySet Name="StoresXCategories" EntityType="Self.StoresXCategories" />
+    <EntitySet Name="transport" EntityType="Self.transport" />
+    <AssociationSet Name="FK_Aprovaciones_0" Association="Self.FK_Aprovaciones_0">
+      <End Role="Promos" EntitySet="Promos" />
+      <End Role="Aprovaciones" EntitySet="Aprovaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Aprovaciones_1" Association="Self.FK_Aprovaciones_1">
+      <End Role="Events" EntitySet="Events" />
+      <End Role="Aprovaciones" EntitySet="Aprovaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Aprovaciones_2" Association="Self.FK_Aprovaciones_2">
+      <End Role="Malls" EntitySet="Malls" />
+      <End Role="Aprovaciones" EntitySet="Aprovaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Categories_0" Association="Self.FK_Categories_0">
+      <End Role="Malls" EntitySet="Malls" />
+      <End Role="Categories" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StoresXCategories_0" Association="Self.FK_StoresXCategories_0">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="StoresXCategories" EntitySet="StoresXCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cines_mall" Association="Self.FK_Cines_mall">
+      <End Role="Malls" EntitySet="Malls" />
+      <End Role="Cinema" EntitySet="Cinema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Horarios_cine" Association="Self.FK_Horarios_cine">
+      <End Role="Cinema" EntitySet="Cinema" />
+      <End Role="Schedule_movie" EntitySet="Schedule_movie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ciudades_Paises" Association="Self.FK_Ciudades_Paises">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Cities" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mall_Ciudades" Association="Self.FK_Mall_Ciudades">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="Malls" EntitySet="Malls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colections_0" Association="Self.FK_Colections_0">
+      <End Role="Stores" EntitySet="Stores" />
+      <End Role="Colections" EntitySet="Colections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Colections_1" Association="Self.FK_Colections_1">
+      <End Role="Malls" EntitySet="Malls" />
+      <End Role="Colections" EntitySet="Colections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detalle_coleccion_coleccion" Association="Self.FK_detalle_coleccion_coleccion">
+      <End Role="Colections" EntitySet="Colections" />
+      <End Role="Colections_detail" EntitySet="Colections_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_detalle_coleccion_Productos" Association="Self.FK_detalle_coleccion_Productos">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Colections_detail" EntitySet="Colections_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Eventos_Mall" Association="Self.FK_Eventos_Mall">
+      <End Role="Malls" EntitySet="Malls" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Events_Stores" Association="Self.FK_Events_Stores">
+      <End Role="Stores" EntitySet="Stores" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Favorites_0" Association="Self.FK_Favorites_0">
+      <End Role="Malls" EntitySet="Malls" />
+      <End Role="Favorites" EntitySet="Favorites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Favorites_1" Association="Self.FK_Favorites_1">
+      <End Role="Stores" EntitySet="Stores" />
+      <End Role="Favorites" EntitySet="Favorites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gallery_detail_Gallery" Association="Self.FK_Gallery_detail_Gallery">
+      <End Role="Gallery" EntitySet="Gallery" />
+      <End Role="Gallery_detail" EntitySet="Gallery_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gallery_Gallery1" Association="Self.FK_Gallery_Gallery1">
+      <End Role="Malls" EntitySet="Malls" />
+      <End Role="Gallery" EntitySet="Gallery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gallery_Stores" Association="Self.FK_Gallery_Stores">
+      <End Role="Stores" EntitySet="Stores" />
+      <End Role="Gallery" EntitySet="Gallery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Locales_Mall" Association="Self.FK_Locales_Mall">
+      <End Role="Malls" EntitySet="Malls" />
+      <End Role="Stores" EntitySet="Stores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PilasPs_0" Association="Self.FK_PilasPs_0">
+      <End Role="Malls" EntitySet="Malls" />
+      <End Role="PilasPs" EntitySet="PilasPs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Promos_0" Association="Self.FK_Promos_0">
+      <End Role="Malls" EntitySet="Malls" />
+      <End Role="Promos" EntitySet="Promos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Room_movie_1" Association="Self.FK_Room_movie_1">
+      <End Role="Malls" EntitySet="Malls" />
+      <End Role="Room_movie" EntitySet="Room_movie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_services_detail_0" Association="Self.FK_services_detail_0">
+      <End Role="Malls" EntitySet="Malls" />
+      <End Role="services_detail" EntitySet="services_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Horarios_Pelicula" Association="Self.FK_Horarios_Pelicula">
+      <End Role="Movies" EntitySet="Movies" />
+      <End Role="Schedule_movie" EntitySet="Schedule_movie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Room_movie_0" Association="Self.FK_Room_movie_0">
+      <End Role="Movies" EntitySet="Movies" />
+      <End Role="Room_movie" EntitySet="Room_movie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Locales" Association="Self.FK_Productos_Locales">
+      <End Role="Stores" EntitySet="Stores" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Promociones_Locales" Association="Self.FK_Promociones_Locales">
+      <End Role="Stores" EntitySet="Stores" />
+      <End Role="Promos" EntitySet="Promos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Horarios_Sala" Association="Self.FK_Horarios_Sala">
+      <End Role="Room_movie" EntitySet="Room_movie" />
+      <End Role="Schedule_movie" EntitySet="Schedule_movie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_services_detail_1" Association="Self.FK_services_detail_1">
+      <End Role="Services" EntitySet="Services" />
+      <End Role="services_detail" EntitySet="services_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StoresXCategories_1" Association="Self.FK_StoresXCategories_1">
+      <End Role="Stores" EntitySet="Stores" />
+      <End Role="StoresXCategories" EntitySet="StoresXCategories" />
+    </AssociationSet>
+    <AssociationSet Name="Malls_transport" Association="Self.Malls_transport">
+      <End Role="Malls" EntitySet="Malls" />
+      <End Role="transport" EntitySet="transport" />
+    </AssociationSet>
+    <AssociationSet Name="Movies_Malls" Association="Self.Movies_Malls">
+      <End Role="Movies" EntitySet="Movies" />
+      <End Role="Malls" EntitySet="Malls" />
+    </AssociationSet>
+    <FunctionImport Name="SP_Consulta_Categorias" ReturnType="Collection(MallTopicFinalModel.SP_Consulta_Categorias_Result)">
+      <Parameter Name="Todas" Mode="In" Type="Boolean" />
+      <Parameter Name="IdCategoria" Mode="In" Type="String" />
+      <Parameter Name="Especiales" Mode="In" Type="Boolean" />
+      <Parameter Name="IdMall" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetCategories" EntitySet="Categories" ReturnType="Collection(MallTopicFinalModel.Categories)">
+      <Parameter Name="Todas" Mode="In" Type="Boolean" />
+      <Parameter Name="IdCategoria" Mode="In" Type="String" />
+      <Parameter Name="Especiales" Mode="In" Type="Boolean" />
+      <Parameter Name="IdMall" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Tiendas_x_Categorias" ReturnType="Collection(MallTopicFinalModel.SP_Tiendas_x_Categorias_Result)">
+      <Parameter Name="IdCC" Mode="In" Type="String" />
+      <Parameter Name="IdCategoria" Mode="In" Type="String" />
+      <Parameter Name="PNombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetStoresxCategories" ReturnType="Collection(MallTopicFinalModel.GetStoresxCategories)">
+      <Parameter Name="IdCC" Mode="In" Type="String" />
+      <Parameter Name="IdCategoria" Mode="In" Type="String" />
+      <Parameter Name="PNombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Promos" ReturnType="Collection(MallTopicFinalModel.SP_Promos_Result)">
+      <Parameter Name="IdPromo" Mode="In" Type="String" />
+      <Parameter Name="IdMall" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SP_Consulta_Categorias_Result">
+    <Property Type="Guid" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+    <Property Type="Guid" Name="fk_idLocales" Nullable="true" />
+    <Property Type="String" Name="descripcion" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="creado" Nullable="true" />
+    <Property Type="DateTime" Name="modificado" Nullable="true" />
+    <Property Type="Guid" Name="user_created" Nullable="true" />
+    <Property Type="Guid" Name="user_modified" Nullable="true" />
+    <Property Type="String" Name="icono" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="especial" Nullable="true" />
+    <Property Type="Guid" Name="fk_idCC" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_Tiendas_x_Categorias_Result">
+    <Property Type="Guid" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="numlocal" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="nombre1" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+  <ComplexType Name="GetStoresxCategories_Result">
+    <Property Type="Guid" Name="id" Nullable="false" />
+    <Property Type="Guid" Name="fk_idCC" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="numLocal" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="telefono" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="nombreMall" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="ubicacion" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="logo" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="horario" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="descripcion" Nullable="true" MaxLength="Max" />
+    <Property Type="Boolean" Name="publicar" Nullable="true" />
+    <Property Type="DateTime" Name="creado" Nullable="true" />
+    <Property Type="DateTime" Name="modificado" Nullable="true" />
+    <Property Type="Guid" Name="user_created" Nullable="true" />
+    <Property Type="Guid" Name="user_modified" Nullable="true" />
+    <Property Type="String" Name="correo" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="facebook" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="twitter" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="website" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="H_lunes_a_viernes" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="H_sabado" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="H_domingos_y_festivos" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NombreCategoria" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetStoresxCategories">
+    <Property Type="Guid" Name="id" Nullable="false" />
+    <Property Type="Guid" Name="fk_idCC" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="numLocal" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="telefono" Nullable="true" MaxLength="80" />
+    <Property Type="String" Name="nombreMall" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="ubicacion" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="logo" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="horario" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="descripcion" Nullable="true" MaxLength="Max" />
+    <Property Type="Boolean" Name="publicar" Nullable="true" />
+    <Property Type="DateTime" Name="creado" Nullable="true" />
+    <Property Type="DateTime" Name="modificado" Nullable="true" />
+    <Property Type="Guid" Name="user_created" Nullable="true" />
+    <Property Type="Guid" Name="user_modified" Nullable="true" />
+    <Property Type="String" Name="correo" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="facebook" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="twitter" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="website" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="H_lunes_a_viernes" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="H_sabado" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="H_domingos_y_festivos" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NombreCategoria" Nullable="true" MaxLength="50" />
+    <Property Type="Guid" Name="fk_idcategory" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_Promos_Result">
+    <Property Type="Guid" Name="id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="descripcion" Nullable="true" MaxLength="Max" />
+    <Property Type="Guid" Name="fk_idLocal" Nullable="true" />
+    <Property Type="String" Name="imagen" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="web" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fechaInicio" Nullable="true" />
+    <Property Type="DateTime" Name="fechaFinal" Nullable="true" />
+    <Property Type="Decimal" Name="telefono" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="quienEstaDirigido" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="comoParticipar" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="requisitosParaParticipar" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="quienesNoPuedenParticipar" Nullable="true" MaxLength="Max" />
+    <Property Type="Boolean" Name="publicar" Nullable="true" />
+    <Property Type="DateTime" Name="creado" Nullable="true" />
+    <Property Type="DateTime" Name="modificado" Nullable="true" />
+    <Property Type="Guid" Name="user_created" Nullable="true" />
+    <Property Type="Guid" Name="user_modified" Nullable="true" />
+    <Property Type="Guid" Name="fk_idcc" Nullable="true" />
+    <Property Type="String" Name="NombreMall" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="NombreLocal" Nullable="true" MaxLength="100" />
+  </ComplexType>
+</Schema>
