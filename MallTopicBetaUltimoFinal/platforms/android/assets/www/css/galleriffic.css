@@ -1,0 +1,478 @@
+div.content {
+	display: none;
+	float: right;
+	width: 100%; 
+}
+
+div.content a, div.navigation a {
+	text-decoration: none;
+	color: #777;
+}
+
+div.content a:focus, div.content a:hover, div.content a:active {
+	text-decoration: underline;
+}
+
+div.controls {
+	position:absolute !important;
+	top:300px !important;
+	left:0px !important;
+	width:100% !important;
+	height:23px !important;
+	z-index:+1 !important;
+}
+
+div.controls a {
+	padding: 5px;
+}
+
+div.controls a.play {
+	display:none !important;
+}
+
+div.controls a.prev {
+	display:block !important;
+	width:30px !important;
+	height:30px !important;
+	background:url(../images/arrowLeft.png) !important;
+	border-top-right-radius:10px !important;
+	border-bottom-right-radius:10px !important;
+	position:absolute !important;
+	left:0px !important;
+	text-indent:-9000% !important;
+}
+
+div.controls a.next {
+	display:block !important;
+	width:30px !important;
+	height:30px !important;
+	background:#00F !important;
+	background:url(../images/arrowRight.png) !important;
+	border-top-left-radius:10px !important;
+	border-bottom-left-radius:10px !important;
+	position:absolute !important;
+	right:0px !important;
+	text-indent:-9000% !important;
+}
+
+div.ss-controls {
+	float: left;
+}
+div.nav-controls {
+	float: right;
+}
+div.slideshow-container {
+	position:relative !important;
+	width:100% !important;
+	background:#093 !important;
+	height: 330px !important; /* This should be set to be at least the height of the largest image in the slideshow */
+}
+
+div.loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-image: url('loader.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 100%;
+	height: 402px !important; /* This should be set to be at least the height of the largest image in the slideshow */
+}
+
+div.slideshow span.image-wrapper {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+div.slideshow a.advance-link {
+	display: block;
+	width: 100%;
+	height: 502px; /* This should be set to be at least the height of the largest image in the slideshow */
+	text-align: center;
+}
+div.slideshow a.advance-link:hover, div.slideshow a.advance-link:active, div.slideshow a.advance-link:visited {
+	text-decoration: none;
+}
+div.slideshow img {
+	vertical-align: middle;
+	border: 1px solid #ccc;
+}
+div.download {
+	float: right;
+}
+
+/**div.caption-container {
+	position: relative;
+	clear: left;
+	height: 75px;
+}**/
+
+span.image-caption {
+	display: block;
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+
+div.caption-container{
+	padding:12px !important;
+	position:absolute !important;
+	top:185px !important;
+	width:100% !important;
+	overflow:hidden !important;
+	white-space:nowrap !important;
+	text-overflow:ellipsis !important;
+	background:#f00 !important;
+	zindex:+1 !important;
+	text-align:center !important;
+	font-size:12px !important;
+	line-height:30px !important;
+	color:#06C;
+}
+
+div.caption-container a{
+	display:none !important;
+}
+
+div.image-title {
+	font-weight: bold;
+	font-size: 1.4em;
+}
+div.image-desc {
+	display:none !important;
+}
+
+div.navigation {
+	height:auto !important;
+	width:100%  !important;
+	background:#ff0  !important;
+	top:600px  !important;
+}
+
+ul.thumbs {
+	clear: both;
+	margin: 0;
+	padding: 0;
+}
+ul.thumbs li {
+	float: left;
+	padding: 0;
+	margin: 5px 10px 5px 0;
+	list-style: none;
+}
+
+a.thumb {
+}
+
+ul.thumbs li.selected a.thumb {
+	background: #000;
+}
+a.thumb:focus {
+	outline: none;
+}
+ul.thumbs img {
+	border: none;
+	display: block;
+	width: 45px !important;
+	height: 45px !important;
+	margin: 0px 0px 0px 9px !important;
+}
+div.pagination {
+	clear: both;
+}
+div.navigation div.top {
+	margin-bottom: 12px;
+	height: 11px;
+}
+div.navigation div.bottom {
+	margin-top: 12px;
+}
+div.pagination a, div.pagination span.current, div.pagination span.ellipsis {
+	display: block;
+	float: left;
+	margin-right: 2px;
+	padding: 4px 7px 2px 7px;
+	border: 1px solid #ccc;
+}
+div.pagination a:hover {
+	background-color: #eee;
+	text-decoration: none;
+}
+div.pagination span.current {
+	font-weight: bold;
+	background-color: #000;
+	border-color: #000;
+	color: #fff;
+}
+div.pagination span.ellipsis {
+	border: none;
+	padding: 5px 0 3px 2px;
+}
+
+.advance-link img {
+width: 12em !important;
+height: 16em !important;
+margin: 3em 1em 0em 4em !important;
+}
+
+@media (min-width: 769px) and (max-width: 800px)  {	
+
+div.controls {
+	position:absolute !important;
+	top:650px !important;
+	left:0px !important;
+	width:100% !important;
+	height:23px !important;
+	z-index:+1 !important;
+}
+
+div.caption-container{
+	padding:12px !important;
+	position:absolute !important;
+	top:460px !important;
+	width:100% !important;
+	overflow:hidden !important;
+	white-space:nowrap !important;
+	text-overflow:ellipsis !important;
+	background:#fff !important;
+	zindex:+1 !important;
+	text-align:center !important;
+	font-size:15px !important;
+	line-height:30px !important;
+	color:#06C;
+}
+
+div.slideshow-container {
+	position:relative !important;
+	width:100% !important;
+	background:#fff !important;
+	height: 350px !important; /* This should be set to be at least the height of the largest image in the slideshow */
+}
+
+.advance-link img {
+width: 25em !important;
+height: 30em !important;
+margin: 5em 0em 0em 11.5em !important;
+}
+
+div.navigation {
+	height:auto !important;
+	width:100%  !important;
+	background:#fff  !important;
+	margin:230px 0px 0px 9px !important;
+}
+
+ul.thumbs img {
+	border: none;
+	display: block;
+	width: 60px !important;
+	height: 60px !important;
+	margin: 0px 0px 0px 9px !important;
+}
+}
+
+@media (min-width: 481px) and (max-width: 768px)  {	
+
+div.controls {
+	position:absolute !important;
+	top:650px !important;
+	left:0px !important;
+	width:100% !important;
+	height:23px !important;
+	z-index:+1 !important;
+}
+
+div.caption-container{
+	padding:12px !important;
+	position:absolute !important;
+	top:430px !important;
+	width:100% !important;
+	overflow:hidden !important;
+	white-space:nowrap !important;
+	text-overflow:ellipsis !important;
+	background:#fff !important;
+	zindex:+1 !important;
+	text-align:center !important;
+	font-size:15px !important;
+	line-height:30px !important;
+	color:#06C;
+}
+
+div.slideshow-container {
+	position:relative !important;
+	width:100% !important;
+	background:#fff !important;
+	height: 350px !important; /* This should be set to be at least the height of the largest image in the slideshow */
+}
+
+.advance-link img {
+width: 25em !important;
+height: 30em !important;
+margin: 4em 0em 0em 10.5em !important;
+}
+
+div.navigation {
+	height:auto !important;
+	width:100%  !important;
+	background:#fff  !important;
+	margin:210px 0px 0px 9px !important;
+}
+
+ul.thumbs img {
+	border: none;
+	display: block;
+	width: 60px !important;
+	height: 60px !important;
+	margin: 0px 0px 0px 9px !important;
+}
+
+}
+
+@media (min-width: 361px) and (max-width: 480px)  {	
+
+div.controls {
+	position:absolute !important;
+	top:400px !important;
+	left:0px !important;
+	width:100% !important;
+	height:23px !important;
+	z-index:+1 !important;
+}
+
+div.caption-container{
+	padding:12px !important;
+	position:absolute !important;
+	top:265px !important;
+	width:100% !important;
+	overflow:hidden !important;
+	white-space:nowrap !important;
+	text-overflow:ellipsis !important;
+	background:#fff !important;
+	zindex:+1 !important;
+	text-align:center !important;
+	font-size:12px !important;
+	line-height:30px !important;
+	color:#06C;
+}
+
+div.slideshow-container {
+	position:relative !important;
+	width:100% !important;
+	background:#fff !important;
+	height: 350px !important; /* This should be set to be at least the height of the largest image in the slideshow */
+}
+
+.advance-link img {
+width: 17em !important;
+height: 19em !important;
+margin: 3em 0em 0em 6.5em !important;
+}
+
+div.navigation {
+	height:auto !important;
+	width:100%  !important;
+	background:#fff  !important;
+	margin:30px 0px 0px 9px !important;
+}
+
+ul.thumbs img {
+	border: none;
+	display: block;
+	width: 60px !important;
+	height: 60px !important;
+	margin: 0px 0px 0px 9px !important;
+}
+
+}
+
+@media (min-width: 321px) and (max-width: 360px)  {	
+
+div.controls {
+	position:absolute !important;
+	top:350px !important;
+	left:0px !important;
+	width:100% !important;
+	height:23px !important;
+	z-index:+1 !important;
+}
+
+div.caption-container{
+	padding:12px !important;
+	position:absolute !important;
+	top:205px !important;
+	width:100% !important;
+	overflow:hidden !important;
+	white-space:nowrap !important;
+	text-overflow:ellipsis !important;
+	background:#fff !important;
+	zindex:+1 !important;
+	text-align:center !important;
+	font-size:12px !important;
+	line-height:30px !important;
+	color:#06C;
+}
+
+div.slideshow-container {
+	position:relative !important;
+	width:100% !important;
+	background:#fff !important;
+	height: 350px !important; /* This should be set to be at least the height of the largest image in the slideshow */
+}
+
+.advance-link img {
+width: 15em !important;
+height: 18em !important;
+margin: 3em 1em 0em 3.5em !important;
+}
+
+div.navigation {
+	height:auto !important;
+	width:100%  !important;
+	background:#fff  !important;
+}
+
+ul.thumbs img {
+	border: none;
+	display: block;
+	width: 50px !important;
+	height: 50px !important;
+	margin: 0px 0px 0px 9px !important;
+}
+
+}
+
+@media (max-width: 320px) {
+	
+div.slideshow-container {
+	position:relative !important;
+	width:100% !important;
+	background:#fff !important;
+	height: 330px !important; /* This should be set to be at least the height of the largest image in the slideshow */
+}
+
+div.caption-container{
+	padding:12px !important;
+	position:absolute !important;
+	top:185px !important;
+	width:100% !important;
+	overflow:hidden !important;
+	white-space:nowrap !important;
+	text-overflow:ellipsis !important;
+	background:#fff !important;
+	zindex:+1 !important;
+	text-align:center !important;
+	font-size:12px !important;
+	line-height:30px !important;
+	color:#06C;
+}
+
+div.navigation {
+	height:auto !important;
+	width:100%  !important;
+	background:#fff  !important;
+	top:600px  !important;
+}
+	
+	}

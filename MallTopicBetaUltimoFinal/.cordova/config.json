@@ -1,0 +1,15 @@
+{
+    "lib": {
+        "www": {
+            "id": "co.malltopicbeta",
+            "version": "3.4.0",
+            "uri": "https://github.com/phonegap/phonegap-app-hello-world/archive/3.4.0.tar.gz",
+            "phonegap": {
+                "id": 891393
+            }
+        }
+    },
+    "phonegap": {
+        "id": 953144
+    }
+}

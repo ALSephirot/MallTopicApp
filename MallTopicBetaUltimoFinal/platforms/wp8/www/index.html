@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width">
+        <meta name="handheldfriendly" content="true">
+        <meta name="mobileOptimized" content="480">
+        <title>Malltopic</title>
+
+        <!--jquery-->
+        <script src="js/jquery-1.10.2.js"></script>
+        <script src="js/jquery-ui-1.10.4.custom.js"></script>
+        <script src="js/jquery.mobile.js"></script>
+
+        <!--Phonegap-->
+        <script src="js/PhoneGap-Common.js"></script>
+        <!--<script src="cordova.js"></script>-->
+        
+        <!--LoginFacebook-->
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.3.min.js"></script>
+        <script src="js/loginFacebook.js"></script>
+
+        <!--Maps-->
+        <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry&sensor=false"></script>
+        <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+
+        <script src="js/mapa.js"></script>
+
+        <!--MallTopic Scripts-->
+        <!--<script src="Scripts/sqlite.js"></script>-->
+        <script src="js/app.js"></script>
+        <script src="js/globalv.js"></script>
+        <!--<script src="js/parking.js"></script>
+        <script src="Scripts/mail.js"></script>
+        <script src="Scripts/mandrill.js"></script>-->
+
+        <!--Galerias-->
+        <script type="text/javascript" src="js/jquery.galleriffic.js"></script>
+        <script type="text/javascript" src="js/jquery.opacityrollover.js"></script>
+        
+        <!--Estilos-->
+        <link rel="stylesheet" type="text/css" href="css/estilo.css.css">
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.4.custom.min.css">
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.custom.structure.css" >
+        <link rel="stylesheet" type="text/css" href="css/galleriffic.css">
+
+        <script>
+            document.addEventListener("deviceready", onDeviceReady, false);
+            /*$(document).bind("mobileinit", function () {
+                $.mobile.ajaxEnabled = false;
+            });*/
+			$(function() {
+				$( "#PopUp" ).dialog({
+				  autoOpen: false,
+				  show: {
+					effect: "blind",
+					duration: 1000
+				  },
+				  hide: {
+					effect: "blind",
+					duration: 1000
+				  }
+			});
+
+                $( "#ColorPicker" ).dialog({
+                      autoOpen: false,
+                      show: {
+                        effect: "blind",
+                        duration: 1000
+                      },
+                      hide: {
+                        effect: "blind",
+                        duration: 1000
+                      }
+		  });
+		  });
+        </script>
+    </head>
+ 
+
+    <body>
+        <!------------------------------------Login------------------------------------>
+        <section data-role="page" id="Login" data-theme="a">
+            <div class="contenedor2">
+                <img src="images/LogoMT2.png" class="logo2"/>
+                <h1>Para empezar a utilizar<br/><span class="txtcolor">MallTopic</span> debes:</h1>
+                <div class="ContenedorBoton"><a href="#Index" class="botonLogin1">Regístrarte</a></div>
+                <h1>ó<br/>Inicia Sesión con:</h1>
+                <div class="ContenedorBoton"><a href="#" class="botonLogin2" onclick="Login()">Facebook</a></div>
+                <div class="ContenedorBoton"><a href="#" class="botonLogin3">Twitter</a></div>
+                <p>Encuentra toda la información de tu<br/>Centro Comercial Favorito</p>
+            </div><!--Cierro Contenedor-->          
+        </section>
+
+        <!------------------------------------Index Ppal------------------------------------>
+        <section data-role="page" id="Index">
+            <div class="contenedor"> 
+                <header>
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <img src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerIndex1.png" class="header"/>
+                </header>
+                    <div class="ContenedorIconos">
+                        <div class="iconos">
+                            <a href="#ListaCC" class="iconoMalls" data-transition="slide"></a>
+                            <p>Malls</p> 
+                        </div>
+                        <div class="iconos">
+                            <a href="#ComerciosxCategorias" class="iconoTiendas" data-transition="slide"></a>
+                            <p>Tiendas</p> 
+                        </div>
+                        <div class="iconos">
+                            <a href="#EParking" class="iconoParking" data-transition="slide"></a>
+                            <p>E-Parking</p> 
+                        </div>
+                        <div class="iconos">
+                            <a href="#Promociones" class="iconoPromos" data-transition="slide"></a>
+                            <p>Promos</p> 
+                        </div>
+                        <div class="iconos">
+                            <a href="#Eventos" class="iconoEventos" data-transition="slide"></a>
+                            <p>Eventos</p> 
+                        </div>
+                        <div class="iconos">
+                            <a href="#Colecciones" class="iconoColecciones" data-transition="slide"></a>
+                            <p>Colecciones</p> 
+                        </div>
+                        <div class="iconos">
+                            <a href="#Cines" class="iconoCines" data-transition="slide"></a>
+                            <p>Cines</p> 
+                        </div>
+                        <div class="iconos">
+                            <a href="#maps" class="iconoMapa" data-transition="slide"></a>
+                            <p>Mapa</p> 
+                        </div>
+                        <div class="iconos">
+                            <a id="PopUpLink" href="#" class="iconoSocial" data-rel="dialog" data-transition="pop"></a>
+                            <p>Social</p> 
+                        </div>
+                    </div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                        <a href="#" class="btnFavoritos">Favoritos</a>
+                        <a href="#" class="btnBuscar">Buscar</a>
+                        <input type="text" class="campoTexto" value="Busqueda"/>
+                    </footer>
+                </div><!--Cierro Contenedor--> 
+        </section>
+
+        <!------------------------------------Comercios x Categorias Index------------------------------------>
+        <section data-role="page" id="ComerciosxCategorias">
+            <div class="contenedor"> 
+                <header data-id="Header" class="header2">
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id = "ContentSelect" class="CampoSelect">
+                    </div>
+
+                    <div id="SelectMall" class="CampoSelect2">
+                    </div>
+
+                    <img src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerTiendas1.png" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris1"></div>
+                        <img src="images/IconosVectorizados/tiendas.png" class="SubIcono"/>
+                        <h2>Tiendas</h2>
+                    </div>
+                    <script>
+                        $(document).ready(function(){
+                            $('#ComerciosxCategorias #ContentCate').on('click', 'a', function() {
+                                setCate($(this).attr('id'));
+                            });
+                        });
+                    </script>
+               </header>
+               <article>
+                    <div class="separador4"></div>
+                    <div id="ContentCate" class="ContenedorIconos2"></div>
+                </article>
+                <div class="separadorEsp"></div>
+                <footer class="footer">
+                    <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                    <a href="#" class="btnFavoritos">Favoritos</a>
+                    <a href="#" class="btnBuscar">Buscar</a>
+                    <input type="text" class="campoTexto" value="Busqueda"/>
+                </footer>
+            </div><!--Cierro Contenedor-->          
+        </section>
+
+         <!------------------------------------Comercios x Categorias Mall------------------------------------>
+        <section data-role="page" id="ComerciosxCategoriasMall">
+            <div class="contenedor"> 
+            <header data-id="Header" class="header2">
+                <img src="images/LogoMT1.png" class="logo"/>
+                <div id = "ContentSelect" class="CampoSelect">
+                </div>
+                <div class="subHeader">
+                    <div class="gris1"></div>
+                    <img src="images/IconosVectorizados/tiendas.png" class="SubIcono"/>
+                    <h2>Tiendas</h2>
+                </div>
+
+                <div id="CambioComercio" class="cambioComercio">
+                    <a href="#ComerciosxCategoriasMall" data-select="true">Categorías</a>
+                    <a href="#ComerciosxLocalesMall" data-select="false">Locales</a>
+                </div>
+
+                <img id="HeaderComCate" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerTiendas1.png" class="header"/>
+                <script>
+                    $(document).ready(function(){
+                        $('#ComerciosxCategoriasMall #ContentCate').on('click', 'a', function() {
+                            setCate($(this).attr('id'));
+                        });
+                    });
+                </script>
+           </header>
+           <div class="separador4"></div>
+                <div id="ContentCate" class="ContenedorIconos2">
+                
+                </div>
+                <div class="separadorEsp"></div>
+                <footer class="footer">
+                    <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                    <a href="#" class="btnFavoritos">Favoritos</a>
+                    <a href="#" class="btnBuscar">Buscar</a>
+                    <input type="text" class="campoTexto" value="Busqueda"/>
+                </footer>
+            </div><!--Cierro Contenedor-->          
+        </section>
+
+        <!------------------------------------Comercios x Locales Index------------------------------------>
+        <section data-role="page" id="ComerciosxLocales">
+            <div class="contenedor"> 
+            <header data-id="Header" class="header2">
+                <img src="images/LogoMT1.png" class="logo"/>
+                <div id = "ContentSelect" class="CampoSelect">
+                </div>
+
+                <div id="SelectMall" class="CampoSelect2">
+                </div>
+
+                <img src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerTiendas1.png" class="header"/>
+                <div class="subHeader">
+                    <div class="gris1"></div>
+                    <img src="images/IconosVectorizados/tiendas.png" class="SubIcono"/>
+                    <h2>Tiendas</h2>
+                </div>
+                <script>
+                    $(document).ready(function(){
+                        $('#ComerciosxLocales #contentloc').on('click', 'a', function() {
+                            SetLocal($(this).attr('id'));
+                        });
+                    });
+                </script>
+           </header>
+           <div class="separador4"></div>
+                <div id="contentloc" class="ContenedorIconos2">
+                
+                </div>
+                <div class="separadorEsp"></div>
+                <footer class="footer">
+                    <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                    <a href="#" class="btnFavoritos">Favoritos</a>
+                    <a href="#" class="btnBuscar">Buscar</a>
+                    <input type="text" class="campoTexto" value="Busqueda"/>
+                </footer>
+            </div><!--Cierro Contenedor-->          
+        </section>
+
+            <!------------------------------------Comercios x Locales Mall------------------------------------>
+        <section data-role="page" id="ComerciosxLocalesMall">
+            <div class="contenedor"> 
+            <header data-id="Header" class="header2">
+                <img src="images/LogoMT1.png" class="logo"/>
+                <div id = "ContentSelect" class="CampoSelect">
+                </div>
+                <div class="subHeader">
+                    <div class="gris1"></div>
+                    <img src="images/IconosVectorizados/tiendas.png" class="SubIcono"/>
+                    <h2>Tiendas</h2>
+                </div>
+
+                <div id="CambioComercio" class="cambioComercio">
+                    <a href="#ComerciosxCategoriasMall" data-select="false">Categorías</a>
+                    <a href="#ComerciosxLocalesMall" data-select="true">Locales</a>
+                </div>
+
+                <img id="HeaderComLoc" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerTiendas1.png" class="header"/>
+                <script>
+                    $(document).ready(function(){
+                        $('#ComerciosxLocalesMall #contentloc').on('click', 'a', function() {
+                            SetLocal($(this).attr('id'));
+                        });
+                    });
+                </script>
+           </header>
+           <div class="separador4"></div>
+                <div id="contentloc" class="ContenedorIconos2">
+                
+                </div>
+                <div class="separadorEsp"></div>
+                <footer class="footer">
+                    <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                    <a href="#" class="btnFavoritos">Favoritos</a>
+                    <a href="#" class="btnBuscar">Buscar</a>
+                    <input type="text" class="campoTexto" value="Busqueda"/>
+                </footer>
+            </div><!--Cierro Contenedor-->          
+        </section>
+        
+        <!------------------------------------Detalle Comercios/Locales Mall/Index------------------------------------>
+        <section id ="DetalleComercio" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+
+                    <img id="HeaderDetalleComercio" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerTiendas1.png" class="header"/>
+                    <div id="Encabezado" class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/comercios.png" class="SubIcono"/>
+                        <h2 class="name"></h2>
+                    </div>
+                    <div id="ContentBotonesDetComer" class="botonas">
+                        <a href="#" class="btnDetalles">
+                            <div class="telephone"></div>
+                            <p>Llamar</p>
+                        </a>
+                        <div class="btnDetalles">
+                            <h3>500</h3>
+                            <p>Local</p>
+                        </div>
+                    </div>
+                   
+                </header>
+                <div class="separador4"></div>
+                    <div id="AcordeonLocales" class="acordion" >
+                        
+                    </div>
+                    <div class="separadorRedes"></div>
+                    <div class="divRedesSocial">
+                        <p>Síguenos y Comparte !</p>
+                        <a href="#" class="socialNet1"></a>
+                        <a href="#" class="socialNet2"></a>
+                        <a href="#" class="socialNet3"></a>
+                        <a href="#" class="socialNet4"></a>
+                        <a href="#" class="socialNet5"></a>
+                        <a href="#" class="socialNet6"></a>
+                    </div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                        <a href="#" class="btnFavoritos">Favoritos</a>
+                        <a href="#" class="btnBuscar">Buscar</a>
+                        <input type="text" class="campoTexto" value="Busqueda"/>
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+        
+        <!------------------------------------E-Parking------------------------------------>
+        <section id="EParking" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2">
+                <img src="images/LogoMT1.png" class="logo"/>
+                <img src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerEParking1.png" class="header"/>
+                </header>
+                <div class="separador4"></div>
+                <div class="organizador">
+                <div class="divParking1">
+                    <p>Nivel-Piso</p>
+                    <select id="txtNivel" class="campNumero">
+                    	<option value="S1">S1</option>
+                        <option value="S2">S2</option>
+                        <option value="S3">S3</option>
+                        <option value="S4">S4</option>
+                        <option value="S5">S5</option>
+                        <option value="P1">P1</option>
+                        <option value="P2">P2</option>
+                        <option value="P3">P3</option>
+                        <option value="P4">P4</option>
+                        <option value="P5">P5</option>
+                        <option value="P6">P6</option>
+                        <option value="P7">P7</option>
+                        <option value="P8">P8</option>
+                        <option value="P9">P9</option>
+                        <option value="P10">P10</option>
+                    </select>
+                    <p>Nro Celda</p>
+                    <input id="txtCelda" type="text" class="campCelda" maxlength="3">
+                    <a id="btnColor" href="#" onclick="LlamarPopUpColor()" class="btnColor" data-rel="dialog" data-transition="pop">Color</a>
+                    <button id="btnGuardar" class="btnGuardar">Guardar</button>
+                </div>
+                <div class="divParking2">
+                    <p class="titleParking">Su Vehículo Se Encuentra En:</p>
+                    <div id="Lugar" class="mostrarLugar"></div>
+                    <p class="titleParking2">Color:</p><div id="MostrarColor" class="mostrarColor"></div>
+                    <button id="btnMostrar" class="btnMostrar">Mostrar</button>
+                    <button id="btnBorrar" class="btnBorrar">Borrar</button>
+                </div>
+                </div>
+                <div class="recomendaciones">
+                <h3>RECOMENDACIONES DE SEGURIDAD</h3>
+					<ol>
+                    <li><span class="negrita">1.</span>Asegúrese de cerrar todas las puertas y vidrios correctamente</li><br/>
+                    <li><span class="negrita">2.</span>No deje objetos de valor dentro de su vehículo</li><br/>
+                    <li><span class="negrita">3.</span>Revise que todas las luces estén apagadas</li><br/>
+                    <li><span class="negrita">4.</span>No deje su tiquete de control de ingreso dentro de su carro</li><br/>
+                    <li><span class="negrita">5.</span>Está prohibido dejar niños solos dentro del vehiculo</li><br/>
+                    <li><span class="negrita">6.</span>No deje  sus cascotas dentro del vehiculo</li><br/>
+                    <li><span class="negrita">7.</span>El Centro Comercial no se hace responsable por las pérdidas aquí recomendadas por su seguridad.</li>
+                    </ol>
+                </div>
+                <div class="separador3"></div>
+                <footer class="footer">
+                        <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                        <a href="#" class="btnFavoritos">Favoritos</a>
+                        <a href="#" class="btnBuscar">Buscar</a>
+                        <input type="text" class="campoTexto" value="Busqueda"/>
+                </footer>
+            </div><!--Cierro Contenedor-->  
+        </section>
+        
+        <!------------------------------------Color E-Parking-------------------------------->
+        
+        <section id="ColorPicker" title="Color Parqueadero" >
+           <div class="contenedorColores">
+           	<h1>Selecciona un Color:</h1>
+            <ul>
+                  	<li><a href="#" id="#014cfd" class="color1" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#8203ff" class="color2" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#c80063" class="color3" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#ff0f01" class="color4" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#ff9e00" class="color5" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#fced00" class="color6" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#dbe970" class="color7" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#00c700" class="color8" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#01a08c" class="color9" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#00a8ff" class="color10" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#ffffff" class="color11" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#000000" class="color12" onclick="CambioColor(this);"></a></li>
+            </ul>
+            <!--<a href="#" class="btnSeleccionar">Seleccionar</a>-->
+           </div>
+        </section>
+
+        <!------------------------------------Promos Index------------------------------------>
+        <section id="Promociones" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <div id="SelectMall" class="CampoSelect2">
+                        
+                    </div>
+
+                    <img id="HeaderPromos" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerPromos1.png" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris1"></div>
+                        <img src="images/IconosVectorizados/promos.png" class="SubIcono"/>
+                        <h2>Promos</h2>
+                    </div>
+                    <script>
+                        $(document).ready(function () {
+                            $('#PromosList').on('click', 'a', function() {
+                                setPromo($(this).attr('id'));
+                            });
+
+                        });
+                    </script>
+                </header>
+                <div class="separador4"></div>
+                    <div class="CampoSelect3">
+                        <div class="arrowIzq"></div>
+                        	<div class="der"><p>Mas Opciones</p></div>
+                            <select class="Filtro2" onchange="AplicarFiltroPromo(this)">
+                                <option value="" selected="selected">Todas las Promociones</option>
+                                <option value="Activas">Promociones Activas</option>
+                                <option value="Proximas">Proximas Promociones</option>
+                                <option value="Vencidas">Promociones Vencidas</option>
+                            </select>
+                    </div>
+                    <div id="PromosList"  class="ListTiendas">
+                    
+                    </div>
+                    <div class="separador3"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                        <a href="#" class="btnFavoritos">Favoritos</a>
+                        <a href="#" class="btnBuscar">Buscar</a>
+                        <input type="text" class="campoTexto" value="Busqueda"/>
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section> 
+        
+        <!------------------------------------Detalles Promos Index------------------------------------>
+        <section id="DetallePromos" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <img id="HeaderDetPromos" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerPromos1.png" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/promos.png" class="SubIcono"/>
+                        <h2 id="NombrePromo" class="name"></h2>
+                    </div>
+                    <img src="images/Store.png" class="logoPromo"/>
+
+                 </header>
+                 <div class="separador4"></div>
+                    <img id="ImagenPromo" src="#" class="imgPromo"/>
+                    <div id="Descripcion" class="infoPaginaDetalle">
+                    </div>
+                    <div id="AcordeonPromo" class="acordion">
+                        
+                    </div>
+                        <div class="organCompartir">
+                            <button class="compartir2">Compartir</button>
+                        </div>
+                    <div class="separadorEsp"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#" class="btnFavoritos">Favoritos</a>
+                        <a href="#" class="btnBuscar">Buscar</a>
+                        <input type="text" class="campoTexto" value="Busqueda"/>
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+        
+        <!------------------------------------Eventos Index------------------------------------>
+        <section id="Eventos" data-role="page">
+            <div class="contenedor"> 
+                <header data-id="Header" class="header2">
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <div id="SelectMall" class="CampoSelect2">
+                        
+                    </div>
+                    <img id="HeaderEventos" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerEventos1.png" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris1"></div>
+                        <img src="images/IconosVectorizados/eventos.png" class="SubIcono"/>
+                        <h2>Eventos</h2>
+                    </div>
+                    <script>
+                        $(document).ready(function () {
+                            $('#EventList').on('click', 'a', function() {
+                                setEvento($(this).attr('id'));
+                            });
+
+                        });
+                    </script>
+                </header>
+                <div class="separador4"></div>
+                    <div id="EventList" class="ListTiendas">
+
+                    </div>
+                    <div class="separador3"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#" class="btnFavoritos">Favoritos</a>
+                        <a href="#" class="btnBuscar">Buscar</a>
+                        <input type="text" class="campoTexto" value="Busqueda"/>
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+        
+        <!------------------------------------Detalles Eventos------------------------------------>
+        <section id="DetalleEventos" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <img id="HeaderDetEventos" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerEventos1.png" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/promos.png" class="SubIcono"/>
+                        <h2 id="NombreEvento" class="name"></h2>
+                    </div>
+                    <img id="LogoEventos" src="#" class="logoPromo"/>
+                </header>
+                <div class="separador4"></div>
+                    <img id="ImagenEventos" src="#" class="imgPromo"/>
+                    <div id="DescEvento" class="infoPaginaDetalle">
+                        
+                    </div>
+                    <div id="AcordeonEventos" class="acordion">
+                        <h3>Mas información</h3>
+                        <div>
+                            <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                            ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                            amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                            odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+                        </div>
+                    </div>
+                    <div class="organCompartir">
+                            <button class="compartir2">Compartir</button>
+                    </div>
+                    <div class="separadorEsp"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#" class="btnFavoritos">Favoritos</a>
+                        <a href="#" class="btnBuscar">Buscar</a>
+                        <input type="text" class="campoTexto" value="Busqueda"/>
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+        
+        <!------------------------------------Colecciones Index------------------------------------>
+        <section id="Colecciones" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <div id="SelectMall" class="CampoSelect2">
+                        
+                    </div>
+                    <img id="HeaderColecciones" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerColecciones1.png" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris1"></div>
+                        <img src="images/IconosVectorizados/colecciones.png" class="SubIcono"/>
+                        <h2>Colecciones</h2>
+                    </div>
+                    <script>
+                        $(document).ready(function () {
+                            $('#ColectionList').on('click', 'a', function() {
+                                setColeccion($(this).attr('id'));
+                            });
+                        });
+                    </script>
+               </header>
+               <div class="separador4"></div>
+                    <div id="ColectionList" class="ListTiendas">
+                    
+                    </div>
+                    <div class="separador3"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#" class="btnFavoritos">Favoritos</a>
+                        <a href="#" class="btnBuscar">Buscar</a>
+                        <input type="text" class="campoTexto" value="Busqueda"/>
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+        
+        <!------------------------------------Detalles Colecciones------------------------------------>
+        <section id="DetalleColecciones" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <img id="HeaderDetColecciones" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerColecciones1.png" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/colecciones.png" class="SubIcono"/>
+                        <h2 id="NombreColeccion" class="name"></h2>
+                    </div>
+                    <img src="#" class="logoPromo"/>
+                </header>
+                <div class="separador4"></div>
+                    <div id="gallery" class="content">
+                        <div id="controls" class="controls"></div>
+                        <div class="slideshow-container">
+                            <div id="loading" class="loader"></div>
+                            <div id="slideshow" class="slideshow"></div>
+                        </div>
+                        <div id="caption" class="caption-container"></div>
+                    </div>
+                    <div id="thumbs" class="navigation"></div>
+                    <div class="organCompartir">
+                           <button class="compartir2">Compartir</button>
+                    </div>
+                    <div class="separadorEsp"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#" class="btnFavoritos">Favoritos</a>
+                        <a href="#" class="btnBuscar">Buscar</a>
+                        <input type="text" class="campoTexto" value="Busqueda"/>
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+
+        <!------------------------------------Mapa Index------------------------------------>
+        <section id="maps" data-role="page">
+            <div class="contenedor">
+                <header> 
+                    <img src="images/LogoMT1.png" class="logoComoLlegar"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                </header>
+
+                    <div id="map_canvas"></div>
+
+
+                    <!--<div id="map_canvas" class="contentMapa"></div>-->
+                <footer class="footer">
+                    <a href="#Index" class="btnHome">Home</a>
+                    <a href="#" class="btnFavoritos">Favoritos</a>
+                    <a href="#" class="btnBuscar">Buscar</a>
+                    <input type="text" class="campoTexto" value="Busqueda"/>
+                </footer>
+            </div><!--Cierro Contenedor-->          
+        </section>
+
+        <!------------------------------------Mapa Mall Como Llegar------------------------------------>
+        <section id="ComoLlegar" data-role="page">
+            <div class="contenedor">
+                <header> 
+                    <img src="images/LogoMT1.png" class="logoComoLlegar"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                    </div>
+                    <script>
+
+                    $(document).ready(function () {
+                        $('#ContentListCC').on('click', 'a', function() {
+                            setCC($(this).attr('id'));
+                        });
+                        
+                    });
+                    </script>
+                </header>
+                <!--<div class="separadorComoLlegar"></div>-->
+                    <div id="map_canvasComoLlegar" class="contentMapa"></div>
+                    <div id="ContenedorBotonesGeneral">
+                        
+                    </div>
+                     <div id="directions-panel" >
+                    </div>
+                <footer class="footer">
+                    <a href="#Index" class="btnHome">Home</a>
+                    <a href="#" class="btnFavoritos">Favoritos</a>
+                    <a href="#" class="btnBuscar">Buscar</a>
+                    <input type="text" class="campoTexto" value="Busqueda"/>
+                </footer>
+            </div><!--Cierro Contenedor-->          
+        </section>
+
+        <section id="PopUp" title="Opciones de Transporte Publico">
+             <div id="ContentMedios">
+                <ul>
+                    <li>
+                        <div class="medioTrans">
+                        <img src="images/bus.png" class="iconaso"></img>
+                        <p>Autobus</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="medioTrans">
+                        <img src="images/microbus.png" class="iconaso"></img>
+                        <p>Colectivo</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="medioTrans">
+                        <img src="images/taxi.png" class="iconaso"></img>
+                        <p>Taxi</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="medioTrans">
+                        <img src="images/metro.png" class="iconaso"></img>
+                        <p>Metro</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="medioTrans">
+                        <img src="images/metrocable.png" class="iconaso"></img>
+                        <p>Metro Cable</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="medioTrans">
+                        <img src="images/metroplus.png" class="iconaso"></img>
+                        <p>Metroplus</p>
+                        </div>
+                    </li>
+                </ul>
+             </div>
+        </section>
+
+
+        <!------------------------------------Lista Malls------------------------------------>
+        <section data-role="page" id="ListaCC">
+            <div class="contenedor">
+                <header class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                    
+                    </div>
+
+                    <script>
+
+                    $(document).ready(function () {
+                        $('#ContentListCC').on('click', 'a', function() {
+                            setCC($(this).attr('id'));
+                            CargarSplashScreen();
+                        });
+
+                    });
+                    </script>
+                </header>
+                	<div class="BlancDiv"></div>
+                    <div class="separador"></div>
+                    <div id="ContentListCC">
+                        
+                    </div>
+                <div class="separadorEsp"></div>
+                <footer class="footer">
+                    <a href="#Index" class="btnHome">Home</a>
+                    <a href="#" class="btnFavoritos">Favoritos</a>
+                    <a href="#" class="btnBuscar">Buscar</a>
+                    <input type="text" class="campoTexto" value="Busqueda"/>
+                </footer>
+            </div><!--Cierro Contenedor-->          
+        </section>
+
+        <!------------------------------------Splash Mall-------------------------------->
+        <section id="SplashScreen" data-role="page" >
+            <div class="splash" id="splash"><img id="ImagenSplash" src="#" alt="FondoSplash"></div>
+        </section>
+
+        <!------------------------------------Index Mall-------------------------------->
+        <section data-role="page" id="IndexMall">
+            <div class="contenedor">
+            <header> 
+                <img src="images/LogoMT1.png" class="logo"/>
+                <div id="ContentSelect" class="CampoSelect">
+                    
+                </div>
+                <img id="LogoIndexMall" src="#" class="logoPromo"/>
+                <img id="HeaderIndexMall" src="#" class="header"/>
+                <div class="divInfoMall">
+                    <ul>
+                        <li id="NumLocales">300</li>
+                        <li>Locales</li>
+                        <li id="NumEstaciona">120</li>
+                        <li>Estacionamientos</li>
+                        <li>7</li>
+                        <li id="NumTelefono">234-56-78</li>
+                    </ul>
+                </div>
+            </header>
+                <div class="ContenedorIconos2">
+                    <div class="iconos2">
+                        <a href="#InfoGeneral" class="iconoInfo" data-transition="slide"></a>
+                        <p>Info General</p>
+                    </div>
+                    <div class="iconos2">
+                        <a href="#ComerciosxCategoriasMall" class="iconoComercios" data-transition="slide"></a>
+                        <p>Comercios</p>
+                    </div>
+                    <div class="iconos2">
+                        <a href="#Servicios" class="iconoServicios" data-transition="slide"></a>
+                        <p>Servicios</p>
+                    </div>
+                    <div class="iconos2">
+                        <a href="#ComoLlegar" class="iconoComoLlegar" data-transition="slide"></a>
+                        <p>Como Llegar</p>
+                    </div>
+                    <div class="iconos2">
+                        <a href="#Promociones" class="iconoPromos" data-transition="slide"></a>
+                        <p>Promociones</p>
+                    </div>
+                    <div class="iconos2">
+                        <a href="#Eventos" class="iconoEventos" data-transition="slide"></a>
+                        <p>Eventos</p>
+                    </div>
+                    <div class="iconos2">
+                        <a href="#Cines" class="iconoCines" data-transition="slide"></a>
+                        <p>Cines</p>
+                    </div>
+                    <div class="iconos2">
+                        <a href="#Galerias" class="iconoGalerias" data-transition="slide"></a>
+                        <p>Galerias</p>
+                    </div>
+                </div>
+                <div class="separadorRedes"></div>
+                <div class="divRedesSocial">
+                    <p>Síguenos y Comparte !</p>
+                    <a href="#" class="socialNet1"></a>
+                    <a href="#" class="socialNet2"></a>
+                    <a href="#" class="socialNet3"></a>
+                    <a href="#" class="socialNet4"></a>
+                    <a href="#" class="socialNet5"></a>
+                    <a href="#" class="socialNet6"></a>
+                </div>
+                <footer class="footer">
+                    <a href="#Index" class="btnHome">Home</a>
+                    <a href="#" class="btnFavoritos">Favoritos</a>
+                    <a href="#" class="btnBuscar">Buscar</a>
+                    <input type="text" class="campoTexto" value="Busqueda"/>
+                </footer>
+            </div><!--Cierro Contenedor-->          
+        </section>
+        
+        <!------------------------------------Info General Mall---------------------------------->
+        <section id="InfoGeneral" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <img id="LogoIndexMall" src="#" class="logoPromo"/>
+                    <img id="HeaderInfoGeneral" src="#" class="header"/>
+                 </header>
+                 <div class="separador4"></div>
+                    <div id="ContentInfoGeneral" class="infoGenMall">
+
+                    </div>
+                    <div class="separadorRedes"></div>
+                    <div class="divRedesSocial">
+                        <p>Síguenos y Comparte !</p>
+                        <a href="#" class="socialNet1"></a>
+                        <a href="#" class="socialNet2"></a>
+                        <a href="#" class="socialNet3"></a>
+                        <a href="#" class="socialNet4"></a>
+                        <a href="#" class="socialNet5"></a>
+                        <a href="#" class="socialNet6"></a>
+                    </div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#" class="btnFavoritos">Favoritos</a>
+                        <a href="#" class="btnBuscar">Buscar</a>
+                        <input type="text" class="campoTexto" value="Busqueda"/>
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+        
+        <!------------------------------------Servicios Mall------------------------------------>
+        <section id="Servicios" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <img id="HeaderServicios" src="#" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/servicios.png" class="SubIcono"/>
+                        <h2>Servicios</h2>
+                    </div>
+                 </header>
+                 <div class="separador4"></div>
+                    <div id="ContenedorServicios" class="ListServiciosMall">
+                    
+                    </div>
+                    <div class="separadorEsp"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#" class="btnFavoritos">Favoritos</a>
+                        <a href="#" class="btnBuscar">Buscar</a>
+                        <input type="text" class="campoTexto" value="Busqueda"/>
+                    </footer>
+                </div><!--Cierro Contenedor-->
+        </section>
+        
+        <!------------------------------------Galerias Mall------------------------------------>
+        <section id="Galerias" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                           
+                    </div>
+                    <img id="HeaderGalerias" src="#" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/galerias.png" class="SubIcono"/>
+                        <h2>Galerias</h2>
+                    </div>
+                    <img id="LogoIndexMall" src="#" class="logoPromo"/>
+                    <script>
+                        $(document).ready(function () {
+                            $('#ContentIcons').on('click', 'a', function() {
+                                setGaleria($(this).attr('id'));
+                            });
+
+                        });
+                    </script>
+               </header>
+               <div class="separador4"></div>
+                    <div id="ContentIcons" class="ContenedorIconos2">
+                        
+                    </div>
+                    <div class="separadorEsp"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#" class="btnFavoritos">Favoritos</a>
+                        <a href="#" class="btnBuscar">Buscar</a>
+                        <input type="text" class="campoTexto" value="Busqueda"/>
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+
+        <!------------------------------------Detalles Galerias------------------------------------>
+        <section id="DetalleGalerias" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <img id="HeaderDetalleGalerias" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerEventos1.png" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/galerias.png" class="SubIcono"/>
+                        <h2 id="NombreGaleria"></h2>
+                    </div>
+                    <img id="LogoIndexMall" src="#" class="logoPromo"/>
+                    
+                </header>
+                <div class="separador4"></div>
+                    <div id="gallery" class="content">
+                        <div id="controls" class="controls"></div>
+                        <div class="slideshow-container">
+                            <div id="loading" class="loader"></div>
+                            <div id="slideshow" class="slideshow"></div>
+                        </div>
+                        <div id="caption" class="caption-container"></div>
+                    </div>
+                    <div id="thumbs" class="navigation"></div>
+                    <div class="separador3"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#" class="btnFavoritos">Favoritos</a>
+                        <a href="#" class="btnBuscar">Buscar</a>
+                        <input type="text" class="campoTexto" value="Busqueda"/>
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+        
+        <!------------------------------------Cines Index------------------------------------>
+        <section id="Cines" data-role="page">
+            <div class="contenedor">
+                <header class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <img id="HeaderCines" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerCines1.png" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/cines.png" class="SubIcono"/>
+                        <h2>Cines</h2>
+                    </div>
+                    <script>
+                        $(document).ready(function () {
+                            $('#ContentMovies').on('click', 'a', function() {
+
+                                try
+                                {
+                                    setMovie($(this).attr('id'));
+                                    InfoMovie();
+                                    $("#ContentMovies img").each(function() {
+                                        var id = $(this).attr('id');
+                                        var idMovie = getMovie();
+                                        if(id == idMovie)
+                                        {
+                                            $(this).attr('class','peliSeleccionada');
+                                        }
+                                        else
+                                        {
+                                            $(this).attr('class','peliNoSeleccionada');
+                                        }
+                                    });
+                                }
+                                catch(err)
+                                {
+                                    alert(err);
+                                }
+                            });
+
+                            $('#ContentInfoMovie').on('click', 'a', function() {
+                                try
+                                {
+                                    var Mall = getCC();
+                                    if(Mall == "" || Mall == undefined)
+                                    {
+                                        setMallCine($(this).attr('id'));    
+                                    }
+                                }
+                                catch(err)
+                                {
+                                    alert(err);
+                                }
+                                
+                            });
+
+                        });
+                    </script>
+                </header>
+                <div class="separador4"></div>
+                    <div id="ContentMovies" class="posters">
+                       
+                    </div>
+                    
+                    <div id="ContentInfoMovie">
+                    </div>  
+                        
+                    <div class="separadorEsp"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#" class="btnFavoritos">Favoritos</a>
+                        <a href="#" class="btnBuscar">Buscar</a>
+                        <input type="text" class="campoTexto" value="Busqueda"/>
+                    </footer>
+                </div><!--Cierro Contenedor-->
+        </section>
+
+        <!------------------------------------Detalle Cines Index------------------------------------>
+        <section id="DetalleMovie" data-role="page">
+            <div class="contenedor">
+                <header class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <img id="HeaderDetCines" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerCines1.png" class="header"/>
+                    <div id="NombrePeli" class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/cines.png" class="SubIcono"/>
+                        <h2 class="tituloMovie"></h2>
+                    </div>
+                    <img id="LogoIndexMall" src="#" class="logoPromo"/>
+                </header>
+                <div class="separador4"></div>
+                    <div id="ContentDetalle" class="contentDetalleCine">
+                        
+                    </div>
+                    <div id="ContentMovieDetails">
+                        
+                    </div>
+                    <div id="ContentDetalleMovie">
+                        
+                    </div>
+                    <div class="separadorEsp"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#" class="btnFavoritos">Favoritos</a>
+                        <a href="#" class="btnBuscar">Buscar</a>
+                        <input type="text" class="campoTexto" value="Busqueda"/>
+                    </footer>
+                </div><!--Cierro Contenedor-->
+        </section>
+    </body>
+</html>
