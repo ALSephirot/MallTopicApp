@@ -173,5 +173,14 @@ namespace malltopic_wcf
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Eventos_Result>("SP_Eventos", idEventoParameter, idMallParameter);
         }
+    
+        public virtual ObjectResult<string> Servicios(string fk_idcc)
+        {
+            var fk_idccParameter = fk_idcc != null ?
+                new ObjectParameter("fk_idcc", fk_idcc) :
+                new ObjectParameter("fk_idcc", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("Servicios", fk_idccParameter);
+        }
     }
 }

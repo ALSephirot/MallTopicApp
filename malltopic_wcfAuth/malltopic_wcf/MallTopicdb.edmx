@@ -811,6 +811,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="Servicios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fk_idcc" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="SP_Consulta_Categorias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Todas" Type="bit" Mode="In" />
           <Parameter Name="IdCategoria" Type="nvarchar(max)" Mode="In" />
@@ -2013,6 +2016,9 @@
             <Parameter Name="IdEvento" Mode="In" Type="String" />
             <Parameter Name="IdMall" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="Servicios" ReturnType="Collection(String)">
+          <Parameter Name="fk_idcc" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_Consulta_Categorias_Result">
           <Property Type="Guid" Name="id" Nullable="false" />
@@ -2645,6 +2651,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Servicios" FunctionName="MallTopicFinalModel.Store.Servicios" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

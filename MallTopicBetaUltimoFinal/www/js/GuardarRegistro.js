@@ -41,7 +41,7 @@ function GuardarDatosUsuario(red, InfoUser) {
 	    };
 	}
 
-	InsertRegis('regis_user', DatosUsuario);
+	InsertRegis('regis_users', DatosUsuario);
 }
 
 function InsertRegis(tabla, object)
@@ -73,5 +73,62 @@ function HandleError(error) {
 }
 
 function RegistroCorrecto() {
-	alert('Tu favorito ha sido guardado correctamente.');
+	alert('Tus datos han sido guardados correctamente.');
 }
+
+function captura(){
+	var hijos = $("#ContentRegistro").children('input');
+	var DatosUsuarioManual = {
+
+	    	nombres: $(hijos[0]).val(),
+	    	alias: $(hijos[1]).val(),
+			telefono: $(hijos[2]).val(),
+			edad: $(hijos[3]).val(),
+			fecha_de_nacimiento: $(hijos[4]).val(),
+			email: $(hijos[5]).val(),
+			pais: $(hijos[6]).val(),
+			ciudad: $(hijos[7]).val(),
+			//Gustos
+			cines: ValidarGustos("Cines"),
+			eventos:ValidarGustos("Eventos"),
+			promos:ValidarGustos("Promos"),
+			comidas:ValidarGustos("Comidas"),
+			tecnologia:ValidarGustos("Tecnología"),
+			deportes:ValidarGustos("Deportes"),
+			arte:ValidarGustos("Arte"),
+			musica:ValidarGustos("Música"),
+			turismo:ValidarGustos("Turismo"),
+			idcelular: LocalStorage.getItem("IdCelular")
+	    };
+	
+	InsertRegis('regis_users', DatosUsuarioManual);
+
+}
+
+function ValidarGustos(gusto){
+	var check = $("input[type=checkbox]:checked");
+	var resultado = false;
+	$.each(check,function(index,item) {
+		var AGusto = $(item).attr("data-gusto");
+		if(AGusto == gusto)
+		{
+			resultado = true;
+		}
+	});
+
+	return resultado;
+
+}
+
+
+function Solo_Numerico(variable){
+			Numer=parseInt(variable);
+			if (isNaN(Numer)){
+			return "";
+			}
+			return Numer;
+			}
+			function ValNumero(Control){
+			Control.value=Solo_Numerico(Control.value);
+			}
+

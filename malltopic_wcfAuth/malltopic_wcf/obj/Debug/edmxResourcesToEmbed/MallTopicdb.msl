@@ -510,5 +510,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Servicios" FunctionName="MallTopicFinalModel.Store.Servicios" />
   </EntityContainerMapping>
 </Mapping>

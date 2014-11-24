@@ -39,6 +39,7 @@
         <script src="js/favoritos.js"></script>
         <script src="js/Buscar.js"></script>
         <script src="js/compartir.js"></script>
+        <script src="js/GuardarRegistro.js" ></script>
 
         <!--Phonegap-->
         <script src="cordova.js"></script>
@@ -134,35 +135,35 @@
         <section data-role="page" id="registro1">
             <div class="contenedor3">
             <img src="images/LogoMT2.png" class="logo2"/>
-                <div class="camposRegistro">
+                <div id="ContentRegistro" class="camposRegistro">
                     <p class="12">Nombre:</p>
-                    <input type="text" name="Ingresa tu nombre" class="campInfo"/>
+                    <input id="Txt_nombre" type="text" name="Ingresa tu nombre" class="campInfo"/>
                     <p>Alias</p>
-                    <input type="text" name="Ingresa un alias" class="campInfo"/>
+                    <input id="Txt_alias" type="text" name="Ingresa un alias" class="campInfo"/>
                     <p>Teléfono:</p>
-                    <input type="text" class="campInfo"/>
+                    <input id="Txt_telefono" type="text" class="campInfo" maxlength="10" onkeyUp="return ValNumero(this);"/>
                     <p>Edad:</p>
-                    <input type="text" class="campInfo"/>
+                    <input id="Txt_edad" type="text" class="campInfo"maxlength="3" onkeyUp="return ValNumero(this);"/>
                     <p>Fecha de nacimiento:</p>
-                    <input type="date" class="campInfo"/>
+                    <input id="Txt_fnacimiento" type="date" class="campInfo"/>
                     <p>Email:</p>
-                    <input type="text" name="ejemplo@.com" class="campInfo"/>
+                    <input id="Txt_email" type="text" name="ejemplo@.com" class="campInfo" />
                     <p>Pa&iacute;s:</p>
-                    <input type="text" name="ejemplo@.com" class="campInfo"/>
+                    <input id="txt_pais" type="text" name="ejemplo@.com" class="campInfo"/>
                     <p>Ciudad:</p>
-                    <input type="text" name="ejemplo@.com" class="campInfo"/>
+                    <input id="Txt_ciudad" type="text" name="ejemplo@.com" class="campInfo"/>
                     <h1>Cuentanos tus gustos o Preferencias</h1>
-                    <p class="checks"><input type="checkbox" class="checks2"/>Cines</p>
-                    <p class="checks"><input type="checkbox" class="checks2"/>Eventos</p>
-                    <p class="checks"><input type="checkbox" class="checks2"/>Promos</p>
-                    <p class="checks"><input type="checkbox" class="checks2"/>Comidas</p>
-                    <p class="checks"><input type="checkbox" class="checks2"/>Tecnología</p>
-                    <p class="checks"><input type="checkbox" class="checks2"/>Deportes</p>
-                    <p class="checks"><input type="checkbox" class="checks2"/>Arte</p>
-                    <p class="checks"><input type="checkbox" class="checks2"/>Música</p>
-                    <p class="checks"><input type="checkbox" class="checks2"/>Turismo</p>
+                    <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Cines" class="checks2" id="chk_cines"/>Cines</p>
+                    <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Eventos" class="checks2" id="chk_eventos"/>Eventos</p>
+                    <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Promos" class="checks2" id="chk_promos"/>Promos</p>
+                    <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Comidas" class="checks2" id="chk_comidas"/>Comidas</p>
+                    <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Tecnología" class="checks2" id="chk_tecnologia"/>Tecnología</p>
+                    <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Deportes" class="checks2" id="chk_deportes"/>Deportes</p>
+                    <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Arte" class="checks2" id="chk_artes"/>Arte</p>
+                    <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Música" class="checks2" id="chk_musica"/>Música</p>
+                    <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Turismo" class="checks2" id="chk_turismo"/>Turismo</p>
                 </div>    
-                <a href="#registro2">Siguiente</a>     
+                <a href="#registro2" onclick="captura()">Siguiente</a>     
             </div>         
         </section>
         
@@ -171,10 +172,10 @@
             <div class="contenedor3">
              <img src="images/LogoMT2.png" class="logo2"/>
                 <div class="camposRegistro">
-                    <button class="campInfo2">Login-Facebook</button>
-                  	<button class="campInfo3">Login-Facebook</button>
+                    <button onclick="Login('facebook');" class="campInfo2">Login-Facebook</button>
+                  	<button onclick="Login('twitter');" class="campInfo3">Login-Facebook</button>
                 </div>    
-                <a href="#">Guardar</a>     
+                <a href="#">Continuar</a>     
             </div>         
         </section>
 
