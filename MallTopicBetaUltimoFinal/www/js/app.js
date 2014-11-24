@@ -658,16 +658,18 @@ function CargarCines()
 		 {
 		 	if(FiltroMalls == "" || FiltroMalls == undefined)
 		 	{
-		 		url = WebService + "Events?$expand=Malls,Stores";
+		 		url = WebService + "GetEventos?IdEvento=''&IdMall=''";
 		 	}
 		 	else
 		 	{
-		 		url = WebService + "Malls(guid'"+ FiltroMalls +"')/Events?$expand=Malls,Stores";		
+		 		//url = WebService + "Malls(guid'"+ FiltroMalls +"')/Events?$expand=Malls,Stores";
+		 		url = WebService + "GetEventos?IdEvento=''&IdMall='"+ FiltroMalls +"'";		
 		 	}
 		 }
 		 else
 		 {
-		 	url = WebService + "Malls(guid'"+ Mall +"')/Events?$expand=Malls,Stores";
+		 	//url = WebService + "Malls(guid'"+ Mall +"')/Events?$expand=Malls,Stores";
+		 	url = WebService + "GetEventos?IdEvento=''&IdMall='"+ Mall +"'";
 		 }
 
 
@@ -676,68 +678,36 @@ function CargarCines()
 		 var htmlEventos = '<ul>';
 
 		$.each(AEventos.value, function(index, item) {
-			var favorito = item.favorito;
 			var Store = item.fk_idStore;
 		 	var imagen = item.imagen;
 		 	var urlimagen = '';
+		 	var TempImagen = '';
 
-		 	if(Mall == "" || Mall == undefined)
-		 	{
-		 		if(favorito)
-		 		{
-		 			if(imagen == 'null')
-				 	{
-				 		urlimagen = 'images/Store.png';
-				 	}
-				 	else
-				 	{
-				 		if(Store == 'null' || Store == '' || Store == undefined)
-				 		{
-				 			urlimagen = RutaRecursos + 'Eventos/Malls/' + item.id + '.jpg';
-				 		}
-				 		else
-				 		{
-				 			urlimagen = RutaRecursos + 'Eventos/Locales/' + item.id + '.jpg';
-				 		}
-				 	}
+			if(Store == 'null' || Store == '' || Store == undefined)
+			{
+				TempImagen = RutaRecursos + 'Eventos/Malls/' + item.id + '.jpg';
+				urlimagen = VerificarArchivo("EventosLogos",TempImagen,"");
+			}
+			else
+			{
+				TempImagen = RutaRecursos + 'Eventos/Malls/' + item.id + '.jpg';
+				urlimagen = VerificarArchivo("EventosLogos",TempImagen,"");
+			}
 
-				 	htmlEventos += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetalleEventos" data-transition="slide"><img src="'+ urlimagen +'"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p>- '+ item.descripcion +'</p><p>- '+ item.Malls.nombre +'</p></div><div class="FlechaLocales">Ir</div></li>'; 
-				 	estado = true;
-		 		}
-		 	}
-		 	else
-		 	{
-		 		if(imagen == 'null')
-			 	{
-			 		urlimagen = 'images/Store.png';
-			 	}
-			 	else
-			 	{
-			 		if(Store == 'null' || Store == '' || Store == undefined)
-			 		{
-			 			urlimagen = RutaRecursos + 'Eventos/Malls/' + item.id + '.jpg';
-			 		}
-			 		else
-			 		{
-			 			urlimagen = RutaRecursos + 'Eventos/Locales/' + item.id + '.jpg';
-			 		}
-			 	}
-
-			 	htmlEventos += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetalleEventos" data-transition="slide"><img src="'+ urlimagen +'"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p>- '+ item.descripcion +'</p><p>- '+ item.Malls.nombre +'</p></div><div class="FlechaLocales">Ir</div></li>'; 
-			 	estado = true;
-		 	}
-		 	
+			htmlEventos += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetalleEventos" data-transition="slide"><img src="'+ urlimagen +'"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p>- '+ item.descripcion +'</p><p>- '+ item.Malls.nombre +'</p></div><div class="FlechaLocales">Ir</div></li>'; 
+			estado = true;
 		});
 
 		if(estado==false)
 		{
 			htmlEventos = '<li>No se encontraron Eventos</li>';
 		}
+
 		htmlEventos += '</ul>';
 		$("#EventList").html(htmlEventos);
 	}
 
-	function CargarDetalleEventos () 
+	function CargarDetalleEventos() 
 	{
 		var Evento = getEvento();
 		url = WebService + "Events(guid'"+ Evento +"')/";
@@ -748,24 +718,20 @@ function CargarCines()
 
 		var urlimagen = '';
 		var urllogo = '';
-		 	if(imagen == 'null')
-		 	{
-		 		urlimagen = 'images/Store.png';
-		 	}
-		 	else
-		 	{
-		 		if(mall == 'null')
-		 		{
-		 			urlimagen = RutaRecursos + 'Eventos/Locales/' + AEvento.id + '.jpg';
-		 			urllogo = RutaRecursos + 'Logos/Locales/' + AEvento.fk_idStores + '.png';
-		 		}
-		 		else
-		 		{
-		 			urlimagen = RutaRecursos + 'Eventos/Malls/' + AEvento.id + '.jpg';
-		 			urllogo = RutaRecursos + 'Logos/Malls/' + AEvento.fk_idCC + '.png';
-		 		}
-		 	}
-
+		
+		if(mall == 'null')
+		{
+			urlimagen = RutaRecursos + 'Eventos/Locales/' + AEvento.id + '.jpg';
+			var logotemp = RutaRecursos + 'Logos/Locales/' + AEvento.fk_idStores + '.png'; 
+			urllogo = VerificarArchivo("EventosLogos",logotemp,"");
+		}
+		else
+		{
+			urlimagen = RutaRecursos + 'Eventos/Malls/' + AEvento.id + '.jpg';
+			var logotemp = RutaRecursos + 'Logos/Malls/' + AEvento.fk_idCC + '.png';
+			urllogo = VerificarArchivo("EventosLogos",logotemp,"");
+		}
+		
 		$("#LogoEventos").attr('src',urllogo);
 		$("#NombreEvento").html(AEvento.nombre);
 		$("#ImagenEventos").attr('src',urlimagen);
@@ -1260,6 +1226,16 @@ function CargarCines()
 				if(!file_exist(ruta))
 				{
 					resultado = RutaRecursos + "Headers/HeadersModulos/headerEventos1.png";
+				}
+				else
+				{
+					resultado = ruta;
+				}
+				break;
+			case "EventosLogos":
+				if(!file_exist(ruta))
+				{
+					resultado = "images/Store.png";
 				}
 				else
 				{
