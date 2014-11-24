@@ -1,5 +1,6 @@
 var client = new WindowsAzure.MobileServiceClient("https://actividadservice.azure-mobile.net/","sLoJhypFhkyneeSyoebbAEUHcnsMRr37");
 
+
 function InsertObject(tabla, object)
 {
     if(tabla == "" || tabla == undefined)

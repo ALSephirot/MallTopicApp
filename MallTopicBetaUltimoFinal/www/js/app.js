@@ -788,11 +788,11 @@ function CargarCines()
 
 		if(Mall == "" || Mall == undefined)
 		{
-			url = WebService + "Colections?$expand=Stores";
+			url = WebService + "GetColecciones?idmall=''";
 		}
 		else
 		{
-			url = WebService + "Colections?$expand=Stores";
+			url = WebService + "GetColecciones?idmall='"+Mall+"'";
 		}
 
 		loadDataArray(url);
@@ -800,7 +800,7 @@ function CargarCines()
 		var htmlColec = '<ul>';
 
 		$.each(AColecc.value, function(index, item) {
-			 htmlColec += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetalleColecciones" data-transition="slide"><img src="'+ RutaRecursos + "Colecciones/Portadas/"+ item.id +'.jpg"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p>'+ item.año +'</p><p>'+ item.Stores.nombre +'</p></div><div class="FlechaLocales">Ir</div></li>';
+			 htmlColec += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetalleColecciones" data-transition="slide"><img src="'+ RutaRecursos + "Colecciones/Portadas/"+ item.id +'.jpg"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p>'+ item.año +'</p><p>'+ item.NombreLocal +'</p></div><div class="FlechaLocales">Ir</div></li>';
 			 estado = true;
 		});
 
@@ -1372,19 +1372,13 @@ function CargarCines()
 	function CargarServicios() {
 		var estado = false;
 		var Mall = getCC();
-		var url = WebService + "Malls(guid'"+ Mall +"')?$expand=services_detail&services_detail.orderby=services_detail.orden";
+		var url = WebService + "GetServicios?IdMall='"+Mall+"'";
 		loadDataArray(url);
 		var AServices_Detail = arrayInfo;
 		var Html = '<p>Servicios Disponibles</p><ul>';
-		var AServ = AServices_Detail.services_detail;
-		AServ.sort(function(a,b) {
-			if(a.orden < b.orden) return -1;
-		    if(a.orden > b.orden) return 1;
-		    return 0;
-		});
 
-		$.each(AServ, function(index, item) {
-			url = WebService + "Services(guid'"+ item.fk_IdServicio +"')"
+		$.each(AServices_Detail.value, function(index, item) {
+			url = WebService + "Services(guid'"+ item.id +"')"
 			loadDataArray(url);
 			var AServices = arrayInfo;
 

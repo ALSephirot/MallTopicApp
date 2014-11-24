@@ -175,9 +175,6 @@
     <EntitySetMapping Name="Malls">
       <EntityTypeMapping TypeName="MallTopicFinalModel.Malls">
         <MappingFragment StoreEntitySet="Malls">
-          <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
-          <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
-          <ScalarProperty Name="H_lunes_a_viernes" ColumnName="H_lunes_a_viernes" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="mapa" ColumnName="mapa" />
@@ -205,6 +202,9 @@
           <ScalarProperty Name="facebook" ColumnName="facebook" />
           <ScalarProperty Name="twitter" ColumnName="twitter" />
           <ScalarProperty Name="orden" ColumnName="orden" />
+          <ScalarProperty Name="H_lunes_a_viernes" ColumnName="H_lunes_a_viernes" />
+          <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
+          <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -339,10 +339,6 @@
     <EntitySetMapping Name="Stores">
       <EntityTypeMapping TypeName="MallTopicFinalModel.Stores">
         <MappingFragment StoreEntitySet="Stores">
-          <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
-          <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
-          <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
-          <ScalarProperty Name="H_lunes_a_viernes" ColumnName="H_lunes_a_viernes" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="telefono" ColumnName="telefono" />
@@ -362,6 +358,10 @@
           <ScalarProperty Name="Facebook" ColumnName="Facebook" />
           <ScalarProperty Name="Twitter" ColumnName="Twitter" />
           <ScalarProperty Name="website" ColumnName="website" />
+          <ScalarProperty Name="H_lunes_a_viernes" ColumnName="H_lunes_a_viernes" />
+          <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
+          <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
+          <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -398,6 +398,27 @@
         <ScalarProperty Name="id" ColumnName="fk_idCC" />
       </EndProperty>
     </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="SP_Colecciones" FunctionName="MallTopicFinalModel.Store.SP_Colecciones">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Colecciones_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fechaLanzamiento" ColumnName="fechaLanzamiento" />
+          <ScalarProperty Name="publicar" ColumnName="publicar" />
+          <ScalarProperty Name="creado" ColumnName="creado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="user_created" ColumnName="user_created" />
+          <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+          <ScalarProperty Name="fk_IdStore" ColumnName="fk_IdStore" />
+          <ScalarProperty Name="año" ColumnName="año" />
+          <ScalarProperty Name="especial" ColumnName="especial" />
+          <ScalarProperty Name="fk_idCC" ColumnName="fk_idCC" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="NombreLocal" ColumnName="NombreLocal" />
+          <ScalarProperty Name="NombreMall" ColumnName="NombreMall" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="SP_Consulta_Categorias" FunctionName="MallTopicFinalModel.Store.SP_Consulta_Categorias">
       <ResultMapping>
         <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Consulta_Categorias_Result">
@@ -415,44 +436,31 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="GetCategories" FunctionName="MallTopicFinalModel.Store.SP_Consulta_Categorias" />
-    <FunctionImportMapping FunctionImportName="SP_Tiendas_x_Categorias" FunctionName="MallTopicFinalModel.Store.SP_Tiendas_x_Categorias">
+    <FunctionImportMapping FunctionImportName="SP_Delete_Stores" FunctionName="MallTopicFinalModel.Store.SP_Delete_Stores" />
+    <FunctionImportMapping FunctionImportName="SP_Eventos" FunctionName="MallTopicFinalModel.Store.SP_Eventos">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Tiendas_x_Categorias_Result">
+        <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Eventos_Result">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="numlocal" ColumnName="numlocal" />
-          <ScalarProperty Name="nombre1" ColumnName="nombre1" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="GetStoresxCategories" FunctionName="MallTopicFinalModel.Store.SP_Tiendas_x_Categorias">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="MallTopicFinalModel.GetStoresxCategories">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="fk_idCC" ColumnName="fk_idCC" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="numLocal" ColumnName="numLocal" />
-          <ScalarProperty Name="telefono" ColumnName="telefono" />
-          <ScalarProperty Name="nombreMall" ColumnName="nombreMall" />
-          <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
-          <ScalarProperty Name="logo" ColumnName="logo" />
-          <ScalarProperty Name="horario" ColumnName="horario" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fk_idCC" ColumnName="fk_idCC" />
+          <ScalarProperty Name="fk_idStore" ColumnName="fk_idStore" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="lugar" ColumnName="lugar" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+          <ScalarProperty Name="organizador" ColumnName="organizador" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="web" ColumnName="web" />
           <ScalarProperty Name="publicar" ColumnName="publicar" />
           <ScalarProperty Name="creado" ColumnName="creado" />
           <ScalarProperty Name="modificado" ColumnName="modificado" />
           <ScalarProperty Name="user_created" ColumnName="user_created" />
           <ScalarProperty Name="user_modified" ColumnName="user_modified" />
-          <ScalarProperty Name="correo" ColumnName="correo" />
-          <ScalarProperty Name="facebook" ColumnName="facebook" />
-          <ScalarProperty Name="twitter" ColumnName="twitter" />
-          <ScalarProperty Name="website" ColumnName="website" />
-          <ScalarProperty Name="H_lunes_a_viernes" ColumnName="H_lunes_a_viernes" />
-          <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
-          <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
-          <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
-          <ScalarProperty Name="fk_idcategory" ColumnName="fk_idcategory" />
+          <ScalarProperty Name="favorito" ColumnName="favorito" />
+          <ScalarProperty Name="NombreMall" ColumnName="NombreMall" />
+          <ScalarProperty Name="NombreLocal" ColumnName="NombreLocal" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
@@ -483,33 +491,43 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="SP_Eventos" FunctionName="MallTopicFinalModel.Store.SP_Eventos">
+    <FunctionImportMapping FunctionImportName="SP_Servicios" FunctionName="MallTopicFinalModel.Store.SP_Servicios">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Eventos_Result">
+        <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Servicios_Result">
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="servicio" ColumnName="servicio" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Tiendas_x_Categorias" FunctionName="MallTopicFinalModel.Store.SP_Tiendas_x_Categorias">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Tiendas_x_Categorias_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="fk_idCC" ColumnName="fk_idCC" />
-          <ScalarProperty Name="fk_idStore" ColumnName="fk_idStore" />
-          <ScalarProperty Name="imagen" ColumnName="imagen" />
-          <ScalarProperty Name="lugar" ColumnName="lugar" />
-          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
-          <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
-          <ScalarProperty Name="organizador" ColumnName="organizador" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="numLocal" ColumnName="numLocal" />
           <ScalarProperty Name="telefono" ColumnName="telefono" />
-          <ScalarProperty Name="correo" ColumnName="correo" />
-          <ScalarProperty Name="web" ColumnName="web" />
+          <ScalarProperty Name="nombreMall" ColumnName="nombreMall" />
+          <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+          <ScalarProperty Name="horario" ColumnName="horario" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="publicar" ColumnName="publicar" />
           <ScalarProperty Name="creado" ColumnName="creado" />
           <ScalarProperty Name="modificado" ColumnName="modificado" />
           <ScalarProperty Name="user_created" ColumnName="user_created" />
           <ScalarProperty Name="user_modified" ColumnName="user_modified" />
-          <ScalarProperty Name="favorito" ColumnName="favorito" />
-          <ScalarProperty Name="NombreMall" ColumnName="NombreMall" />
-          <ScalarProperty Name="NombreLocal" ColumnName="NombreLocal" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="facebook" ColumnName="facebook" />
+          <ScalarProperty Name="twitter" ColumnName="twitter" />
+          <ScalarProperty Name="website" ColumnName="website" />
+          <ScalarProperty Name="H_lunes_a_viernes" ColumnName="H_lunes_a_viernes" />
+          <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
+          <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
+          <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+          <ScalarProperty Name="fk_idcategory" ColumnName="fk_idcategory" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="Servicios" FunctionName="MallTopicFinalModel.Store.Servicios" />
   </EntityContainerMapping>
 </Mapping>

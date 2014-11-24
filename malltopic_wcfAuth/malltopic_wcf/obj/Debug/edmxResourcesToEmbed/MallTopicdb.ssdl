@@ -806,14 +806,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="Servicios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="fk_idcc" Type="nvarchar" Mode="In" />
+  <Function Name="SP_Colecciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idmall" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="SP_Consulta_Categorias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Todas" Type="bit" Mode="In" />
     <Parameter Name="IdCategoria" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="Especiales" Type="bit" Mode="In" />
     <Parameter Name="IdMall" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="SP_Delete_Stores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCC" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="filtrofecha" Type="bit" Mode="In" />
+    <Parameter Name="fecha" Type="date" Mode="In" />
   </Function>
   <Function Name="SP_Eventos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdEvento" Type="nvarchar(max)" Mode="In" />
@@ -822,6 +827,9 @@
   <Function Name="SP_Promos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdPromo" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="IdMall" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="SP_Servicios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fk_idcc" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="SP_Tiendas_x_Categorias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdCC" Type="nvarchar(max)" Mode="In" />
