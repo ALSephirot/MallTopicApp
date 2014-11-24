@@ -817,6 +817,10 @@
           <Parameter Name="Especiales" Type="bit" Mode="In" />
           <Parameter Name="IdMall" Type="nvarchar(max)" Mode="In" />
         </Function>
+        <Function Name="SP_Eventos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdEvento" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="IdMall" Type="nvarchar(max)" Mode="In" />
+        </Function>
         <Function Name="SP_Promos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdPromo" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="IdMall" Type="nvarchar(max)" Mode="In" />
@@ -2005,6 +2009,10 @@
             <Parameter Name="IdPromo" Mode="In" Type="String" />
             <Parameter Name="IdMall" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="SP_Eventos" ReturnType="Collection(MallTopicFinalModel.SP_Eventos_Result)">
+            <Parameter Name="IdEvento" Mode="In" Type="String" />
+            <Parameter Name="IdMall" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_Consulta_Categorias_Result">
           <Property Type="Guid" Name="id" Nullable="false" />
@@ -2096,6 +2104,29 @@
           <Property Type="Guid" Name="user_created" Nullable="true" />
           <Property Type="Guid" Name="user_modified" Nullable="true" />
           <Property Type="Guid" Name="fk_idcc" Nullable="true" />
+          <Property Type="String" Name="NombreMall" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="NombreLocal" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SP_Eventos_Result">
+          <Property Type="Guid" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="descripcion" Nullable="true" />
+          <Property Type="Guid" Name="fk_idCC" Nullable="true" />
+          <Property Type="Guid" Name="fk_idStore" Nullable="true" />
+          <Property Type="String" Name="imagen" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="lugar" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="fechaInicio" Nullable="true" />
+          <Property Type="DateTime" Name="fechaFinal" Nullable="true" />
+          <Property Type="String" Name="organizador" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="telefono" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="web" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="publicar" Nullable="true" />
+          <Property Type="DateTime" Name="creado" Nullable="true" />
+          <Property Type="DateTime" Name="modificado" Nullable="true" />
+          <Property Type="Guid" Name="user_created" Nullable="true" />
+          <Property Type="Guid" Name="user_modified" Nullable="true" />
+          <Property Type="Boolean" Name="favorito" Nullable="true" />
           <Property Type="String" Name="NombreMall" Nullable="true" MaxLength="Max" />
           <Property Type="String" Name="NombreLocal" Nullable="true" MaxLength="100" />
         </ComplexType>
@@ -2582,6 +2613,33 @@
                 <ScalarProperty Name="user_created" ColumnName="user_created" />
                 <ScalarProperty Name="user_modified" ColumnName="user_modified" />
                 <ScalarProperty Name="fk_idcc" ColumnName="fk_idcc" />
+                <ScalarProperty Name="NombreMall" ColumnName="NombreMall" />
+                <ScalarProperty Name="NombreLocal" ColumnName="NombreLocal" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Eventos" FunctionName="MallTopicFinalModel.Store.SP_Eventos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Eventos_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="fk_idCC" ColumnName="fk_idCC" />
+                <ScalarProperty Name="fk_idStore" ColumnName="fk_idStore" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="lugar" ColumnName="lugar" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+                <ScalarProperty Name="organizador" ColumnName="organizador" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="web" ColumnName="web" />
+                <ScalarProperty Name="publicar" ColumnName="publicar" />
+                <ScalarProperty Name="creado" ColumnName="creado" />
+                <ScalarProperty Name="modificado" ColumnName="modificado" />
+                <ScalarProperty Name="user_created" ColumnName="user_created" />
+                <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+                <ScalarProperty Name="favorito" ColumnName="favorito" />
                 <ScalarProperty Name="NombreMall" ColumnName="NombreMall" />
                 <ScalarProperty Name="NombreLocal" ColumnName="NombreLocal" />
               </ComplexTypeMapping>

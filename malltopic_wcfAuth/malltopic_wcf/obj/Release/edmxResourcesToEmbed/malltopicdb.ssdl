@@ -812,6 +812,10 @@
     <Parameter Name="Especiales" Type="bit" Mode="In" />
     <Parameter Name="IdMall" Type="nvarchar(max)" Mode="In" />
   </Function>
+  <Function Name="SP_Eventos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEvento" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="IdMall" Type="nvarchar(max)" Mode="In" />
+  </Function>
   <Function Name="SP_Promos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdPromo" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="IdMall" Type="nvarchar(max)" Mode="In" />

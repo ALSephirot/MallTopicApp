@@ -160,5 +160,18 @@ namespace malltopic_wcf
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Promos_Result>("SP_Promos", idPromoParameter, idMallParameter);
         }
+    
+        public virtual ObjectResult<SP_Eventos_Result> SP_Eventos(string idEvento, string idMall)
+        {
+            var idEventoParameter = idEvento != null ?
+                new ObjectParameter("IdEvento", idEvento) :
+                new ObjectParameter("IdEvento", typeof(string));
+    
+            var idMallParameter = idMall != null ?
+                new ObjectParameter("IdMall", idMall) :
+                new ObjectParameter("IdMall", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Eventos_Result>("SP_Eventos", idEventoParameter, idMallParameter);
+        }
     }
 }

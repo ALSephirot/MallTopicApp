@@ -195,6 +195,9 @@
     <Compile Include="SP_Consulta_Categorias_Result.cs">
       <DependentUpon>MallTopicdb.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_Eventos_Result.cs">
+      <DependentUpon>MallTopicdb.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_Promos_Result.cs">
       <DependentUpon>MallTopicdb.tt</DependentUpon>
     </Compile>
@@ -235,6 +238,7 @@
     <None Include="Properties\PublishProfiles\lmcWFC - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\lmcWFC - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %2810%29.pubxml" />
+    <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %2811%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %284%29.pubxml" />
@@ -245,6 +249,7 @@
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %289%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %2810%29.pubxml" />
+    <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %2811%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %284%29.pubxml" />

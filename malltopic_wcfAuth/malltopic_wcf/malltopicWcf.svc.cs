@@ -63,5 +63,12 @@ namespace malltopic_wcf
             MallTopicFinalEntities entities = new MallTopicFinalEntities();
             return entities.SP_Promos(IdPromo, IdMall).ToList();
         }
+
+        [WebGet]
+        public List<SP_Eventos_Result> GetEventos(string IdEvento, string IdMall)
+        {
+            MallTopicFinalEntities entities = new MallTopicFinalEntities();
+            return entities.SP_Eventos(IdEvento, IdMall).ToList();
+        }
     }
 }
