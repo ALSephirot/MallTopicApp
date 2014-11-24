@@ -1,5 +1,6 @@
 
-//variable global 
+//variable global
+var client = new WindowsAzure.MobileServiceClient("https://actividadservice.azure-mobile.net/","sLoJhypFhkyneeSyoebbAEUHcnsMRr37");
 var selectedMall;
 var selectedCategory = "";
 var CantItemLazyLoad = 10;
@@ -53,15 +54,39 @@ jQuery(document).ready(function($) {
 			onBackButton();
 		})
 
+		VerificarRegistro();
+
 		/*$(".btnBuscar").on('click',function(){
 			Buscar();
 		});*/
+
 	}
 	catch(err)
 	{
 		alert(err);
 	}
 });
+
+function VerificarRegistro() {
+    var IdTelefono = GetIdCel();
+    var TablaInsert = client.getTable("regis_users");
+    var queryMalls = TablaInsert.where({ idcelular: localStorage.getItem('IdCelular')});
+
+        queryMalls.read().then(function(argument) {
+            if(argument.length == 0)
+            {
+                localStorage.setItem("VR", "false");
+                $.mobile.changePage('#Login','slide');
+
+            }
+            else
+            {
+                localStorage.setItem("VR", "true");
+                $.mobile.changePage('#Index','slide');
+            }
+        });
+    
+}
 
 function CargarTextoSocial() {
 	var TextosSocial = {
@@ -754,12 +779,9 @@ function CargarCines()
 		$('#AcordeonEventos').html(AcordeonEventos);
 		$("#AcordeonEventos").accordion({collapsible: true});
 		$("#AcordeonEventos").accordion( "refresh" );
-
-
-
 	}
 
-	function CargarColecciones () 
+	function CargarColecciones()
 	{
 		var Mall = getCC();
 		var estado = false;

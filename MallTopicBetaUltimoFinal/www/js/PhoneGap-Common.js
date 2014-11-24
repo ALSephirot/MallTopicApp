@@ -20,9 +20,13 @@ var compassHeading = 0;
 var PhoneGapNetword_watchID = null;
 var PhoneGapCompass_watchID = null;
 var PhoneGapGeolocation_watchID = null;
+var TipoConexion = '';
+var Regis;
 
 var currentUrl;
 //initPhoneGap();
+window.TipoConexion = TipoConexion;
+window.deviceUUID = deviceUUID;
 window.initPhoneGap=initPhoneGap;
 function initPhoneGap() {
 	
@@ -62,11 +66,13 @@ function onDeviceReady() {
     isPhoneGapReady = true;
     
     deviceUUID = device.uuid;
+    localStorage.setItem("IdCelular", deviceUUID);
     navigator.notification.alert(deviceUUID);
     
     // detect for network access
     PhoneGap_networkDetection();
 
+    localStorage.setItem("TC", TipoConexion);
 }
 
 function PhoneGap_networkDetection() {
@@ -85,26 +91,29 @@ function PhoneGap_networkDetection() {
 				PhoneGap_isHighSpeed = false;
                 //setConectado(false);
                 //setAltaVelocidad (false);
-
-                alert('No tienes navegacion, por favor conectate a internet.');
+                TipoConexion = 'NONE';
+                //alert('No tienes navegacion, por favor conectate a internet.');
 				break;
             case Connection.CELL_2G:
 				PhoneGap_isConnected = true;			
                 PhoneGap_isHighSpeed = false;
                 //setConectado(true);
                 //setAltaVelocidad (false);
-                alert('Tu conexion es deficiente, las consultas pueden tardar mas de lo previsto.');
+                TipoConexion = '2G';
+                //alert('Tu conexion es deficiente, las consultas pueden tardar mas de lo previsto.');
                 break;
             case Connection.CELL_3G:
                 PhoneGap_isConnected = true;            
                 PhoneGap_isHighSpeed = false;
                 //setConectado(true);
                 //setAltaVelocidad (false);
-                alert('Tu conexion es deficiente, las consultas pueden tardar mas de lo previsto.');
+                TipoConexion = '3G';
+                //alert('Tu conexion es deficiente, las consultas pueden tardar mas de lo previsto.');
                 break;
             default:
 				PhoneGap_isConnected = true;	
                 PhoneGap_isHighSpeed = true;
+                TipoConexion = '4G-WiFi';
                 //setConectado(true);
                 //setAltaVelocidad (true);
                 break;
@@ -122,4 +131,16 @@ function PhoneGap_networkDetection() {
 		PhoneGap_networkDescription = states[navigator.connection.type];
 		console.log('Connection type: ' + PhoneGap_networkDescription);
     }
+}
+
+function GetTipoConexion() {
+    return TipoConexion;
+}
+
+function GetIdCel() {
+    return deviceUUID;
+}
+
+function GetRegistro() {
+    return Regis;
 }
