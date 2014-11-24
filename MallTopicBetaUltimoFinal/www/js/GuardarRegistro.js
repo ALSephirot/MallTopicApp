@@ -98,7 +98,7 @@ function captura(){
 			arte:ValidarGustos("Arte"),
 			musica:ValidarGustos("Música"),
 			turismo:ValidarGustos("Turismo"),
-			idcelular: localStorage.getItem("IdCelular")
+			idcelular: LocalStorage.getItem("IdCelular")
 	    };
 	
 	InsertRegis('regis_users', DatosUsuarioManual);
