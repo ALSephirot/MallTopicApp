@@ -406,9 +406,15 @@ function ()
 	//Cambio el nombre
 	$("#Encabezado h2").html(ArrayComercios.nombre)
 
+	var NumLoc = "ZC";
+
+	if(ArrayComercios.numLocal != "")
+	{
+		NumLoc = ArrayComercios.numLocal;
+	}
 	//Lleno los botones de llamar y el local
 	var Botones = '<a href="tel:034'+ ArrayComercios.telefono +'" class="btnDetalles"><div class="telephone"></div><p>Llamar</p></a>';
-	Botones += '<div class="btnDetalles"><h3>'+ ArrayComercios.numLocal +'</h3><p>Local</p></div>';
+	Botones += '<div class="btnDetalles"><h3>'+ NumLoc +'</h3><p>Local</p></div>';
 	$("#ContentBotonesDetComer").html(Botones);
 
 	//Lleno el acordeon
@@ -432,11 +438,17 @@ function ()
 		Acordeon += "<p>"+ ArrayComercios.H_domingos_y_festivos +"</p><br/>";
 	}
 
+	var tele = "No aplica";
+
+	if(ArrayComercios.telefono != "")
+	{
+		tele = ArrayComercios.telefono
+	}
 	
 	Acordeon += "<h3>Ubicación</h3>";
 	Acordeon += "<p>"+ArrayComercios.ubicacion+" - Local:"+ ArrayComercios.numLocal +"</p>";
 	Acordeon += "<h3>Teléfono</h3>";
-	Acordeon += "<p>"+ ArrayComercios.telefono +"</p>";
+	Acordeon += "<p>"+ tele +"</p>";
 	Acordeon +="<h3>Descripcion</h3>";
 	Acordeon += "<p>"+ ArrayComercios.descripcion +"</p>";
 		
