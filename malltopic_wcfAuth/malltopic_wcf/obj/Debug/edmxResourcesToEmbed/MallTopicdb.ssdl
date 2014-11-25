@@ -194,6 +194,8 @@
     <Property Name="H_lunes_a_viernes" Type="varchar(max)" />
     <Property Name="H_sabado" Type="varchar(max)" />
     <Property Name="H_domingos_y_festivos" Type="varchar(max)" />
+    <Property Name="youtube" Type="ntext" />
+    <Property Name="Instagram" Type="ntext" />
   </EntityType>
   <EntityType Name="Malls_transport">
     <Key>

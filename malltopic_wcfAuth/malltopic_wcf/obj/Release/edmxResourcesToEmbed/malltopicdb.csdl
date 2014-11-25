@@ -233,6 +233,8 @@
     <NavigationProperty Name="services_detail" Relationship="Self.FK_services_detail_0" FromRole="Malls" ToRole="services_detail" />
     <NavigationProperty Name="transport" Relationship="Self.Malls_transport" FromRole="Malls" ToRole="transport" />
     <NavigationProperty Name="Movies" Relationship="Self.Movies_Malls" FromRole="Malls" ToRole="Movies" />
+    <Property Name="youtube" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Instagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Movies">
     <Key>
@@ -395,7 +397,7 @@
     <Property Name="Facebook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Twitter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="H_lunes_a_viernes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="H_lunes_a_viernes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="H_sabado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="H_domingos_y_festivos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="NombreCategoria" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -407,6 +409,8 @@
     <NavigationProperty Name="Products" Relationship="Self.FK_Productos_Locales" FromRole="Stores" ToRole="Products" />
     <NavigationProperty Name="Promos" Relationship="Self.FK_Promociones_Locales" FromRole="Stores" ToRole="Promos" />
     <NavigationProperty Name="StoresXCategories" Relationship="Self.FK_StoresXCategories_1" FromRole="Stores" ToRole="StoresXCategories" />
+    <Property Name="youtube" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Instagram" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
   </EntityType>
   <EntityType Name="StoresXCategories">
     <Key>

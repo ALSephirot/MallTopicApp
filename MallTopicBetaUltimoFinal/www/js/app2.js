@@ -4,7 +4,6 @@ var selectedMall;
 var selectedCategory="";
 var CantItemLazyLoad = 10;
 var VerConexion = true;
-
 var mallHeader;
 var mallSplash;
 var mallName;
@@ -1694,6 +1693,8 @@ function CargarCines()
 		url = WebService + "Malls(guid'"+ Mall +"')?$expand=Cities";
 		loadDataArray(url);
 		var AMall = arrayInfo;
+
+
 		var htmlMall = "<h2>"+ AMall.nombre +"</h2>";
 		htmlMall += "<h3>Dirección</h3>";
 		htmlMall += "<p>"+ AMall.direccion +"</p>";
@@ -1707,6 +1708,12 @@ function CargarCines()
 		htmlMall += "<p>"+ AMall.web +"</p>";
 
 		$("#ContentInfoGeneral").html(htmlMall);
+
+		$('#facebookinfogeneral').attr("onclick","InAppBrowserOpen('"+ AMall.facebook +"')");
+		$('#twitterinforgeneral').attr("onclick","InAppBrowserOpen('"+ AMall.twitter +"')");
+		$('#youtubeinfogeneral').attr("onclick","InAppBrowserOpen('"+ AMall.youtube +"')");
+		$('#instagrraminfogeneral').attr("onclick","InAppBrowserOpen('"+ AMall.Instagram +"')");
+
 
 
 
@@ -2104,8 +2111,12 @@ function CargarCines()
 
 		$('#IconoEspecial').html(botoncines);
 		$('#IconoEspecial2').html(botongalerias);
+
 		$('#LinkFacebookMall').attr("onclick","InAppBrowserOpen('"+ AMall.facebook +"')");
 		$('#LinkTwitterMall').attr("onclick","InAppBrowserOpen('"+ AMall.twitter +"')");
+		$('#LinkInstagramMall').attr("onclick","InAppBrowserOpen('"+ AMall.youtube +"')");
+		$('#LinkYoutubeMall').attr("onclick","InAppBrowserOpen('"+ AMall.Instagram +"')");
+
 
 	}
 

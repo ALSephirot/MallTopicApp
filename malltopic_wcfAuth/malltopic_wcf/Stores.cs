@@ -48,6 +48,8 @@ namespace malltopic_wcf
         public string H_sabado { get; set; }
         public string H_domingos_y_festivos { get; set; }
         public string NombreCategoria { get; set; }
+        public string youtube { get; set; }
+        public string Instagram { get; set; }
     
         public virtual ICollection<Colections> Colections { get; set; }
         public virtual ICollection<Events> Events { get; set; }

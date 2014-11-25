@@ -439,6 +439,8 @@ function CargarDetalleLoc()
 	Acordeon += "<p>"+ ArrayComercios.telefono +"</p>";
 	Acordeon +="<h3>Descripcion</h3>";
 	Acordeon += "<p>"+ ArrayComercios.descripcion +"</p>";
+		
+
 
 	Acordeon += "</p></div>";
 
@@ -528,5 +530,12 @@ function CargarDetalleLoc()
 	$("#AcordeonLocales").html(Acordeon);
 	$("#AcordeonLocales").accordion({collapsible: true});
 	$( "#AcordeonLocales" ).accordion( "refresh" );
+
+
+	$('#lf').attr("onclick","InAppBrowserOpen('"+ ArrayComercios.Facebook +"')");
+	$('#lt').attr("onclick","InAppBrowserOpen('"+ ArrayComercios.Twitter +"')");
+	$('#li').attr("onclick","InAppBrowserOpen('"+ ArrayComercios.Instagram+"')");
+	$('#ly').attr("onclick","InAppBrowserOpen('"+ ArrayComercios.youtube+"')");
+
 
 }

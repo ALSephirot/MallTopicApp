@@ -175,6 +175,8 @@
     <EntitySetMapping Name="Malls">
       <EntityTypeMapping TypeName="MallTopicFinalModel.Malls">
         <MappingFragment StoreEntitySet="Malls">
+          <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+          <ScalarProperty Name="youtube" ColumnName="youtube" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="mapa" ColumnName="mapa" />

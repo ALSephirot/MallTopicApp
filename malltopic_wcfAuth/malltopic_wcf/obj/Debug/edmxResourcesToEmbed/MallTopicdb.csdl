@@ -233,6 +233,8 @@
     <NavigationProperty Name="services_detail" Relationship="Self.FK_services_detail_0" FromRole="Malls" ToRole="services_detail" />
     <NavigationProperty Name="transport" Relationship="Self.Malls_transport" FromRole="Malls" ToRole="transport" />
     <NavigationProperty Name="Movies" Relationship="Self.Movies_Malls" FromRole="Malls" ToRole="Movies" />
+    <Property Name="youtube" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Instagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Movies">
     <Key>

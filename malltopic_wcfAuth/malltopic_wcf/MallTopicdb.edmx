@@ -199,6 +199,8 @@
           <Property Name="H_lunes_a_viernes" Type="varchar(max)" />
           <Property Name="H_sabado" Type="varchar(max)" />
           <Property Name="H_domingos_y_festivos" Type="varchar(max)" />
+          <Property Name="youtube" Type="ntext" />
+          <Property Name="Instagram" Type="ntext" />
         </EntityType>
         <EntityType Name="Malls_transport">
           <Key>
@@ -359,10 +361,12 @@
           <Property Name="Facebook" Type="nvarchar" MaxLength="50" />
           <Property Name="Twitter" Type="nvarchar" MaxLength="50" />
           <Property Name="website" Type="nvarchar" MaxLength="50" />
-          <Property Name="H_lunes_a_viernes" Type="varchar" MaxLength="50" />
+          <Property Name="H_lunes_a_viernes" Type="varchar(max)" />
           <Property Name="H_sabado" Type="varchar(max)" />
           <Property Name="H_domingos_y_festivos" Type="varchar(max)" />
           <Property Name="NombreCategoria" Type="nvarchar(max)" />
+          <Property Name="youtube" Type="nchar" MaxLength="50" />
+          <Property Name="Instagram" Type="nchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="StoresXCategories">
           <Key>
@@ -1249,6 +1253,8 @@
           <NavigationProperty Name="services_detail" Relationship="Self.FK_services_detail_0" FromRole="Malls" ToRole="services_detail" />
           <NavigationProperty Name="transport" Relationship="Self.Malls_transport" FromRole="Malls" ToRole="transport" />
           <NavigationProperty Name="Movies" Relationship="Self.Movies_Malls" FromRole="Malls" ToRole="Movies" />
+          <Property Name="youtube" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Instagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Movies">
           <Key>
@@ -1411,7 +1417,7 @@
           <Property Name="Facebook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Twitter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="H_lunes_a_viernes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="H_lunes_a_viernes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="H_sabado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="H_domingos_y_festivos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="NombreCategoria" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -1423,6 +1429,8 @@
           <NavigationProperty Name="Products" Relationship="Self.FK_Productos_Locales" FromRole="Stores" ToRole="Products" />
           <NavigationProperty Name="Promos" Relationship="Self.FK_Promociones_Locales" FromRole="Stores" ToRole="Promos" />
           <NavigationProperty Name="StoresXCategories" Relationship="Self.FK_StoresXCategories_1" FromRole="Stores" ToRole="StoresXCategories" />
+          <Property Name="youtube" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Instagram" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="StoresXCategories">
           <Key>
@@ -1995,7 +2003,7 @@
             <End Role="Malls" EntitySet="Malls" />
           </AssociationSet>
           <FunctionImport Name="SP_Colecciones" ReturnType="Collection(MallTopicFinalModel.SP_Colecciones_Result)" >
-            <Parameter Name="idmall" Mode="In" Type="String" />
+          <Parameter Name="idmall" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_Consulta_Categorias" ReturnType="Collection(MallTopicFinalModel.SP_Consulta_Categorias_Result)">
             <Parameter Name="Todas" Mode="In" Type="Boolean" />
@@ -2311,6 +2319,8 @@
           <EntitySetMapping Name="Malls">
             <EntityTypeMapping TypeName="MallTopicFinalModel.Malls">
               <MappingFragment StoreEntitySet="Malls">
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+                <ScalarProperty Name="youtube" ColumnName="youtube" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="mapa" ColumnName="mapa" />
@@ -2475,6 +2485,8 @@
           <EntitySetMapping Name="Stores">
             <EntityTypeMapping TypeName="MallTopicFinalModel.Stores">
               <MappingFragment StoreEntitySet="Stores">
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+                <ScalarProperty Name="youtube" ColumnName="youtube" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="telefono" ColumnName="telefono" />

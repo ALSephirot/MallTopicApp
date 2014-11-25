@@ -194,6 +194,8 @@
     <Property Name="H_lunes_a_viernes" Type="varchar(max)" />
     <Property Name="H_sabado" Type="varchar(max)" />
     <Property Name="H_domingos_y_festivos" Type="varchar(max)" />
+    <Property Name="youtube" Type="ntext" />
+    <Property Name="Instagram" Type="ntext" />
   </EntityType>
   <EntityType Name="Malls_transport">
     <Key>
@@ -354,10 +356,12 @@
     <Property Name="Facebook" Type="nvarchar" MaxLength="50" />
     <Property Name="Twitter" Type="nvarchar" MaxLength="50" />
     <Property Name="website" Type="nvarchar" MaxLength="50" />
-    <Property Name="H_lunes_a_viernes" Type="varchar" MaxLength="50" />
+    <Property Name="H_lunes_a_viernes" Type="varchar(max)" />
     <Property Name="H_sabado" Type="varchar(max)" />
     <Property Name="H_domingos_y_festivos" Type="varchar(max)" />
     <Property Name="NombreCategoria" Type="nvarchar(max)" />
+    <Property Name="youtube" Type="nchar" MaxLength="50" />
+    <Property Name="Instagram" Type="nchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="StoresXCategories">
     <Key>
