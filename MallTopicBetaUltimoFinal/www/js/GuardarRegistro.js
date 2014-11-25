@@ -16,7 +16,8 @@ function GuardarDatosUsuario(red, InfoUser) {
 	    	turismo:false,
 	    	idtwitter: '',
 	    	usertwitter: '',
-	    	UserFacebook: InfoUser.username
+	    	UserFacebook: InfoUser.username,
+	    	idcelular: localStorage.getItem("IdCelular")
 		    	
 	    };
 	}

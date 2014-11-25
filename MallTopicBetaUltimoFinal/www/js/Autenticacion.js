@@ -12,6 +12,7 @@ function Login(Provider) {
 			        setToken(response.access_token,Provider);
 			        //var myJsonString = JSON.stringify(response);
 			        GuardarDatosUsuario(Provider, response);
+			        $.mobile.changePage('#Index','slide');
 			    })
 			    .fail(function (err) {
 			        //handle error with err
@@ -19,6 +20,25 @@ function Login(Provider) {
 				//use result.access_token in your API request 
 				//or use result.get|post|put|del|patch|me methods (see below)
 				//alert('token: ' + result.access_token);
+				
+			})
+			.fail(function (err) {
+			  //handle error with err
+		});
+	}
+	catch(error)
+	{
+		alert(error);
+	}
+}
+
+function LoginRegistro(Provider) {
+	try
+	{
+		OAuth.popup(Provider,{cache: true})
+			.done(function(result) {
+
+				alert('Te has logeado correctamente en '+ Provider);
 				
 			})
 			.fail(function (err) {
