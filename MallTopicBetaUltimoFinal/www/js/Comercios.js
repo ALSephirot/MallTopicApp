@@ -390,7 +390,7 @@ function cargarListaloc(idcate, idpaginacontenedor){
 	}
 }
 
-function CargarDetalleLoc()
+function ()
 {
 	//Capturo el id del local seleccionado
 	var Comercio = GetLocal();
@@ -531,11 +531,37 @@ function CargarDetalleLoc()
 	$("#AcordeonLocales").accordion({collapsible: true});
 	$( "#AcordeonLocales" ).accordion( "refresh" );
 
+	if (ArrayComercios.Facebook)
+	{
+		$('#lf').attr("onclick","InAppBrowserOpen('"+ ArrayComercios.Facebook +"')");
+	}else
+	{
+		$('#lf').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");	
+	}
+	if (ArrayComercios.Twitter) 
+	{
+		$('#lt').attr("onclick","InAppBrowserOpen('"+ ArrayComercios.Twitter +"')");		
+	}else
+	{
+		$('#lt').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");	
+	}
+	if (ArrayComercios.Instagram)
+	{
+		$('#li').attr("onclick","InAppBrowserOpen('"+ ArrayComercios.Instagram+"')");	
+	}else
+	{
+		$('#li').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");	
+	}
+	if (ArrayComercios.youtube) 
+	{
+		$('#ly').attr("onclick","InAppBrowserOpen('"+ ArrayComercios.youtube+"')");	
+	}else
+	{
+		$('#ly').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");	
+	}
+	
+	
 
-	$('#lf').attr("onclick","InAppBrowserOpen('"+ ArrayComercios.Facebook +"')");
-	$('#lt').attr("onclick","InAppBrowserOpen('"+ ArrayComercios.Twitter +"')");
-	$('#li').attr("onclick","InAppBrowserOpen('"+ ArrayComercios.Instagram+"')");
-	$('#ly').attr("onclick","InAppBrowserOpen('"+ ArrayComercios.youtube+"')");
 
 
 }

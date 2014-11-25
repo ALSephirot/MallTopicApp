@@ -862,6 +862,34 @@ jQuery(document).ready(function($) {
 		$("#AcordeonLocales").accordion({collapsible: true});
 		$( "#AcordeonLocales" ).accordion( "refresh" );
 
+		if (ArrayComercios.Facebook)
+	{
+		$('#lf').attr("onclick","InAppBrowserOpen('"+ ArrayComercios.Facebook +"')");
+	}else
+	{
+		$('#lf').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");	
+	}
+	if (ArrayComercios.Twitter) 
+	{
+		$('#lt').attr("onclick","InAppBrowserOpen('"+ ArrayComercios.Twitter +"')");		
+	}else
+	{
+		$('#lt').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");	
+	}
+	if (ArrayComercios.Instagram)
+	{
+		$('#li').attr("onclick","InAppBrowserOpen('"+ ArrayComercios.Instagram+"')");	
+	}else
+	{
+		$('#li').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");	
+	}
+	if (ArrayComercios.youtube) 
+	{
+		$('#ly').attr("onclick","InAppBrowserOpen('"+ ArrayComercios.youtube+"')");	
+	}else
+	{
+		$('#ly').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");	
+	}
 	}
 
 
@@ -1708,15 +1736,35 @@ function CargarCines()
 		htmlMall += "<p>"+ AMall.web +"</p>";
 
 		$("#ContentInfoGeneral").html(htmlMall);
-
-		$('#facebookinfogeneral').attr("onclick","InAppBrowserOpen('"+ AMall.facebook +"')");
-		$('#twitterinforgeneral').attr("onclick","InAppBrowserOpen('"+ AMall.twitter +"')");
-		$('#youtubeinfogeneral').attr("onclick","InAppBrowserOpen('"+ AMall.youtube +"')");
-		$('#instagrraminfogeneral').attr("onclick","InAppBrowserOpen('"+ AMall.Instagram +"')");
-
-
-
-
+			if (AMall.facebook)
+			 {
+			 	$('#facebookinfogeneral').attr("onclick","InAppBrowserOpen('"+ AMall.facebook +"')");
+			 }else
+			 {
+			 	$('#facebookinfogeneral').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+			 }
+			 if (AMall.twitter) 
+			 	{
+			 		$('#twitterinforgeneral').attr("onclick","InAppBrowserOpen('"+ AMall.twitter +"')");
+			 	}else
+			 	{
+			 		$('#twitterinforgeneral').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+			 	}
+			 	if (AMall.youtube) 
+			 	{
+					$('#youtubeinfogeneral').attr("onclick","InAppBrowserOpen('"+ AMall.youtube +"')"); 		
+			 	}else
+			 	{
+		 			$('#youtubeinfogeneral').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+			 	}
+			 	if (AMall.Instagram) 
+			 	{
+					$('#instagrraminfogeneral').attr("onclick","InAppBrowserOpen('"+ AMall.Instagram +"')");
+			 	}
+			 	else
+			 	{
+			 		$('#instagrraminfogeneral').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");	
+			 	}
 	}
 
 	function OnChangedCiudad(select)
@@ -2112,11 +2160,32 @@ function CargarCines()
 		$('#IconoEspecial').html(botoncines);
 		$('#IconoEspecial2').html(botongalerias);
 
+	if (AMall.facebook  )  
+	{
 		$('#LinkFacebookMall').attr("onclick","InAppBrowserOpen('"+ AMall.facebook +"')");
+	}else{
+		$('#LinkFacebookMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+	}
+	if(AMall.twitter)
+	{
 		$('#LinkTwitterMall').attr("onclick","InAppBrowserOpen('"+ AMall.twitter +"')");
-		$('#LinkInstagramMall').attr("onclick","InAppBrowserOpen('"+ AMall.youtube +"')");
+	}else{
+		$('#LinkTwitterMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+	}
+	if (AMall.youtube ) 
+		{
+		$('#LinkInstagramMall').attr("onclick","InAppBrowserOpen('"+ AMall.youtube +"')");	
+	}else
+	{
+		$('#LinkInstagramMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+	}
+	if (AMall.Instagram ) 
+	{
 		$('#LinkYoutubeMall').attr("onclick","InAppBrowserOpen('"+ AMall.Instagram +"')");
-
+	}else
+	{
+		$('#LinkYoutubeMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+	}
 
 	}
 
