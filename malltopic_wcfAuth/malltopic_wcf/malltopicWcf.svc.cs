@@ -44,17 +44,17 @@ namespace malltopic_wcf
         }
 
         [WebGet]
-        public List<Categories> GetCategories(bool todos, bool especial, string idcate, string idmall)
+        public List<SP_Consulta_Categorias_Result> GetCategories(bool todos, bool especial, string idcate, string idmall)
         {
             MallTopicFinalEntities entities = new MallTopicFinalEntities();
-            return entities.GetCategories(todos, idcate, especial, idmall).ToList();
+            return entities.SP_Consulta_Categorias(todos, idcate, especial, idmall).ToList();
         }
 
         [WebGet]
-        public List<GetStoresxCategories> GetStoresxCategories(string IdMall, string IdCategory, string PNombre)
+        public List<SP_Tiendas_x_Categorias_Result> GetStoresxCategories(string IdMall, string IdCategory, string PNombre)
         {
             MallTopicFinalEntities entities = new MallTopicFinalEntities();
-            return entities.GetStoresxCategories(IdMall, IdCategory, PNombre).ToList();
+            return entities.SP_Tiendas_x_Categorias(IdMall, IdCategory, PNombre).ToList();
         }
 
         [WebGet]
@@ -70,5 +70,20 @@ namespace malltopic_wcf
             MallTopicFinalEntities entities = new MallTopicFinalEntities();
             return entities.SP_Eventos(IdEvento, IdMall).ToList();
         }
+
+        [WebGet]
+        public List<SP_Servicios_Result> GetServicios(string IdMall)
+        {
+            MallTopicFinalEntities entities = new MallTopicFinalEntities();
+            return entities.SP_Servicios(IdMall).ToList();
+        }
+
+        [WebGet]
+        public List<SP_Colecciones_Result> GetColecciones(string idmall)
+        {
+            MallTopicFinalEntities entities = new MallTopicFinalEntities();
+            return entities.SP_Colecciones(idmall).ToList();
+        }
+     
     }
 }

@@ -51,6 +51,15 @@ namespace malltopic_wcf
         public virtual DbSet<StoresXCategories> StoresXCategories { get; set; }
         public virtual DbSet<transport> transport { get; set; }
     
+        public virtual ObjectResult<SP_Colecciones_Result> SP_Colecciones(string idmall)
+        {
+            var idmallParameter = idmall != null ?
+                new ObjectParameter("idmall", idmall) :
+                new ObjectParameter("idmall", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Colecciones_Result>("SP_Colecciones", idmallParameter);
+        }
+    
         public virtual ObjectResult<SP_Consulta_Categorias_Result> SP_Consulta_Categorias(Nullable<bool> todas, string idCategoria, Nullable<bool> especiales, string idMall)
         {
             var todasParameter = todas.HasValue ?
@@ -72,46 +81,56 @@ namespace malltopic_wcf
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Consulta_Categorias_Result>("SP_Consulta_Categorias", todasParameter, idCategoriaParameter, especialesParameter, idMallParameter);
         }
     
-        public virtual ObjectResult<Categories> GetCategories(Nullable<bool> todas, string idCategoria, Nullable<bool> especiales, string idMall)
+        public virtual int SP_Delete_Stores(string idCC, Nullable<bool> filtrofecha, Nullable<System.DateTime> fecha)
         {
-            var todasParameter = todas.HasValue ?
-                new ObjectParameter("Todas", todas) :
-                new ObjectParameter("Todas", typeof(bool));
+            var idCCParameter = idCC != null ?
+                new ObjectParameter("IdCC", idCC) :
+                new ObjectParameter("IdCC", typeof(string));
     
-            var idCategoriaParameter = idCategoria != null ?
-                new ObjectParameter("IdCategoria", idCategoria) :
-                new ObjectParameter("IdCategoria", typeof(string));
+            var filtrofechaParameter = filtrofecha.HasValue ?
+                new ObjectParameter("filtrofecha", filtrofecha) :
+                new ObjectParameter("filtrofecha", typeof(bool));
     
-            var especialesParameter = especiales.HasValue ?
-                new ObjectParameter("Especiales", especiales) :
-                new ObjectParameter("Especiales", typeof(bool));
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("fecha", fecha) :
+                new ObjectParameter("fecha", typeof(System.DateTime));
     
-            var idMallParameter = idMall != null ?
-                new ObjectParameter("IdMall", idMall) :
-                new ObjectParameter("IdMall", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Categories>("GetCategories", todasParameter, idCategoriaParameter, especialesParameter, idMallParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Delete_Stores", idCCParameter, filtrofechaParameter, fechaParameter);
         }
     
-        public virtual ObjectResult<Categories> GetCategories(Nullable<bool> todas, string idCategoria, Nullable<bool> especiales, string idMall, MergeOption mergeOption)
+        public virtual ObjectResult<SP_Eventos_Result> SP_Eventos(string idEvento, string idMall)
         {
-            var todasParameter = todas.HasValue ?
-                new ObjectParameter("Todas", todas) :
-                new ObjectParameter("Todas", typeof(bool));
-    
-            var idCategoriaParameter = idCategoria != null ?
-                new ObjectParameter("IdCategoria", idCategoria) :
-                new ObjectParameter("IdCategoria", typeof(string));
-    
-            var especialesParameter = especiales.HasValue ?
-                new ObjectParameter("Especiales", especiales) :
-                new ObjectParameter("Especiales", typeof(bool));
+            var idEventoParameter = idEvento != null ?
+                new ObjectParameter("IdEvento", idEvento) :
+                new ObjectParameter("IdEvento", typeof(string));
     
             var idMallParameter = idMall != null ?
                 new ObjectParameter("IdMall", idMall) :
                 new ObjectParameter("IdMall", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Categories>("GetCategories", mergeOption, todasParameter, idCategoriaParameter, especialesParameter, idMallParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Eventos_Result>("SP_Eventos", idEventoParameter, idMallParameter);
+        }
+    
+        public virtual ObjectResult<SP_Promos_Result> SP_Promos(string idPromo, string idMall)
+        {
+            var idPromoParameter = idPromo != null ?
+                new ObjectParameter("IdPromo", idPromo) :
+                new ObjectParameter("IdPromo", typeof(string));
+    
+            var idMallParameter = idMall != null ?
+                new ObjectParameter("IdMall", idMall) :
+                new ObjectParameter("IdMall", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Promos_Result>("SP_Promos", idPromoParameter, idMallParameter);
+        }
+    
+        public virtual ObjectResult<SP_Servicios_Result> SP_Servicios(string fk_idcc)
+        {
+            var fk_idccParameter = fk_idcc != null ?
+                new ObjectParameter("fk_idcc", fk_idcc) :
+                new ObjectParameter("fk_idcc", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Servicios_Result>("SP_Servicios", fk_idccParameter);
         }
     
         public virtual ObjectResult<SP_Tiendas_x_Categorias_Result> SP_Tiendas_x_Categorias(string idCC, string idCategoria, string pNombre)
@@ -129,58 +148,6 @@ namespace malltopic_wcf
                 new ObjectParameter("PNombre", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Tiendas_x_Categorias_Result>("SP_Tiendas_x_Categorias", idCCParameter, idCategoriaParameter, pNombreParameter);
-        }
-    
-        public virtual ObjectResult<GetStoresxCategories> GetStoresxCategories(string idCC, string idCategoria, string pNombre)
-        {
-            var idCCParameter = idCC != null ?
-                new ObjectParameter("IdCC", idCC) :
-                new ObjectParameter("IdCC", typeof(string));
-    
-            var idCategoriaParameter = idCategoria != null ?
-                new ObjectParameter("IdCategoria", idCategoria) :
-                new ObjectParameter("IdCategoria", typeof(string));
-    
-            var pNombreParameter = pNombre != null ?
-                new ObjectParameter("PNombre", pNombre) :
-                new ObjectParameter("PNombre", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetStoresxCategories>("GetStoresxCategories", idCCParameter, idCategoriaParameter, pNombreParameter);
-        }
-    
-        public virtual ObjectResult<SP_Promos_Result> SP_Promos(string idPromo, string idMall)
-        {
-            var idPromoParameter = idPromo != null ?
-                new ObjectParameter("IdPromo", idPromo) :
-                new ObjectParameter("IdPromo", typeof(string));
-    
-            var idMallParameter = idMall != null ?
-                new ObjectParameter("IdMall", idMall) :
-                new ObjectParameter("IdMall", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Promos_Result>("SP_Promos", idPromoParameter, idMallParameter);
-        }
-    
-        public virtual ObjectResult<SP_Eventos_Result> SP_Eventos(string idEvento, string idMall)
-        {
-            var idEventoParameter = idEvento != null ?
-                new ObjectParameter("IdEvento", idEvento) :
-                new ObjectParameter("IdEvento", typeof(string));
-    
-            var idMallParameter = idMall != null ?
-                new ObjectParameter("IdMall", idMall) :
-                new ObjectParameter("IdMall", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Eventos_Result>("SP_Eventos", idEventoParameter, idMallParameter);
-        }
-    
-        public virtual ObjectResult<string> Servicios(string fk_idcc)
-        {
-            var fk_idccParameter = fk_idcc != null ?
-                new ObjectParameter("fk_idcc", fk_idcc) :
-                new ObjectParameter("fk_idcc", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("Servicios", fk_idccParameter);
         }
     }
 }

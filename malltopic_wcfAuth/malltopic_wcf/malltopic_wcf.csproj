@@ -140,12 +140,6 @@
     <Compile Include="Gallery_detail.cs">
       <DependentUpon>MallTopicdb.tt</DependentUpon>
     </Compile>
-    <Compile Include="GetStoresxCategories.cs">
-      <DependentUpon>MallTopicdb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GetStoresxCategories_Result.cs">
-      <DependentUpon>MallTopicdb.tt</DependentUpon>
-    </Compile>
     <Compile Include="Malls.cs">
       <DependentUpon>MallTopicdb.tt</DependentUpon>
     </Compile>
@@ -192,6 +186,9 @@
     <Compile Include="services_detail.cs">
       <DependentUpon>MallTopicdb.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_Colecciones_Result.cs">
+      <DependentUpon>MallTopicdb.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_Consulta_Categorias_Result.cs">
       <DependentUpon>MallTopicdb.tt</DependentUpon>
     </Compile>
@@ -199,6 +196,9 @@
       <DependentUpon>MallTopicdb.tt</DependentUpon>
     </Compile>
     <Compile Include="SP_Promos_Result.cs">
+      <DependentUpon>MallTopicdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Servicios_Result.cs">
       <DependentUpon>MallTopicdb.tt</DependentUpon>
     </Compile>
     <Compile Include="SP_Tiendas_x_Categorias_Result.cs">
@@ -239,6 +239,7 @@
     <None Include="Properties\PublishProfiles\lmcWFC - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %2810%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %2811%29.pubxml" />
+    <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %2812%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %284%29.pubxml" />
@@ -250,6 +251,7 @@
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %2810%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %2811%29.pubxml" />
+    <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %2812%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %284%29.pubxml" />

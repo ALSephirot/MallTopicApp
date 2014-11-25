@@ -105,6 +105,7 @@ function captura(){
 
 }
 
+
 function ValidarGustos(gusto){
 	var check = $("input[type=checkbox]:checked");
 	var resultado = false;

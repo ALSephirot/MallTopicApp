@@ -811,14 +811,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="Servicios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="fk_idcc" Type="nvarchar" Mode="In" />
+        <Function Name="SP_Colecciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idmall" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="SP_Consulta_Categorias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Todas" Type="bit" Mode="In" />
           <Parameter Name="IdCategoria" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="Especiales" Type="bit" Mode="In" />
           <Parameter Name="IdMall" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SP_Delete_Stores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCC" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="filtrofecha" Type="bit" Mode="In" />
+          <Parameter Name="fecha" Type="date" Mode="In" />
         </Function>
         <Function Name="SP_Eventos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdEvento" Type="nvarchar(max)" Mode="In" />
@@ -827,6 +832,9 @@
         <Function Name="SP_Promos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdPromo" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="IdMall" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SP_Servicios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fk_idcc" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="SP_Tiendas_x_Categorias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdCC" Type="nvarchar(max)" Mode="In" />
@@ -1223,6 +1231,9 @@
           <Property Name="facebook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="twitter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="orden" Type="Int32" />
+          <Property Name="H_lunes_a_viernes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="H_sabado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="H_domingos_y_festivos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Aprovaciones" Relationship="Self.FK_Aprovaciones_2" FromRole="Malls" ToRole="Aprovaciones" />
           <NavigationProperty Name="Categories" Relationship="Self.FK_Categories_0" FromRole="Malls" ToRole="Categories" />
           <NavigationProperty Name="Cinema" Relationship="Self.FK_Cines_mall" FromRole="Malls" ToRole="Cinema" />
@@ -1238,9 +1249,6 @@
           <NavigationProperty Name="services_detail" Relationship="Self.FK_services_detail_0" FromRole="Malls" ToRole="services_detail" />
           <NavigationProperty Name="transport" Relationship="Self.Malls_transport" FromRole="Malls" ToRole="transport" />
           <NavigationProperty Name="Movies" Relationship="Self.Movies_Malls" FromRole="Malls" ToRole="Movies" />
-          <Property Name="H_lunes_a_viernes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="H_sabado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="H_domingos_y_festivos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Movies">
           <Key>
@@ -1403,6 +1411,10 @@
           <Property Name="Facebook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Twitter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="H_lunes_a_viernes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="H_sabado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="H_domingos_y_festivos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NombreCategoria" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Colections" Relationship="Self.FK_Colections_0" FromRole="Stores" ToRole="Colections" />
           <NavigationProperty Name="Events" Relationship="Self.FK_Events_Stores" FromRole="Stores" ToRole="Events" />
           <NavigationProperty Name="Favorites" Relationship="Self.FK_Favorites_1" FromRole="Stores" ToRole="Favorites" />
@@ -1411,10 +1423,6 @@
           <NavigationProperty Name="Products" Relationship="Self.FK_Productos_Locales" FromRole="Stores" ToRole="Products" />
           <NavigationProperty Name="Promos" Relationship="Self.FK_Promociones_Locales" FromRole="Stores" ToRole="Promos" />
           <NavigationProperty Name="StoresXCategories" Relationship="Self.FK_StoresXCategories_1" FromRole="Stores" ToRole="StoresXCategories" />
-          <Property Name="H_lunes_a_viernes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="H_sabado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="H_domingos_y_festivos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="NombreCategoria" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="StoresXCategories">
           <Key>
@@ -1986,40 +1994,54 @@
             <End Role="Movies" EntitySet="Movies" />
             <End Role="Malls" EntitySet="Malls" />
           </AssociationSet>
+          <FunctionImport Name="SP_Colecciones" ReturnType="Collection(MallTopicFinalModel.SP_Colecciones_Result)" >
+            <Parameter Name="idmall" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="SP_Consulta_Categorias" ReturnType="Collection(MallTopicFinalModel.SP_Consulta_Categorias_Result)">
             <Parameter Name="Todas" Mode="In" Type="Boolean" />
             <Parameter Name="IdCategoria" Mode="In" Type="String" />
             <Parameter Name="Especiales" Mode="In" Type="Boolean" />
             <Parameter Name="IdMall" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetCategories" EntitySet="Categories" ReturnType="Collection(MallTopicFinalModel.Categories)">
-            <Parameter Name="Todas" Mode="In" Type="Boolean" />
-            <Parameter Name="IdCategoria" Mode="In" Type="String" />
-            <Parameter Name="Especiales" Mode="In" Type="Boolean" />
+          <FunctionImport Name="SP_Delete_Stores">
+            <Parameter Name="IdCC" Mode="In" Type="String" />
+            <Parameter Name="filtrofecha" Mode="In" Type="Boolean" />
+            <Parameter Name="fecha" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Eventos" ReturnType="Collection(MallTopicFinalModel.SP_Eventos_Result)">
+            <Parameter Name="IdEvento" Mode="In" Type="String" />
             <Parameter Name="IdMall" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Promos" ReturnType="Collection(MallTopicFinalModel.SP_Promos_Result)">
+            <Parameter Name="IdPromo" Mode="In" Type="String" />
+            <Parameter Name="IdMall" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Servicios" ReturnType="Collection(MallTopicFinalModel.SP_Servicios_Result)">
+          <Parameter Name="fk_idcc" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_Tiendas_x_Categorias" ReturnType="Collection(MallTopicFinalModel.SP_Tiendas_x_Categorias_Result)">
             <Parameter Name="IdCC" Mode="In" Type="String" />
             <Parameter Name="IdCategoria" Mode="In" Type="String" />
             <Parameter Name="PNombre" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetStoresxCategories" ReturnType="Collection(MallTopicFinalModel.GetStoresxCategories)">
-            <Parameter Name="IdCC" Mode="In" Type="String" />
-            <Parameter Name="IdCategoria" Mode="In" Type="String" />
-            <Parameter Name="PNombre" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="SP_Promos" ReturnType="Collection(MallTopicFinalModel.SP_Promos_Result)">
-            <Parameter Name="IdPromo" Mode="In" Type="String" />
-            <Parameter Name="IdMall" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="SP_Eventos" ReturnType="Collection(MallTopicFinalModel.SP_Eventos_Result)">
-            <Parameter Name="IdEvento" Mode="In" Type="String" />
-            <Parameter Name="IdMall" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="Servicios" ReturnType="Collection(String)">
-          <Parameter Name="fk_idcc" Mode="In" Type="String" />
-          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="SP_Colecciones_Result">
+          <Property Type="Guid" Name="id" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="fechaLanzamiento" Nullable="true" />
+          <Property Type="Boolean" Name="publicar" Nullable="true" />
+          <Property Type="DateTime" Name="creado" Nullable="true" />
+          <Property Type="DateTime" Name="modificado" Nullable="true" />
+          <Property Type="Guid" Name="user_created" Nullable="true" />
+          <Property Type="Guid" Name="user_modified" Nullable="true" />
+          <Property Type="Guid" Name="fk_IdStore" Nullable="true" />
+          <Property Type="Int32" Name="año" Nullable="true" />
+          <Property Type="Boolean" Name="especial" Nullable="true" />
+          <Property Type="Guid" Name="fk_idCC" Nullable="true" />
+          <Property Type="String" Name="descripcion" Nullable="true" />
+          <Property Type="String" Name="NombreLocal" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="NombreMall" Nullable="true" MaxLength="Max" />
+          </ComplexType>
         <ComplexType Name="SP_Consulta_Categorias_Result">
           <Property Type="Guid" Name="id" Nullable="false" />
           <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
@@ -2033,62 +2055,28 @@
           <Property Type="Boolean" Name="especial" Nullable="true" />
           <Property Type="Guid" Name="fk_idCC" Nullable="true" />
         </ComplexType>
-        <ComplexType Name="SP_Tiendas_x_Categorias_Result">
+        <ComplexType Name="SP_Eventos_Result">
           <Property Type="Guid" Name="id" Nullable="false" />
-          <Property Type="String" Name="nombre" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="numlocal" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="nombre1" Nullable="true" MaxLength="Max" />
-        </ComplexType>
-        <ComplexType Name="GetStoresxCategories_Result">
-          <Property Type="Guid" Name="id" Nullable="false" />
-          <Property Type="Guid" Name="fk_idCC" Nullable="false" />
-          <Property Type="String" Name="nombre" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="numLocal" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="telefono" Nullable="true" MaxLength="80" />
-          <Property Type="String" Name="nombreMall" Nullable="true" MaxLength="Max" />
-          <Property Type="String" Name="ubicacion" Nullable="true" MaxLength="Max" />
-          <Property Type="String" Name="logo" Nullable="true" MaxLength="Max" />
-          <Property Type="String" Name="horario" Nullable="true" MaxLength="Max" />
-          <Property Type="String" Name="descripcion" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="descripcion" Nullable="true" />
+          <Property Type="Guid" Name="fk_idCC" Nullable="true" />
+          <Property Type="Guid" Name="fk_idStore" Nullable="true" />
+          <Property Type="String" Name="imagen" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="lugar" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="fechaInicio" Nullable="true" />
+          <Property Type="DateTime" Name="fechaFinal" Nullable="true" />
+          <Property Type="String" Name="organizador" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="telefono" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="web" Nullable="true" MaxLength="50" />
           <Property Type="Boolean" Name="publicar" Nullable="true" />
           <Property Type="DateTime" Name="creado" Nullable="true" />
           <Property Type="DateTime" Name="modificado" Nullable="true" />
           <Property Type="Guid" Name="user_created" Nullable="true" />
           <Property Type="Guid" Name="user_modified" Nullable="true" />
-          <Property Type="String" Name="correo" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="facebook" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="twitter" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="website" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="H_lunes_a_viernes" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="H_sabado" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="H_domingos_y_festivos" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="NombreCategoria" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="GetStoresxCategories">
-          <Property Type="Guid" Name="id" Nullable="false" />
-          <Property Type="Guid" Name="fk_idCC" Nullable="false" />
-          <Property Type="String" Name="nombre" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="numLocal" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="telefono" Nullable="true" MaxLength="80" />
-          <Property Type="String" Name="nombreMall" Nullable="true" MaxLength="Max" />
-          <Property Type="String" Name="ubicacion" Nullable="true" MaxLength="Max" />
-          <Property Type="String" Name="logo" Nullable="true" MaxLength="Max" />
-          <Property Type="String" Name="horario" Nullable="true" MaxLength="Max" />
-          <Property Type="String" Name="descripcion" Nullable="true" MaxLength="Max" />
-          <Property Type="Boolean" Name="publicar" Nullable="true" />
-          <Property Type="DateTime" Name="creado" Nullable="true" />
-          <Property Type="DateTime" Name="modificado" Nullable="true" />
-          <Property Type="Guid" Name="user_created" Nullable="true" />
-          <Property Type="Guid" Name="user_modified" Nullable="true" />
-          <Property Type="String" Name="correo" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="facebook" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="twitter" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="website" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="H_lunes_a_viernes" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="H_sabado" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="H_domingos_y_festivos" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="NombreCategoria" Nullable="true" MaxLength="50" />
-          <Property Type="Guid" Name="fk_idcategory" Nullable="true" />
+          <Property Type="Boolean" Name="favorito" Nullable="true" />
+          <Property Type="String" Name="NombreMall" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="NombreLocal" Nullable="true" MaxLength="100" />
         </ComplexType>
         <ComplexType Name="SP_Promos_Result">
           <Property Type="Guid" Name="id" Nullable="false" />
@@ -2113,28 +2101,35 @@
           <Property Type="String" Name="NombreMall" Nullable="true" MaxLength="Max" />
           <Property Type="String" Name="NombreLocal" Nullable="true" MaxLength="100" />
         </ComplexType>
-        <ComplexType Name="SP_Eventos_Result">
+        <ComplexType Name="SP_Servicios_Result">
           <Property Type="Guid" Name="id" Nullable="false" />
-          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="descripcion" Nullable="true" />
-          <Property Type="Guid" Name="fk_idCC" Nullable="true" />
-          <Property Type="Guid" Name="fk_idStore" Nullable="true" />
-          <Property Type="String" Name="imagen" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="lugar" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="fechaInicio" Nullable="true" />
-          <Property Type="DateTime" Name="fechaFinal" Nullable="true" />
-          <Property Type="String" Name="organizador" Nullable="true" MaxLength="50" />
-          <Property Type="Decimal" Name="telefono" Nullable="true" Precision="18" Scale="0" />
-          <Property Type="String" Name="correo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="web" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="servicio" Nullable="false" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="SP_Tiendas_x_Categorias_Result">
+          <Property Type="Guid" Name="id" Nullable="false" />
+          <Property Type="Guid" Name="fk_idCC" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="numLocal" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="telefono" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="nombreMall" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="ubicacion" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="logo" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="horario" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="descripcion" Nullable="true" MaxLength="Max" />
           <Property Type="Boolean" Name="publicar" Nullable="true" />
           <Property Type="DateTime" Name="creado" Nullable="true" />
           <Property Type="DateTime" Name="modificado" Nullable="true" />
           <Property Type="Guid" Name="user_created" Nullable="true" />
           <Property Type="Guid" Name="user_modified" Nullable="true" />
-          <Property Type="Boolean" Name="favorito" Nullable="true" />
-          <Property Type="String" Name="NombreMall" Nullable="true" MaxLength="Max" />
-          <Property Type="String" Name="NombreLocal" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="correo" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="facebook" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="twitter" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="website" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="H_lunes_a_viernes" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="H_sabado" Nullable="true" />
+          <Property Type="String" Name="H_domingos_y_festivos" Nullable="true" />
+          <Property Type="String" Name="NombreCategoria" Nullable="true" MaxLength="50" />
+          <Property Type="Guid" Name="fk_idcategory" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2316,9 +2311,6 @@
           <EntitySetMapping Name="Malls">
             <EntityTypeMapping TypeName="MallTopicFinalModel.Malls">
               <MappingFragment StoreEntitySet="Malls">
-                <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
-                <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
-                <ScalarProperty Name="H_lunes_a_viernes" ColumnName="H_lunes_a_viernes" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="mapa" ColumnName="mapa" />
@@ -2346,6 +2338,9 @@
                 <ScalarProperty Name="facebook" ColumnName="facebook" />
                 <ScalarProperty Name="twitter" ColumnName="twitter" />
                 <ScalarProperty Name="orden" ColumnName="orden" />
+                <ScalarProperty Name="H_lunes_a_viernes" ColumnName="H_lunes_a_viernes" />
+                <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
+                <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2480,10 +2475,6 @@
           <EntitySetMapping Name="Stores">
             <EntityTypeMapping TypeName="MallTopicFinalModel.Stores">
               <MappingFragment StoreEntitySet="Stores">
-                <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
-                <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
-                <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
-                <ScalarProperty Name="H_lunes_a_viernes" ColumnName="H_lunes_a_viernes" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="telefono" ColumnName="telefono" />
@@ -2503,6 +2494,10 @@
                 <ScalarProperty Name="Facebook" ColumnName="Facebook" />
                 <ScalarProperty Name="Twitter" ColumnName="Twitter" />
                 <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="H_lunes_a_viernes" ColumnName="H_lunes_a_viernes" />
+                <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
+                <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
+                <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2539,6 +2534,27 @@
               <ScalarProperty Name="id" ColumnName="fk_idCC" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="SP_Colecciones" FunctionName="MallTopicFinalModel.Store.SP_Colecciones">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Colecciones_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="fechaLanzamiento" ColumnName="fechaLanzamiento" />
+                <ScalarProperty Name="publicar" ColumnName="publicar" />
+                <ScalarProperty Name="creado" ColumnName="creado" />
+                <ScalarProperty Name="modificado" ColumnName="modificado" />
+                <ScalarProperty Name="user_created" ColumnName="user_created" />
+                <ScalarProperty Name="user_modified" ColumnName="user_modified" />
+                <ScalarProperty Name="fk_IdStore" ColumnName="fk_IdStore" />
+                <ScalarProperty Name="año" ColumnName="año" />
+                <ScalarProperty Name="especial" ColumnName="especial" />
+                <ScalarProperty Name="fk_idCC" ColumnName="fk_idCC" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="NombreLocal" ColumnName="NombreLocal" />
+                <ScalarProperty Name="NombreMall" ColumnName="NombreMall" />
+                </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_Consulta_Categorias" FunctionName="MallTopicFinalModel.Store.SP_Consulta_Categorias">
             <ResultMapping>
               <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Consulta_Categorias_Result">
@@ -2556,44 +2572,31 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetCategories" FunctionName="MallTopicFinalModel.Store.SP_Consulta_Categorias" />
-          <FunctionImportMapping FunctionImportName="SP_Tiendas_x_Categorias" FunctionName="MallTopicFinalModel.Store.SP_Tiendas_x_Categorias">
+          <FunctionImportMapping FunctionImportName="SP_Delete_Stores" FunctionName="MallTopicFinalModel.Store.SP_Delete_Stores" />
+          <FunctionImportMapping FunctionImportName="SP_Eventos" FunctionName="MallTopicFinalModel.Store.SP_Eventos">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Tiendas_x_Categorias_Result">
+              <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Eventos_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="numlocal" ColumnName="numlocal" />
-                <ScalarProperty Name="nombre1" ColumnName="nombre1" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetStoresxCategories" FunctionName="MallTopicFinalModel.Store.SP_Tiendas_x_Categorias" >
-          <ResultMapping>
-              <ComplexTypeMapping TypeName="MallTopicFinalModel.GetStoresxCategories">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="fk_idCC" ColumnName="fk_idCC" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="numLocal" ColumnName="numLocal" />
-                <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="nombreMall" ColumnName="nombreMall" />
-                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
-                <ScalarProperty Name="logo" ColumnName="logo" />
-                <ScalarProperty Name="horario" ColumnName="horario" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="fk_idCC" ColumnName="fk_idCC" />
+                <ScalarProperty Name="fk_idStore" ColumnName="fk_idStore" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="lugar" ColumnName="lugar" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+                <ScalarProperty Name="organizador" ColumnName="organizador" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="web" ColumnName="web" />
                 <ScalarProperty Name="publicar" ColumnName="publicar" />
                 <ScalarProperty Name="creado" ColumnName="creado" />
                 <ScalarProperty Name="modificado" ColumnName="modificado" />
                 <ScalarProperty Name="user_created" ColumnName="user_created" />
                 <ScalarProperty Name="user_modified" ColumnName="user_modified" />
-                <ScalarProperty Name="correo" ColumnName="correo" />
-                <ScalarProperty Name="facebook" ColumnName="facebook" />
-                <ScalarProperty Name="twitter" ColumnName="twitter" />
-                <ScalarProperty Name="website" ColumnName="website" />
-                <ScalarProperty Name="H_lunes_a_viernes" ColumnName="H_lunes_a_viernes" />
-                <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
-                <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
-                <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
-                <ScalarProperty Name="fk_idcategory" ColumnName="fk_idcategory" />
+                <ScalarProperty Name="favorito" ColumnName="favorito" />
+                <ScalarProperty Name="NombreMall" ColumnName="NombreMall" />
+                <ScalarProperty Name="NombreLocal" ColumnName="NombreLocal" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -2624,34 +2627,44 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_Eventos" FunctionName="MallTopicFinalModel.Store.SP_Eventos">
+          <FunctionImportMapping FunctionImportName="SP_Servicios" FunctionName="MallTopicFinalModel.Store.SP_Servicios">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Eventos_Result">
+              <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Servicios_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="servicio" ColumnName="servicio" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Tiendas_x_Categorias" FunctionName="MallTopicFinalModel.Store.SP_Tiendas_x_Categorias">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Tiendas_x_Categorias_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="fk_idCC" ColumnName="fk_idCC" />
-                <ScalarProperty Name="fk_idStore" ColumnName="fk_idStore" />
-                <ScalarProperty Name="imagen" ColumnName="imagen" />
-                <ScalarProperty Name="lugar" ColumnName="lugar" />
-                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
-                <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
-                <ScalarProperty Name="organizador" ColumnName="organizador" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="numLocal" ColumnName="numLocal" />
                 <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="correo" ColumnName="correo" />
-                <ScalarProperty Name="web" ColumnName="web" />
+                <ScalarProperty Name="nombreMall" ColumnName="nombreMall" />
+                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+                <ScalarProperty Name="logo" ColumnName="logo" />
+                <ScalarProperty Name="horario" ColumnName="horario" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="publicar" ColumnName="publicar" />
                 <ScalarProperty Name="creado" ColumnName="creado" />
                 <ScalarProperty Name="modificado" ColumnName="modificado" />
                 <ScalarProperty Name="user_created" ColumnName="user_created" />
                 <ScalarProperty Name="user_modified" ColumnName="user_modified" />
-                <ScalarProperty Name="favorito" ColumnName="favorito" />
-                <ScalarProperty Name="NombreMall" ColumnName="NombreMall" />
-                <ScalarProperty Name="NombreLocal" ColumnName="NombreLocal" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="facebook" ColumnName="facebook" />
+                <ScalarProperty Name="twitter" ColumnName="twitter" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="H_lunes_a_viernes" ColumnName="H_lunes_a_viernes" />
+                <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
+                <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
+                <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+                <ScalarProperty Name="fk_idcategory" ColumnName="fk_idcategory" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Servicios" FunctionName="MallTopicFinalModel.Store.Servicios" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
