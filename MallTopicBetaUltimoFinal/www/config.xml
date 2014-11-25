@@ -3,7 +3,7 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.phonegap.malltopicbeta"
+        id        = "com.phonegap.malltopic"
         version   = "1.0.0">
 
     <name>MallTopic</name>
@@ -12,7 +12,7 @@
         Aplicacion de Centros Comercioles.
     </description>
 
-    <author href="http://phonegap.com" email="support@phonegap.com">
+    <author href="http://www.malltopic.com/mt" email="soporte@malltopic.com">
         La Chica Mall Colombia Team
     </author>
 
@@ -43,7 +43,7 @@
 
 
     <!-- Customize your app and platform with the preference element. -->
-    <preference name="phonegap-version"      value="3.5.0" />  <!-- all: current version of PhoneGap -->
+    <preference name="phonegap-version"      value="3.6.3" />  <!-- all: current version of PhoneGap -->
 
     <preference name="INTERNET"                value="true"/>
     <preference name="orientation"                value="portrait" />        <!-- all: default means both landscape and portrait are enabled -->
@@ -65,11 +65,11 @@
     <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 
     <!-- Plugins can also be added here. -->
-    <gap:plugin name="org.apache.cordova.network-information" version="0.2.7" />
-    <gap:plugin name="org.apache.cordova.geolocation" version="0.3.7" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" version="0.3.3" />
+    <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
+    <gap:plugin name="org.apache.cordova.geolocation" version="0.3.10" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
     <gap:plugin name="com.jaeger.html5video" version="1.2.1" />
-    <gap:plugin name="org.apache.cordova.device" version="0.2.8" />
+    <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
     <gap:plugin name="com.oauthio.plugins.oauthio" version="0.2.4" />
     <!--
         <gap:plugin name="Example" />
