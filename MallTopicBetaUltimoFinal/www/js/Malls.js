@@ -101,8 +101,33 @@ function CargarIndexMall() {
 
 	$('#IconoEspecial').html(botoncines);
 	$('#IconoEspecial2').html(botongalerias);
-	$('#LinkFacebookMall').attr("onclick","InAppBrowserOpen('"+ AMall.facebook +"')");
-	$('#LinkTwitterMall').attr("onclick","InAppBrowserOpen('"+ AMall.twitter +"')");
+	
+	if (AMall.facebook  )  
+	{
+		$('#LinkFacebookMall').attr("onclick","InAppBrowserOpen('"+ AMall.facebook +"')");
+	}else{
+		$('#LinkFacebookMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+	}
+	if(AMall.twitter)
+	{
+		$('#LinkTwitterMall').attr("onclick","InAppBrowserOpen('"+ AMall.twitter +"')");
+	}else{
+		$('#LinkTwitterMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+	}
+	if (AMall.youtube ) 
+		{
+		$('#LinkInstagramMall').attr("onclick","InAppBrowserOpen('"+ AMall.youtube +"')");	
+	}else
+	{
+		$('#LinkInstagramMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+	}
+	if (AMall.Instagram ) 
+	{
+		$('#LinkYoutubeMall').attr("onclick","InAppBrowserOpen('"+ AMall.Instagram +"')");
+	}else
+	{
+		$('#LinkYoutubeMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+	}
 
 }
 
@@ -156,6 +181,36 @@ function CargarInfoGeneral () {
 	htmlMall += "<p>"+ AMall.web +"</p>";
 
 	$("#ContentInfoGeneral").html(htmlMall);
+
+	if (AMall.facebook)
+			 {
+			 	$('#facebookinfogeneral').attr("onclick","InAppBrowserOpen('"+ AMall.facebook +"')");
+			 }else
+			 {
+			 	$('#facebookinfogeneral').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+			 }
+			 if (AMall.twitter) 
+			 	{
+			 		$('#twitterinforgeneral').attr("onclick","InAppBrowserOpen('"+ AMall.twitter +"')");
+			 	}else
+			 	{
+			 		$('#twitterinforgeneral').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+			 	}
+			 	if (AMall.youtube) 
+			 	{
+					$('#youtubeinfogeneral').attr("onclick","InAppBrowserOpen('"+ AMall.youtube +"')"); 		
+			 	}else
+			 	{
+		 			$('#youtubeinfogeneral').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+			 	}
+			 	if (AMall.Instagram) 
+			 	{
+					$('#instagrraminfogeneral').attr("onclick","InAppBrowserOpen('"+ AMall.Instagram +"')");
+			 	}
+			 	else
+			 	{
+			 		$('#instagrraminfogeneral').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");	
+			 	}
 
 }
 
