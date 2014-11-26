@@ -216,7 +216,7 @@ function PhoneGapGeolocation_onError(error)
             //alert('Request timeout');
             break;
         case error.POSITION_UNAVAILABLE:
-            alert('Tu posición no está disponible');
+            alert('Tu posición no está disponible.\nVerifica que el GPS y el posicionamiento por WiFi o Red Movil esten activados.');
             break;
         case error.PERMISSION_DENIED:
             alert('Tu navegador ha bloqueado la solicitud de geolocalización');
@@ -248,7 +248,7 @@ function GetPositionFinal()
 	}
 	catch(error)
 	{
-		alert(error)
+		//alert(error)
 	}
 	
 

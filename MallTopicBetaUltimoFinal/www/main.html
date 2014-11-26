@@ -48,7 +48,6 @@
         <!--MallTopic Scripts-->
         <!--<script src="Scripts/sqlite.js"></script>-->
         <script src="js/app.js"></script>
-        <script src="js/app2.js"></script>
         <script src="js/globalv.js"></script>
 
         <!--Maps-->
@@ -132,7 +131,7 @@
                 <h1>Para empezar a utilizar<br/><span class="txtcolor">MallTopic</span> debes:</h1>
                 <div class="ContenedorBoton"><a href="#registro1" class="botonLogin1">Regístrarte</a></div>
                 <h1><br/>Iniciar Sesión con:</h1>
-                <div class="ContenedorBoton"><a href="#Index" class="botonLogin2" onclick="Login('facebook');">Facebook</a></div>
+                <div class="ContenedorBoton"><a href="#" class="botonLogin2" onclick="Login('facebook');">Facebook</a></div>
                 <p>Encuentra toda la información de tu<br/>Centro Comercial Favorito</p>
             </div>    
         </section>
@@ -178,11 +177,11 @@
             <div class="contenedor3">
              <img src="images/LogoMT2.png" class="logo2"/>
                 <div class="camposRegistro">
-                    <button onclick="Login('facebook');" class="campInfo2">Login-Facebook</button>
-                  	<button onclick="Login('twitter
+                    <button onclick="LoginRegistro('facebook');" class="campInfo2">Login-Facebook</button>
+                  	<button onclick="LoginRegistro('twitter
                     ');" class="campInfo3">Login-Facebook</button>
                 </div>    
-                <a href="#">Continuar</a>     
+                <a href="#Index">Continuar</a>     
             </div>         
         </section>
 
@@ -1365,7 +1364,7 @@
                                 }
                                 catch(err)
                                 {
-                                    alert(err);
+                                    //alert(err);
                                 }
                             });
 
@@ -1385,7 +1384,7 @@
                                 }
                                 catch(err)
                                 {
-                                    alert(err);
+                                    //alert(err);
                                 }
                                 
                             });

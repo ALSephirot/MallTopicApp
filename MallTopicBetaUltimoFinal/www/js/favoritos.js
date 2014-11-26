@@ -131,7 +131,7 @@ function TraerFavoritos() {
 
 function handleError(error) {
     var text = error + (error.request ? ' - ' + error.request.status : '');
-    alert(text);
+    //alert(text);
 }
 
 function GuardadoCorrectamente() {

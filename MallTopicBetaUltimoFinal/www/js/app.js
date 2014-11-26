@@ -55,6 +55,7 @@ jQuery(document).ready(function($) {
 		})
 
 		VerificarRegistro();
+		VerificarConexion();
 
 		/*$(".btnBuscar").on('click',function(){
 			Buscar();
@@ -63,12 +64,11 @@ jQuery(document).ready(function($) {
 	}
 	catch(err)
 	{
-		alert(err);
+		//alert(err);
 	}
 });
 
 function VerificarRegistro() {
-    var IdTelefono = GetIdCel();
     var TablaInsert = client.getTable("regis_users");
     var queryMalls = TablaInsert.where({ idcelular: localStorage.getItem('IdCelular')});
 
@@ -85,6 +85,28 @@ function VerificarRegistro() {
                 $.mobile.changePage('#Index','slide');
             }
         });
+    
+}
+
+function VerificarConexion() {
+    var TC = localStorage.getItem('TC');
+
+    switch (TC)
+    {
+    	case "4G-WiFi":
+    		console.log('Alta Velocidad');
+    		break;
+    	case "2G":
+    		alert('Hemos detectado que tu conexion es deficiente.\nLas consultas podran tardar mas de lo esperado');
+    		break;
+    	case "3G":
+    		alert('Hemos detectado que tu conexion es deficiente.\nLas consultas podran tardar mas de lo esperado');
+    		break;
+    	case "NONE":
+    		alert('No hemos detectado conexion a WiFi o Plan de datos.\nPor favor verifica tu conexion e intenta ingresar nuevamente.');
+    		navigator.app.exitApp();
+    		break;
+    }
     
 }
 
@@ -144,7 +166,7 @@ function FormatoFecha(Fechai,Fechaf)
 	}
 	catch(err)
 	{
-		alert(err);
+		//alert(err);
 	}
 }
 
@@ -165,7 +187,7 @@ function FormatearFecha(Fecha)
 	}
 	catch(err)
 	{
-		alert(err);
+		//alert(err);
 	}
 
 	
@@ -249,18 +271,20 @@ function FormatearFecha(Fecha)
 		
 	function ServiceFailed(xhr) {
 			
-		if (xhr.responseText) {
+		/*if (xhr.responseText) {
 
 			var err = xhr.responseText;
 		if (err)
+		{
 
-			alert('Error: ' + err);
-
-		else
-
-			alert("Message: Unknown server error.");
+			//alert('Error: ' + err);
 		}
-		return;
+		else
+		{
+
+			//alert("Message: Unknown server error.");
+		}
+		return;*/
 	}
 
 	//Funcion que carga el select de Ciudades/Mall de forma variable. 
@@ -469,7 +493,7 @@ function CargarCines()
 		}
 		catch (err)
 		{
-			alert(err);
+			//alert(err);
 		}
 		
 	}
@@ -580,7 +604,7 @@ function CargarCines()
 		else
 		{
 			//url = WebService + "Malls(guid'"+ Mall +"')/Stores?$expand=Promos";
-			url = WebService + "GetPromos?IdPromo=''&IdMall='"+ FiltroMalls +"'";
+			url = WebService + "GetPromos?IdPromo=''&IdMall='"+ Mall +"'";
 		}
 
 		loadDataArray(url);
@@ -593,7 +617,7 @@ function CargarCines()
 			if(FiltroMalls == "" || FiltroMalls == undefined)
 			{
 				$.each(APromociones.value, function(index, item) {
-					if(ComprobarMasCercanos(item1.fk_idCC, index, APromociones.length))
+					if(ComprobarMasCercanos(item.fk_idcc, index, APromociones.length))
 					{
 						htmlPromos += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetallePromos" data-transition="slide"><img src="'+ RutaRecursos +'Promociones/'+item.id+'.jpg"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p style="color: #0e79b7; font-style: italic;">'+ item.NombreMall +' - '+ item.NombreLocal +'</p></div><div class="FlechaLocales">Ir</div></a></li>';
 					 	estado = true;
@@ -719,7 +743,7 @@ function CargarCines()
 				urlimagen = VerificarArchivo("EventosLogos",TempImagen,"");
 			}
 
-			htmlEventos += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetalleEventos" data-transition="slide"><img src="'+ urlimagen +'"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p>- '+ item.descripcion +'</p><p>- '+ item.Malls.nombre +'</p></div><div class="FlechaLocales">Ir</div></li>'; 
+			htmlEventos += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetalleEventos" data-transition="slide"><img src="'+ urlimagen +'"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p>- '+ item.descripcion +'</p><p>- '+ item.NombreMall +'</p></div><div class="FlechaLocales">Ir</div></li>'; 
 			estado = true;
 		});
 
@@ -1582,6 +1606,10 @@ function CargarCines()
 		else if($.mobile.activePage.is('#modFavoritos'))
 		{
 			$.mobile.changePage('#Index','slide');			
+		}
+		else if($.mobile.activePage.is('#SplashScreen'))
+		{
+						
 		}
 		else
 		{

@@ -87,7 +87,7 @@ function Buscar() {
 	}
 	catch (err)
 	{
-		alert(err);
+		//alert(err);
 	}	
 }
 
@@ -113,7 +113,7 @@ function LlenarSelectsBuscar() {
 	}
 	catch(err)
 	{
-		alert(err);
+		//alert(err);
 	}		
 }
 
@@ -124,7 +124,7 @@ function ParametroBusqueda(select) {
 	}
 	catch(err)
 	{
-		alert(err);
+		//alert(err);
 	}
 	
 }

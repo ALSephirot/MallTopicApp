@@ -70,7 +70,7 @@ function InsertRegis(tabla, object)
 
 function HandleError(error) {
     var text = error + (error.request ? ' - ' + error.request.status : '');
-    alert(text);
+    //alert(text);
 }
 
 function RegistroCorrecto() {

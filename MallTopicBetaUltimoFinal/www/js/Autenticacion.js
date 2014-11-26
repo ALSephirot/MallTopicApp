@@ -7,7 +7,7 @@ function Login(Provider) {
 				result.get("/me")
 			    .done(function (response) {
 			    	//alert('Bienvenido: ' + response.name + '\nTu usuario es:' response.user);
-			        alert('Bienvenido: ' + response.name + ' a MallTopic!.\nTu id es: '+ response.id);
+			        alert('Bienvenido: ' + response.name + ' a MallTopic!.');
 			        setIdUsuario(response.id,Provider);
 			        setToken(response.access_token,Provider);
 			        //var myJsonString = JSON.stringify(response);
@@ -28,7 +28,7 @@ function Login(Provider) {
 	}
 	catch(error)
 	{
-		alert(error);
+		//alert(error);
 	}
 }
 
@@ -47,7 +47,7 @@ function LoginRegistro(Provider) {
 	}
 	catch(error)
 	{
-		alert(error);
+		//alert(error);
 	}
 }
 
@@ -84,7 +84,7 @@ function PublicarTweet(Opcion){
 	}
 	catch(error)
 	{
-		alert(error);
+		//alert(error);
 	}
 }
 
@@ -101,7 +101,7 @@ function ClickCheckIn(option)
 	}
 	catch(err)
 	{
-		alert(err);
+		//alert(err);
 	}
 }
 

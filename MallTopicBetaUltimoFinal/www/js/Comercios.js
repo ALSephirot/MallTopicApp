@@ -188,7 +188,7 @@ function cargarListaloc(idcate, idpaginacontenedor){
 		{
 			if(MallFiltro == "" || MallFiltro == undefined)
 			{
-				url= WebService + "Stores?$orderby=fk_idCC,nombre";
+				url= WebService + "GetStoresxCategories?IdMall=''&IdCategory=''&PNombre=''";
 			}
 			else
 			{
@@ -260,17 +260,10 @@ function cargarListaloc(idcate, idpaginacontenedor){
 		locales=arrayInfo;
 		localestemp = locales.value;
 	}
-	
 
 	var MasCercanos = getMasCercanos();
 	var ALocalesFinal = new Array();
 	var DistanciaAsignada = false;
-
-	/*html+='<div class="ui-grid-a botones"><div class="ui-block-a"><a data-rel="back" data-role="button" data-icon="arrow-l" data-iconpos="notext" data-mini="true" data-inline="true" class="left"></a></div></div>';
-	html+='<div class="titulo centrar"><p>Selecciona tu Local Comercial</p></div>';
-	html+='<div  class="contenido-1"><ul id="ListaLoc" data-role="listview" data-inset="true" data-theme="i">';*/
-
-	
 
 	$.each(localestemp, function(index, item) {
 		var atemp = localestemp[index];
@@ -283,20 +276,28 @@ function cargarListaloc(idcate, idpaginacontenedor){
 		atemp2['telefono'] = atemp['telefono'];
 		atemp2['nombreMall'] = atemp['nombreMall'];
 
-		$.each(MasCercanos, function(index, item2) {
-			if(!DistanciaAsignada)
-			{
-				if(item.fk_idCC == item2.idmall)
+		if(Mall == "" || Mall == undefined)
+		{
+			$.each(MasCercanos, function(index, item2) {
+				if(!DistanciaAsignada)
 				{
-					atemp2['distancia'] = item2.distancia;
-					DistanciaAsignada = true;
-				}
-				else
-				{
-					atemp2['distancia'] = 0;
-				}
-			}				
-		});
+					if(item.fk_idCC == item2.idmall)
+					{
+						atemp2['distancia'] = item2.distancia;
+						DistanciaAsignada = true;
+					}
+					else
+					{
+						atemp2['distancia'] = 0;
+					}
+				}				
+			});
+		}
+		else
+		{
+			atemp2['distancia'] = 0;
+		}
+		
 
 		ALocalesFinal[index] = atemp2;
 		DistanciaAsignada = false;
@@ -390,7 +391,7 @@ function cargarListaloc(idcate, idpaginacontenedor){
 	}
 }
 
-function ()
+function CargarDetalleLoc()
 {
 	//Capturo el id del local seleccionado
 	var Comercio = GetLocal();
@@ -571,9 +572,4 @@ function ()
 	{
 		$('#ly').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");	
 	}
-	
-	
-
-
-
 }
