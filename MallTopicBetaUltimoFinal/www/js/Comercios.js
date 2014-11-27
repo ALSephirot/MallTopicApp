@@ -38,6 +38,9 @@ function CargarCategorias(idpaginacontent)
 	$.each(Categorias.value, function(index, item) {
 		if(ActividadCiclo != ActividadControl)
 		{
+			if (item.id!='9BA14D6A-83E0-4726-B41B-52080A75AFE5') 
+			{
+
 			var ActividadCiclo = '';
 			var mallfk = item.fk_idCC;
 
@@ -122,7 +125,10 @@ function CargarCategorias(idpaginacontent)
 				}
 			}
 		}
-	});
+	}
+}else
+{}
+);
 
 	if(estado==false)
 	{
