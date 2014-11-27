@@ -47,6 +47,15 @@
 	var IsBuscar = false;
 	var IsFavorito = false;
 	var Token = "";
+	var StoresxCategories;
+
+	function setStoresxCategories(pStoresxCategories) {
+		StoresxCategories = pStoresxCategories;
+	}
+
+	function getStoresxCategories() {
+		return StoresxCategories;
+	}
 
 	function setToken (pToken) {
 		Token = pToken;
@@ -483,3 +492,5 @@
 	window.getIsFavorito = getIsFavorito;
 	window.setToken = setToken;
 	window.getToken = getToken;
+	window.setStoresxCategories = setStoresxCategories;
+	window.getStoresxCategories = getStoresxCategories;

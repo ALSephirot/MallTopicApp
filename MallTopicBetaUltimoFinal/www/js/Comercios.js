@@ -8,6 +8,7 @@ function CargarCategorias(idpaginacontent)
 	var estado = false;
 	var mall = getCC();
 	mall = mall.toUpperCase();
+	var storesxcategories;
 
 	if(mall == '6B05F88A-4E02-48E6-AA0D-1EB1432737A3')
 	{
@@ -38,76 +39,58 @@ function CargarCategorias(idpaginacontent)
 	$.each(Categorias.value, function(index, item) {
 		if(ActividadCiclo != ActividadControl)
 		{
-			if (item.id!='9BA14D6A-83E0-4726-B41B-52080A75AFE5') 
+			if (item.id.toUpperCase() !='9BA14D6A-83E0-4726-B41B-52080A75AFE5') 
 			{
 
-			var ActividadCiclo = '';
-			var mallfk = item.fk_idCC;
+				var ActividadCiclo = '';
+				var mallfk = item.fk_idCC;
 
-			if(mallfk != null)
-			{
-				mallfk = mallfk.toUpperCase();
-			}
-					
-
-			if(mall == "" || mall == undefined)
-			{
-				if(item.especial)
+				if(mallfk != null)
 				{
-					
-					if(mallfk == '6B05F88A-4E02-48E6-AA0D-1EB1432737A3')
-					{
-						ActividadCiclo = item.fk_idActividadComercial;
-	
-						htmlMovicentro += '<div class="iconos3"><a id="'+ item.id +'" href="'+ LinkLocal +'" data-transition="slide" style="display : inline-block; background: url('+ RutaRecursos + 'Categorias/'+ item.id +'.png);background-size : 100%;width: 100%;height: 100%"></a><p>'+ item.nombre +'</p></div>';
-			            ActividadControl = item.id;
-			            estado = true;
-
-					}
-					else
-					{
-						ActividadCiclo = item.fk_idActividadComercial;
-
-						htmlCatEspe += '<div class="iconos3"><a id="'+ item.id +'" href="'+ LinkLocal +'" data-transition="slide" style="display : inline-block; background: url('+ RutaRecursos + 'Categorias/'+ item.id +'.png);background-size : 100%;width: 100%;height: 100%"></a><p>'+ item.nombre +'</p></div>';
-			            ActividadControl = item.id;
-			            estado = true;
-					}
-							
+					mallfk = mallfk.toUpperCase();
 				}
-				else			
+						
+
+				if(mall == "" || mall == undefined)
 				{
-					ActividadCiclo = item.fk_idActividadComercial;
+					if(item.especial)
+					{
+						
+						if(mallfk == '6B05F88A-4E02-48E6-AA0D-1EB1432737A3')
+						{
+							ActividadCiclo = item.fk_idActividadComercial;
+		
+							htmlMovicentro += '<div class="iconos3"><a id="'+ item.id +'" href="'+ LinkLocal +'" data-transition="slide" style="display : inline-block; background: url('+ RutaRecursos + 'Categorias/'+ item.id +'.png);background-size : 100%;width: 100%;height: 100%"></a><p>'+ item.nombre +'</p></div>';
+				            ActividadControl = item.id;
+				            estado = true;
 
-					htmlList += '<div class="iconos3"><a id="'+ item.id +'" href="'+ LinkLocal +'" data-transition="slide" style="display : inline-block; background: url('+ RutaRecursos + 'Categorias/'+ item.id +'.png);background-size : 100%;width: 100%;height: 100%"></a><p>'+ item.nombre +'</p></div>';
-				    ActividadControl = item.id;
-				    estado = true;
+						}
+						else
+						{
+							ActividadCiclo = item.fk_idActividadComercial;
 
-				}
-
-			}
-			else
-			{
-				if(item.especial)
-				{
-					if(mallfk == mall)
+							htmlCatEspe += '<div class="iconos3"><a id="'+ item.id +'" href="'+ LinkLocal +'" data-transition="slide" style="display : inline-block; background: url('+ RutaRecursos + 'Categorias/'+ item.id +'.png);background-size : 100%;width: 100%;height: 100%"></a><p>'+ item.nombre +'</p></div>';
+				            ActividadControl = item.id;
+				            estado = true;
+						}
+								
+					}
+					else			
 					{
 						ActividadCiclo = item.fk_idActividadComercial;
+
 						htmlList += '<div class="iconos3"><a id="'+ item.id +'" href="'+ LinkLocal +'" data-transition="slide" style="display : inline-block; background: url('+ RutaRecursos + 'Categorias/'+ item.id +'.png);background-size : 100%;width: 100%;height: 100%"></a><p>'+ item.nombre +'</p></div>';
-				        ActividadControl = item.id;
-				        estado = true;
+					    ActividadControl = item.id;
+					    estado = true;
+
 					}
+
 				}
 				else
 				{
-					if(mall == 'F7180CC5-01EB-4D59-9369-A531EC05BEFC')
+					if(item.especial)
 					{
-						var idcatego = item.id;
-						idcatego = idcatego.toUpperCase();
-						if(idcatego == '8B4515F7-EF51-4CF5-B18D-F8FC8B9B1E34' || idcatego == '80D49C63-6884-4659-AE8D-C7E649CDE171' || idcatego == '8F009501-56B5-4A96-B504-66736952F0C9')
-						{
-									//alert('Hola' + item.nombre)
-						}
-						else
+						if(mallfk == mall)
 						{
 							ActividadCiclo = item.fk_idActividadComercial;
 							htmlList += '<div class="iconos3"><a id="'+ item.id +'" href="'+ LinkLocal +'" data-transition="slide" style="display : inline-block; background: url('+ RutaRecursos + 'Categorias/'+ item.id +'.png);background-size : 100%;width: 100%;height: 100%"></a><p>'+ item.nombre +'</p></div>';
@@ -117,18 +100,34 @@ function CargarCategorias(idpaginacontent)
 					}
 					else
 					{
-						ActividadCiclo = item.fk_idActividadComercial;
-						htmlList += '<div class="iconos3"><a id="'+ item.id +'" href="'+ LinkLocal +'" data-transition="slide" style="display : inline-block; background: url('+ RutaRecursos + 'Categorias/'+ item.id +'.png);background-size : 100%;width: 100%;height: 100%"></a><p>'+ item.nombre +'</p></div>';
-				        ActividadControl = item.id;
-				        estado = true;
+						if(mall == 'F7180CC5-01EB-4D59-9369-A531EC05BEFC')
+						{
+							var idcatego = item.id;
+							idcatego = idcatego.toUpperCase();
+							if(idcatego == '8B4515F7-EF51-4CF5-B18D-F8FC8B9B1E34' || idcatego == '80D49C63-6884-4659-AE8D-C7E649CDE171' || idcatego == '8F009501-56B5-4A96-B504-66736952F0C9')
+							{
+										//alert('Hola' + item.nombre)
+							}
+							else
+							{
+								ActividadCiclo = item.fk_idActividadComercial;
+								htmlList += '<div class="iconos3"><a id="'+ item.id +'" href="'+ LinkLocal +'" data-transition="slide" style="display : inline-block; background: url('+ RutaRecursos + 'Categorias/'+ item.id +'.png);background-size : 100%;width: 100%;height: 100%"></a><p>'+ item.nombre +'</p></div>';
+						        ActividadControl = item.id;
+						        estado = true;
+							}
+						}
+						else
+						{
+							ActividadCiclo = item.fk_idActividadComercial;
+							htmlList += '<div class="iconos3"><a id="'+ item.id +'" href="'+ LinkLocal +'" data-transition="slide" style="display : inline-block; background: url('+ RutaRecursos + 'Categorias/'+ item.id +'.png);background-size : 100%;width: 100%;height: 100%"></a><p>'+ item.nombre +'</p></div>';
+					        ActividadControl = item.id;
+					        estado = true;
+						}
 					}
 				}
 			}
 		}
-	}
-}else
-{}
-);
+	});
 
 	if(estado==false)
 	{
