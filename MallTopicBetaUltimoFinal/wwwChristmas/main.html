@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--
     Licensed to the Apache Software Foundation (ASF) under one
     or more contributor license agreements.  See the NOTICE file
@@ -40,7 +40,6 @@
         <script src="js/Buscar.js"></script>
         <script src="js/compartir.js"></script>
         <script src="js/GuardarRegistro.js" ></script>
-        <script src="js/e-parking.js" ></script>
 
         <!--Phonegap-->
         <script src="cordova.js"></script>
@@ -158,7 +157,7 @@
                     <input id="txt_pais" type="text" name="ejemplo@.com" class="campInfo"/>
                     <p>Ciudad:</p>
                     <input id="Txt_ciudad" type="text" name="ejemplo@.com" class="campInfo"/>
-                    <h1>Cuéntanos tus gustos o Preferencias</h1>
+                    <h1>Cuentanos tus gustos o Preferencias</h1>
                     <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Cines" class="checks2" id="chk_cines"/>Cines</p>
                     <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Eventos" class="checks2" id="chk_eventos"/>Eventos</p>
                     <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Promos" class="checks2" id="chk_promos"/>Promos</p>
@@ -189,6 +188,7 @@
         <!------------------------------------Index Ppal------------------------------------>
         <section data-role="page" id="Index">
             <div class="contenedor"> 
+                <div class="luces"></div>
                 <header>
                     <img src="images/LogoMT1.png" class="logo"/>
                     <img src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerIndex1.png" class="header"/>
@@ -269,7 +269,7 @@
                     <h3>Nombre del Comercio:</h3>
                     <input id="NombreComercioBuscar" type="text" name="nombreComercio"/>
                 </label>
-                <label for="escogerCat">
+                <labelfor="escogerCat">
                     <h3>Escoge una Categoria</h3>
                     <select name="escogerCat" onchange="ParametroBusqueda(this)">
                         <option value="bancos">Bancos</option>
@@ -531,7 +531,7 @@
                     </div>
                     <div class="separadorRedes"></div>
                     <div class="divRedesSocial">
-                        <p>¡Síguenos y Comparte!</p>
+                        <p>Síguenos y Comparte !</p>
                             <a id="lf" href="#" onclick='InAppBrowserOpen("http://www.facebook.com")' class="socialNet1"></a>
                             <a id="lt" href="#" onclick='InAppBrowserOpen("http://www.twitter.com")' class="socialNet2"></a>
                             <a id="li" href="#" onclick='InAppBrowserOpen("http://www.instagram.com")' class="socialNet3"></a>
@@ -581,13 +581,13 @@
                         <option value="P9">P9</option>
                         <option value="P10">P10</option>
                     </select>
-                    <p>Nro. Celda.</p>
+                    <p>Nro Celda</p>
                     <input id="txtCelda" type="text" class="campCelda" maxlength="3" onkeyUp="return ValNumero(this);">
                     <a id="btnColor" href="#" onclick="LlamarPopUpColor()" class="btnColor" data-rel="dialog" data-transition="pop">Color</a>
                     <button id="btnGuardar" class="btnGuardar">Guardar</button>
                 </div>
                 <div class="divParking2">
-                    <p class="titleParking">Su vehículo se encuentra en:</p>
+                    <p class="titleParking">Su Vehículo Se Encuentra En:</p>
                     <div id="Lugar" class="mostrarLugar"></div>
                     <p class="titleParking2">Color:</p><div id="MostrarColor" class="mostrarColor"></div>
                     <button id="btnMostrar" class="btnMostrar">Mostrar</button>
@@ -1123,7 +1123,7 @@
                     </div>
                     <div class="iconos2">
                         <a href="#ComoLlegar" class="iconoComoLlegar" data-transition="slide"></a>
-                        <p>Cómo llegar</p>
+                        <p>Como Llegar</p>
                     </div>
                     <div class="iconos2">
                         <a href="#Promociones" class="iconoPromos" data-transition="slide"></a>
@@ -1139,12 +1139,12 @@
                     </div>
                     <div id='IconoEspecial2' class="iconos2">
                         <a href="#Galerias" class="iconoGalerias" data-transition="slide"></a>
-                        <p>Galerías</p>
+                        <p>Galerias</p>
                     </div>
                 </div>
                 <div class="separadorRedes"></div>
                 <div class="divRedesSocial">
-                    <p>¡Síguenos y Comparte!</p>
+                    <p>Síguenos y Comparte !</p>
             <a id="LinkFacebookMall" href="#" onclick='InAppBrowserOpen("http://www.facebook.com")' class="socialNet1"></a>
             <a id="LinkTwitterMall" href="#" onclick='InAppBrowserOpen("http://www.twittwer.com")' class="socialNet2"></a>
             <a id="LinkInstagramMall" href="#" onclick='InAppBrowserOpen("http://www.instagram.com/")' class="socialNet3"></a>
@@ -1183,7 +1183,8 @@
                     </div>
                     <div class="separadorRedes"></div>
                     <div class="divRedesSocial">
-                        <p>¡Síguenos y Comparte!</p>
+                        <p>Síguenos y Comparte !</p>
+
                             <a id="facebookinfogeneral" onclick='InAppBrowserOpen("http://www.facebook.com")' href="#" class="socialNet1"></a>
                             <a id="twitterinforgeneral" onclick='InAppBrowserOpen("http://www.twitter.com")' href="#" class="socialNet2"></a>
                             <a id="instagrraminfogeneral" onclick='InAppBrowserOpen("http://www.instagram.com")' href="#" class="socialNet3"></a>
@@ -1252,7 +1253,7 @@
                     <div class="subHeader">
                         <div class="gris2"></div>
                         <img src="images/IconosVectorizados/galerias.png" class="SubIcono"/>
-                        <h2>Galerías</h2>
+                        <h2>Galerias</h2>
                     </div>
                     <img id="LogoGalerias" src="#" class="logoPromo"/>
                     <script>
@@ -1618,7 +1619,7 @@
                   </div>
                     <div class="separadorRedes"></div>
                     <div class="divRedesSocial">
-                        <p>¡Síguenos y Comparte!</p>
+                        <p>Síguenos y Comparte !</p>
                             <a href="#" class="socialNet1"></a>
                             <a href="#" class="socialNet2"></a>
                             <a href="#" class="socialNet3"></a>
@@ -1825,7 +1826,7 @@
                   </div>
                     <div class="separadorRedes"></div>
                     <div class="divRedesSocial">
-                        <p>¡Síguenos y Comparte!</p>
+                        <p>Síguenos y Comparte !</p>
                             <a href="#" class="socialNet1"></a>
                             <a href="#" class="socialNet2"></a>
                             <a href="#" class="socialNet3"></a>

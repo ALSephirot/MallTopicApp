@@ -1,0 +1,111 @@
+body{
+				margin:0px !important; 
+				padding:0px !important;
+				background:#fff;/*-webkit-linear-gradient(#dadada, #fff, #fff);
+			    background:-o-linear-gradient(#dadada, #fff);
+				background:-o-linear-gradient(#dadada, #fff);
+				background:-moz-linear-gradient(#dadada, #fff);
+				background:-ms-linear-gradient(#dadada, #fff);*/
+				}
+				
+			#BodyLoad{
+				width:100%;
+				height:480px;
+				margin:0px !important; 
+				padding:0px !important;
+				}
+				
+			h1{text-indent:-9000%; width:0px; height:0px; display:none;}
+
+			.FelizNav{
+				width: 200px !important;
+				height: 50px !important;
+				margin: 0 auto !important;
+		
+			}
+			
+			header{
+				width:80%;
+				height: 30px;
+				background:#f0f;
+				margin:10% 10% 0% 10%;
+				padding:0px;
+				background:url(images/subjectMT.png);
+				background-size:100%;
+				text-indent:-9000%;
+				}
+			
+			#ContentLoading{
+				width:100%;
+				height:150px;
+				text-align:center;
+				}
+				
+			#ContentLoading img{
+				width:50px;
+				height:50px;
+				text-align:center;
+				}
+				
+			#ContentLoading p{
+				margin:0px;
+				font-size:100%;
+				/*font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+				color:#fff;*/
+                font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+				color:#208cd1;
+				}
+				
+			footer{
+				width:100%;
+				height:130px;
+				position:absolute;
+				margin:0px;
+				padding:0px;
+				}
+				
+	@media (min-width: 769px) and (max-width: 800px)  {
+		header{height:180px;}
+		#ContentLoading{margin:45% 0% 0% 0%;}
+		footer{bottom:-120px;}
+		#ContentLoading img{
+			width:75px;
+			height:75px;
+			text-align:center;
+			}
+		}
+		
+	@media (min-width: 481px) and (max-width: 768px)  {
+		header{height:180px;}
+		#ContentLoading{margin:35% 0% 0% 0%;}
+		footer{bottom:-120px;}
+		#ContentLoading img{
+			width:70px;
+			height:70px;
+			text-align:center;
+			}
+		}
+		
+	@media (min-width: 361px) and (max-width: 480px)  {  
+		header{height:110px;}
+		#ContentLoading{margin:45% 0% 0% 0%;}
+		footer{bottom:-50px;}
+		}
+		
+	@media (min-width: 321px) and (max-width: 360px)  {
+		header{height:85px;}
+		#ContentLoading{margin:40% 0% 0% 0%;}
+		footer{bottom:-11px;}
+		}
+		
+	@media (min-width: 241px) and (max-width: 320px)  {
+		header{height:75px;}
+		#ContentLoading{margin:25% 0% 0% 0%;}
+		footer{bottom:-11px;}
+		}
+		
+	@media (max-width: 240px)  {
+		header{height:55px;}
+		#ContentLoading{margin:35% 0% 0% 0%;}
+		footer{bottom:-11px;}
+		}
