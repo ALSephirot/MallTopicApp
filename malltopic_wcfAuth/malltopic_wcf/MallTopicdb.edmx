@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MallTopicFinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MallTopicFinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Aprovaciones">
           <Key>
             <PropertyRef Name="id" />
@@ -122,7 +122,7 @@
           <Property Name="fechaInicio" Type="date" />
           <Property Name="fechaFinal" Type="date" />
           <Property Name="organizador" Type="varchar" MaxLength="50" />
-          <Property Name="telefono" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" />
           <Property Name="correo" Type="varchar" MaxLength="50" />
           <Property Name="web" Type="varchar" MaxLength="50" />
           <Property Name="publicar" Type="bit" />
@@ -833,6 +833,10 @@
           <Parameter Name="IdEvento" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="IdMall" Type="nvarchar(max)" Mode="In" />
         </Function>
+        <Function Name="SP_Guardar_MoviesMalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fk_idCC" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="fk_idMovie" Type="uniqueidentifier" Mode="In" />
+        </Function>
         <Function Name="SP_Promos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdPromo" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="IdMall" Type="nvarchar(max)" Mode="In" />
@@ -1016,7 +1020,8 @@
             <End Role="StoresXCategories" EntitySet="StoresXCategories" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MallTopicFinalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1152,7 +1157,7 @@
           <Property Name="fechaInicio" Type="DateTime" Precision="0" />
           <Property Name="fechaFinal" Type="DateTime" Precision="0" />
           <Property Name="organizador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="telefono" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="web" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="publicar" Type="Boolean" />
@@ -1238,6 +1243,8 @@
           <Property Name="H_lunes_a_viernes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="H_sabado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="H_domingos_y_festivos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="youtube" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Instagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Aprovaciones" Relationship="Self.FK_Aprovaciones_2" FromRole="Malls" ToRole="Aprovaciones" />
           <NavigationProperty Name="Categories" Relationship="Self.FK_Categories_0" FromRole="Malls" ToRole="Categories" />
           <NavigationProperty Name="Cinema" Relationship="Self.FK_Cines_mall" FromRole="Malls" ToRole="Cinema" />
@@ -1253,8 +1260,6 @@
           <NavigationProperty Name="services_detail" Relationship="Self.FK_services_detail_0" FromRole="Malls" ToRole="services_detail" />
           <NavigationProperty Name="transport" Relationship="Self.Malls_transport" FromRole="Malls" ToRole="transport" />
           <NavigationProperty Name="Movies" Relationship="Self.Movies_Malls" FromRole="Malls" ToRole="Movies" />
-          <Property Name="youtube" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Instagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Movies">
           <Key>
@@ -1421,6 +1426,8 @@
           <Property Name="H_sabado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="H_domingos_y_festivos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="NombreCategoria" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="youtube" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Instagram" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Colections" Relationship="Self.FK_Colections_0" FromRole="Stores" ToRole="Colections" />
           <NavigationProperty Name="Events" Relationship="Self.FK_Events_Stores" FromRole="Stores" ToRole="Events" />
           <NavigationProperty Name="Favorites" Relationship="Self.FK_Favorites_1" FromRole="Stores" ToRole="Favorites" />
@@ -1429,8 +1436,6 @@
           <NavigationProperty Name="Products" Relationship="Self.FK_Productos_Locales" FromRole="Stores" ToRole="Products" />
           <NavigationProperty Name="Promos" Relationship="Self.FK_Promociones_Locales" FromRole="Stores" ToRole="Promos" />
           <NavigationProperty Name="StoresXCategories" Relationship="Self.FK_StoresXCategories_1" FromRole="Stores" ToRole="StoresXCategories" />
-          <Property Name="youtube" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="Instagram" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="StoresXCategories">
           <Key>
@@ -1842,7 +1847,7 @@
           <End Role="Movies" Type="Self.Movies" Multiplicity="*" />
           <End Role="Malls" Type="Self.Malls" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="MallTopicFinalEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MallTopicFinalEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Aprovaciones" EntityType="Self.Aprovaciones" />
           <EntitySet Name="Categories" EntityType="Self.Categories" />
           <EntitySet Name="Cinema" EntityType="Self.Cinema" />
@@ -2002,8 +2007,8 @@
             <End Role="Movies" EntitySet="Movies" />
             <End Role="Malls" EntitySet="Malls" />
           </AssociationSet>
-          <FunctionImport Name="SP_Colecciones" ReturnType="Collection(MallTopicFinalModel.SP_Colecciones_Result)" >
-          <Parameter Name="idmall" Mode="In" Type="String" />
+          <FunctionImport Name="SP_Colecciones" ReturnType="Collection(MallTopicFinalModel.SP_Colecciones_Result)">
+            <Parameter Name="idmall" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_Consulta_Categorias" ReturnType="Collection(MallTopicFinalModel.SP_Consulta_Categorias_Result)">
             <Parameter Name="Todas" Mode="In" Type="Boolean" />
@@ -2020,12 +2025,16 @@
             <Parameter Name="IdEvento" Mode="In" Type="String" />
             <Parameter Name="IdMall" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="SP_Guardar_MoviesMalls">
+            <Parameter Name="fk_idCC" Mode="In" Type="Guid" />
+            <Parameter Name="fk_idMovie" Mode="In" Type="Guid" />
+          </FunctionImport>
           <FunctionImport Name="SP_Promos" ReturnType="Collection(MallTopicFinalModel.SP_Promos_Result)">
             <Parameter Name="IdPromo" Mode="In" Type="String" />
             <Parameter Name="IdMall" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_Servicios" ReturnType="Collection(MallTopicFinalModel.SP_Servicios_Result)">
-          <Parameter Name="fk_idcc" Mode="In" Type="String" />
+            <Parameter Name="fk_idcc" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_Tiendas_x_Categorias" ReturnType="Collection(MallTopicFinalModel.SP_Tiendas_x_Categorias_Result)">
             <Parameter Name="IdCC" Mode="In" Type="String" />
@@ -2049,7 +2058,7 @@
           <Property Type="String" Name="descripcion" Nullable="true" />
           <Property Type="String" Name="NombreLocal" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="NombreMall" Nullable="true" MaxLength="Max" />
-          </ComplexType>
+        </ComplexType>
         <ComplexType Name="SP_Consulta_Categorias_Result">
           <Property Type="Guid" Name="id" Nullable="false" />
           <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
@@ -2074,7 +2083,7 @@
           <Property Type="DateTime" Name="fechaInicio" Nullable="true" />
           <Property Type="DateTime" Name="fechaFinal" Nullable="true" />
           <Property Type="String" Name="organizador" Nullable="true" MaxLength="50" />
-          <Property Type="Decimal" Name="telefono" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="telefono" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="correo" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="web" Nullable="true" MaxLength="50" />
           <Property Type="Boolean" Name="publicar" Nullable="true" />
@@ -2133,7 +2142,7 @@
           <Property Type="String" Name="facebook" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="twitter" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="website" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="H_lunes_a_viernes" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="H_lunes_a_viernes" Nullable="true" />
           <Property Type="String" Name="H_sabado" Nullable="true" />
           <Property Type="String" Name="H_domingos_y_festivos" Nullable="true" />
           <Property Type="String" Name="NombreCategoria" Nullable="true" MaxLength="50" />
@@ -2144,7 +2153,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MallTopicFinalModelStoreContainer" CdmEntityContainer="MallTopicFinalEntities">
+        <EntityContainerMapping StorageEntityContainer="MallTopicFinalModelStoreContainer" CdmEntityContainer="MallTopicFinalEntities1">
           <EntitySetMapping Name="Aprovaciones">
             <EntityTypeMapping TypeName="MallTopicFinalModel.Aprovaciones">
               <MappingFragment StoreEntitySet="Aprovaciones">
@@ -2319,8 +2328,6 @@
           <EntitySetMapping Name="Malls">
             <EntityTypeMapping TypeName="MallTopicFinalModel.Malls">
               <MappingFragment StoreEntitySet="Malls">
-                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
-                <ScalarProperty Name="youtube" ColumnName="youtube" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="mapa" ColumnName="mapa" />
@@ -2351,6 +2358,8 @@
                 <ScalarProperty Name="H_lunes_a_viernes" ColumnName="H_lunes_a_viernes" />
                 <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
                 <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
+                <ScalarProperty Name="youtube" ColumnName="youtube" />
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2485,8 +2494,6 @@
           <EntitySetMapping Name="Stores">
             <EntityTypeMapping TypeName="MallTopicFinalModel.Stores">
               <MappingFragment StoreEntitySet="Stores">
-                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
-                <ScalarProperty Name="youtube" ColumnName="youtube" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="telefono" ColumnName="telefono" />
@@ -2510,6 +2517,8 @@
                 <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
                 <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
                 <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+                <ScalarProperty Name="youtube" ColumnName="youtube" />
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2564,7 +2573,7 @@
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="NombreLocal" ColumnName="NombreLocal" />
                 <ScalarProperty Name="NombreMall" ColumnName="NombreMall" />
-                </ComplexTypeMapping>
+              </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_Consulta_Categorias" FunctionName="MallTopicFinalModel.Store.SP_Consulta_Categorias">
@@ -2612,6 +2621,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Guardar_MoviesMalls" FunctionName="MallTopicFinalModel.Store.SP_Guardar_MoviesMalls" />
           <FunctionImportMapping FunctionImportName="SP_Promos" FunctionName="MallTopicFinalModel.Store.SP_Promos">
             <ResultMapping>
               <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Promos_Result">

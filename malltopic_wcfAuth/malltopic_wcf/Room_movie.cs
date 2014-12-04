@@ -31,8 +31,8 @@ namespace malltopic_wcf
         public Nullable<System.DateTime> modificado { get; set; }
         public Nullable<System.Guid> fk_idCC { get; set; }
     
-        public virtual Malls Malls { get; set; }
-        public virtual Movies Movies { get; set; }
-        public virtual ICollection<Schedule_movie> Schedule_movie { get; set; }
+        public Malls Malls { get; set; }
+        public Movies Movies { get; set; }
+        public ICollection<Schedule_movie> Schedule_movie { get; set; }
     }
 }

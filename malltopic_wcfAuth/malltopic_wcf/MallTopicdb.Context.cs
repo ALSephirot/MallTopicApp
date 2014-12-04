@@ -15,10 +15,10 @@ namespace malltopic_wcf
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class MallTopicFinalEntities : DbContext
+    public partial class MallTopicFinalEntities1 : DbContext
     {
-        public MallTopicFinalEntities()
-            : base("name=MallTopicFinalEntities")
+        public MallTopicFinalEntities1()
+            : base("name=MallTopicFinalEntities1")
         {
         }
     
@@ -109,6 +109,19 @@ namespace malltopic_wcf
                 new ObjectParameter("IdMall", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_Eventos_Result>("SP_Eventos", idEventoParameter, idMallParameter);
+        }
+    
+        public virtual int SP_Guardar_MoviesMalls(Nullable<System.Guid> fk_idCC, Nullable<System.Guid> fk_idMovie)
+        {
+            var fk_idCCParameter = fk_idCC.HasValue ?
+                new ObjectParameter("fk_idCC", fk_idCC) :
+                new ObjectParameter("fk_idCC", typeof(System.Guid));
+    
+            var fk_idMovieParameter = fk_idMovie.HasValue ?
+                new ObjectParameter("fk_idMovie", fk_idMovie) :
+                new ObjectParameter("fk_idMovie", typeof(System.Guid));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_Guardar_MoviesMalls", fk_idCCParameter, fk_idMovieParameter);
         }
     
         public virtual ObjectResult<SP_Promos_Result> SP_Promos(string idPromo, string idMall)

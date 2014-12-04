@@ -22,6 +22,6 @@ namespace malltopic_wcf
         public Nullable<System.DateTime> creado { get; set; }
         public Nullable<System.DateTime> modificado { get; set; }
     
-        public virtual Gallery Gallery { get; set; }
+        public Gallery Gallery { get; set; }
     }
 }

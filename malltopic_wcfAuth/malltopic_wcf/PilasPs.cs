@@ -20,6 +20,6 @@ namespace malltopic_wcf
         public string descripcion { get; set; }
         public string link { get; set; }
     
-        public virtual Malls Malls { get; set; }
+        public Malls Malls { get; set; }
     }
 }

@@ -51,13 +51,13 @@ namespace malltopic_wcf
         public string youtube { get; set; }
         public string Instagram { get; set; }
     
-        public virtual ICollection<Colections> Colections { get; set; }
-        public virtual ICollection<Events> Events { get; set; }
-        public virtual ICollection<Favorites> Favorites { get; set; }
-        public virtual ICollection<Gallery> Gallery { get; set; }
-        public virtual Malls Malls { get; set; }
-        public virtual ICollection<Products> Products { get; set; }
-        public virtual ICollection<Promos> Promos { get; set; }
-        public virtual ICollection<StoresXCategories> StoresXCategories { get; set; }
+        public ICollection<Colections> Colections { get; set; }
+        public ICollection<Events> Events { get; set; }
+        public ICollection<Favorites> Favorites { get; set; }
+        public ICollection<Gallery> Gallery { get; set; }
+        public Malls Malls { get; set; }
+        public ICollection<Products> Products { get; set; }
+        public ICollection<Promos> Promos { get; set; }
+        public ICollection<StoresXCategories> StoresXCategories { get; set; }
     }
 }

@@ -25,8 +25,8 @@ namespace malltopic_wcf
         public bool Aprovado { get; set; }
         public System.Guid fk_cc { get; set; }
     
-        public virtual Promos Promos { get; set; }
-        public virtual Events Events { get; set; }
-        public virtual Malls Malls { get; set; }
+        public Promos Promos { get; set; }
+        public Events Events { get; set; }
+        public Malls Malls { get; set; }
     }
 }

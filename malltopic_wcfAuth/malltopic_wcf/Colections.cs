@@ -33,8 +33,8 @@ namespace malltopic_wcf
         public Nullable<System.Guid> fk_idCC { get; set; }
         public string descripcion { get; set; }
     
-        public virtual Stores Stores { get; set; }
-        public virtual Malls Malls { get; set; }
-        public virtual ICollection<Colections_detail> Colections_detail { get; set; }
+        public Stores Stores { get; set; }
+        public Malls Malls { get; set; }
+        public ICollection<Colections_detail> Colections_detail { get; set; }
     }
 }

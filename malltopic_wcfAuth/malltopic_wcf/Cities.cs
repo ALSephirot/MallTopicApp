@@ -28,7 +28,7 @@ namespace malltopic_wcf
         public Nullable<System.Guid> user_modified { get; set; }
         public Nullable<int> Indicativo { get; set; }
     
-        public virtual Countries Countries { get; set; }
-        public virtual ICollection<Malls> Malls { get; set; }
+        public Countries Countries { get; set; }
+        public ICollection<Malls> Malls { get; set; }
     }
 }

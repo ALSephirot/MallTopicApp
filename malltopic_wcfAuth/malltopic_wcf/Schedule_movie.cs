@@ -26,8 +26,8 @@ namespace malltopic_wcf
         public Nullable<System.Guid> fk_pelicula { get; set; }
         public Nullable<System.Guid> fk_sala { get; set; }
     
-        public virtual Cinema Cinema { get; set; }
-        public virtual Movies Movies { get; set; }
-        public virtual Room_movie Room_movie { get; set; }
+        public Cinema Cinema { get; set; }
+        public Movies Movies { get; set; }
+        public Room_movie Room_movie { get; set; }
     }
 }

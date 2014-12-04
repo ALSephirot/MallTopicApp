@@ -23,7 +23,7 @@ namespace malltopic_wcf
         public Nullable<System.DateTime> fechaInicio { get; set; }
         public Nullable<System.DateTime> fechaFinal { get; set; }
         public string organizador { get; set; }
-        public Nullable<decimal> telefono { get; set; }
+        public string telefono { get; set; }
         public string correo { get; set; }
         public string web { get; set; }
         public Nullable<bool> publicar { get; set; }

@@ -28,8 +28,8 @@ namespace malltopic_wcf
         public Nullable<System.DateTime> creado { get; set; }
         public Nullable<System.DateTime> modificado { get; set; }
     
-        public virtual ICollection<Gallery_detail> Gallery_detail { get; set; }
-        public virtual Malls Malls { get; set; }
-        public virtual Stores Stores { get; set; }
+        public ICollection<Gallery_detail> Gallery_detail { get; set; }
+        public Malls Malls { get; set; }
+        public Stores Stores { get; set; }
     }
 }

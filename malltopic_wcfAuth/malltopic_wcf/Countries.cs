@@ -28,6 +28,6 @@ namespace malltopic_wcf
         public string text { get; set; }
         public Nullable<bool> complete { get; set; }
     
-        public virtual ICollection<Cities> Cities { get; set; }
+        public ICollection<Cities> Cities { get; set; }
     }
 }

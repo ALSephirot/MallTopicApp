@@ -19,7 +19,7 @@ namespace malltopic_wcf
         public Nullable<System.Guid> fk_IdServicio { get; set; }
         public Nullable<int> orden { get; set; }
     
-        public virtual Malls Malls { get; set; }
-        public virtual Services Services { get; set; }
+        public Malls Malls { get; set; }
+        public Services Services { get; set; }
     }
 }

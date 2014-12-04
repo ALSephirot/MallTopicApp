@@ -18,7 +18,7 @@ namespace malltopic_wcf
         public Nullable<System.Guid> fk_idCategory { get; set; }
         public Nullable<System.Guid> fk_idstore { get; set; }
     
-        public virtual Categories Categories { get; set; }
-        public virtual Stores Stores { get; set; }
+        public Categories Categories { get; set; }
+        public Stores Stores { get; set; }
     }
 }

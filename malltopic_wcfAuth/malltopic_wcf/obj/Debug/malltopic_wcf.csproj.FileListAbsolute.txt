@@ -399,3 +399,4 @@ C:\Users\Alexander\Documents\GitHub\MallTopicApp\malltopic_wcfAuth\malltopic_wcf
 C:\Users\Alexander\Documents\GitHub\MallTopicApp\malltopic_wcfAuth\malltopic_wcf\obj\Debug\malltopic_wcf.csprojResolveAssemblyReference.cache
 C:\Users\Alexander\Documents\GitHub\MallTopicApp\malltopic_wcfAuth\malltopic_wcf\obj\Debug\malltopic_wcf.dll
 C:\Users\Alexander\Documents\GitHub\MallTopicApp\malltopic_wcfAuth\malltopic_wcf\obj\Debug\malltopic_wcf.pdb
+C:\Users\Luis Oquendo\Documents\GitHub\MallTopicApp\malltopic_wcfAuth\malltopic_wcf\obj\Debug\malltopic_wcf.csprojResolveAssemblyReference.cache

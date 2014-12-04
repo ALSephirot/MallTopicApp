@@ -20,7 +20,7 @@ function CargarCategorias(idpaginacontent)
 	}
 		
 	loadDataArray(url);
-	var Categorias= arrayInfo
+	var Categorias= arrayInfo;
 
 	//Pinto el Unordered List
 	var htmlList = '<p>Categorias Generales</p>';
@@ -323,16 +323,120 @@ function cargarListaloc(idcate, idpaginacontenedor){
 	var IndexIni = getLLControl();
 	var IndexFin = IndexIni + CantItemLazyLoad;
 	setLLControl(IndexFin + 1);
+	var stringSP = 'FD62AD02-B232-49E4-ABF6-A79EFBA7B117';
+	var stringCons = '9BA14D6A-83E0-4726-B41B-52080A75AFE5';
 
+	stringSP = stringSP.toLowerCase();
+	stringCons = stringCons.toLowerCase();
 
+	var storesxcategories = getStoresxCategories();
+	var SP = $.grep(storesxcategories.value, function (n, i) {
+	            return n.fk_idCategory == stringSP;
+	        });
+	var Cons = $.grep(storesxcategories.value, function (n, i) {
+	            return n.fk_idCategory == stringCons;
+	        });
 	//recorre y muestra todos los locales consultados
 	$.each(ALocalesFinal, function(index, item) {
 
 		if(index >= IndexIni && index <= IndexFin)
 		{
+			var SP1 = $.grep(SP, function (n, i) {
+						    return n.fk_idstore.toUpperCase() == item.id.toUpperCase();
+						});
+
+			var Cons1 = $.grep(Cons, function (n, i) {
+							return n.fk_idstore.toUpperCase() == item.id.toUpperCase();
+						});
+
 			if(Mall == "" || Mall == undefined)
 			{
-				if(ComprobarMasCercanos(item.fk_idCC, index, ALocalesFinal.length))
+				if(MallFiltro == "" || MallFiltro == undefined)
+				{
+					if(ComprobarMasCercanos(item.fk_idCC, index, ALocalesFinal.length))
+					{
+						if(SP1.length > 0)
+						{
+							if(Cons1 > 0)
+							{
+								var logotemp = RutaRecursos + "Logos/Locales/"+ item.id + ".png";
+								var LogoFinal = VerificarArchivo("LogosTiendas",logotemp,"");
+
+								html += '<li class="listaTipo1"><a id="'+item.id+'"  href="#DetalleComercio" data-transition="slide"  ><img src="'+ LogoFinal +'" /><div class="textolistaTipo1"><h3>' + item.nombre+ '</h3><p>Consultorio: '+item.numLocal+' - Tel: ' + item.telefono +'</p><p>'+ item.nombreMall +'</p></div><div class="FlechaLocales">Ir</div></a></li>';							
+								estado=true;
+							}
+							else
+							{
+								var logotemp = RutaRecursos + "Logos/Locales/"+ item.id + ".png";
+								var LogoFinal = VerificarArchivo("LogosTiendas",logotemp,"");
+
+								html += '<li class="listaTipo1"><a id="'+item.id+'"  href="#DetalleComercio" data-transition="slide"  ><img src="'+ LogoFinal +'" /><div class="textolistaTipo1"><h3>' + item.nombre+ '</h3><p>Oficina: '+item.numLocal+' - Tel: ' + item.telefono +'</p><p>'+ item.nombreMall +'</p></div><div class="FlechaLocales">Ir</div></a></li>';							
+								estado=true;
+							}
+						}
+						else
+						{
+							var logotemp = RutaRecursos + "Logos/Locales/"+ item.id + ".png";
+							var LogoFinal = VerificarArchivo("LogosTiendas",logotemp,"");
+
+							html += '<li class="listaTipo1"><a id="'+item.id+'"  href="#DetalleComercio" data-transition="slide"  ><img src="'+ LogoFinal +'" /><div class="textolistaTipo1"><h3>' + item.nombre+ '</h3><p>Local: '+item.numLocal+' - Tel: ' + item.telefono +'</p><p>'+ item.nombreMall +'</p></div><div class="FlechaLocales">Ir</div></a></li>';							
+							estado=true;
+						}
+					}
+				}
+				else
+				{
+					if(SP1.length > 0)
+					{
+						if(Cons1 > 0)
+						{
+							var logotemp = RutaRecursos + "Logos/Locales/"+ item.id + ".png";
+							var LogoFinal = VerificarArchivo("LogosTiendas",logotemp,"");
+
+							html += '<li class="listaTipo1"><a id="'+item.id+'"  href="#DetalleComercio" data-transition="slide"  ><img src="'+ LogoFinal +'" /><div class="textolistaTipo1"><h3>' + item.nombre+ '</h3><p>Consultorio: '+item.numLocal+' - Tel: ' + item.telefono +'</p><p>'+ item.nombreMall +'</p></div><div class="FlechaLocales">Ir</div></a></li>';							
+							estado=true;
+						}
+						else
+						{
+							var logotemp = RutaRecursos + "Logos/Locales/"+ item.id + ".png";
+							var LogoFinal = VerificarArchivo("LogosTiendas",logotemp,"");
+
+							html += '<li class="listaTipo1"><a id="'+item.id+'"  href="#DetalleComercio" data-transition="slide"  ><img src="'+ LogoFinal +'" /><div class="textolistaTipo1"><h3>' + item.nombre+ '</h3><p>Oficina: '+item.numLocal+' - Tel: ' + item.telefono +'</p><p>'+ item.nombreMall +'</p></div><div class="FlechaLocales">Ir</div></a></li>';							
+							estado=true;
+						}
+					}
+					else
+					{
+						var logotemp = RutaRecursos + "Logos/Locales/"+ item.id + ".png";
+						var LogoFinal = VerificarArchivo("LogosTiendas",logotemp,"");
+
+						html += '<li class="listaTipo1"><a id="'+item.id+'"  href="#DetalleComercio" data-transition="slide"  ><img src="'+ LogoFinal +'" /><div class="textolistaTipo1"><h3>' + item.nombre+ '</h3><p>Local: '+item.numLocal+' - Tel: ' + item.telefono +'</p><p>'+ item.nombreMall +'</p></div><div class="FlechaLocales">Ir</div></a></li>';							
+						estado=true;
+					}
+				}				
+			}
+			else
+			{
+				if(SP1.length > 0)
+				{
+					if(Cons1 > 0)
+					{
+						var logotemp = RutaRecursos + "Logos/Locales/"+ item.id + ".png";
+						var LogoFinal = VerificarArchivo("LogosTiendas",logotemp,"");
+
+						html += '<li class="listaTipo1"><a id="'+item.id+'"  href="#DetalleComercio" data-transition="slide"  ><img src="'+ LogoFinal +'" /><div class="textolistaTipo1"><h3>' + item.nombre+ '</h3><p>Consultorio: '+item.numLocal+' - Tel: ' + item.telefono +'</p><p>'+ item.nombreMall +'</p></div><div class="FlechaLocales">Ir</div></a></li>';							
+						estado=true;
+					}
+					else
+					{
+						var logotemp = RutaRecursos + "Logos/Locales/"+ item.id + ".png";
+						var LogoFinal = VerificarArchivo("LogosTiendas",logotemp,"");
+
+						html += '<li class="listaTipo1"><a id="'+item.id+'"  href="#DetalleComercio" data-transition="slide"  ><img src="'+ LogoFinal +'" /><div class="textolistaTipo1"><h3>' + item.nombre+ '</h3><p>Oficina: '+item.numLocal+' - Tel: ' + item.telefono +'</p><p>'+ item.nombreMall +'</p></div><div class="FlechaLocales">Ir</div></a></li>';							
+						estado=true;
+					}
+				}
+				else
 				{
 					var logotemp = RutaRecursos + "Logos/Locales/"+ item.id + ".png";
 					var LogoFinal = VerificarArchivo("LogosTiendas",logotemp,"");
@@ -340,19 +444,6 @@ function cargarListaloc(idcate, idpaginacontenedor){
 					html += '<li class="listaTipo1"><a id="'+item.id+'"  href="#DetalleComercio" data-transition="slide"  ><img src="'+ LogoFinal +'" /><div class="textolistaTipo1"><h3>' + item.nombre+ '</h3><p>Local: '+item.numLocal+' - Tel: ' + item.telefono +'</p><p>'+ item.nombreMall +'</p></div><div class="FlechaLocales">Ir</div></a></li>';							
 					estado=true;
 				}
-			}
-			else
-			{
-				url = WebService + "Malls(guid'"+item.fk_idCC+"')/";
-				loadDataArray(url);
-				var AMall = arrayInfo;
-
-				var logotemp = RutaRecursos + "Logos/Locales/"+ item.id + ".png";
-				var LogoFinal = VerificarArchivo("LogosTiendas",logotemp,"");
-
-				html += '<li class="listaTipo1"><a id="'+item.id+'"  href="#DetalleComercio" data-transition="slide"  ><img src="'+ LogoFinal +'" /><div class="textolistaTipo1"><h3>' + item.nombre+ '</h3><p>Local: '+item.numLocal+' - Tel: ' + item.telefono +'</p><p>'+ AMall.nombre +'</p></div><div class="FlechaLocales">Ir</div></a></li>';							
-				estado=true;
-
 			}
 
 			if(index == IndexFin)

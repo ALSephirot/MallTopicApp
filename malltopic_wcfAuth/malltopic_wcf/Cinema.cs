@@ -30,7 +30,7 @@ namespace malltopic_wcf
         public Nullable<System.Guid> user_created { get; set; }
         public string portada { get; set; }
     
-        public virtual Malls Malls { get; set; }
-        public virtual ICollection<Schedule_movie> Schedule_movie { get; set; }
+        public Malls Malls { get; set; }
+        public ICollection<Schedule_movie> Schedule_movie { get; set; }
     }
 }

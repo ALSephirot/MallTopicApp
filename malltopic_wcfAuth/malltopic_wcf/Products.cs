@@ -31,7 +31,7 @@ namespace malltopic_wcf
         public Nullable<System.Guid> user_created { get; set; }
         public Nullable<System.Guid> user_modified { get; set; }
     
-        public virtual ICollection<Colections_detail> Colections_detail { get; set; }
-        public virtual Stores Stores { get; set; }
+        public ICollection<Colections_detail> Colections_detail { get; set; }
+        public Stores Stores { get; set; }
     }
 }

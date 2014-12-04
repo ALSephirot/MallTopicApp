@@ -65,20 +65,20 @@ namespace malltopic_wcf
         public string youtube { get; set; }
         public string Instagram { get; set; }
     
-        public virtual ICollection<Aprovaciones> Aprovaciones { get; set; }
-        public virtual ICollection<Categories> Categories { get; set; }
-        public virtual ICollection<Cinema> Cinema { get; set; }
-        public virtual Cities Cities { get; set; }
-        public virtual ICollection<Colections> Colections { get; set; }
-        public virtual ICollection<Events> Events { get; set; }
-        public virtual ICollection<Favorites> Favorites { get; set; }
-        public virtual ICollection<Gallery> Gallery { get; set; }
-        public virtual ICollection<Stores> Stores { get; set; }
-        public virtual ICollection<PilasPs> PilasPs { get; set; }
-        public virtual ICollection<Promos> Promos { get; set; }
-        public virtual ICollection<Room_movie> Room_movie { get; set; }
-        public virtual ICollection<services_detail> services_detail { get; set; }
-        public virtual ICollection<transport> transport { get; set; }
-        public virtual ICollection<Movies> Movies { get; set; }
+        public ICollection<Aprovaciones> Aprovaciones { get; set; }
+        public ICollection<Categories> Categories { get; set; }
+        public ICollection<Cinema> Cinema { get; set; }
+        public Cities Cities { get; set; }
+        public ICollection<Colections> Colections { get; set; }
+        public ICollection<Events> Events { get; set; }
+        public ICollection<Favorites> Favorites { get; set; }
+        public ICollection<Gallery> Gallery { get; set; }
+        public ICollection<Stores> Stores { get; set; }
+        public ICollection<PilasPs> PilasPs { get; set; }
+        public ICollection<Promos> Promos { get; set; }
+        public ICollection<Room_movie> Room_movie { get; set; }
+        public ICollection<services_detail> services_detail { get; set; }
+        public ICollection<transport> transport { get; set; }
+        public ICollection<Movies> Movies { get; set; }
     }
 }

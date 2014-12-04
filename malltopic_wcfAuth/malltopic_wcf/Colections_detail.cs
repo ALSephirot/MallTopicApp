@@ -23,7 +23,7 @@ namespace malltopic_wcf
         public Nullable<System.Guid> user_modified { get; set; }
         public string nombre { get; set; }
     
-        public virtual Colections Colections { get; set; }
-        public virtual Products Products { get; set; }
+        public Colections Colections { get; set; }
+        public Products Products { get; set; }
     }
 }

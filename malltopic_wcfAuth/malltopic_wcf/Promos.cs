@@ -39,8 +39,8 @@ namespace malltopic_wcf
         public Nullable<System.Guid> user_modified { get; set; }
         public Nullable<System.Guid> fk_idcc { get; set; }
     
-        public virtual ICollection<Aprovaciones> Aprovaciones { get; set; }
-        public virtual Malls Malls { get; set; }
-        public virtual Stores Stores { get; set; }
+        public ICollection<Aprovaciones> Aprovaciones { get; set; }
+        public Malls Malls { get; set; }
+        public Stores Stores { get; set; }
     }
 }

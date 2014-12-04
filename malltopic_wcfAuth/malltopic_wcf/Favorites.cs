@@ -18,7 +18,7 @@ namespace malltopic_wcf
         public Nullable<System.Guid> IdMall { get; set; }
         public Nullable<System.Guid> IdLocal { get; set; }
     
-        public virtual Malls Malls { get; set; }
-        public virtual Stores Stores { get; set; }
+        public Malls Malls { get; set; }
+        public Stores Stores { get; set; }
     }
 }

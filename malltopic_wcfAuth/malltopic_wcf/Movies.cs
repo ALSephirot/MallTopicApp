@@ -39,8 +39,8 @@ namespace malltopic_wcf
         public string trailer { get; set; }
         public string director { get; set; }
     
-        public virtual ICollection<Schedule_movie> Schedule_movie { get; set; }
-        public virtual ICollection<Room_movie> Room_movie { get; set; }
-        public virtual ICollection<Malls> Malls { get; set; }
+        public ICollection<Schedule_movie> Schedule_movie { get; set; }
+        public ICollection<Room_movie> Room_movie { get; set; }
+        public ICollection<Malls> Malls { get; set; }
     }
 }

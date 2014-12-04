@@ -30,7 +30,7 @@ using System.Web;
 namespace malltopic_wcf
 {
 
-    public class malltopicWcf : EntityFrameworkDataService<MallTopicFinalEntities>
+    public class malltopicWcf : EntityFrameworkDataService<MallTopicFinalEntities1>
     {
         // This method is called only once to initialize service-wide policies.
         public static void InitializeService(DataServiceConfiguration config)
@@ -46,42 +46,42 @@ namespace malltopic_wcf
         [WebGet]
         public List<SP_Consulta_Categorias_Result> GetCategories(bool todos, bool especial, string idcate, string idmall)
         {
-            MallTopicFinalEntities entities = new MallTopicFinalEntities();
+            MallTopicFinalEntities1 entities = new MallTopicFinalEntities1();
             return entities.SP_Consulta_Categorias(todos, idcate, especial, idmall).ToList();
         }
 
         [WebGet]
         public List<SP_Tiendas_x_Categorias_Result> GetStoresxCategories(string IdMall, string IdCategory, string PNombre)
         {
-            MallTopicFinalEntities entities = new MallTopicFinalEntities();
+            MallTopicFinalEntities1 entities = new MallTopicFinalEntities1();
             return entities.SP_Tiendas_x_Categorias(IdMall, IdCategory, PNombre).ToList();
         }
 
         [WebGet]
         public List<SP_Promos_Result> GetPromos(string IdPromo, string IdMall)
         {
-            MallTopicFinalEntities entities = new MallTopicFinalEntities();
+            MallTopicFinalEntities1 entities = new MallTopicFinalEntities1();
             return entities.SP_Promos(IdPromo, IdMall).ToList();
         }
 
         [WebGet]
         public List<SP_Eventos_Result> GetEventos(string IdEvento, string IdMall)
         {
-            MallTopicFinalEntities entities = new MallTopicFinalEntities();
+            MallTopicFinalEntities1 entities = new MallTopicFinalEntities1();
             return entities.SP_Eventos(IdEvento, IdMall).ToList();
         }
 
         [WebGet]
         public List<SP_Servicios_Result> GetServicios(string IdMall)
         {
-            MallTopicFinalEntities entities = new MallTopicFinalEntities();
+            MallTopicFinalEntities1 entities = new MallTopicFinalEntities1();
             return entities.SP_Servicios(IdMall).ToList();
         }
 
         [WebGet]
         public List<SP_Colecciones_Result> GetColecciones(string idmall)
         {
-            MallTopicFinalEntities entities = new MallTopicFinalEntities();
+            MallTopicFinalEntities1 entities = new MallTopicFinalEntities1();
             return entities.SP_Colecciones(idmall).ToList();
         }
      

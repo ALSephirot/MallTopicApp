@@ -22,6 +22,6 @@ namespace malltopic_wcf
         public System.Guid ID { get; set; }
         public string servicio { get; set; }
     
-        public virtual ICollection<services_detail> services_detail { get; set; }
+        public ICollection<services_detail> services_detail { get; set; }
     }
 }

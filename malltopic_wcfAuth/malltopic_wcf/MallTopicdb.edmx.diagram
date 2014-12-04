@@ -4,30 +4,30 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f0679fc224f946afa88dfeb342e62930" Name="Diagram1" ZoomLevel="87">
+      <Diagram DiagramId="ee65e3dd2b5f4c638ac666bc4b114582" Name="Diagram1">
         <EntityTypeShape EntityType="MallTopicFinalModel.Aprovaciones" Width="1.5" PointX="10.25" PointY="30.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MallTopicFinalModel.Categories" Width="1.5" PointX="5.25" PointY="25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MallTopicFinalModel.Cinema" Width="1.5" PointX="5.25" PointY="35.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Categories" Width="1.5" PointX="5.25" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Cinema" Width="1.5" PointX="5.25" PointY="35" IsExpanded="true" />
         <EntityTypeShape EntityType="MallTopicFinalModel.Cities" Width="1.5" PointX="0.75" PointY="25.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MallTopicFinalModel.Colections" Width="1.5" PointX="7.5" PointY="46.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MallTopicFinalModel.Colections_detail" Width="1.5" PointX="9.75" PointY="54.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Colections" Width="1.5" PointX="10.5" PointY="43.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Colections_detail" Width="1.5" PointX="12.75" PointY="52.875" IsExpanded="true" />
         <EntityTypeShape EntityType="MallTopicFinalModel.Countries" Width="1.5" PointX="1.5" PointY="21.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MallTopicFinalModel.Events" Width="1.5" PointX="10.5" PointY="48.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MallTopicFinalModel.Favorites" Width="1.5" PointX="10.5" PointY="44.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MallTopicFinalModel.Gallery" Width="1.5" PointX="10.5" PointY="40.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MallTopicFinalModel.Gallery_detail" Width="1.5" PointX="12.75" PointY="40.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MallTopicFinalModel.Malls" Width="1.5" PointX="3" PointY="27.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Events" Width="1.5" PointX="7.5" PointY="38.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Favorites" Width="1.5" PointX="7.5" PointY="47.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Gallery" Width="1.5" PointX="10.5" PointY="49.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Gallery_detail" Width="1.5" PointX="12.75" PointY="49.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Malls" Width="1.5" PointX="3" PointY="27" IsExpanded="true" />
         <EntityTypeShape EntityType="MallTopicFinalModel.Movies" Width="1.5" PointX="0.75" PointY="29.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MallTopicFinalModel.PilasPs" Width="1.5" PointX="5.25" PointY="51.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.PilasPs" Width="1.5" PointX="5.25" PointY="51.625" IsExpanded="true" />
         <EntityTypeShape EntityType="MallTopicFinalModel.Products" Width="1.5" PointX="7.5" PointY="59.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MallTopicFinalModel.Promos" Width="1.5" PointX="7.5" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Promos" Width="1.5" PointX="13.5" PointY="43.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MallTopicFinalModel.Room_movie" Width="1.5" PointX="5.25" PointY="30.125" IsExpanded="true" />
         <EntityTypeShape EntityType="MallTopicFinalModel.Schedule_movie" Width="1.5" PointX="7.5" PointY="30.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MallTopicFinalModel.Services" Width="1.5" PointX="6" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Services" Width="1.5" PointX="6" PointY="23.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MallTopicFinalModel.services_detail" Width="1.5" PointX="8.25" PointY="26.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MallTopicFinalModel.Stores" Width="1.5" PointX="5.25" PointY="57.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MallTopicFinalModel.StoresXCategories" Width="1.5" PointX="7.5" PointY="43.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MallTopicFinalModel.transport" Width="1.5" PointX="5.25" PointY="65.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.Stores" Width="1.5" PointX="5.25" PointY="57.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.StoresXCategories" Width="1.5" PointX="7.5" PointY="44.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MallTopicFinalModel.transport" Width="1.5" PointX="5.25" PointY="65.5" IsExpanded="true" />
         <AssociationConnector Association="MallTopicFinalModel.FK_Aprovaciones_0" ManuallyRouted="false" />
         <AssociationConnector Association="MallTopicFinalModel.FK_Aprovaciones_1" ManuallyRouted="false" />
         <AssociationConnector Association="MallTopicFinalModel.FK_Aprovaciones_2" ManuallyRouted="false" />

@@ -132,7 +132,7 @@
     <Property Name="fechaInicio" Type="DateTime" Precision="0" />
     <Property Name="fechaFinal" Type="DateTime" Precision="0" />
     <Property Name="organizador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="telefono" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="web" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="publicar" Type="Boolean" />
@@ -218,6 +218,8 @@
     <Property Name="H_lunes_a_viernes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="H_sabado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="H_domingos_y_festivos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="youtube" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Instagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Aprovaciones" Relationship="Self.FK_Aprovaciones_2" FromRole="Malls" ToRole="Aprovaciones" />
     <NavigationProperty Name="Categories" Relationship="Self.FK_Categories_0" FromRole="Malls" ToRole="Categories" />
     <NavigationProperty Name="Cinema" Relationship="Self.FK_Cines_mall" FromRole="Malls" ToRole="Cinema" />
@@ -233,8 +235,6 @@
     <NavigationProperty Name="services_detail" Relationship="Self.FK_services_detail_0" FromRole="Malls" ToRole="services_detail" />
     <NavigationProperty Name="transport" Relationship="Self.Malls_transport" FromRole="Malls" ToRole="transport" />
     <NavigationProperty Name="Movies" Relationship="Self.Movies_Malls" FromRole="Malls" ToRole="Movies" />
-    <Property Name="youtube" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Instagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Movies">
     <Key>
@@ -397,10 +397,12 @@
     <Property Name="Facebook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Twitter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="H_lunes_a_viernes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="H_lunes_a_viernes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="H_sabado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="H_domingos_y_festivos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="NombreCategoria" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="youtube" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Instagram" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="Colections" Relationship="Self.FK_Colections_0" FromRole="Stores" ToRole="Colections" />
     <NavigationProperty Name="Events" Relationship="Self.FK_Events_Stores" FromRole="Stores" ToRole="Events" />
     <NavigationProperty Name="Favorites" Relationship="Self.FK_Favorites_1" FromRole="Stores" ToRole="Favorites" />
@@ -820,7 +822,7 @@
     <End Role="Movies" Type="Self.Movies" Multiplicity="*" />
     <End Role="Malls" Type="Self.Malls" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="MallTopicFinalEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="MallTopicFinalEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Aprovaciones" EntityType="Self.Aprovaciones" />
     <EntitySet Name="Categories" EntityType="Self.Categories" />
     <EntitySet Name="Cinema" EntityType="Self.Cinema" />
@@ -998,6 +1000,10 @@
       <Parameter Name="IdEvento" Mode="In" Type="String" />
       <Parameter Name="IdMall" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="SP_Guardar_MoviesMalls">
+      <Parameter Name="fk_idCC" Mode="In" Type="Guid" />
+      <Parameter Name="fk_idMovie" Mode="In" Type="Guid" />
+    </FunctionImport>
     <FunctionImport Name="SP_Promos" ReturnType="Collection(MallTopicFinalModel.SP_Promos_Result)">
       <Parameter Name="IdPromo" Mode="In" Type="String" />
       <Parameter Name="IdMall" Mode="In" Type="String" />
@@ -1052,7 +1058,7 @@
     <Property Type="DateTime" Name="fechaInicio" Nullable="true" />
     <Property Type="DateTime" Name="fechaFinal" Nullable="true" />
     <Property Type="String" Name="organizador" Nullable="true" MaxLength="50" />
-    <Property Type="Decimal" Name="telefono" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="telefono" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="correo" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="web" Nullable="true" MaxLength="50" />
     <Property Type="Boolean" Name="publicar" Nullable="true" />
@@ -1111,7 +1117,7 @@
     <Property Type="String" Name="facebook" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="twitter" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="website" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="H_lunes_a_viernes" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="H_lunes_a_viernes" Nullable="true" />
     <Property Type="String" Name="H_sabado" Nullable="true" />
     <Property Type="String" Name="H_domingos_y_festivos" Nullable="true" />
     <Property Type="String" Name="NombreCategoria" Nullable="true" MaxLength="50" />

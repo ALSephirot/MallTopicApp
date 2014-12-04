@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="MallTopicFinalModelStoreContainer" CdmEntityContainer="MallTopicFinalEntities">
+  <EntityContainerMapping StorageEntityContainer="MallTopicFinalModelStoreContainer" CdmEntityContainer="MallTopicFinalEntities1">
     <EntitySetMapping Name="Aprovaciones">
       <EntityTypeMapping TypeName="MallTopicFinalModel.Aprovaciones">
         <MappingFragment StoreEntitySet="Aprovaciones">
@@ -175,8 +175,6 @@
     <EntitySetMapping Name="Malls">
       <EntityTypeMapping TypeName="MallTopicFinalModel.Malls">
         <MappingFragment StoreEntitySet="Malls">
-          <ScalarProperty Name="Instagram" ColumnName="Instagram" />
-          <ScalarProperty Name="youtube" ColumnName="youtube" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="mapa" ColumnName="mapa" />
@@ -207,6 +205,8 @@
           <ScalarProperty Name="H_lunes_a_viernes" ColumnName="H_lunes_a_viernes" />
           <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
           <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
+          <ScalarProperty Name="youtube" ColumnName="youtube" />
+          <ScalarProperty Name="Instagram" ColumnName="Instagram" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -341,8 +341,6 @@
     <EntitySetMapping Name="Stores">
       <EntityTypeMapping TypeName="MallTopicFinalModel.Stores">
         <MappingFragment StoreEntitySet="Stores">
-          <ScalarProperty Name="Instagram" ColumnName="Instagram" />
-          <ScalarProperty Name="youtube" ColumnName="youtube" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="telefono" ColumnName="telefono" />
@@ -366,6 +364,8 @@
           <ScalarProperty Name="H_sabado" ColumnName="H_sabado" />
           <ScalarProperty Name="H_domingos_y_festivos" ColumnName="H_domingos_y_festivos" />
           <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+          <ScalarProperty Name="youtube" ColumnName="youtube" />
+          <ScalarProperty Name="Instagram" ColumnName="Instagram" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -468,6 +468,7 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Guardar_MoviesMalls" FunctionName="MallTopicFinalModel.Store.SP_Guardar_MoviesMalls" />
     <FunctionImportMapping FunctionImportName="SP_Promos" FunctionName="MallTopicFinalModel.Store.SP_Promos">
       <ResultMapping>
         <ComplexTypeMapping TypeName="MallTopicFinalModel.SP_Promos_Result">

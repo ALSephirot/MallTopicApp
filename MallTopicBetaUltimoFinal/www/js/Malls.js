@@ -129,6 +129,10 @@ function CargarIndexMall() {
 		$('#LinkYoutubeMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
 	}
 
+	url = WebService + "StoresXCategories";
+	loadDataArray(url);
+	setStoresxCategories(arrayInfo);
+
 }
 
 function CargarSplashScreen() {

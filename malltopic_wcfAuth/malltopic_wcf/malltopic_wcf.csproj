@@ -243,6 +243,7 @@
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %2813%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %2814%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %2815%29.pubxml" />
+    <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %2816%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %284%29.pubxml" />
@@ -258,6 +259,7 @@
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %2813%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %2814%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %2815%29.pubxml" />
+    <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %2816%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %284%29.pubxml" />
@@ -271,6 +273,8 @@
     <None Include="Properties\PublishProfiles\malltopicserviceapp2 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\malltopicWcf - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\malltopicWcf - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\MallTopicWebApi - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\MallTopicWebApi - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\WebApiServicesApp - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\WebApiServicesApp - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">

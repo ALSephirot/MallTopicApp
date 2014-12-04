@@ -117,7 +117,7 @@
     <Property Name="fechaInicio" Type="date" />
     <Property Name="fechaFinal" Type="date" />
     <Property Name="organizador" Type="varchar" MaxLength="50" />
-    <Property Name="telefono" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="telefono" Type="varchar" MaxLength="50" />
     <Property Name="correo" Type="varchar" MaxLength="50" />
     <Property Name="web" Type="varchar" MaxLength="50" />
     <Property Name="publicar" Type="bit" />
@@ -827,6 +827,10 @@
   <Function Name="SP_Eventos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdEvento" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="IdMall" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="SP_Guardar_MoviesMalls" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fk_idCC" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="fk_idMovie" Type="uniqueidentifier" Mode="In" />
   </Function>
   <Function Name="SP_Promos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IdPromo" Type="nvarchar(max)" Mode="In" />

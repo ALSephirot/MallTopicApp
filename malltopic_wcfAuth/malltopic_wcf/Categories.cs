@@ -31,7 +31,7 @@ namespace malltopic_wcf
         public Nullable<bool> especial { get; set; }
         public Nullable<System.Guid> fk_idCC { get; set; }
     
-        public virtual Malls Malls { get; set; }
-        public virtual ICollection<StoresXCategories> StoresXCategories { get; set; }
+        public Malls Malls { get; set; }
+        public ICollection<StoresXCategories> StoresXCategories { get; set; }
     }
 }
