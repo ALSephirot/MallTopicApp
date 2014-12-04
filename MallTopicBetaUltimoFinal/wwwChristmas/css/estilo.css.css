@@ -31,6 +31,18 @@
 	}
 
 @media (min-width: 769px) and (max-width: 800px)  {
+
+.luces{
+	width:120px;
+	height:120px;
+	background:url(../images/NaidadArco.gif); background-size:100%;
+	position:absolute;
+	top:10px;
+	right:10px;
+	z-index:3;
+	}
+
+/*-----------------------------------------Navidad MallTopic-------------------------------------*/
 	
 /*--------------------------------Modulo Buscar----------------------------------*/
 
@@ -2456,6 +2468,18 @@ div#ButtonMedios {
 	}
 
 @media (min-width: 721px) and (max-width: 768px)  {
+
+.luces{
+	width:110px;
+	height:110px;
+	background:url(../images/NaidadArco.gif); background-size:100%;
+	position:absolute;
+	top:10px;
+	right:10px;
+	z-index:3;
+	}
+
+/*-----------------------------------------Navidad MallTopic-------------------------------------*/
 	
 /*--------------------------------Modulo Buscar----------------------------------*/	
 
@@ -4735,6 +4759,18 @@ div#ButtonMedios {
 	}
 	
 @media (min-width: 601px) and (max-width: 720px)  {
+
+.luces{
+	width:110px;
+	height:110px;
+	background:url(../images/NaidadArco.gif); background-size:100%;
+	position:absolute;
+	top:10px;
+	right:10px;
+	z-index:3;
+	}
+
+/*-----------------------------------------Navidad MallTopic-------------------------------------*/
 	
 /*--------------------------------Modulo Buscar----------------------------------*/	
 
@@ -7015,6 +7051,18 @@ div#ButtonMedios {
 	}
 	
 @media (min-width: 481px) and (max-width: 600px)  {
+
+.luces{
+	width:100px;
+	height:100px;
+	background:url(../images/NaidadArco.gif); background-size:100%;
+	position:absolute;
+	top:10px;
+	right:10px;
+	z-index:3;
+	}
+
+/*-----------------------------------------Navidad MallTopic-------------------------------------*/
 	
 /*--------------------------------Modulo Buscar----------------------------------*/	
 
@@ -9440,6 +9488,18 @@ div#ButtonMedios {
 	}
 
 @media (min-width: 361px) and (max-width: 480px)  {
+
+.luces{
+	width:90px;
+	height:90px;
+	background:url(../images/NaidadArco.gif); background-size:100%;
+	position:absolute;
+	top:10px;
+	right:10px;
+	z-index:3;
+	}
+
+/*-----------------------------------------Navidad MallTopic-------------------------------------*/
 	
 /*--------------------------------Modulo Buscar----------------------------------*/	
 
@@ -11864,6 +11924,18 @@ div#ButtonMedios {
 	
 @media (min-width: 321px) and (max-width: 360px)  {	
 
+.luces{
+	width:80px;
+	height:80px;
+	background:url(../images/NaidadArco.gif); background-size:100%;
+	position:absolute;
+	top:10px;
+	right:10px;
+	z-index:3;
+	}
+
+/*-----------------------------------------Navidad MallTopic-------------------------------------*/
+
 /*--------------------------------Modulo Buscar----------------------------------*/	
 
 .flechitaBuscar {
@@ -14251,7 +14323,19 @@ div#ButtonMedios {
 }
 
 @media (min-width: 241px) and (max-width: 320px) {
-	
+
+.luces{
+	width:70px;
+	height:70px;
+	background:url(../images/NaidadArco.gif); background-size:100%;
+	position:absolute;
+	top:10px;
+	right:10px;
+	z-index:3;
+	}
+
+/*-----------------------------------------Navidad MallTopic-------------------------------------*/
+
 /*--------------------------------Modulo Buscar----------------------------------*/
 
 .flechitaBuscar {
@@ -16572,6 +16656,18 @@ div#ButtonMedios {
 	}
 
 @media (max-width: 240px) {
+
+.luces{
+	width:60px;
+	height:60px;
+	background:url(../images/NaidadArco.gif); background-size:100%;
+	position:absolute;
+	top:10px;
+	right:10px;
+	z-index:3;
+	}
+
+/*-----------------------------------------Navidad MallTopic-------------------------------------*/
 	
 /*--------------------------------Modulo Buscar----------------------------------*/	
 
