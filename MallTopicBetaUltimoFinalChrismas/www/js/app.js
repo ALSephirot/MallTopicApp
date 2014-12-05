@@ -71,28 +71,50 @@ jQuery(document).ready(function($) {
 });
 
 function VerificarRegistro() {
+	var id = localStorage.getItem('IdCelular');
     var TablaInsert = client.getTable("regis_users");
-    var queryMalls = TablaInsert.where({ idcelular: localStorage.getItem('IdCelular')});
+    var queryMalls = TablaInsert.where({ idcelular: id});
 
         queryMalls.read().then(function(argument) {
             if(argument.length == 0)
             {
                 localStorage.setItem("VR", "false");
                 $.mobile.changePage('#Index','slide');
-
+                TodosFooter(false);
             }
             else
             {
                 localStorage.setItem("VR", "true");
                 $.mobile.changePage('#Index','slide');
+               // TodosFooter();
+
             }
         });
     
 }
 
-function TodosFooter () {
-		var todosFooter = $(".footer");
+function TodosFooter (Registro) {
+	var foo = '<a href="#Index" class="btnHome" data-transition="slide">Home</a>' +
+              '<a href="#modFavoritos" class="btnFavoritos">Favoritos</a>' +
+              '<a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>';
+
+	var todosFooter = $(".footer");
+
+	if(!Registro)
+	{
+		$.each(todosFooter, function(index,item){
+			$(item).append("<a href='#Login' id='btnRegistrar'>Registrarme</a>");
+		});
+	}
+	else
+	{
+		$.each(todosFooter, function(index,item){
+			$(item).html(foo);
+		});
+	}
 }
+
+		
 
 function VerificarConexion() {
     var TC = localStorage.getItem('TC');
@@ -2448,18 +2470,29 @@ function CargarCines()
 	});
 	
 	$( document ).on( "pageshow", "#modFavoritos", function() {
-		$.mobile.loading("show",{
-		  text: "Cargando favoritos...",
-		  textVisible: true,
-		  theme: "b",
-		  html: ""
-		});
 
-		setTimeout(function(){
-			CargarSelect("#modFavoritos");
-			TraerFavoritos();
-		}, 2000);	
-	});
+		var registro= localStorage.getItem("VR");
+		var valor = (registro === "true");
+		if(valor)
+		{
+			$.mobile.loading("show",{
+			  text: "Cargando favoritos...",
+			  textVisible: true,
+			  theme: "b",
+			  html: ""
+			});
+
+			setTimeout(function(){
+				CargarSelect("#modFavoritos");
+				TraerFavoritos();
+			}, 2000);	
+		}else
+		{
+			alert("Para usar este modulo debes estár registrado.");
+				$.mobile.changePage("#Index");
+		}	
+});
+
 
 	
 	$( document ).on( "pageshow", "#modBuscar", function() {
