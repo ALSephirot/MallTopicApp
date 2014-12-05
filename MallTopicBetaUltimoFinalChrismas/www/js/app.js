@@ -267,7 +267,11 @@ function FormatearFecha(Fecha)
     }
 
 	//url= direccion uri de la consulta
-	function loadDataArray(url) {
+	function loadDataArray(url,asincrono) {
+		if(asincrono == null || asincrono == undefined)
+		{
+			asincrono = false;
+		}
 
 		try
 		{
@@ -276,12 +280,24 @@ function FormatearFecha(Fecha)
 				type: "GET",
 				url: url,
 				dataType: "json",
-				async:false,
+				async:asincrono,
 				isLocal: true,
 				success: function (results) {
 
 					//se almacena objeto resultados en variable global
-		   			arrayInfo=results;		
+					if(asincrono)
+					{
+						if($.mobile.activePage.is('#IndexMall') || $.mobile.activePage.is('#SplashScreen'))
+						{
+							arrayInfo=results;
+							setStoresxCategories(arrayInfo);
+						}
+					}
+					else
+					{
+						arrayInfo=results;
+					}
+		   					
 
 				},
 				error: function (msg) {

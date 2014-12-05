@@ -157,7 +157,7 @@ function CargarCategorias(idpaginacontent)
 	if(mall =="" || mall == undefined)
 	{
 		url = WebService + "StoresXCategories";
-		loadDataArray(url);
+		loadDataArray(url,true);
 		setStoresxCategories(arrayInfo);
 	}
 }

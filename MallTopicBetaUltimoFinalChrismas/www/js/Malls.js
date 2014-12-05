@@ -130,8 +130,7 @@ function CargarIndexMall() {
 	}
 
 	url = WebService + "StoresXCategories";
-	loadDataArray(url);
-	setStoresxCategories(arrayInfo);
+	loadDataArray(url, true);
 
 }
 
