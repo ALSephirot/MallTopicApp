@@ -236,25 +236,28 @@ function CargarSelectMalls(idpaginacontenedor)
 
 		if(FiltroMalls== "" || FiltroMalls == undefined)
 		{
-			htmlSelect += "<option value='' selected='selected'>Mas Cercanos</option>";	
+			htmlSelect += "<option value='' selected='selected'>Más Cercanos</option>";	
 		}
 		else
 		{
-			htmlSelect += "<option value=''>Mas Cercanos</option>";
+			htmlSelect += "<option value=''>Más Cercanos</option>";
 		}
 			
-
-		$.each(Malls, function(index, item) {
+		if(Malls != undefined)
+		{
+			$.each(Malls, function(index, item) {
 			
-			if (item.id == FiltroMalls)
-			{
-				htmlSelect += "<option value='"+ item.idmall +"' selected='selected'>"+ item.nombre +"</option>";
-			} 
-			else
-			{
-				htmlSelect += "<option value='"+ item.idmall +"'>"+ item.nombre +"</option>";
-			}
-		});
+				if (item.id == FiltroMalls)
+				{
+					htmlSelect += "<option value='"+ item.idmall +"' selected='selected'>"+ item.nombre +"</option>";
+				} 
+				else
+				{
+					htmlSelect += "<option value='"+ item.idmall +"'>"+ item.nombre +"</option>";
+				}
+			});
+		}
+		
 
 		htmlSelect += 	"</select>";
 

@@ -1,0 +1,2103 @@
+﻿<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width">
+        <meta name="handheldfriendly" content="true">
+        <meta name="mobileOptimized" content="480">
+        <title>Malltopic</title>
+
+
+
+        <!--jquery-->
+        <script src="js/jquery-1.10.2.js"></script>
+        <script src="js/jquery-ui-1.10.4.custom.js"></script>
+        <script src="js/jquery.mobile.js"></script>
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.3.min.js"></script>
+        <script src="js/oauth.js"></script>
+        <script src="js/Malls.js"></script>
+        <script src="js/Comercios.js"></script>
+        <script src="js/Autenticacion.js"></script>
+        <script src="js/favoritos.js"></script>
+        <script src="js/Buscar.js"></script>
+        <script src="js/compartir.js"></script>
+        <script src="js/GuardarRegistro.js" ></script>
+        <script src="js/e-parking.js" ></script>
+
+        <!--Phonegap-->
+        <script src="cordova.js"></script>
+        <script src="js/PhoneGap-Common.js"></script>
+
+        <!--MallTopic Scripts-->
+        <!--<script src="Scripts/sqlite.js"></script>-->
+        <script src="js/app.js"></script>
+        <script src="js/globalv.js"></script>
+
+        <!--Maps-->
+        <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry&sensor=false"></script>
+        <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+        <script src="js/mapa.js"></script>
+
+        
+        <!--<script src="js/parking.js"></script>
+        <script src="Scripts/mail.js"></script>
+        <script src="Scripts/mandrill.js"></script>-->
+
+        <!--Galerias-->
+        <script type="text/javascript" src="js/jquery.galleriffic.js"></script>
+        <script type="text/javascript" src="js/jquery.opacityrollover.js"></script> 
+        
+        <!--Estilos-->
+        <link rel="stylesheet" type="text/css" href="css/estilo.css.css">
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.4.custom.min.css">
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.custom.structure.css" >
+        <link rel="stylesheet" type="text/css" href="css/galleriffic.css">
+
+        <script>
+            document.addEventListener("deviceready", onDeviceReady, false);
+            /*$(document).bind("mobileinit", function () {
+                $.mobile.ajaxEnabled = false;
+            });*/
+
+        jQuery(document).ready(function($) {
+
+            $( "#PopUp" ).dialog({
+                autoOpen: false,
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "blind",
+                    duration: 1000
+                }
+            });
+
+            $( "#ColorPicker" ).dialog({
+                autoOpen: false,
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "blind",
+                    duration: 1000
+                }
+            });
+
+            $( "#modCompartir" ).dialog({
+                autoOpen: false,
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "blind",
+                    duration: 1000
+                }
+            });
+        });
+        </script>
+    </head>
+ 
+
+    <body>
+        <!------------------------------------Pre-Load------------------------------------>
+        <section data-role="page" id="PreLoad" data-theme="a">
+            <div class="contenedor2">
+            </div>    
+        </section>
+        <!------------------------------------Login------------------------------------>
+        <section data-role="page" id="Login" data-theme="a">
+            <div class="contenedor2">
+                <img src="images/LogoMT2.png" class="logo2"/>
+                <h1>Para empezar a utilizar<br/><span class="txtcolor">MallTopic</span> debes:</h1>
+                <div class="ContenedorBoton"><a href="#registro1" class="botonLogin1">Regístrarte</a></div>
+                <h1><br/>Iniciar Sesión con:</h1>
+                <div class="ContenedorBoton"><a href="#" class="botonLogin2" onclick="Login('facebook');">Facebook</a></div>
+                <p>Encuentra toda la información de tu<br/>Centro Comercial Favorito</p>
+            </div>    
+        </section>
+        
+        <!------------------------------------Registro------------------------------------>
+        <section data-role="page" id="registro1">
+            <div class="contenedor3">
+            <img src="images/LogoMT2.png" class="logo2"/>
+                <div id="ContentRegistro" class="camposRegistro">
+                    <p class="12">Nombre:</p>
+                    <input id="Txt_nombre" type="text" name="Ingresa tu nombre" class="campInfo"/>
+                    <p>Alias</p>
+                    <input id="Txt_alias" type="text" name="Ingresa un alias" class="campInfo"/>
+                    <p>Teléfono:</p>
+                    <input id="Txt_telefono" type="text" class="campInfo" maxlength="10" onkeyUp="return ValNumero(this);"/>
+                    <p>Edad:</p>
+                    <input id="Txt_edad" type="text" class="campInfo"maxlength="3" onkeyUp="return ValNumero(this);"/>
+                    <p>Fecha de nacimiento:</p>
+                    <input id="Txt_fnacimiento" type="date" class="campInfo"/>
+                    <p>Email:</p>
+                    <input id="Txt_email" type="text" name="ejemplo@.com" class="campInfo" />
+                    <p>Pa&iacute;s:</p>
+                    <input id="txt_pais" type="text" name="ejemplo@.com" class="campInfo"/>
+                    <p>Ciudad:</p>
+                    <input id="Txt_ciudad" type="text" name="ejemplo@.com" class="campInfo"/>
+                    <h1>Cuéntanos tus gustos o Preferencias</h1>
+                    <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Cines" class="checks2" id="chk_cines"/>Cines</p>
+                    <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Eventos" class="checks2" id="chk_eventos"/>Eventos</p>
+                    <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Promos" class="checks2" id="chk_promos"/>Promos</p>
+                    <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Comidas" class="checks2" id="chk_comidas"/>Comidas</p>
+                    <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Tecnología" class="checks2" id="chk_tecnologia"/>Tecnología</p>
+                    <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Deportes" class="checks2" id="chk_deportes"/>Deportes</p>
+                    <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Arte" class="checks2" id="chk_artes"/>Arte</p>
+                    <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Música" class="checks2" id="chk_musica"/>Música</p>
+                    <p class="checks"><input type="checkbox" name="Che[]" data-gusto="Turismo" class="checks2" id="chk_turismo"/>Turismo</p>
+                </div>    
+                <a href="#registro2" onclick="captura()">Siguiente</a>     
+            </div>         
+        </section>
+        
+		<!------------------------------------Registro2------------------------------------>
+        <section data-role="page" id="registro2">
+            <div class="contenedor3">
+             <img src="images/LogoMT2.png" class="logo2"/>
+                <div class="camposRegistro">
+                    <button onclick="LoginRegistro('facebook');" class="campInfo2">Login-Facebook</button>
+                  	<button onclick="LoginRegistro('twitter
+                    ');" class="campInfo3">Login-Facebook</button>
+                </div>    
+                <a href="#Index">Continuar</a>     
+            </div>         
+        </section>
+
+        <!------------------------------------Index Ppal------------------------------------>
+        <section data-role="page" id="Index">
+            <div class="contenedor"> 
+                <div class="luces"></div>
+                <header>
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <img src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerIndex1.png" class="header"/>
+                </header>
+                    <div class="ContenedorIconos">
+                        <div class="iconos">
+                            <a href="#ListaCC" class="iconoMalls" data-transition="slide"></a>
+                            <p>Malls</p> 
+                        </div>
+                        <div class="iconos">
+                            <a href="#ComerciosxCategorias" class="iconoTiendas" data-transition="slide"></a>
+                            <p>Tiendas</p> 
+                        </div>
+                        <div class="iconos">
+                            <a href="#EParking" class="iconoParking" data-transition="slide"></a>
+                            <p>E-Parking</p> 
+                        </div>
+                        <div class="iconos">
+                            <a href="#Promociones" class="iconoPromos" data-transition="slide"></a>
+                            <p>Promos</p> 
+                        </div>
+                        <div class="iconos">
+                            <a href="#Eventos" class="iconoEventos" data-transition="slide"></a>
+                            <p>Eventos</p> 
+                        </div>
+                        <div class="iconos">
+                            <a href="#Colecciones" class="iconoColecciones" data-transition="slide"></a>
+                            <p>Colecciones</p> 
+                        </div>
+                        <div class="iconos">
+                            <a href="#Cines" class="iconoCines" data-transition="slide"></a>
+                            <p>Cines</p> 
+                        </div>
+                        <div class="iconos">
+                            <a href="#maps" class="iconoMapa" data-transition="slide"></a>
+                            <p>Mapa</p> 
+                        </div>
+                        <div class="iconos">
+                            <a href="#social" class="iconoSocial" data-transition="slide"></a>
+                            <p>Social</p> 
+                        </div>
+                    </div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                        <input type="text" class="campoTexto" value="Busqueda"/>
+                        <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg"  onchange='ParametroBusqueda(this)'>
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                    	</select>
+                        </div>
+                    </footer>
+                </div><!--Cierro Contenedor--> 
+        </section>
+
+<!------------------------------------Modulo Buscar------------------------------------> 
+                     
+        <section data-role="page" id="modBuscar">
+            <header>
+                <img src="images/LogoMT1.png" class="logo"/>
+                <script>
+                    $(document).ready(function(){
+                        $('div.contenedor div#ContenedorResultado').on('click', 'a', function() {
+                            setIsBuscar(true);
+                            setIsFavorito(false);
+                            SetLocal($(this).attr('id'));
+                            ConfigurarHeaders('DetalleComercio', 'HeaderDetalleComercio', '');
+                        });
+                    });
+                </script>
+            </header>
+            <div class="contenedor">
+            <div class="flechitaBuscar"></div>
+            <div class="contBuscar">
+                <label id="NomComercio" for="nombreComercio">
+                    <h3>Nombre del Comercio:</h3>
+                    <input id="NombreComercioBuscar" type="text" name="nombreComercio"/>
+                </label>
+                <label for="escogerCat">
+                    <h3>Escoge una Categoria</h3>
+                    <select name="escogerCat" onchange="ParametroBusqueda(this)">
+                        <option value="bancos">Bancos</option>
+                        <option value="calzado">Calzado</option>
+                    </select>
+                </label>
+                <a href="#" class="BBuscar" onclick="Buscar()">Buscar</a>
+            </div>
+            <div id="ContenedorResultado" onclick="c(this)"></div>
+            <footer class="footer">
+                        <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <!--<a href="#modBuscar" class="btnBuscar"  data-transition="slide">Buscar</a>
+                        <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                        <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                        </div>
+                        <div class="CerrBus"></div>-->
+            </footer>
+            </div>
+        </section>
+
+        <!------------------------------------Comercios x Categorias Index------------------------------------>
+        <section data-role="page" id="ComerciosxCategorias">
+            <div class="contenedor"> 
+                <header data-id="Header" class="header2">
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id = "ContentSelect" class="CampoSelect">
+                    </div>
+
+                    <div id="SelectMall" class="CampoSelect2">
+                    </div>
+
+                    <img src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerTiendas1.png" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris1"></div>
+                        <img src="images/IconosVectorizados/tiendas.png" class="SubIcono"/>
+                        <h2>Tiendas</h2>
+                    </div>
+                    <script>
+                        $(document).ready(function(){
+                            $('#ComerciosxCategorias #ContentCate').on('click', 'a', function() {
+                                setCate($(this).attr('id'));
+                            });
+
+                            $('#ComerciosxCategorias #ContentCateEsp').on('click', 'a', function() {
+                                setCate($(this).attr('id'));
+                        });
+
+                            $('#ComerciosxCategorias #ContentCateMovi').on('click', 'a', function() {
+                                setCate($(this).attr('id'));
+                            });
+                        });
+                    </script>
+               </header>
+               <article>
+                    <div class="separador4"></div>
+                    <div id="ContentCate" class="ContenedorIconos2" style="display: inline-block;"></div>
+                    <div id="ContentCateEsp" class="ContenedorIconos2" style="display: inline-block;"></div>
+                    <div id="ContentCateMovi" class="ContenedorIconos2" style="display: inline-block;"></div>
+                </article>
+                <div class="separadorEsp"></div>
+                <footer class="footer">
+                    <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                    <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                    <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                    <!--<input type="text" class="campoTexto" value="Busqueda"/>
+					<div class="abreBusqueda">
+                 		<select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                 		</select>
+                 	</div>-->
+                </footer>
+            </div><!--Cierro Contenedor-->          
+        </section>
+
+         <!------------------------------------Comercios x Categorias Mall------------------------------------>
+        <section data-role="page" id="ComerciosxCategoriasMall">
+            <div class="contenedor"> 
+            <header data-id="Header" class="header2">
+                <img src="images/LogoMT1.png" class="logo"/>
+                <div id = "ContentSelect" class="CampoSelect">
+                </div>
+                <div class="subHeaderMall">
+                    <div class="gris1"></div>
+                    <img src="images/IconosVectorizados/tiendas.png" class="SubIcono"/>
+                    <h2>Tiendas</h2>
+                </div>
+
+                <div id="CambioComercio" class="cambioComercio">
+                    <a href="#ComerciosxCategoriasMall" data-select="true">Categorías</a>
+                    <a href="#ComerciosxLocalesMall" data-select="false">Locales</a>
+                </div>
+
+                <img id="HeaderComCate" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerTiendas1.png" class="header"/>
+                <script>
+                    $(document).ready(function(){
+                        $('#ComerciosxCategoriasMall #ContentCate').on('click', 'a', function() {
+                            setCate($(this).attr('id'));
+                        });
+
+                        $('#ComerciosxCategoriasMall #ContentCateEsp').on('click', 'a', function() {
+                            setCate($(this).attr('id'));
+                    });
+                    });
+                </script>
+           </header>
+           <div class="separadorMall"></div>
+                <div id="ContentCate" class="ContenedorIconos2" style="display: inline-block;"></div>
+                <div id="ContentCateEsp" class="ContenedorIconos2" style="display: inline-block;"></div>
+                <div class="separadorEsp"></div>
+                <footer class="footer">
+                    <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                    <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                    <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                    <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->
+                </footer>
+            </div><!--Cierro Contenedor-->          
+        </section>
+
+        <!------------------------------------Comercios x Locales Index------------------------------------>
+        <section data-role="page" id="ComerciosxLocales">
+            <div class="contenedor"> 
+            <header data-id="Header" class="header2">
+                <img src="images/LogoMT1.png" class="logo"/>
+                <div id = "ContentSelect" class="CampoSelect">
+                </div>
+
+                <div id="SelectMall" class="CampoSelect2">
+                </div>
+
+                <img src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerTiendas1.png" class="header"/>
+                <div class="subHeader">
+                    <div class="gris1"></div>
+                    <img src="images/IconosVectorizados/tiendas.png" class="SubIcono"/>
+                    <h2>Tiendas</h2>
+                </div>
+                <script>
+                    $(document).ready(function(){
+                        $('#ComerciosxLocales #contentloc').on('click', 'a', function() {
+                            setIsBuscar(false);
+                            setIsFavorito(false);
+                            SetLocal($(this).attr('id'));
+                            ConfigurarHeaders('DetalleComercio', 'HeaderDetalleComercio', '');
+                        });
+                    });
+                </script>
+           </header>
+           <div class="separador4"></div>
+                <div id="contentloc" class="ContenedorIconos2">
+                
+                </div>
+                <div class="separadorEsp"></div>
+                <footer class="footer">
+                    <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                    <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                    <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                     <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                  
+                </footer>
+            </div><!--Cierro Contenedor-->          
+        </section>
+
+            <!------------------------------------Comercios x Locales Mall------------------------------------>
+        <section data-role="page" id="ComerciosxLocalesMall">
+            <div class="contenedor"> 
+            <header data-id="Header" class="header2">
+                <img src="images/LogoMT1.png" class="logo"/>
+                <div id = "ContentSelect" class="CampoSelect">
+                </div>
+                <div class="subHeaderMall">
+                    <div class="gris1"></div>
+                    <img src="images/IconosVectorizados/tiendas.png" class="SubIcono"/>
+                    <h2>Tiendas</h2>
+                </div>
+
+                <div id="CambioComercio" class="cambioComercio">
+                    <a href="#ComerciosxCategoriasMall" data-select="false">Categorías</a>
+                    <a href="#ComerciosxLocalesMall" data-select="true">Locales</a>
+                </div>
+
+                <img id="HeaderComLoc" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerTiendas1.png" class="header"/>
+                <script>
+                    $(document).ready(function(){
+                        $('#ComerciosxLocalesMall #contentloc').on('click', 'a', function() {
+                            setIsBuscar(false);
+                            setIsFavorito(false);
+                            SetLocal($(this).attr('id'));
+                            ConfigurarHeaders('DetalleComercio', '#HeaderDetalleComercio', '');
+                        });
+                    });
+                </script>
+           </header>
+           <div class="separadorMall"></div>
+                <div id="contentloc" class="ContenedorIconos2">
+                
+                </div>
+                <div class="separadorEsp"></div>
+                <footer class="footer">
+                    <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                    <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                  <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                     <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                    
+                </footer>
+            </div><!--Cierro Contenedor-->          
+        </section>
+        
+   <!------------------------------------Detalle Comercios/Locales Mall/Index------------------------------------>
+        <section id ="DetalleComercio" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+
+                    <img id="HeaderDetalleComercio" src="" class="header"/>
+                    <div id="Encabezado" class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/comercios.png" class="SubIcono"/>
+                        <h2 class="name"></h2>
+                    </div>
+                    <div id="ContentBotonesDetComer" class="botonas">
+                        <a href="#" class="btnDetalles">
+                            <div class="telephone"></div>
+                            <p>Llamar</p>
+                        </a>
+                        <div class="btnDetalles">
+                            <h3>500</h3>
+                            <p>Local</p>
+                        </div>
+                    </div>
+                   
+                </header>
+                <div class="separador4"></div>
+                    <div id="AcordeonLocales" class="acordion" >
+                        
+                    </div>
+                    <div class="separadorRedes"></div>
+                    <div class="divRedesSocial">
+                        <p>¡Síguenos y Comparte!</p>
+                            <a id="lf" href="#" onclick='InAppBrowserOpen("http://www.facebook.com")' class="socialNet1"></a>
+                            <a id="lt" href="#" onclick='InAppBrowserOpen("http://www.twitter.com")' class="socialNet2"></a>
+                            <a id="li" href="#" onclick='InAppBrowserOpen("http://www.instagram.com")' class="socialNet3"></a>
+                            <a id="ly" href="#" onclick='InAppBrowserOpen("http://www.youtube.com")' class="socialNet4"></a>
+                            <a href="#modCompartir" class="socialNet5"></a>
+                    </div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                        <a href="#" onclick="AgregarFavoritos('Comercio')" class="btnFavoritos">Favoritos</a>
+                       <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                         <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->               
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+        
+        <!------------------------------------E-Parking------------------------------------>
+        <section id="EParking" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2">
+                <img src="images/LogoMT1.png" class="logo"/>
+                <img src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerEParking1.png" class="header"/>
+                </header>
+                <div class="separador4"></div>
+                <div class="organizador">
+                <div class="divParking1">
+                    <p>Nivel-Piso</p>
+                    <select id="txtNivel" class="campNumero">
+                    	<option value="S1">S1</option>
+                        <option value="S2">S2</option>
+                        <option value="S3">S3</option>
+                        <option value="S4">S4</option>
+                        <option value="S5">S5</option>
+                        <option value="P1">P1</option>
+                        <option value="P2">P2</option>
+                        <option value="P3">P3</option>
+                        <option value="P4">P4</option>
+                        <option value="P5">P5</option>
+                        <option value="P6">P6</option>
+                        <option value="P7">P7</option>
+                        <option value="P8">P8</option>
+                        <option value="P9">P9</option>
+                        <option value="P10">P10</option>
+                    </select>
+                    <p>Nro. Celda.</p>
+                    <input id="txtCelda" type="text" class="campCelda" maxlength="3" onkeyUp="return ValNumero(this);">
+                    <a id="btnColor" href="#" onclick="LlamarPopUpColor()" class="btnColor" data-rel="dialog" data-transition="pop">Color</a>
+                    <button id="btnGuardar" class="btnGuardar">Guardar</button>
+                </div>
+                <div class="divParking2">
+                    <p class="titleParking">Su vehículo se encuentra en:</p>
+                    <div id="Lugar" class="mostrarLugar"></div>
+                    <p class="titleParking2">Color:</p><div id="MostrarColor" class="mostrarColor"></div>
+                    <button id="btnMostrar" class="btnMostrar">Mostrar</button>
+                    <button id="btnBorrar" class="btnBorrar">Borrar</button>
+                </div>
+                </div>
+                <div class="recomendaciones">
+                <h3>RECOMENDACIONES DE SEGURIDAD</h3>
+					<ol>
+                    <li><span class="negrita">1. </span>El derecho al estacionamiento es gratuito durante su permanencia en el Centro Comercial, si se retira debe hacerlo con el vehículo, de lo contrario la Administración hará el cobro respectivo por el uso de este.</li><br/>
+                    <li><span class="negrita">2. </span>Al retirarse del vehículo verifique que las puertas y vidrios estén bien cerrados y deje activados los mecanismos de seguridad.</li><br/>
+                    <li><span class="negrita">3. </span>No deje dentro del vehículo o sobre la moto, paquetes, bolsos, maletines, portátiles, celulares, cascos u objetos de valor que llamen la atención de los delincuentes.</li><br/>
+                    <li><span class="negrita">4. </span>Si el panel del radio es removible retírelo y llévelo con usted.</li><br/>
+                    <li><span class="negrita">5. </span>Conserve en un lugar seguro su tiquete o ficho de estacionamiento, no lo deje dentro del vehículo y al salir devuélvalo al personal de SEGURIDAD.</li><br/>
+                    <li><span class="negrita">6. </span>Para la salida de su vehículo o moto es indispensable devolver el tiquete o ficho de estacionamiento. En  caso de extraviarlo debe notificar inmediatamente al personal de seguridad, su reposición tendrá un costo y será asumido  por el responsable de la pérdida.</li>
+                    </ol>
+                </div>
+                <div class="separador3"></div>
+                <footer class="footer">
+                        <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                        <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->
+                </footer>
+            </div><!--Cierro Contenedor-->  
+        </section>
+        
+        <!------------------------------------Color E-Parking-------------------------------->
+        
+        <section id="ColorPicker" title="Color Parqueadero" >
+           <div class="contenedorColores">
+           	<h1>Selecciona un Color:</h1>
+            <ul>
+                  	<li><a href="#" id="#014cfd" class="color1" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#8203ff" class="color2" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#c80063" class="color3" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#ff0f01" class="color4" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#ff9e00" class="color5" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#fced00" class="color6" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#dbe970" class="color7" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#00c700" class="color8" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#01a08c" class="color9" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#00a8ff" class="color10" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#ffffff" class="color11" onclick="CambioColor(this);"></a></li>
+                    <li><a href="#" id="#000000" class="color12" onclick="CambioColor(this);"></a></li>
+            </ul>
+            <!--<a href="#" class="btnSeleccionar">Seleccionar</a>-->
+           </div>
+        </section>
+
+        <!------------------------------------Promos Index------------------------------------>
+        <section id="Promociones" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <div id="SelectMall" class="CampoSelect2">
+                        
+                    </div>
+
+                    <img id="HeaderPromos" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerPromos1.png" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris1"></div>
+                        <img src="images/IconosVectorizados/promos.png" class="SubIcono"/>
+                        <h2>Promos</h2>
+                    </div>
+                    <script>
+                        $(document).ready(function () {
+                            $('#PromosList').on('click', 'a', function() {
+                                setPromo($(this).attr('id'));
+                            });
+
+                        });
+                    </script>
+                </header>
+                <div class="separador4"></div>
+                    <!--<div class="CampoSelect3">
+                        <div class="arrowIzq"></div>
+                        	<div class="der"><p>Mas Opciones</p></div>
+                            <select class="Filtro2" onchange="AplicarFiltroPromo(this)">
+                                <option value="" selected="selected">Todas las Promociones</option>
+                                <option value="Activas">Promociones Activas</option>
+                                <option value="Proximas">Proximas Promociones</option>
+                                <option value="Vencidas">Promociones Vencidas</option>
+                            </select>
+                    </div>-->
+                    <div id="PromosList"  class="ListTiendas">
+                    
+                    </div>
+                    <div class="separador3"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                        <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section> 
+        
+        <!------------------------------------Detalles Promos Index------------------------------------>
+        <section id="DetallePromos" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <img id="HeaderDetPromos" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerPromos1.png" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/promos.png" class="SubIcono"/>
+                        <h2 id="NombrePromo" class="name"></h2>
+                    </div>
+                    <img src="images/Store.png" class="logoPromo"/>
+
+                 </header>
+                 <div class="separador4"></div>
+                    <img id="ImagenPromo" src="#" class="imgPromo"/>
+                    <div id="Descripcion" class="infoPaginaDetalle">
+                    </div>
+                    <div id="AcordeonPromo" class="acordion">
+                        
+                    </div>
+                        <div class="organCompartir">
+                            <button class="compartir2" onclick='LlamarCompartir()'>Compartir</button>
+                        </div>
+                    <div class="separadorEsp"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                        <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                   
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+        
+        <!------------------------------------Eventos Index------------------------------------>
+        <section id="Eventos" data-role="page">
+            <div class="contenedor"> 
+                <header data-id="Header" class="header2">
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <div id="SelectMall" class="CampoSelect2">
+                        
+                    </div>
+                    <img id="HeaderEventos" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerEventos1.png" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris1"></div>
+                        <img src="images/IconosVectorizados/eventos.png" class="SubIcono"/>
+                        <h2>Eventos</h2>
+                    </div>
+                    <script>
+                        $(document).ready(function () {
+                            $('#EventList').on('click', 'a', function() {
+                                setEvento($(this).attr('id'));
+                            });
+
+                        });
+                    </script>
+                </header>
+                <div class="separador4"></div>
+                    <div id="EventList" class="ListTiendas">
+
+                    </div>
+                    <div class="separador3"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                        <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                    
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+        
+        <!------------------------------------Detalles Eventos------------------------------------>
+        <section id="DetalleEventos" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <img id="HeaderDetEventos" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerEventos1.png" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/promos.png" class="SubIcono"/>
+                        <h2 id="NombreEvento" class="name"></h2>
+                    </div>
+                    <img id="LogoEventos" src="#" class="logoPromo"/>
+                </header>
+                <div class="separador4"></div>
+                    <img id="ImagenEventos" src="#" class="imgPromo"/>
+                    <div id="DescEvento" class="infoPaginaDetalle">
+                        
+                    </div>
+                    <div id="AcordeonEventos" class="acordion">
+                        <h3>Mas información</h3>
+                        <div>
+                            <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                            ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                            amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                            odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+                        </div>
+                    </div>
+                    <div class="organCompartir">
+                            <button class="compartir2" onclick='LlamarCompartir()'>Compartir</button>
+                    </div>
+                    <div class="separadorEsp"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                        <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                       
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+        
+        <!------------------------------------Colecciones Index------------------------------------>
+        <section id="Colecciones" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <div id="SelectMall" class="CampoSelect2">
+                        
+                    </div>
+                    <img id="HeaderColecciones" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerColecciones1.png" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris1"></div>
+                        <img src="images/IconosVectorizados/colecciones.png" class="SubIcono"/>
+                        <h2>Colecciones</h2>
+                    </div>
+                    <script>
+                        $(document).ready(function () {
+                            $('#ColectionList').on('click', 'a', function() {
+                                setColeccion($(this).attr('id'));
+                            });
+                        });
+                    </script>
+               </header>
+               <div class="separador4"></div>
+                    <div id="ColectionList" class="ListTiendas">
+                    
+                    </div>
+                    <div class="separador3"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                         <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                      
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+        
+        <!------------------------------------Detalles Colecciones------------------------------------>
+        <section id="DetalleColecciones" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <img id="HeaderDetColecciones" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerColecciones1.png" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/colecciones.png" class="SubIcono"/>
+                        <h2 id="NombreColeccion" class="name"></h2>
+                    </div>
+                    <img src="#" class="logoPromo"/>
+                </header>
+                <div class="separador4"></div>
+                    <div id="gallery" class="content">
+                        <div id="controls" class="controls"></div>
+                        <div class="slideshow-container">
+                            <div id="loading" class="loader"></div>
+                            <div id="slideshow" class="slideshow"></div>
+                        </div>
+                        <div id="caption" class="caption-container"></div>
+                    </div>
+                    <div id="thumbs" class="navigation"></div>
+                    <div class="organCompartir">
+                           <button class="compartir2" onclick='LlamarCompartir()'>Compartir</button>
+                    </div>
+                    <div class="separadorEsp"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                         <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                     
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+
+        <!------------------------------------Mapa Index------------------------------------>
+        <section id="maps" data-role="page">
+            <div class="contenedor">
+                <header> 
+                    <img src="images/LogoMT1.png" class="logoComoLlegar"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                </header>
+
+                    <div id="map_canvas"></div>
+
+
+                    <!--<div id="map_canvas" class="contentMapa"></div>-->
+                <footer class="footer">
+                    <a href="#Index" class="btnHome">Home</a>
+                    <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                    <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                     <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                    
+                </footer>
+            </div><!--Cierro Contenedor-->          
+        </section>
+
+        <!------------------------------------Mapa Mall Como Llegar------------------------------------>
+        <section id="ComoLlegar" data-role="page">
+            <div class="contenedor">
+                <header> 
+                    <img src="images/LogoMT1.png" class="logoComoLlegar"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                    </div>
+                    <script>
+
+                    $(document).ready(function () {
+                        $('#ContentListCC').on('click', 'a', function() {
+                            setCC($(this).attr('id'));
+                        });
+                        
+                    });
+                    </script>
+                </header>
+                <!--<div class="separadorComoLlegar"></div>-->
+                    <div id="map_canvasComoLlegar" class="contentMapa"></div>
+                    <div id="ContenedorBotonesGeneral">
+                        
+                    </div>
+                     <div id="directions-panel" >
+                    </div>
+                <footer class="footer">
+                    <a href="#Index" class="btnHome">Home</a>
+                    <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                    <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                     <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                  
+                </footer>
+            </div><!--Cierro Contenedor-->          
+        </section>
+
+        <section id="PopUp" title="Opciones de Transporte Publico">
+             <div id="ContentMedios">
+                <ul>
+                    <li>
+                        <div class="medioTrans">
+                        <img src="images/bus.png" class="iconaso"></img>
+                        <p>Autobus</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="medioTrans">
+                        <img src="images/microbus.png" class="iconaso"></img>
+                        <p>Colectivo</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="medioTrans">
+                        <img src="images/taxi.png" class="iconaso"></img>
+                        <p>Taxi</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="medioTrans">
+                        <img src="images/metro.png" class="iconaso"></img>
+                        <p>Metro</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="medioTrans">
+                        <img src="images/metrocable.png" class="iconaso"></img>
+                        <p>Metro Cable</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="medioTrans">
+                        <img src="images/metroplus.png" class="iconaso"></img>
+                        <p>Metroplus</p>
+                        </div>
+                    </li>
+                </ul>
+             </div>
+        </section>
+
+
+        <!------------------------------------Lista Malls------------------------------------>
+        <section data-role="page" id="ListaCC">
+            <div class="contenedor">
+                <header class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                    
+                    </div>
+
+                    <script>
+
+                    $(document).ready(function () {
+                        $('#ContentListCC').on('click', 'a', function() {
+                            setCC($(this).attr('id'));
+                            CargarSplashScreen();
+                        });
+
+                    });
+                    </script>
+                </header>
+                	<div class="BlancDiv"></div>
+                    <div class="separador"></div>
+                    <div id="ContentListCC">
+                        
+                    </div>
+                <div class="separadorEsp"></div>
+                <footer class="footer">
+                    <a href="#Index" class="btnHome">Home</a>
+                    <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                    <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                     <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                  
+                </footer>
+            </div><!--Cierro Contenedor-->          
+        </section>
+
+        <!------------------------------------Splash Mall-------------------------------->
+        <section id="SplashScreen" data-role="page" >
+            <div class="splash" id="splash"><img id="ImagenSplash" src="#" alt="FondoSplash"></div>
+        </section>
+
+        <!------------------------------------Index Mall-------------------------------->
+        <section data-role="page" id="IndexMall">
+            <div class="contenedor">
+            <header> 
+                <img src="images/LogoMT1.png" class="logo"/>
+                <div id="ContentSelect" class="CampoSelect">
+                    
+                </div>
+                <img id="LogoIndexMall" src="#" class="logoPromo"/>
+                <img id="HeaderIndexMall" src="#" class="header"/>
+                <div class="divInfoMall">
+                    <ul>
+                        <li id="NumLocales">300</li>
+                        <li>Locales</li>
+                        <li id="NumEstaciona">120</li>
+                        <li id="NomNumEstacionamientos">Estacionamientos</li>
+                        <li><p class="phone">7</p></li>
+                        <li id="NumTelefono">234-56-78</li>
+                    </ul>
+                </div>
+            </header>
+                <div class="ContenedorIconos2">
+                    <div class="iconos2">
+                        <a href="#InfoGeneral" class="iconoInfo" data-transition="slide"></a>
+                        <p>Info General</p>
+                    </div>
+                    <div class="iconos2">
+                        <a href="#ComerciosxCategoriasMall" class="iconoComercios" data-transition="slide"></a>
+                        <p>Comercios</p>
+                    </div>
+                    <div class="iconos2">
+                        <a href="#Servicios" class="iconoServicios" data-transition="slide"></a>
+                        <p>Servicios</p>
+                    </div>
+                    <div class="iconos2">
+                        <a href="#ComoLlegar" class="iconoComoLlegar" data-transition="slide"></a>
+                        <p>Cómo llegar</p>
+                    </div>
+                    <div class="iconos2">
+                        <a href="#Promociones" class="iconoPromos" data-transition="slide"></a>
+                        <p>Promociones</p>
+                    </div>
+                    <div class="iconos2">
+                        <a href="#Eventos" class="iconoEventos" data-transition="slide"></a>
+                        <p>Eventos</p>
+                    </div>
+                    <div id="IconoEspecial" class="iconos2">
+                        <a href="#Cines" class="iconoCines" data-transition="slide"></a>
+                        <p>Cines</p>
+                    </div>
+                    <div id='IconoEspecial2' class="iconos2">
+                        <a href="#Galerias" class="iconoGalerias" data-transition="slide"></a>
+                        <p>Galerías</p>
+                    </div>
+                </div>
+                <div class="separadorRedes"></div>
+                <div class="divRedesSocial">
+                    <p>¡Síguenos y Comparte!</p>
+            <a id="LinkFacebookMall" href="#" onclick='InAppBrowserOpen("http://www.facebook.com")' class="socialNet1"></a>
+            <a id="LinkTwitterMall" href="#" onclick='InAppBrowserOpen("http://www.twittwer.com")' class="socialNet2"></a>
+            <a id="LinkInstagramMall" href="#" onclick='InAppBrowserOpen("http://www.instagram.com/")' class="socialNet3"></a>
+            <a id="LinkYoutubeMall" href="#" onclick='InAppBrowserOpen("http://www.youtube.com")' class="socialNet4"></a>
+            <a href="#modCompartir" class="socialNet5"></a>
+                </div>
+                <footer class="footer">
+                    <a href="#Index" class="btnHome">Home</a>
+                    <a href="#" onclick="AgregarFavoritos('Mall')" class="btnFavoritos">Favoritos</a>
+                    <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                     <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                   
+                </footer>
+            </div><!--Cierro Contenedor-->          
+        </section>
+        
+        <!------------------------------------Info General Mall---------------------------------->
+        <section id="InfoGeneral" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <img id="LogoIndexMall" src="#" class="logoPromo"/>
+                    <img id="HeaderInfoGeneral" src="#" class="header"/>
+                 </header>
+                 <div class="separador4"></div>
+                    <div id="ContentInfoGeneral" class="infoGenMall">
+
+                    </div>
+                    <div class="separadorRedes"></div>
+                    <div class="divRedesSocial">
+                        <p>¡Síguenos y Comparte!</p>
+                            <a id="facebookinfogeneral" onclick='InAppBrowserOpen("http://www.facebook.com")' href="#" class="socialNet1"></a>
+                            <a id="twitterinforgeneral" onclick='InAppBrowserOpen("http://www.twitter.com")' href="#" class="socialNet2"></a>
+                            <a id="instagrraminfogeneral" onclick='InAppBrowserOpen("http://www.instagram.com")' href="#" class="socialNet3"></a>
+                            <a id="youtubeinfogeneral" onclick='InAppBrowserOpen("http://www.youtube.com")' href="#" class="socialNet4"></a>
+                            <a id="compartirinfogeneral"  href="#modCompartir" class="socialNet5"></a>
+                    </div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                         <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                    
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+        
+        <!------------------------------------Servicios Mall------------------------------------>
+        <section id="Servicios" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <img id="HeaderServicios" src="#" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/servicios.png" class="SubIcono"/>
+                        <h2>Servicios</h2>
+                    </div>
+                 </header>
+                 <div class="separador4"></div>
+                    <div id="ContenedorServicios" class="ListServiciosMall">
+                    
+                    </div>
+                    <div class="separadorEsp"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                         <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                     
+                    </footer>
+                </div><!--Cierro Contenedor-->
+        </section>
+        
+        <!------------------------------------Galerias Mall------------------------------------>
+        <section id="Galerias" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                           
+                    </div>
+                    <img id="HeaderGalerias" src="#" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/galerias.png" class="SubIcono"/>
+                        <h2>Galerías</h2>
+                    </div>
+                    <img id="LogoGalerias" src="#" class="logoPromo"/>
+                    <script>
+                        $(document).ready(function () {
+                            $('#ContentIcons').on('click', 'a', function() {
+                                setGaleria($(this).attr('id'));
+                            });
+
+                        });
+                    </script>
+               </header>
+               <div class="separador4"></div>
+                    <div id="ContentIcons" class="ContenedorIconos2">
+                        
+                    </div>
+                    <div class="separadorEsp"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                         <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                      
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+
+        <!------------------------------------Detalles Galerias------------------------------------>
+        <section id="DetalleGalerias" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <img id="HeaderDetalleGalerias" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerEventos1.png" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/galerias.png" class="SubIcono"/>
+                        <h2 id="NombreGaleria"></h2>
+                    </div>
+                    <img id="LogoDetGalerias" src="#" class="logoPromo"/>
+                    
+                </header>
+                <div class="separador4"></div>
+                    <div id="gallery" class="content">
+                        <div id="controls" class="controls"></div>
+                        <div class="slideshow-container">
+                            <div id="loading" class="loader"></div>
+                            <div id="slideshow" class="slideshow"></div>
+                        </div>
+                        <div id="caption" class="caption-container"></div>
+                    </div>
+                    <div id="thumbs" class="navigation"></div>
+                    <div class="separadorEsp"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                        <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                   
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+        
+        <!------------------------------------Cines Index------------------------------------>
+        <section id="Cines" data-role="page">
+            <div class="contenedor">
+                <header class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <img id="HeaderCines" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerCines1.png" class="header"/>
+                    <div class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/cines.png" class="SubIcono"/>
+                        <h2>Cines</h2>
+                    </div>
+                    <script>
+                        $(document).ready(function () {
+                            $('#ContentMovies').on('click', 'a', function() {
+
+                                try
+                                {
+                                setMovie($(this).attr('id'));
+                                InfoMovie();
+                                $("#ContentMovies img").each(function() {
+                                    var id = $(this).attr('id');
+                                    var idMovie = getMovie();
+                                    if(id == idMovie)
+                                    {
+                                        $(this).attr('class','peliSeleccionada');
+                                    }
+                                    else
+                                    {
+                                        $(this).attr('class','peliNoSeleccionada');
+                                    }
+                            });
+                                }
+                                catch(err)
+                                {
+                                    //alert(err);
+                                }
+                            });
+
+                            $('#ContentInfoMovie').on('click', 'a', function() {
+                                try
+                                {
+                                var Mall = getCC();
+                                if(Mall == "" || Mall == undefined)
+                                {
+                                    setMallCine($(this).attr('id'));    
+                                        setCC($(this).attr('id'));
+                                        ConfigurarHeadersModulos("Cines");
+                                        CargarSelect("#Cines");
+                                        CargarCines();
+                                        InfoMovie();
+                                }
+                                }
+                                catch(err)
+                                {
+                                    //alert(err);
+                                }
+                                
+                            });
+
+                        });
+                    </script>
+                </header>
+                <div class="separador4"></div>
+                    <div id="ContentMovies" class="posters">
+                       
+                    </div>
+                    
+                    <div id="ContentInfoMovie">
+                    </div>  
+                        
+                    <div class="separadorEsp"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                         <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                    
+                    </footer>
+                </div><!--Cierro Contenedor-->
+        </section>
+
+        <!------------------------------------Detalle Cines Index------------------------------------>
+        <section id="DetalleMovie" data-role="page">
+            <div class="contenedor">
+                <header class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+                    <img id="HeaderDetCines" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerCines1.png" class="header"/>
+                    <div id="NombrePeli" class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/cines.png" class="SubIcono"/>
+                        <h2 class="tituloMovie"></h2>
+                    </div>
+                    <img id="LogoIndexMall" src="#" class="logoPromo"/>
+                </header>
+                <div class="separador4"></div>
+                    <div id="ContentDetalle" class="contentDetalleCine">
+                        
+                    </div>
+                    <div id="ContentMovieDetails">
+                        
+                    </div>
+                    <div id="ContentDetalleMovie">
+                        
+                    </div>
+                    <div class="separadorEsp"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                         <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                      
+                    </footer>
+                </div><!--Cierro Contenedor-->
+			</section>
+
+    <!------------------------------------Detalle Gym Forma------------------------------------>
+        <section id ="DetalleGym" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2">
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+
+                    <img id="Headerforma" src="images/headers/PortadaMoviles.jpg" class="header"/>
+                    <div id="EncabezadoGym" class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/gimnasio.png" class="SubIcono"/>
+                        <h2 class="name">Gimnasio Forma</h2>
+                    </div>
+                    <script>
+						$(function(){
+							$("#AcordeonGym").accordion({collapsible: true});
+							});
+                    </script>
+                    <style>
+                        #ContentInfoGeneralGym, #ContentCronoGym{
+                            height: 100px !important;
+                        }
+                    </style>
+                </header>
+                <div class="separador4"></div>
+                <div id="AcordeonGym" class="acordion">
+                      <h3>Información General</h3>
+                      <div id="ContentInfoGeneralGym" >
+                        <h3>Horario</h3>
+                        <p>
+                            Lunes a Jueves: 5:00am a 10:00pm
+                        </p>
+                        <p>
+                            Viernes: 5:00am a 8:00pm
+                        </p>
+                        <p>
+                            Sábado: 7:00am a 3:00pm
+                        </p>
+                        <p>
+                            Domingos y Festivos: 8:00am a 3:00pm
+                        </p>
+                        <h3>Ubicacion</h3>
+                        <p>
+                            Piso:3 Local: 500
+                        </p>
+                        <h3>Teléfono</h3>
+                        <p>
+                         5124024
+                        </p>
+                        <h3>WebSite</h3>
+                        <p>
+                            www.forma.com.co
+                        </p>
+                      </div>
+                      <h3>Cronograma de Clases</h3>
+                      <div id="ContentCronoGym">
+
+                            <h3>Spinning</h3>
+                            <p>Lunes: 8:15am- 12:15pm-5:30pm-6:30pm-7:30pm</p>
+                            <p>Martes: 9:15am-6:30pm-7:30pm</p>
+                            <p>Miércoles: 6:00am-9:15am-6:30pm-7:30pm</p>
+                            <p>Jueves: :7:15am-9:15am-6:30pm-7:30pm</p>
+                            <p>Viernes:6:00am</p>
+                            <p>Sábado:11:15am</p>
+                            <br/>
+                            <h3>Aeróbicos</h3>
+                            <p>Miércoles: 7:30pm</p>
+                            <br/>
+                            <h3>Fitness</h3>
+                            <p>Lunes: 6:30pm</p>
+                            <p>Miércoles: 7:30pm</p>
+                            <br/>
+                            <h3>Rumba</h3>
+                            <p>Lunes:7:30pm </p>
+                            <p>Miércoles: 9:15am-6:30pm</p>
+                            <p>Jueves: 6:30pm</p>
+                            <p>Viernes:7:15am-12:15pm-6:30pm</p>
+                            <p>Sábado:11:15am</p>
+                            <p>Domingo: 11:15am</p>
+                            <br/>
+                            <h3>Pilates</h3>
+                            <p>Martes: 8:15-5:30</p>
+                            <p>Jueves: 9:15am-7:30am</p>
+                            <br/>
+                            <h3>Yoga</h3>
+                            <p>Martes: 6:30pm-7:30pm</p>
+                            <p>Miércoles:6:30pm</p>
+                            <p>Sábado:9:15am</p>
+                            <br/>
+                            <h3>Super Cadera</h3>
+                            <p>Lunes: 7:15am-4:30pm</p>
+                            <p>Martes: 7:30pm</p>
+                            <p>Miércoles: 4:30pm</p>
+                            <p>Viernes:9:15am</p>
+                            <br/>
+                            <h3>Artes Mixtas</h3>
+                            <p>Sábado:9:15am</p>
+                            <br/>
+                            <h3>Súper Abdomen</h3>
+                            <p>Miércoles:12:15pm</p>
+                            <p>Jueves: 8:15am-7:30pm</p>
+                            <p>Viernes:8:15am</p>
+                            <br/>
+                            <h3>Propiocepción</h3>
+                            <p>Lunes: 8:15am-6:30pm</p>
+                            <br/>
+                            <h3>Tono</h3>
+                            <p>Miércoles:8:15am</p>
+                            <br/>
+                            <h3>Súper Pierna</h3>
+                            <p>Lunes: 9:15am</p>
+                            <p>Jueves: 8:15am</p>
+                            <br/>
+                            <h3>Taebo</h3>
+                            <p>Lunes:6:30pm </p>
+                            <p>Miércoles:12:15pm-5:30pm</p>
+                            <p>Sábado:10:15am</p>
+                            <br/>
+                            <h3>CrossFit</h3>
+                            <p>Viernes:10:15am</p>
+                            <br/>
+                            <h3>RTG</h3>
+                            <p>Martes: 7:15am</p>
+                            <br/>
+                            <h3>Funcional Training</h3>
+                            <p>Jueves: 12:15pm</p>
+                            <br/>
+                            <h3>Streching</h3>
+                            <p>Jueves: 5:30pm</p>
+                            <br/>
+                            <h3>Circuitos</h3>
+                            <p>Martes: 6:30pm</p>
+                            <p>Jueves: 7:30pm</p>
+                            <p>Domingo: 10:15am</p>
+                            <br/>
+                            <h3>Cardioarerobics</h3>
+                            <p>Martes: 6:30pm</p>
+
+                      </div>
+                      <h3>Tarífas</h3>
+                      <div>
+                        Próximamente...
+                      </div>
+                      <h3>Promociones</h3>
+                      <div>
+                        Próximamente...
+                      </div>
+                      <h3>Productos/Servicios</h3>
+                      <div>
+                        Próximamente...
+                      </div>
+                      <h3>Eventos</h3>
+                      <div>
+                        Próximamente...
+                      </div>
+                  </div>
+                    <div class="separadorRedes"></div>
+                    <div class="divRedesSocial">
+                        <p>¡Síguenos y Comparte!</p>
+                            <a href="#" class="socialNet1"></a>
+                            <a href="#" class="socialNet2"></a>
+                            <a href="#" class="socialNet3"></a>
+                            <a href="#" class="socialNet4"></a>
+                            <a href="#modCompartir" class="socialNet5"></a>
+                    </div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                         <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                     
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+
+    <!------------------------------------Detalle Gym Boditech------------------------------------>
+        <section id ="DetalleBody" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2">
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+
+                    <img id="HeaderBodyTech" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/bodytechMoviles.jpg" class="header"/>
+                    <div id="EncabezadoGym" class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/iconoBodyTech.png" class="SubIcono"/>
+                        <h2 class="name">Bodytech</h2>
+                    </div>
+                    <script>
+                        $(function(){
+                            $("#AcordeonGymBody").accordion({collapsible: true});
+                            });
+                    </script>
+                    <style>
+                        #ContentInfoGeneralBody, #ContentCronoBody, #ContentIndoorCycling{
+                            height: 100px !important;
+                        }
+                    </style>
+                </header>
+                <div class="separador4"></div>
+                <div id="AcordeonGymBody" class="acordion">
+                      <h3>Información General</h3>
+                      <div id="ContentInfoGeneralBody" >
+                        <h3>Horario</h3>
+                        <p>
+                            Lunes a Jueves: 5:00am a 11:00pm
+                        </p>
+                        <p>
+                            Viernes: 5:00am a 9:00pm
+                        </p>
+                        <p>
+                            Sábado: 7:00am a 6:00pm
+                        </p>
+                        <p>
+                            Domingos y Festivos: 7:00am a 4:00pm
+                        </p>
+                        <h3>Ubicacion</h3>
+                        <p>
+                            Piso:3 Local: 340
+                        </p>
+                        <h3>Teléfono</h3>
+                        <p>
+                         3663938
+                        </p>
+                        <h3>WebSite</h3>
+                        <p>
+                            www.bodytech.com.co
+                        </p>
+                      </div>
+                      <h3>Clases Grupales</h3>
+                      <div id="ContentCronoBody">
+                            <h3>Pilates</h3>
+                            <p>Lunes: 6:15am</p>
+                            <p>Sábado: 10:15am</p>
+                            <br/>
+
+                            <h3>Rumba</h3>
+                            <p>Lunes: 7:15am </p>
+                            <p>Martes: 8:15am - 7:15am</p>
+                            <p>Miércoles: 8:15am - 7:15pm</p>
+                            <p>Jueves: 9:15am</p>
+                            <p>Viernes: 8:15am</p>
+                            <p>Sábado: 9:15am</p>
+                            <p>Domingo: 11:00am</p>
+                            <br/>
+
+                            <h3>Super Cola</h3>
+                            <p>Lunes: 8:15am</p>
+                            <p>Miércoles: 8:00pm</p>
+                            <br/>
+
+                            <h3>Insanity</h3>
+                            <p>Lunes: 9:00am</p>
+                            <br/>
+
+                            <h3>Yoga</h3>
+                            <p>Lunes: 10:00am - 6:15pm</p>
+                            <p>Miércoles: 10:15am</p>
+                            <p>Sábado: 6:15pm</p>
+                            <br/>
+
+                            <h3>Tae box</h3>
+                            <p>Lunes: 7:15pm </p>
+                            <p>Miércoles: 7:15am</p>
+                            <p>Jueves: 8:30pm</p>
+                            <br/>
+
+                            <h3>Circuito Funcional</h3>
+                            <p>Lunes: 8:05pm</p>
+                            <p>Miércoles: 9:15am</p>
+                            <p>Sábado: 12:15pm</p>
+                            <br/>
+
+                            <h3>Body flow</h3>
+                            <p>Martes: 6:15am</p>
+                            <br/>
+                        
+                            <h3>Step box</h3>
+                            <p>Martes: 7:15am</p>
+                            <p>Miércoles: 6:15pm</p>
+                            <p>Viernes: 9:15am</p>
+                            <br/>
+
+                            <h3>Body pump</h3>
+                            <p>Martes: 9:15am</p>
+                            <p>Jueves: 8:15am- 6:15pm</p>
+                            <p>Sábado: 6:15am</p>
+                            <br/>
+
+                            <h3>Body combat</h3>
+                            <p>Martes: 6:15pm</p>
+                            <p>Jueves: 7:15am</p>
+                            <br/>
+
+                            <h3>Power Abdomen</h3>
+                            <p>Martes: 8:15pm</p>
+                            <p>>Jueves: 10:00am</p>
+                            <br/>
+
+                            <h3>Streching</h3>
+                            <p>Jueves: 6:15am - 7:15pm</p>
+                            <br/>
+
+                            <h3>Tono</h3>
+                            <p>Viernes: 7:15am</p>
+                            <p>Domingo: 11:45am</p>
+                            <br/>
+                      </div>
+                      <h3>Indoor Cycling</h3>
+                      <div id='ContentIndoorCycling'>
+                            <h3>Quema de grasa</h3>
+                            <p>Lunes: 5:15am - 6:15pm </p>
+                            <p>Martes: 7:15am</p>
+                            <p>Miércoles: 7:15pm</p>
+                            <p>Jueves: 7:15pm</p>
+                            <p>Viernes: 5:15am</p>
+                            <p>Sábado: 9:15am</p>
+                            <p>Domingo: 9:00am</p>
+                            <br/>
+
+                            <h3>Aventura</h3>
+                            <p>Lunes: 7:15am - 7:15pm </p>
+                            <p>Martes: 5:15am - 6:15pm</p>
+                            <p>Miércoles: 5:15am</p>
+                            <p>Jueves: 5:15am</p>
+                            <p>Viernes: 8:00am</p>
+                            <p>Domingo: 10:15am</p>
+                            <br/>
+
+                            <h3>Terrenos extremos</h3>
+                            <p>Lunes: 8:15am </p>
+                            <p>Martes: 5:15am - 7:00pm</p>
+                            <p>Miércoles: 6:15am - 6:15pm</p>
+                            <p>Jueves: 7:15am</p>
+                            <p>Viernes: 6:15am</p>
+                            <p>Domingo: 10:15am</p>
+                            <br/>
+
+                            <h3>Básico</h3>
+                            <p>Miércoles: 8:15am</p>
+                            <p>Jueves: 6:15pm</p>
+                            <br/>
+                      </div>
+                      <h3>Promociones</h3>
+                      <div>
+                        Próximamente...
+                      </div>
+                      <h3>Productos/Servicios</h3>
+                      <div>
+                        Próximamente...
+                      </div>
+                      <h3>Eventos</h3>
+                      <div>
+                        Próximamente...
+                      </div>
+                  </div>
+                    <div class="separadorRedes"></div>
+                    <div class="divRedesSocial">
+                        <p>¡Síguenos y Comparte!</p>
+                            <a href="#" class="socialNet1"></a>
+                            <a href="#" class="socialNet2"></a>
+                            <a href="#" class="socialNet3"></a>
+                            <a href="#" class="socialNet4"></a>
+                            <a href="#modCompartir" class="socialNet5"></a>
+                    </div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                         <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                      
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+        
+        <!------------------------------------Section Pilas pues------------------------------------>
+        <section id ="PilasPues" data-role="page">
+            <div class="contenedor">
+                <header data-id="Header" class="header2"> 
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id="ContentSelect" class="CampoSelect">
+                        
+                    </div>
+
+                    <img id="HeaderDetalleComercio" src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersMalls/6B05F88A-4E02-48E6-AA0D-1EB1432737A3.png" class="header"/>
+                    <div id="Encabezado" class="subHeader">
+                        <div class="gris2"></div>
+                        <img src="images/IconosVectorizados/PilasPs.png" class="SubIcono"/>
+                        <h2 class="name">Pilas Pues!</h2>
+                    </div>
+                    <!--<script>
+						$(function(){
+							$("#AcordeonGym").accordion({collapsible: true});
+							$( "#AcordeonGym" ).accordion( "refresh" );
+							});
+                    </script>-->
+                </header>
+                <div class="separador4"></div>
+                <div id="ContentTips" class="DivTips">
+                    	<ul>
+                    	   <li class="listaTips">
+                             <img src="images/Movicentro.png"/>
+                              <div class="textolistaTips">
+                              <h3>Movicentro dice que...</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur rid.</p>
+                              </div>
+                              <a href="#" class="compTips">Ver Más</a>
+                              <a href="#" class="verMore">...</a>
+                           </li>
+                           <li class="listaTips">
+                             <img src="images/Movicentro.png"/>
+                              <div class="textolistaTips">
+                              <h3>Movicentro dice que...</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur rid.</p>
+                              </div>
+                              <a href="#" class="compTips">Ver Más</a>
+                              <a href="#" class="verMore">...</a>
+                           </li>
+                           <li class="listaTips">
+                             <img src="images/Movicentro.png"/>
+                              <div class="textolistaTips">
+                              <h3>Movicentro dice que...</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur rid.</p>
+                              </div>
+                              <a href="#" class="compTips">Ver Más</a>
+                              <a href="#" class="verMore">...</a>
+                           </li>
+                        <li class="listaTips">
+                             <img src="images/Movicentro.png"/>
+                              <div class="textolistaTips">
+                              <h3>Movicentro dice que...</h3>
+                              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur rid.</p>
+                              </div>
+                              <a href="#" class="compTips">Ver Más</a>
+                              <a href="#" class="verMore">...</a>
+                           </li>
+                       </ul>
+                    </div>
+ 					<div class="separadorEsp"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                         <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                     
+                    </footer>
+                </div><!--Cierro Contenedor-->          
+        </section>
+        
+         <!------------------------------------Módulo Compartir------------------------------------>
+        <section id="modCompartir" title="Compartir en:">
+            <script type="text/javascript">
+                function OnClickShare(LinkRed) 
+                {
+                    var Red = $(LinkRed).attr("data-red");
+                    var id = getPromo();
+
+                    if($.mobile.activePage.is('#DetallePromos'))
+                    {
+                        CompartirContenidos(Red,"Promos",id);
+                    }
+                }
+            </script>
+            <div class="contenedor">
+                <div class="modulo">
+                    <a data-red="Facebook" href="#" onclick="OnClickShare(this)"><li class="redComp"><img src="images/iconFacebook.png" class="logoRed" alt="Facebook"/><p>Facebook</p></li></a>
+                	<a data-red="WhatsApp" href="#" onclick="OnClickShare(this)"><li class="redComp"><img src="images/iconWhatsApp.png" class="logoRed" alt="WhatsApp"/><p>WhatsApp</p></li></a>
+                    <a data-red="FBMessenger" href="#" onclick="OnClickShare(this)"><li class="redComp"><img src="images/iconFbMessenger.png" class="logoRed" alt="FBMessenger"/><p>Facebook Messenger</p></li></a>
+                    <a data-red="Twitter" href="#" onclick="OnClickShare(this)"><li class="redComp"><img src="images/iconTwitter.png" class="logoRed" alt="Twitter"/><p>Twitter</p></li></a>
+                    <a data-red="Correo" href="#" onclick="OnClickShare(this)"><li class="redComp"><img src="images/iconMail.png" class="logoRed" alt="Correo"/><p>Correo</p></li></a>
+                </div>
+            </div><!--Cierro Contenedor-->
+		</section>
+        
+        <!------------------------------------Módulo Favoritos------------------------------------>
+        <section id="modFavoritos" data-role="page">
+        	<header>
+            	<img src="images/LogoMT1.png" class="logo"/>
+            	<img src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerFavoritos1.jpg" class="header"/>
+                <script>
+                        $(document).ready(function () {
+                            $('[data-id="MallsFavoritos"]').on('click', 'a', function() {
+                                setCC($(this).attr('id'));
+                                CargarSplashScreen();
+                            });
+
+                            $('[data-id="LocalesFavoritos"]').on('click', 'a', function() {
+                                setIsFavorito(true);
+                                setIsBuscar(false);
+                                SetLocal($(this).attr('id'));
+                                ConfigurarHeaders('DetalleComercio', 'HeaderDetalleComercio', '');
+                            });
+
+                        });
+                </script>
+            </header>
+            <div class="contenedorFav">
+                <div class="moles">
+                	<div class="logoFav" id="mol"></div>
+                	<h1>Malls Favoritos</h1>
+                        <ul id="ContentFav" data-id="MallsFavoritos">
+                         	
+                        </ul>
+                </div><!--Cierro moles-->
+                <div class="moles">
+                	<div class="logoFav" id="loc"></div>
+                	<h1>Locales Favoritos</h1>
+                    <div class="listaMoles">
+                        <ul id="ContentFav" data-id="LocalesFavoritos">
+                         	
+                        </ul>
+                    </div>
+                </div><!--Cierro locales-->
+                <div class="separadorEsp"></div>
+                    <footer class="footer">
+                        <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                        <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                        <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                         <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                   
+            		</footer>
+            </div><!--Cierro ContenedorFav-->
+		</section>
+        
+        <!------------------------------------Section Social------------------------------------>      
+        <section data-role="page" id="social">
+            <div class="contenedor"> 
+        <!-----------------------------------Chekin Social-------------------------------------->
+            <section class="contenedorChekin">
+                <div class="iconoCheck"></div>
+                <div id="btnChek" class="botonChekin">Chek-in</div>
+                <div class="listaCheck">
+                <h3>Selecciona un Centro Comercial</h3>
+                    <ul id="MallsCheckIn">
+                        <li><input type="radio" name="chekin" class="chekI" onClick="ClickCheckIn(this)" value="CaminoReal"/>Camino Real</</li>
+                        <li><input type="radio" name="chekin" class="chekI" onClick="ClickCheckIn(this)" value="Monterrey"/>Monterrey</li>
+                        <li><input type="radio" name="chekin" class="chekI" onClick="ClickCheckIn(this)" value="Movicentro"/>Movicentro</li>
+                        <li><input type="radio" name="chekin" class="chekI" onClick="ClickCheckIn(this)" value="Los Molinos"/>Los Molinos</li>
+                        <li><input type="radio" name="chekin" class="chekI" onClick="ClickCheckIn(this)" value="Sandiego"/>Sandiego</li>
+                        <li><input type="radio" name="chekin" class="chekI" onClick="ClickCheckIn(this)" value="Fundadores"/>Fundadores</li>
+                        <li><input type="radio" name="chekin" class="chekI" onClick="ClickCheckIn(this)" value="Mayorca"/>Mayorca</li>
+                        <li><input type="radio" name="chekin" class="chekI" onClick="ClickCheckIn(this)" value="El Tesoro"/>El Tesoro</li>
+                        <li><input type="radio" name="chekin" class="chekI" onClick="ClickCheckIn(this)" value="Premium PLaza"/>Premium Plaza</li>
+                        <li><input type="radio" name="chekin" class="chekI" onClick="ClickCheckIn(this)" value="City Plaza"/>City Plaza</li>
+                        <li><input type="radio" name="chekin" class="chekI" onClick="ClickCheckIn(this)" value="Aves Maria"/>Aves Maria</li>
+                        <li><input type="radio" name="chekin" class="chekI" onClick="ClickCheckIn(this)" value="San Nicolas"/>San Nicolas</li>
+                    </ul>
+                </div>
+            </section>
+		<!----------------------------------Chekin Social-------------------------------------->
+                <header data-id="Header" class="header2">
+                    <img src="images/LogoMT1.png" class="logo"/>
+                    <div id = "ContentSelect" class="CampoSelect">
+                    </div>
+                    <div id="SelectMall" class="CampoSelect2">
+                    </div>
+                        <img src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerSocial2.png" class="header"/>
+               </header>
+               <article>
+                    <div class="separador4"></div>
+                    <div class="TituloSocial"><p>¡Que Cuentas!</p></div>
+                    <div class="ContenedorIconos2">
+                        <div class="iconos3">
+                            <a href="#" class="iconoFamoso" data-transition="slide" name='Famosos' onclick='PublicarTweet(this)'></a>
+                            <p>Famosos</p> 
+                        </div>
+                        <div class="iconos3">
+                            <a href="#" class="iconoPasarela" data-transition="slide" name='Pasarela' onclick='PublicarTweet(this)'></a>
+                            <p>Pasarela</p> 
+                        </div>
+                        <div class="iconos3">
+                            <a href="#" class="iconoShow" data-transition="slide" name='Show' onclick='PublicarTweet(this)'></a>
+                            <p>Show</p> 
+                        </div>
+                        <div class="iconos3">
+                            <a href="#" class="iconoXhoy" data-transition="slide" name='SoloxHoy' onclick='PublicarTweet(this)'></a>
+                            <p>Solo X Hoy</p> 
+                        </div>
+                        <div class="iconos3">
+                            <a href="#" class="iconoConcurso" data-transition="slide" name='Concursos' onclick='PublicarTweet(this)'></a>
+                            <p>Concursos</p> 
+                        </div>
+                        <div class="iconos3">
+                            <a href="#" class="iconoVitrineando" data-transition="slide" name='Vitrineando' onclick='PublicarTweet(this)'></a>
+                            <p>Vitrineando</p> 
+                        </div>
+                        <div class="iconos3">
+                            <a href="#" class="iconoGratis" data-transition="slide" name='Gratis' onclick='PublicarTweet(this)'></a>
+                            <p>Gr&aacute;tis</p> 
+                        </div>
+                        <div class="iconos3">
+                            <a href="#" class="iconoLanzamiento" data-transition="slide" name='Lanzamiento' onclick='PublicarTweet(this)'></a>
+                            <p>Lanzamiento</p> 
+                        </div>
+                    </div>
+                    <div class="TituloSocial"><p>¿Qu&eacute; est&aacute; Pasando?</p></div>
+                        <div id='WidgetTwitter' class="widgetTwitter">
+                        <a class="twitter-timeline" href="https://twitter.com/search?q=%40MallTopic" data-widget-id="505952244089384960">Tweets por @MallTopic</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
+                	</article>
+                
+                <div class="separadorEsp"></div>
+                <footer class="footer">
+                    <a href="#Index" class="btnHome" data-transition="slide">Home</a>
+                    <a href="#modFavoritos" class="btnFavoritos">Favoritos</a>
+                    <a href="#modBuscar" class="btnBuscar" data-transition="slide">Buscar</a>
+                     <!--<input type="text" class="campoTexto" value="Busqueda"/>
+                    <div class="abreBusqueda">
+                        <select id="BusquedaCatg" class="busCatg">
+                            <option value="Bancos">Bancos</option>
+                            <option value="Calzado">Calzado</option>
+                        </select>
+                    </div>-->                  
+                </footer>
+            </div><!--Cierro Contenedor-->          
+        </section>
+    </body>
+</html>
