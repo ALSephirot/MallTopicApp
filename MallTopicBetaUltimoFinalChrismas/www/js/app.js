@@ -78,7 +78,7 @@ function VerificarRegistro() {
             if(argument.length == 0)
             {
                 localStorage.setItem("VR", "false");
-                $.mobile.changePage('#Login','slide');
+                $.mobile.changePage('#Index','slide');
 
             }
             else
@@ -88,6 +88,10 @@ function VerificarRegistro() {
             }
         });
     
+}
+
+function TodosFooter () {
+		var todosFooter = $(".footer");
 }
 
 function VerificarConexion() {
