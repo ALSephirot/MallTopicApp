@@ -130,8 +130,7 @@ function CargarIndexMall() {
 	}
 
 	url = WebService + "StoresXCategories";
-	loadDataArray(url);
-	setStoresxCategories(arrayInfo);
+	loadDataArray(url, true);
 
 }
 
@@ -236,13 +235,14 @@ function CargarSelectMalls(idpaginacontenedor)
 
 		if(FiltroMalls== "" || FiltroMalls == undefined)
 		{
-			htmlSelect += "<option value='' selected='selected'>Más Cercanos</option>";	
+			htmlSelect += "<option value='' selected='selected'>Mas Cercanos</option>";	
 		}
 		else
 		{
-			htmlSelect += "<option value=''>Más Cercanos</option>";
+			htmlSelect += "<option value=''>Mas Cercanos</option>";
 		}
 			
+
 		if(Malls != undefined)
 		{
 			$.each(Malls, function(index, item) {
@@ -257,7 +257,6 @@ function CargarSelectMalls(idpaginacontenedor)
 				}
 			});
 		}
-		
 
 		htmlSelect += 	"</select>";
 

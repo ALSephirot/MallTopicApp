@@ -25,60 +25,68 @@ function InsertObject(tabla, object)
 }
 
 function GuardarFavorito (argumentos){
-	var Favorito = argumentos.Favorito;
-	var Datos;
-	var idCelular = getIdTelefono();
-	var TablaInsert = client.getTable("favoritos");
-	var iduser = getIdUsuario("facebook");
-	
-	if(Favorito == "Mall")
+	var registro= localStorage.getItem("VR");
+	var valor = (registro === "true");
+	if (valor) {
+
+		var Favorito = argumentos.Favorito;
+		var Datos;
+		var idCelular = getIdTelefono();
+		var TablaInsert = client.getTable("favoritos");
+		var iduser = getIdUsuario("facebook");
+		
+		if(Favorito == "Mall")
+		{
+			var IdMall = argumentos.Mall;
+
+			Datos = {
+		        idusuario: iduser,
+		        idmallfav: IdMall,
+		        idlocalfav: null
+		    };
+
+		    var queryMalls = TablaInsert.where({ idusuario: iduser, idmallfav: IdMall});
+			queryMalls.read().then(function(argument) {
+
+				if(argument.length == 0)
+				{
+					InsertObject('favoritos', Datos);
+			    }
+			    else
+			    {
+			    	alert('Este Mall ya se encuentra entre tus favoritos!.');
+			    }
+			});
+
+		}
+		else if(Favorito == "Comercio")
+		{
+			var IdComercio = argumentos.Comercio;
+
+			Datos = {
+		        idusuario: iduser,
+		        idmallfav: null,
+		        idlocalfav: IdComercio
+		    };
+
+		    var queryComercios = TablaInsert.where({ idusuario: iduser, idlocalfav: IdComercio});
+			queryComercios.read().then(function(argument) {
+
+				if(argument.length == 0)
+				{
+					InsertObject('favoritos', Datos);
+			    }
+			    else
+			    {
+			    	alert('Este Comercio ya se encuentra entre tus favoritos!.');
+			    }
+			});
+
+	      	
+		}
+	}else
 	{
-		var IdMall = argumentos.Mall;
-
-		Datos = {
-	        idusuario: iduser,
-	        idmallfav: IdMall,
-	        idlocalfav: null
-	    };
-
-	    var queryMalls = TablaInsert.where({ idusuario: iduser, idmallfav: IdMall});
-		queryMalls.read().then(function(argument) {
-
-			if(argument.length == 0)
-			{
-				InsertObject('favoritos', Datos);
-		    }
-		    else
-		    {
-		    	alert('Este Mall ya se encuentra entre tus favoritos!.');
-		    }
-		});
-
-	}
-	else if(Favorito == "Comercio")
-	{
-		var IdComercio = argumentos.Comercio;
-
-		Datos = {
-	        idusuario: iduser,
-	        idmallfav: null,
-	        idlocalfav: IdComercio
-	    };
-
-	    var queryComercios = TablaInsert.where({ idusuario: iduser, idlocalfav: IdComercio});
-		queryComercios.read().then(function(argument) {
-
-			if(argument.length == 0)
-			{
-				InsertObject('favoritos', Datos);
-		    }
-		    else
-		    {
-		    	alert('Este Comercio ya se encuentra entre tus favoritos!.');
-		    }
-		});
-
-      	
+		alert("Para guardar un favorito debes estár registrado.");
 	}
 }
 
