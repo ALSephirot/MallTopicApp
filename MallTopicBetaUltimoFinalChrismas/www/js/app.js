@@ -9,6 +9,7 @@ var mallHeader;
 var mallSplash;
 var mallName;
 var arrayInfo = null;
+var arrayInfoAsync = null;
 var WebService = "http://Administrator:malltopic2014!@MallTopicServiceApp.azurewebsites.net/malltopicWcf.svc/";	//Variable que almacena la URL del WebService con Autenticacion
 var url = "";//Variable para armar las respesctivas URL para las consultas
 var MallCheckIn = 'CaminoReal';
@@ -267,7 +268,7 @@ function FormatearFecha(Fecha)
     }
 
 	//url= direccion uri de la consulta
-	function loadDataArray(url,asincrono) {
+	function loadDataArray(url,asincrono,consulta) {
 		if(asincrono == null || asincrono == undefined)
 		{
 			asincrono = false;
@@ -289,8 +290,16 @@ function FormatearFecha(Fecha)
 					{
 						if($.mobile.activePage.is('#IndexMall') || $.mobile.activePage.is('#SplashScreen'))
 						{
-							arrayInfo=results;
-							setStoresxCategories(arrayInfo);
+							if(consulta == "AMall")
+							{
+								arrayInfoAsync=results;
+							}
+							else if(consulta == "StoresxCategories")
+							{
+								arrayInfo=results;
+								setStoresxCategories(arrayInfo);
+							}
+							
 						}
 					}
 					else
