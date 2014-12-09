@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model MallTopic_News.Models.Noticias
+@using MallTopic_News.Controllers;
+@using System.Web.Script.Serialization;
+
+@{
+    MallTopic_News.Controllers.ConsumirWebApi ca = new MallTopic_News.Controllers.ConsumirWebApi();
+	var modelo = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias>(ca.Peticion("Noticias/" + Convert.ToString(@Html.DisplayFor(model => model.id))));
+	var idcategoria = modelo.fk_idcategoria;
+	var ModeloCategorias = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/"+idcategoria));
+	
+	
+  }
+
+<script src="~/Scripts/SliderMT.js"></script>
+
+<section id="contentDetail">
+    <div class="contentNoticia">
+        <section id="slider">
+			<div>
+				<img id="Imagen" data-ocultar="true" data-count="0" />
+				<p id="PieImagen" class="piePag" data-ocultar="true"></p>
+			</div>
+                
+            <div class="listaMin">
+				@{
+					var SubsImg = "";
+					var Imagenes = modelo.imagenes;
+					if (Imagenes != null)
+					{
+						 SubsImg = Imagenes.Substring(0, 1);	
+					}
+				}
+				@if(SubsImg == "[")
+				{
+					<a href="#" onclick="Atras()">Anterior</a>
+				}
+				
+				<ul id="SelectImages">
+					@{
+						
+						var detalle = "Home/NoticiaDetalle";
+						var img = "";
+						
+						if(SubsImg == "[")
+						{
+							
+							var AImagenes = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.ImagenesNoticias[]>(modelo.imagenes);
+							var c = 0;
+							
+							
+							foreach (var item in AImagenes)
+							{
+
+								img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+
+								if (c == 0)
+								{
+
+									<li data-select="true" onclick="CambiarImagen(this)"><img id="@item.id" data-count="@c" data-src="@img" src="#" alt="Alternate Text" data-nombreimagen="@item.nombre" data-pieimagen="@item.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@item.id" data-titulo="@item.nombre" /></li>
+								}
+								else
+								{
+									<li data-select="false" onclick="CambiarImagen(this)"><img id="@item.id" data-count="@c" data-src="@img" src="#" alt="Alternate Text" data-nombreimagen="@item.nombre" data-pieimagen="@item.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@item.id" data-titulo="@item.nombre" /></li>
+								}
+								c++;
+							}
+						}
+						else if (SubsImg == "{")
+						{
+							var AImagen = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.ImagenesNoticias>(modelo.imagenes);
+							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + AImagen.id + ".png";
+							<li data-select="true" onclick="CambiarImagen(this)"><img id="@AImagen.id" data-count="0" data-src="@img" src="#" alt="Alternate Text" data-nombreimagen="@AImagen.nombre" data-pieimagen="@AImagen.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@AImagen.id" data-titulo="@AImagen.nombre" /></li>
+						}
+						if (SubsImg == "")
+						{
+							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + modelo.id + ".png";
+							<li data-select="true" onclick="CambiarImagen(this)"><img id="@modelo.id" data-count="0" data-src="@img" src="#" alt="Alternate Text" /></li>
+						}
+
+
+
+}
+					
+				</ul>
+			@if(SubsImg == "[")
+				{
+				<a href="#" onclick="Siguiente()">Siguiente</a>
+			}
+            </div>
+        </section>
+        <h1>@Html.DisplayFor(model => model.titulo)</h1>
+        <p class="parrafoNoti">@Html.DisplayFor(model => Model.descripcion)</p>
+    </div>
+    <div class="secciones" id="seccion1">
+        <a href="#">Notas relacionadas</a>
+        <article class="Relacionadas">
+		@{var id = @Html.DisplayFor(model => model.id);}
+		@foreach (var item in ModeloCategorias)
+		{
+			
+			if (item.id == id.ToString()) 
+			{ }
+			else
+			{
+				img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+			<div class="noticiaDest">
+				<img src="@img" class="imagenNotiDest" />
+				<a href="@item.id" class="parrEnlaceDest">@item.titulo</a>
+			</div>
+			}
+		}
+          
+        </article>
+    </div>
+    <article class="redesSocial">
+        <div id="fb-root"></div>
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <div class="fb-comments" id="redesSpace" data-href="http://www.malltopic.com/mt/" data-numposts="5" data-colorscheme="light"></div>
+        @{
+            var perfil = "@MallTopic";
+        }
+        <a class="twitter-timeline" href="https://twitter.com/search?q=%40MallTopic" data-widget-id="505952244089384960">Tweets sobre @perfil</a>
+        <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+    </article>
+</section>

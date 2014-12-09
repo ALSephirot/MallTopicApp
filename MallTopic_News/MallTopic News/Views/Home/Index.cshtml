@@ -1,0 +1,215 @@
+﻿@{
+	ViewBag.Title = "Home Page";
+}
+
+@{
+	MallTopic_News.Controllers.ConsumirWebApi ca = new MallTopic_News.Controllers.ConsumirWebApi();
+	var ModeloNoticias = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/true/false/''"));
+	//Categoria de las noticias de recientes
+	var ModeloNoticiasRecientes = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/4db72003-685f-47b1-8855-8e468bff1f6b"));
+	// Categorias de la noticias de Promociones
+	var ModeloNoticiasPromociones = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/730240e3-fa51-47ed-94aa-4ca8667b38cb"));
+	//Categorias de la noticias de eventos
+	var ModeloNoticiaseventos = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/b05987a1-5427-4eb3-92ea-406650eb3e56"));
+	//Categorias de la noticia de salud y belleza 
+	var ModeloNoticiasSaludyBelleza = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/c5e9d6f6-2d90-48d9-93e0-a22b007dc0d5"));
+	//Categorias de la noticia Modas
+	var ModeloNoticiasModas = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/bc954551-d1ef-4147-8058-0edba592c5a2"));
+	//Categorias de la noticia de estilo de vida
+	var ModeloNoticiasEstilodevida = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/91680296-517a-4be1-9588-8ca25f6355cf"));
+	//Categorias de la noticia de tecnologia
+	var ModeloNoticiasTecnologia = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/cd064eba-f934-4b64-b386-eef027591171"));
+	//Categorias de la noticia de movilidad
+	var ModeloNoticiasMovilidad = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/71c1b9b5-99ad-48b0-a602-fde2fd74136d"));
+	//Categoria de la noticia de Especiales MT
+	var ModeloNoticiasEspeciales = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/644f7bfe-4ed4-4bd2-a379-081b8a6811fa"));
+	
+	// fin de los modelos de categorias de las noticias
+	
+	
+	var ModeloCategorias = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Categorias[]>(ca.Peticion("categorias"));
+	var NoticiasRecientes = ModeloNoticias.Where(mm => mm.fk_idcategoria == "4db72003-685f-47b1-8855-8e468bff1f6b").ToList<MallTopic_News.Models.Noticias>();
+}
+
+<script src="~/Scripts/SliderMT.js"></script>
+<script src="~/Scripts/ScriptNewsMT.js"></script>
+
+<div class="botonera">
+	<ul>
+		<li><a href="#" id="desplegable1">Recientes</a></li>
+		<li><a href="#" id="desplegable2">Promociones</a></li>
+		<li><a href="#" id="desplegable3">Eventos</a></li>
+		<li><a href="#" id="desplegable4">Salud y belleza</a></li>
+		<li><a href="#" id="desplegable5">Moda</a></li>
+		<li><a href="#" id="desplegable6">Estilo de vida</a></li>
+		<li><a href="#" id="desplegable7">Tecnología</a></li>
+		<li><a href="#" id="desplegable8">Movilidad</a></li>
+		<li><a href="#" id="desplegable9">Especiales MT</a></li>
+		<li id="desplegable10" onmouseover="MostrarMalls()" onmouseout="OcultarMalls()">
+			<a href="#">Centros Comerciales</a>
+			<!--<ul class="ListaMalls">
+				<li><a onclick="camino();">Camino Real</a></li>
+				<li><a onclick="monterrey();">Monterrey</a></li>
+				<li><a onclick="movicentro();">Movicentro</a></li>
+				<li><a onclick="molinos();">Los Molinos</a></li>
+				<li><a onclick="sandiego();">Sandiego</a></li>
+				<li><a onclick="fundadores();">Fundadores</a></li>
+				<li><a onclick="mayorca();">Mayorca</a></li>
+				<li><a onclick="tesoro();">El Tesoro</a></li>
+				<li><a onclick="premium();">Premium Plaza</a></li>
+				<li><a onclick="cityplaza();">City Plaza</a></li>
+				<li><a onclick="sannicolas();">San Nicolás</a></li>
+			</ul>-->
+		</li>
+	</ul>
+</div>
+<section id="content">
+	<article class="contenedor1">
+		<section id="slider">
+			<div>
+				<img id="Imagen" data-ocultar="true" data-count="0" />
+				<!--<p id="PieImagen" class="piePag" data-ocultar="true"></p>-->
+				<div id="descripcionSlide" data-ocultar="true">
+					<a id="LinkNoticia" href="#" class="botonSlider"></a>
+				</div>
+			</div>
+            <div class="listaMin">
+                <div class="controlesDiv">
+                    <a href="#"></a>
+                    <a href="#"></a>
+                </div>
+                <ul class="miniaturas">
+                    <a href="#"><li></li></a>
+                    <a href="#"><li></li></a>
+                    <a href="#"><li></li></a>
+                    <a href="#"><li></li></a>
+                    <a href="#"><li></li></a>
+                    <a href="#"><li></li></a>
+                    <a href="#"><li></li></a>
+                    <a href="#"><li></li></a>
+                    <a href="#"><li></li></a>
+                </ul>
+            </div>
+		</section>
+        <iframe class="videoPlaylist" src="//www.youtube.com/embed/videoseries?list=PL7tjU4td49j0_dTiHSlkWft2fzfzrKEKe" frameborder="0" allowfullscreen></iframe>
+		<a onclick="malltopic();" class="DowloadApp"></a>
+	</article>
+
+    <div id="notasPage" class="tag1">
+        <h2>Titulo</h2>
+        <aside>
+            <a href="#">
+                <div class="notaInd">
+                    <img src="#" />
+                    <h3>Titulo Nota</h3>
+                    <p></p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="notaInd">
+                    <img src="#" />
+                    <h3>Titulo Nota</h3>
+                    <p></p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="notaInd">
+                    <img src="#" />
+                    <h3>Titulo Nota</h3>
+                    <p></p>
+                </div>
+            </a>
+        </aside>
+        <aside>
+            <a href="#">
+                <div class="notaInd">
+                    <img src="#" />
+                    <h3>Titulo Nota</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.dfsdfsdfsdfsdfsdfsdfsdfsdfsfsfsdfsfsdfsdfsdfsdfsdfsdfff</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="notaInd">
+                    <img src="#" />
+                    <h3>Titulo Nota</h3>
+                    <p></p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="notaInd">
+                    <img src="#" />
+                    <h3>Titulo Nota</h3>
+                    <p></p>
+                </div>
+            </a>
+        </aside>
+    </div>
+    <div id="notasPage" class="tag2">
+        <h2>Titulo</h2>
+        <aside>
+            <a href="#">
+                <div class="notaInd">
+                    <img src="#" />
+                    <h3>Titulo Nota</h3>
+                    <p></p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="notaInd">
+                    <img src="#" />
+                    <h3>Titulo Nota</h3>
+                    <p></p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="notaInd">
+                    <img src="#" />
+                    <h3>Titulo Nota</h3>
+                    <p></p>
+                </div>
+            </a>
+        </aside>
+        <aside>
+            <a href="#">
+                <div class="notaInd">
+                    <img src="#" />
+                    <h3>Titulo Nota</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.dfsdfsdfsdfsdfsdfsdfsdfsdfsfsfsdfsfsdfsdfsdfsdfsdfsdfff</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="notaInd">
+                    <img src="#" />
+                    <h3>Titulo Nota</h3>
+                    <p></p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="notaInd">
+                    <img src="#" />
+                    <h3>Titulo Nota</h3>
+                    <p></p>
+                </div>
+            </a>
+        </aside>
+    </div>
+
+    <article class="redesSocial">
+        <div id="fb-root"></div>
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <div class="fb-comments" id="redesSpace" data-href="http://www.malltopic.com/mt/" data-numposts="5" data-colorscheme="light"></div>
+        @{
+            var perfil = "@MallTopic";
+        }
+        <a class="twitter-timeline" href="https://twitter.com/search?q=%40MallTopic" data-widget-id="505952244089384960">Tweets sobre @perfil</a>
+        <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+    </article>
+</section>
