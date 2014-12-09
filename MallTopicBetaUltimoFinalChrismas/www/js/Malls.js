@@ -40,12 +40,43 @@ function CargarIndexMall() {
 	var botoncines = "";
 	var botongalerias = "";
 	var url = WebService + "Malls(guid'"+ Mall +"')/";
-	loadDataArray(url);
-	var AMall = arrayInfo;
+	loadDataArray(url,true,"AMall");
+	setTimeout(function  (argument) {
 
-	$('#NumLocales').html(AMall.cantLocales);
-	$('#NumEstaciona').html(AMall.cantParqueadero);
-	$('#NumTelefono').html(AMall.telefono);
+		var AMall = arrayInfoAsync;
+		$('#NumLocales').html(AMall.cantLocales);
+		$('#NumEstaciona').html(AMall.cantParqueadero);
+		$('#NumTelefono').html(AMall.telefono);
+
+		if (AMall.facebook)  
+		{
+			$('#LinkFacebookMall').attr("onclick","InAppBrowserOpen('"+ AMall.facebook +"')");
+		}else{
+			$('#LinkFacebookMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+		}
+		if(AMall.twitter)
+		{
+			$('#LinkTwitterMall').attr("onclick","InAppBrowserOpen('"+ AMall.twitter +"')");
+		}else{
+			$('#LinkTwitterMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+		}
+		if (AMall.youtube ) 
+			{
+			$('#LinkInstagramMall').attr("onclick","InAppBrowserOpen('"+ AMall.youtube +"')");	
+		}else
+		{
+			$('#LinkInstagramMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+		}
+		if (AMall.Instagram ) 
+		{
+			$('#LinkYoutubeMall').attr("onclick","InAppBrowserOpen('"+ AMall.Instagram +"')");
+		}else
+		{
+			$('#LinkYoutubeMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+		}
+
+	},5000);
+	
 	var idserviciosprofe = "'FD62AD02-B232-49E4-ABF6-A79EFBA7B117'";
 
 	if(Mall == "F7180CC5-01EB-4D59-9369-A531EC05BEFC")
@@ -101,36 +132,9 @@ function CargarIndexMall() {
 
 	$('#IconoEspecial').html(botoncines);
 	$('#IconoEspecial2').html(botongalerias);
-	
-	if (AMall.facebook  )  
-	{
-		$('#LinkFacebookMall').attr("onclick","InAppBrowserOpen('"+ AMall.facebook +"')");
-	}else{
-		$('#LinkFacebookMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
-	}
-	if(AMall.twitter)
-	{
-		$('#LinkTwitterMall').attr("onclick","InAppBrowserOpen('"+ AMall.twitter +"')");
-	}else{
-		$('#LinkTwitterMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
-	}
-	if (AMall.youtube ) 
-		{
-		$('#LinkInstagramMall').attr("onclick","InAppBrowserOpen('"+ AMall.youtube +"')");	
-	}else
-	{
-		$('#LinkInstagramMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
-	}
-	if (AMall.Instagram ) 
-	{
-		$('#LinkYoutubeMall').attr("onclick","InAppBrowserOpen('"+ AMall.Instagram +"')");
-	}else
-	{
-		$('#LinkYoutubeMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
-	}
 
 	url = WebService + "StoresXCategories";
-	loadDataArray(url, true);
+	loadDataArray(url, true,"StoresXCategories");
 
 }
 
@@ -309,9 +313,7 @@ $( document ).on( "pageshow", "#ListaCC", function() {
 $( document ).on( "pageshow", "#SplashScreen", function(){
 
 	setTimeout(function() {
-		CargarSelect("#IndexMall");
 		ConfigurarHeaders("Mall","#HeaderIndexMall", "#IndexMall");
-		CargarIndexMall();
 		ConfigurarHeaders("Mall","#HeaderInfoGeneral", "#InfoGeneral");
 		ConfigurarHeaders("Mall","#HeaderServicios", "#Servicios");
 		ConfigurarHeadersModulos("Comercios");
@@ -320,6 +322,8 @@ $( document ).on( "pageshow", "#SplashScreen", function(){
 		ConfigurarHeadersModulos("Colecciones");
 		ConfigurarHeadersModulos("Cines");
 		ConfigurarHeadersModulos("Galerias");
+		CargarIndexMall();
+		CargarSelect("#IndexMall");
 		$.mobile.changePage('#IndexMall','slide');
 		setCate('');
 	}, 2000);
