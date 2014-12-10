@@ -120,7 +120,17 @@
 					<div class="notaInd">
 						<img src="@ruta" />
 						<h3>@item.titulo</h3>
-						@{var descripcion = item.descripcion.Substring(0, 100)+"...";}
+						@{var descripcion="";
+							var largo = item.descripcion.Length;
+							if (largo >= 300)
+							{
+								descripcion = item.descripcion.Substring(0, 296) + "...";
+							}
+							else
+							{
+								descripcion = item.descripcion.Substring(0, largo);
+							}
+						}
 						<p>@descripcion</p>
 					</div>
 				</a>
@@ -132,7 +142,17 @@
 					<div class="notaInd">
 						<img src="@ruta" />
 						<h3>@item.titulo</h3>
-						@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+						@{var descripcion = "";
+						var largo = item.descripcion.Length;
+						if (largo >= 300)
+						{
+							descripcion = item.descripcion.Substring(0, 296) + "...";
+						}
+						else
+						{
+							descripcion = item.descripcion.Substring(0, largo);
+						}
+						}
 						<p>@descripcion</p>
 					</div>
 				</a>
@@ -156,7 +176,17 @@
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
-							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+							@{var descripcion = "";
+							var largo = item.descripcion.Length;
+							if (largo >= 300)
+							{
+								descripcion = item.descripcion.Substring(0, 296) + "...";
+							}
+							else
+							{
+								descripcion = item.descripcion.Substring(0, largo);
+							}
+							}
 							<p>@descripcion</p>
 						</div>
 					</a>
@@ -169,7 +199,17 @@
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
-							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+							@{var descripcion = "";
+							var largo = item.descripcion.Length;
+							if (largo >= 300)
+							{
+								descripcion = item.descripcion.Substring(0, 296) + "...";
+							}
+							else
+							{
+								descripcion = item.descripcion.Substring(0, largo);
+							}
+							}
 							<p>@descripcion</p>
 						</div>
 					</a>
@@ -195,8 +235,18 @@
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
-							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
-							<br/><p>@descripcion</p>
+							@{var descripcion = "";
+							var largo = item.descripcion.Length;
+							if (largo >= 300)
+							{
+								descripcion = item.descripcion.Substring(0, 296) + "...";
+							}
+							else
+							{
+								descripcion = item.descripcion.Substring(0, largo);
+							}
+							}
+							<p>@descripcion</p>
 						</div>
 					</a>
 				</aside>
@@ -208,8 +258,18 @@
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
-							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
-							<br/><p>@descripcion</p>
+							@{var descripcion = "";
+							var largo = item.descripcion.Length;
+							if (largo >= 300)
+							{
+								descripcion = item.descripcion.Substring(0, 296) + "...";
+							}
+							else
+							{
+								descripcion = item.descripcion.Substring(0, largo);
+							}
+							}
+							<p>@descripcion</p>
 						</div>
 					</a>
 				</aside>
@@ -234,8 +294,18 @@
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
-							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
-							<br/><p>@descripcion</p>
+							@{var descripcion = "";
+							var largo = item.descripcion.Length;
+							if (largo >= 300)
+							{
+								descripcion = item.descripcion.Substring(0, 296) + "...";
+							}
+							else
+							{
+								descripcion = item.descripcion.Substring(0, largo);
+							}
+							}
+							<p>@descripcion</p>
 						</div>
 					</a>
 				</aside>
@@ -247,8 +317,18 @@
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
-							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
-							<br/><p>@descripcion</p>
+							@{var descripcion = "";
+							var largo = item.descripcion.Length;
+							if (largo >= 300)
+							{
+								descripcion = item.descripcion.Substring(0, 296) + "...";
+							}
+							else
+							{
+								descripcion = item.descripcion.Substring(0, largo);
+							}
+							}
+							<p>@descripcion</p>
 						</div>
 					</a>
 				</aside>
@@ -273,8 +353,18 @@
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
-							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
-							<br/><p>@descripcion</p>
+							@{var descripcion = "";
+							var largo = item.descripcion.Length;
+							if (largo >= 300)
+							{
+								descripcion = item.descripcion.Substring(0, 296) + "...";
+							}
+							else
+							{
+								descripcion = item.descripcion.Substring(0, largo);
+							}
+							}
+							<p>@descripcion</p>
 						</div>
 					</a>
 				</aside>
@@ -286,8 +376,18 @@
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
-							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
-							<br/><p>@descripcion</p>
+							@{var descripcion = "";
+							var largo = item.descripcion.Length;
+							if (largo >= 300)
+							{
+								descripcion = item.descripcion.Substring(0, 296) + "...";
+							}
+							else
+							{
+								descripcion = item.descripcion.Substring(0, largo);
+							}
+							}
+							<p>@descripcion</p>
 						</div>
 					</a>
 				</aside>
@@ -312,8 +412,18 @@
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
-							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
-							<br/><p>@descripcion</p>
+							@{var descripcion = "";
+							var largo = item.descripcion.Length;
+							if (largo >= 300)
+							{
+								descripcion = item.descripcion.Substring(0, 296) + "...";
+							}
+							else
+							{
+								descripcion = item.descripcion.Substring(0, largo);
+							}
+							}
+							<p>@descripcion</p>
 						</div>
 					</a>
 				</aside>
@@ -325,8 +435,18 @@
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
-							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
-							<br/><p>@descripcion</p>
+							@{var descripcion = "";
+							var largo = item.descripcion.Length;
+							if (largo >= 300)
+							{
+								descripcion = item.descripcion.Substring(0, 296) + "...";
+							}
+							else
+							{
+								descripcion = item.descripcion.Substring(0, largo);
+							}
+							}
+							<p>@descripcion</p>
 						</div>
 					</a>
 				</aside>
@@ -351,8 +471,18 @@
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
-							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
-							<br/><p>@descripcion</p>
+							@{var descripcion = "";
+							var largo = item.descripcion.Length;
+							if (largo >= 300)
+							{
+								descripcion = item.descripcion.Substring(0, 296) + "...";
+							}
+							else
+							{
+								descripcion = item.descripcion.Substring(0, largo);
+							}
+							}
+							<p>@descripcion</p>
 						</div>
 					</a>
 				</aside>
@@ -364,8 +494,18 @@
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
-							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
-							<br/><p>@descripcion</p>
+							@{var descripcion = "";
+							var largo = item.descripcion.Length;
+							if (largo >= 300)
+							{
+								descripcion = item.descripcion.Substring(0, 296) + "...";
+							}
+							else
+							{
+								descripcion = item.descripcion.Substring(0, largo);
+							}
+							}
+							<p>@descripcion</p>
 						</div>
 					</a>
 				</aside>
@@ -390,8 +530,18 @@
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
-							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
-							<br/><p>@descripcion</p>
+							@{var descripcion = "";
+							var largo = item.descripcion.Length;
+							if (largo >= 300)
+							{
+								descripcion = item.descripcion.Substring(0, 296) + "...";
+							}
+							else
+							{
+								descripcion = item.descripcion.Substring(0, largo);
+							}
+							}
+							<p>@descripcion</p>
 						</div>
 					</a>
 				</aside>
@@ -403,8 +553,18 @@
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
-							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
-							<br/><p>@descripcion</p>
+							@{var descripcion = "";
+							var largo = item.descripcion.Length;
+							if (largo >= 300)
+							{
+								descripcion = item.descripcion.Substring(0, 296) + "...";
+							}
+							else
+							{
+								descripcion = item.descripcion.Substring(0, largo);
+							}
+							}
+							<p>@descripcion</p>
 						</div>
 					</a>
 				</aside>
@@ -429,8 +589,18 @@
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
-							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
-							<br/><p>@descripcion</p>
+							@{var descripcion = "";
+							var largo = item.descripcion.Length;
+							if (largo >= 300)
+							{
+								descripcion = item.descripcion.Substring(0, 296) + "...";
+							}
+							else
+							{
+								descripcion = item.descripcion.Substring(0, largo);
+							}
+							}
+							<p>@descripcion</p>
 						</div>
 					</a>
 				</aside>
@@ -442,8 +612,18 @@
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
-							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
-							<br/><p>@descripcion</p>
+							@{var descripcion = "";
+							var largo = item.descripcion.Length;
+							if (largo >= 300)
+							{
+								descripcion = item.descripcion.Substring(0, 296) + "...";
+							}
+							else
+							{
+								descripcion = item.descripcion.Substring(0, largo);
+							}
+							}
+							<p>@descripcion</p>
 						</div>
 					</a>
 				</aside>
