@@ -7,130 +7,71 @@
 
 @{
     MallTopic_News.Controllers.ConsumirWebApi ca = new MallTopic_News.Controllers.ConsumirWebApi();
-	var modelo = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias>(ca.Peticion("Noticias/" + Convert.ToString(@Html.DisplayFor(model => model.id))));
-	var idcategoria = modelo.fk_idcategoria;
-	var ModeloCategorias = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/"+idcategoria));
-	
-	
-  }
-
-<script src="~/Scripts/SliderMT.js"></script>
-
-<section id="contentDetail">
-    <div class="contentNoticia">
-        <section id="slider">
-			<div>
-				<img id="Imagen" data-ocultar="true" data-count="0" />
-				<p id="PieImagen" class="piePag" data-ocultar="true"></p>
-			</div>
-                
-            <div class="listaMin">
-				@{
-					var SubsImg = "";
-					var Imagenes = modelo.imagenes;
-					if (Imagenes != null)
-					{
-						 SubsImg = Imagenes.Substring(0, 1);	
-					}
-				}
-				@if(SubsImg == "[")
-				{
-					<a href="#" onclick="Atras()">Anterior</a>
-				}
-				
-				<ul id="SelectImages">
-					@{
-						
-						var detalle = "Home/NoticiaDetalle";
-						var img = "";
-						
-						if(SubsImg == "[")
-						{
-							
-							var AImagenes = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.ImagenesNoticias[]>(modelo.imagenes);
-							var c = 0;
-							
-							
-							foreach (var item in AImagenes)
-							{
-
-								img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
-
-								if (c == 0)
-								{
-
-									<li data-select="true" onclick="CambiarImagen(this)"><img id="@item.id" data-count="@c" data-src="@img" src="#" alt="Alternate Text" data-nombreimagen="@item.nombre" data-pieimagen="@item.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@item.id" data-titulo="@item.nombre" /></li>
-								}
-								else
-								{
-									<li data-select="false" onclick="CambiarImagen(this)"><img id="@item.id" data-count="@c" data-src="@img" src="#" alt="Alternate Text" data-nombreimagen="@item.nombre" data-pieimagen="@item.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@item.id" data-titulo="@item.nombre" /></li>
-								}
-								c++;
-							}
-						}
-						else if (SubsImg == "{")
-						{
-							var AImagen = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.ImagenesNoticias>(modelo.imagenes);
-							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + AImagen.id + ".png";
-							<li data-select="true" onclick="CambiarImagen(this)"><img id="@AImagen.id" data-count="0" data-src="@img" src="#" alt="Alternate Text" data-nombreimagen="@AImagen.nombre" data-pieimagen="@AImagen.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@AImagen.id" data-titulo="@AImagen.nombre" /></li>
-						}
-						if (SubsImg == "")
-						{
-							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + modelo.id + ".png";
-							<li data-select="true" onclick="CambiarImagen(this)"><img id="@modelo.id" data-count="0" data-src="@img" src="#" alt="Alternate Text" /></li>
-						}
-
+    var modelo = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias>(ca.Peticion("Noticias/" + Convert.ToString(@Html.DisplayFor(model => model.id))));
+    var idcategoria = modelo.fk_idcategoria;
+    var ModeloCategorias = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/" + idcategoria));
 
 
 }
-					
-				</ul>
-			@if(SubsImg == "[")
-				{
-				<a href="#" onclick="Siguiente()">Siguiente</a>
-			}
+
+<script src="~/Scripts/SliderMT.js"></script>
+<section class="notaDetail">
+    <h1>Título de la noticia</h1>
+    <section class="SliderNotas">
+        <img class="imagenSliderNotas" src="#" />
+        <div class="listaMin2">
+            <div class="controlesDiv2">
+                <a href="#"></a>
+                <a href="#"></a>
             </div>
-        </section>
-        <h1>@Html.DisplayFor(model => model.titulo)</h1>
-        <p class="parrafoNoti">@Html.DisplayFor(model => Model.descripcion)</p>
-    </div>
-    <div class="secciones" id="seccion1">
-        <a href="#">Notas relacionadas</a>
-        <article class="Relacionadas">
-		@{var id = @Html.DisplayFor(model => model.id);}
-		@foreach (var item in ModeloCategorias)
-		{
-			
-			if (item.id == id.ToString()) 
-			{ }
-			else
-			{
-				img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
-			<div class="noticiaDest">
-				<img src="@img" class="imagenNotiDest" />
-				<a href="@item.id" class="parrEnlaceDest">@item.titulo</a>
-			</div>
-			}
-		}
-          
-        </article>
-    </div>
-    <article class="redesSocial">
-        <div id="fb-root"></div>
-        <script>
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.0";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        </script>
-        <div class="fb-comments" id="redesSpace" data-href="http://www.malltopic.com/mt/" data-numposts="5" data-colorscheme="light"></div>
-        @{
-            var perfil = "@MallTopic";
-        }
-        <a class="twitter-timeline" href="https://twitter.com/search?q=%40MallTopic" data-widget-id="505952244089384960">Tweets sobre @perfil</a>
-        <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+            <ul class="miniaturas2">
+                <a href="#"><li></li></a>
+                <a href="#"><li></li></a>
+                <a href="#"><li></li></a>
+                <a href="#"><li></li></a>
+                <a href="#"><li></li></a>
+                <a href="#"><li></li></a>
+                <a href="#"><li></li></a>
+                <a href="#"><li></li></a>
+                <a href="#"><li></li></a>
+            </ul>
+        </div>
+    </section>
+    <h6>Pie de foto</h6>
+    <p class="parrafoNota">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non vehicula dolor. Proin ac dolor pellentesque, facilisis magna in, tempus nunc. Proin mollis ex elementum, faucibus leo eget, blandit nulla. Curabitur condimentum nisl vel sapien elementum, et condimentum turpis eleifend. Maecenas cursus turpis ac nisi condimentum blandit. Nunc maximus viverra erat, nec bibendum velit volutpat in. Pellentesque tincidunt tellus sit amet metus laoreet efficitur. Sed tempor augue sed ipsum blandit, non dignissim felis commodo. Sed faucibus magna quis bibendum rhoncus. Nam varius eros arcu, nec mollis tortor convallis a. Curabitur rhoncus dolor tortor, at posuere ipsum finibus at. Nullam consectetur, ex et egestas vestibulum, ipsum augue cursus lacus, quis efficitur nisl massa sed nulla. Proin arcu eros, congue at commodo a, sagittis nec ex. Etiam leo urna, varius vestibulum condimentum quis, elementum eget dui. Vestibulum at est neque. Fusce vel consectetur quam.
+
+        Ut luctus nisi in auctor iaculis. Suspendisse ut eleifend ante. Nunc a est cursus, eleifend lacus a, vehicula sapien. Pellentesque quis ligula eleifend, molestie metus et, cursus risus. Nulla lectus tellus, lobortis id varius et, hendrerit quis orci. In ultrices vel justo nec ultricies. Vivamus congue augue luctus, volutpat nisi quis, interdum magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec finibus aliquam elit. Donec a luctus erat, nec euismod ligula. Curabitur nec magna id felis ornare porttitor. Donec vulputate ultrices neque, vitae pretium dolor faucibus eu. Aenean sit amet efficitur lectus. Praesent porta felis vel ultrices feugiat.
+
+        Donec varius ut tellus id lobortis. Integer dapibus ac ipsum et ultrices. Aliquam tincidunt dapibus porttitor. Sed ultricies tristique commodo. Suspendisse potenti. Cras id viverra magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin a nibh ut orci volutpat fringilla a eu erat.
+
+        Vestibulum pulvinar ex purus, ut bibendum risus aliquet sit amet. Pellentesque pharetra ipsum a ligula auctor, eget vestibulum risus consequat. Mauris nibh massa, scelerisque a euismod in, dictum at urna. Nulla facilisi. Praesent quis urna eget est placerat mollis in non turpis. Etiam et odio sed dui aliquam tempus at quis erat. Vestibulum venenatis lacinia venenatis. Proin iaculis ultricies nisl, eu dictum augue vestibulum in.
+
+        Sed quis scelerisque magna, vel congue velit. Duis congue dui eu efficitur imperdiet. Vivamus auctor diam sit amet ex mollis placerat. Nullam non ligula ex. Ut fermentum, leo et laoreet porta, lacus lacus pharetra eros, vitae efficitur tellus enim in lacus. Nunc sollicitudin nisl ac turpis condimentum placerat. Pellentesque at turpis sem. Nullam ut tempus enim. Phasellus dictum nunc a sagittis vehicula. Quisque nisl felis, vulputate ac est pretium, aliquet laoreet lorem. Sed tellus erat, dapibus quis nulla laoreet, consectetur volutpat dolor.
+    </p>
+    <article class="relacionadas">
+        <h3>Notas relacionadas</h3>
+        <a href="#">
+            <div class="notasRelac">
+                <img src="#" />
+                <h4>Título de la nota</h4>
+                <p>sdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfssdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdd</p>
+            </div>
+            <div class="notasRelac">
+                <img src="#" />
+                <h4>Título de la nota</h4>
+                <p>sdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfssdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdd</p>
+            </div>
+            <div class="notasRelac">
+                <img src="#" />
+                <h4>Título de la nota</h4>
+                <p>sdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfssdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdd</p>
+            </div>
+            <div class="notasRelac">
+                <img src="#" />
+                <h4>Título de la nota</h4>
+                <p>sdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfssdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdsdfsfsdfsdd</p>
+            </div>
+        </a>
     </article>
 </section>
