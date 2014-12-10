@@ -86,3 +86,10 @@ $(document).ready(function () {
     }, 5000);
 
 });
+
+
+function cambiarTexto()
+{
+    var parrafo = document.getElementById("parrafoNota");
+
+}

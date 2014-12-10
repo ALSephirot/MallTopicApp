@@ -46,7 +46,7 @@
 		<li><a href="#" id="desplegable8">Movilidad</a></li>
 		<li><a href="#" id="desplegable9">Especiales MT</a></li>
 		<li id="desplegable10" onmouseover="MostrarMalls()" onmouseout="OcultarMalls()">
-			<a href="#">Centros Comerciales</a>
+			<a href="CentrosComerciales">Centros Comerciales</a>
 			<!--<ul class="ListaMalls">
 				<li><a onclick="camino();">Camino Real</a></li>
 				<li><a onclick="monterrey();">Monterrey</a></li>
@@ -81,7 +81,7 @@
 				</div>
 				<ul id="miniaturas" class="miniaturas">
 					@{var c = 0;
-					var detalle = "~/Home/NoticiaDetalle";}
+					var detalle = "NoticiaDetalle";}
 					@foreach (var item in modelotodos)
 					{
 						var img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
@@ -651,3 +651,4 @@
 		<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
 	</article>
 </section>
+
