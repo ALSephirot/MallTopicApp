@@ -37,6 +37,11 @@ namespace MallTopic_News.Controllers
             }
             return View("NoticiaDetalle", await ConsumirWebApi.GetObject<MallTopic_News.Models.Noticias>("noticias",id));
         }
+
+        public ActionResult CentrosComerciales()
+        {
+            return View();
+        }
         
     }
 }

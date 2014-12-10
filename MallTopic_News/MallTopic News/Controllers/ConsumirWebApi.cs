@@ -179,7 +179,7 @@ namespace MallTopic_News.Controllers
                 using (Stream respStream = resp.GetResponseStream())
                 {
                     StreamReader reader = new StreamReader(respStream, Encoding.UTF8);
-                    return reader.ReadToEnd();
+                   return reader.ReadToEnd();
                 }
             }
             else

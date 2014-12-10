@@ -11,7 +11,7 @@
 	var ModeloNoticiasPromociones = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/730240e3-fa51-47ed-94aa-4ca8667b38cb"));
 	//Categorias de la noticias de eventos
 	var ModeloNoticiaseventos = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/b05987a1-5427-4eb3-92ea-406650eb3e56"));
-	//Categorias de la noticia de salud y belleza 
+	//Categorias de la noticia de salud y belleza
 	var ModeloNoticiasSaludyBelleza = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/c5e9d6f6-2d90-48d9-93e0-a22b007dc0d5"));
 	//Categorias de la noticia Modas
 	var ModeloNoticiasModas = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/bc954551-d1ef-4147-8058-0edba592c5a2"));
@@ -23,10 +23,10 @@
 	var ModeloNoticiasMovilidad = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/71c1b9b5-99ad-48b0-a602-fde2fd74136d"));
 	//Categoria de la noticia de Especiales MT
 	var ModeloNoticiasEspeciales = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/644f7bfe-4ed4-4bd2-a379-081b8a6811fa"));
-	
+
 	// fin de los modelos de categorias de las noticias
-	
-	
+
+
 	var ModeloCategorias = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Categorias[]>(ca.Peticion("categorias"));
 	var NoticiasRecientes = ModeloNoticias.Where(mm => mm.fk_idcategoria == "4db72003-685f-47b1-8855-8e468bff1f6b").ToList<MallTopic_News.Models.Noticias>();
 }
@@ -63,6 +63,7 @@
 		</li>
 	</ul>
 </div>
+@{var modelotodos = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/true/false/''"));}
 <section id="content">
 	<article class="contenedor1">
 		<section id="slider">
@@ -73,143 +74,400 @@
 					<a id="LinkNoticia" href="#" class="botonSlider"></a>
 				</div>
 			</div>
-            <div class="listaMin">
-                <div class="controlesDiv">
-                    <a href="#"></a>
-                    <a href="#"></a>
-                </div>
-                <ul class="miniaturas">
-                    <a href="#"><li></li></a>
-                    <a href="#"><li></li></a>
-                    <a href="#"><li></li></a>
-                    <a href="#"><li></li></a>
-                    <a href="#"><li></li></a>
-                    <a href="#"><li></li></a>
-                    <a href="#"><li></li></a>
-                    <a href="#"><li></li></a>
-                    <a href="#"><li></li></a>
-                </ul>
-            </div>
+			<div class="listaMin">
+				<div class="controlesDiv">
+					<a href="#" onclick="Atras()"></a>
+					<a href="#" onclick="Siguiente()"></a>
+				</div>
+				<ul id="miniaturas" class="miniaturas">
+					@{var c = 0;
+					var detalle = "~/Home/NoticiaDetalle";}
+					@foreach (var item in modelotodos)
+					{
+						var img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+						if (c == 0)
+						{
+							<li data-select="true" onclick="CambiarImagen(this)"><img src="@img" id="@item.id" data-count="@c" data-src="@img" data-nombreimagen="@item.titulo" data-descripcionnoticia="@item.descripcion" data-linknoticia="@detalle/@item.id" data-titulo="@item.titulo" /></li>
+						}
+						else
+						{
+							<li data-select="false" onclick="CambiarImagen(this)"><img src="@img" id="@item.id" data-count="@c" data-src="@img" data-nombreimagen="@item.titulo" data-descripcionnoticia="@item.descripcion" data-linknoticia="@detalle/@item.id" data-titulo="@item.titulo" /></li>
+						}
+						c++;
+					}
+				</ul>
+
+			</div>
+
+
+
 		</section>
-        <iframe class="videoPlaylist" src="//www.youtube.com/embed/videoseries?list=PL7tjU4td49j0_dTiHSlkWft2fzfzrKEKe" frameborder="0" allowfullscreen></iframe>
+		<iframe class="videoPlaylist" src="//www.youtube.com/embed/videoseries?list=PL7tjU4td49j0_dTiHSlkWft2fzfzrKEKe" frameborder="0" allowfullscreen></iframe>
 		<a onclick="malltopic();" class="DowloadApp"></a>
 	</article>
+	@* Recientes *@
+	<div id="notasPage" class="tag1">
+		<h2>Recientes</h2>
+		@{var cre = 0;
+		  }
+		@foreach (var item in ModeloNoticiasRecientes)
+		{
+			var ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/"+item.id+".png";
+			if (cre < 3) 
+			{ 
+			<aside>
+				<a href="~/Home/NoticiaDetalle/@item.id">
+					<div class="notaInd">
+						<img src="@ruta" />
+						<h3>@item.titulo</h3>
+						@{var descripcion = item.descripcion.Substring(0, 100)+"...";}
+						<p>@descripcion</p>
+					</div>
+				</a>
+			</aside>
+			}else if(cre >= 3)
+			{ 
+			<aside>	
+				<a href="~/Home/NoticiaDetalle/@item.id">
+					<div class="notaInd">
+						<img src="@ruta" />
+						<h3>@item.titulo</h3>
+						@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+						<p>@descripcion</p>
+					</div>
+				</a>
+			</aside>
+		}
+			cre++;
+		}
+	</div>
+	@* Promociones *@
+	<div id="notasPage" class="tag2">
+		<h2>Promociones</h2>
+		@{var cpr = 0;
+		}
+		@foreach (var item in ModeloNoticiasPromociones)
+		{
+			var ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+			if (cpr < 3)
+			{
+				<aside>
+					<a href="~/Home/NoticiaDetalle/@item.id">
+						<div class="notaInd">
+							<img src="@ruta" />
+							<h3>@item.titulo</h3>
+							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+							<p>@descripcion</p>
+						</div>
+					</a>
+				</aside>
+			}
+			else if (cpr >= 3)
+			{
+				<aside>
+					<a href="~/Home/NoticiaDetalle/@item.id">
+						<div class="notaInd">
+							<img src="@ruta" />
+							<h3>@item.titulo</h3>
+							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+							<p>@descripcion</p>
+						</div>
+					</a>
+				</aside>
+			}
+			cpr++;
+		}
+	</div>
 
-    <div id="notasPage" class="tag1">
-        <h2>Titulo</h2>
-        <aside>
-            <a href="#">
-                <div class="notaInd">
-                    <img src="#" />
-                    <h3>Titulo Nota</h3>
-                    <p></p>
-                </div>
-            </a>
-            <a href="#">
-                <div class="notaInd">
-                    <img src="#" />
-                    <h3>Titulo Nota</h3>
-                    <p></p>
-                </div>
-            </a>
-            <a href="#">
-                <div class="notaInd">
-                    <img src="#" />
-                    <h3>Titulo Nota</h3>
-                    <p></p>
-                </div>
-            </a>
-        </aside>
-        <aside>
-            <a href="#">
-                <div class="notaInd">
-                    <img src="#" />
-                    <h3>Titulo Nota</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.dfsdfsdfsdfsdfsdfsdfsdfsdfsfsfsdfsfsdfsdfsdfsdfsdfsdfff</p>
-                </div>
-            </a>
-            <a href="#">
-                <div class="notaInd">
-                    <img src="#" />
-                    <h3>Titulo Nota</h3>
-                    <p></p>
-                </div>
-            </a>
-            <a href="#">
-                <div class="notaInd">
-                    <img src="#" />
-                    <h3>Titulo Nota</h3>
-                    <p></p>
-                </div>
-            </a>
-        </aside>
-    </div>
-    <div id="notasPage" class="tag2">
-        <h2>Titulo</h2>
-        <aside>
-            <a href="#">
-                <div class="notaInd">
-                    <img src="#" />
-                    <h3>Titulo Nota</h3>
-                    <p></p>
-                </div>
-            </a>
-            <a href="#">
-                <div class="notaInd">
-                    <img src="#" />
-                    <h3>Titulo Nota</h3>
-                    <p></p>
-                </div>
-            </a>
-            <a href="#">
-                <div class="notaInd">
-                    <img src="#" />
-                    <h3>Titulo Nota</h3>
-                    <p></p>
-                </div>
-            </a>
-        </aside>
-        <aside>
-            <a href="#">
-                <div class="notaInd">
-                    <img src="#" />
-                    <h3>Titulo Nota</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.dfsdfsdfsdfsdfsdfsdfsdfsdfsfsfsdfsfsdfsdfsdfsdfsdfsdfff</p>
-                </div>
-            </a>
-            <a href="#">
-                <div class="notaInd">
-                    <img src="#" />
-                    <h3>Titulo Nota</h3>
-                    <p></p>
-                </div>
-            </a>
-            <a href="#">
-                <div class="notaInd">
-                    <img src="#" />
-                    <h3>Titulo Nota</h3>
-                    <p></p>
-                </div>
-            </a>
-        </aside>
-    </div>
+	@* eventos *@
 
-    <article class="redesSocial">
-        <div id="fb-root"></div>
-        <script>
-            (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.0";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        </script>
-        <div class="fb-comments" id="redesSpace" data-href="http://www.malltopic.com/mt/" data-numposts="5" data-colorscheme="light"></div>
-        @{
-            var perfil = "@MallTopic";
-        }
-        <a class="twitter-timeline" href="https://twitter.com/search?q=%40MallTopic" data-widget-id="505952244089384960">Tweets sobre @perfil</a>
-        <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
-    </article>
+	<div id="notasPage" class="tag3">
+		<h2>Eventos</h2>
+		@{var cev = 0;
+		}
+		@foreach (var item in ModeloNoticiasRecientes)
+		{
+			var ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+			if (cev < 3)
+			{
+				<aside>
+					<a href="~/Home/NoticiaDetalle/@item.id">
+						<div class="notaInd">
+							<img src="@ruta" />
+							<h3>@item.titulo</h3>
+							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+							<br/><p>@descripcion</p>
+						</div>
+					</a>
+				</aside>
+			}
+			else if (cev >= 3)
+			{
+				<aside>
+					<a href="~/Home/NoticiaDetalle/@item.id">
+						<div class="notaInd">
+							<img src="@ruta" />
+							<h3>@item.titulo</h3>
+							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+							<br/><p>@descripcion</p>
+						</div>
+					</a>
+				</aside>
+			}
+			cev++;
+		}
+	</div>
+
+	@*Salud y belleza*@
+
+	<div id="notasPage" class="tag4">
+		<h2>Salud y belleza</h2>
+		@{var csyb = 0;
+		}
+		@foreach (var item in ModeloNoticiasSaludyBelleza)
+		{
+			var ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+			if (csyb < 3)
+			{
+				<aside>
+					<a href="~/Home/NoticiaDetalle/@item.id">
+						<div class="notaInd">
+							<img src="@ruta" />
+							<h3>@item.titulo</h3>
+							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+							<br/><p>@descripcion</p>
+						</div>
+					</a>
+				</aside>
+			}
+			else if (csyb >= 3)
+			{
+				<aside>
+					<a href="~/Home/NoticiaDetalle/@item.id">
+						<div class="notaInd">
+							<img src="@ruta" />
+							<h3>@item.titulo</h3>
+							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+							<br/><p>@descripcion</p>
+						</div>
+					</a>
+				</aside>
+			}
+			csyb++;
+		}
+	</div>
+
+	@*Moda*@
+
+	<div id="notasPage" class="tag5">
+		<h2>Moda</h2>
+		@{var cmod = 0;
+		}
+		@foreach (var item in ModeloNoticiasModas)
+		{
+			var ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+			if (cmod < 3)
+			{
+				<aside>
+					<a href="~/Home/NoticiaDetalle/@item.id">
+						<div class="notaInd">
+							<img src="@ruta" />
+							<h3>@item.titulo</h3>
+							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+							<br/><p>@descripcion</p>
+						</div>
+					</a>
+				</aside>
+			}
+			else if (cmod >= 3)
+			{
+				<aside>
+					<a href="~/Home/NoticiaDetalle/@item.id">
+						<div class="notaInd">
+							<img src="@ruta" />
+							<h3>@item.titulo</h3>
+							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+							<br/><p>@descripcion</p>
+						</div>
+					</a>
+				</aside>
+			}
+			cmod++;
+		}
+	</div>
+
+	@*Estilo de vida*@
+
+	<div id="notasPage" class="tag6">
+		<h2>Estilo de vida</h2>
+		@{var cedv = 0;
+		}
+		@foreach (var item in ModeloNoticiasEstilodevida)
+		{
+			var ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+			if (cedv < 3)
+			{
+				<aside>
+					<a href="~/Home/NoticiaDetalle/@item.id">
+						<div class="notaInd">
+							<img src="@ruta" />
+							<h3>@item.titulo</h3>
+							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+							<br/><p>@descripcion</p>
+						</div>
+					</a>
+				</aside>
+			}
+			else if (cedv >= 3)
+			{
+				<aside>
+					<a href="~/Home/NoticiaDetalle/@item.id">
+						<div class="notaInd">
+							<img src="@ruta" />
+							<h3>@item.titulo</h3>
+							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+							<br/><p>@descripcion</p>
+						</div>
+					</a>
+				</aside>
+			}
+			cedv++;
+		}
+	</div>
+
+	@*Tecnologia*@
+
+	<div id="notasPage" class="tag7">
+		<h2>Estilo de vida</h2>
+		@{var ctec = 0;
+		}
+		@foreach (var item in ModeloNoticiasTecnologia)
+		{
+			var ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+			if (ctec < 3)
+			{
+				<aside>
+					<a href="~/Home/NoticiaDetalle/@item.id">
+						<div class="notaInd">
+							<img src="@ruta" />
+							<h3>@item.titulo</h3>
+							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+							<br/><p>@descripcion</p>
+						</div>
+					</a>
+				</aside>
+			}
+			else if (ctec >= 3)
+			{
+				<aside>
+					<a href="~/Home/NoticiaDetalle/@item.id">
+						<div class="notaInd">
+							<img src="@ruta" />
+							<h3>@item.titulo</h3>
+							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+							<br/><p>@descripcion</p>
+						</div>
+					</a>
+				</aside>
+			}
+			ctec++;
+		}
+	</div>
+
+	@*Movilidad*@
+
+	<div id="notasPage" class="tag8">
+		<h2>Estilo de vida</h2>
+		@{var cmov = 0;
+		}
+		@foreach (var item in ModeloNoticiasMovilidad)
+		{
+			var ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+			if (cmov < 3)
+			{
+				<aside>
+					<a href="~/Home/NoticiaDetalle/@item.id">
+						<div class="notaInd">
+							<img src="@ruta" />
+							<h3>@item.titulo</h3>
+							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+							<br/><p>@descripcion</p>
+						</div>
+					</a>
+				</aside>
+			}
+			else if (cmov >= 3)
+			{
+				<aside>
+					<a href="~/Home/NoticiaDetalle/@item.id">
+						<div class="notaInd">
+							<img src="@ruta" />
+							<h3>@item.titulo</h3>
+							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+							<br/><p>@descripcion</p>
+						</div>
+					</a>
+				</aside>
+			}
+			cmov++;
+		}
+	</div>
+
+	@*Especiales MT*@
+
+	<div id="notasPage" class="tag9">
+		<h2>Especiales MT</h2>
+		@{var cemt = 0;
+		}
+		@foreach (var item in ModeloNoticiasEspeciales)
+		{
+			var ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+			if (cemt < 3)
+			{
+				<aside>
+					<a href="~/Home/NoticiaDetalle/@item.id">
+						<div class="notaInd">
+							<img src="@ruta" />
+							<h3>@item.titulo</h3>
+							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+							<br/><p>@descripcion</p>
+						</div>
+					</a>
+				</aside>
+			}
+			else if (cemt >= 3)
+			{
+				<aside>
+					<a href="~/Home/NoticiaDetalle/@item.id">
+						<div class="notaInd">
+							<img src="@ruta" />
+							<h3>@item.titulo</h3>
+							@{var descripcion = item.descripcion.Substring(0, 100) + "...";}
+							<br/><p>@descripcion</p>
+						</div>
+					</a>
+				</aside>
+			}
+			cemt++;
+		}
+	</div>
+
+	<article class="redesSocial">
+		<div id="fb-root"></div>
+		<script>
+			(function (d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.0";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+		<div class="fb-comments" id="redesSpace" data-href="http://www.malltopic.com/mt/" data-numposts="5" data-colorscheme="light"></div>
+		@{
+			var perfil = "@MallTopic";
+		}
+		<a class="twitter-timeline" href="https://twitter.com/search?q=%40MallTopic" data-widget-id="505952244089384960">Tweets sobre @perfil</a>
+		<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+	</article>
 </section>

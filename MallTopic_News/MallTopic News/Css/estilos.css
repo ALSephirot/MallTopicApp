@@ -66,7 +66,7 @@ body{
 #content .contenedor1{
 	width:83%;
 	height:350px;
-	margin:2.5% 8.5% 10% 8.5%;
+	margin:2.5% 8.5% 7% 8.5%;
 	position:relative;
 			}
 
@@ -103,7 +103,7 @@ body{
 	padding:0px;
 	}
 
-#content .contenedor1 #slider .listaMin, #contentDetail .contentNoticia #slider .listaMin{
+#content .contenedor1 #slider .listaMin{
 	width:100%;
 	height:40px;
     clear:both;
@@ -111,7 +111,7 @@ body{
     position:absolute;
 	}
 
-#content .contenedor1 #slider .listaMin .controlesDiv, #contentDetail .contentNoticia #slider .listaMin .controlesDiv{
+#content .contenedor1 #slider .listaMin .controlesDiv{
 	width:10%;
 	height:40px;
     clear:both;
@@ -122,7 +122,7 @@ body{
     margin:0px;
 	}
 
-#content .contenedor1 #slider .listaMin .controlesDiv a, #contentDetail .contentNoticia #slider .listaMin .controlesDiv a{
+#content .contenedor1 #slider .listaMin .controlesDiv a{
 	width:50%;
 	height:35px;
     bottom:0px;
@@ -132,7 +132,7 @@ body{
     margin:0px;
 	}
 
-#content .contenedor1 #slider .listaMin .controlesDiv a:last-of-type, #contentDetail .contentNoticia #slider .listaMin .controlesDiv a:last-of-type{
+#content .contenedor1 #slider .listaMin .controlesDiv a:last-of-type{
 	width:50%;
 	height:35px;
     bottom:0px;
@@ -142,7 +142,7 @@ body{
     margin:0px;
 	}
 
-#content .contenedor1 #slider .listaMin .miniaturas, #contentDetail .contentNoticia #slider .listaMin .miniaturas{
+#content .contenedor1 #slider .listaMin .miniaturas{
 	width:90% !important;
 	height:40px !important;
     bottom:0px;
@@ -154,14 +154,21 @@ body{
 
 .miniaturas li{
     display:inline-block;
-	width:9%;
-	height:30px;
+	width:9% !important;
+	height:30px !important;
     margin:5px 0.5% 5px 1% !important;
-    background:#000;
+    background:#000;                
     float:left;
     padding:0px;
     margin:0px;
     list-style:none;
+    cursor:pointer;
+	}
+
+.miniaturas li img{
+	width:100% !important;
+	height:100% !important;
+
 	}
 
 #content .contenedor1 #slider div img{
@@ -174,7 +181,7 @@ body{
 	padding:0px;
 	}
 
-#content .contenedor1 #slider div .piePag, #contentDetail #slider .piePag{
+#content .contenedor1 #slider div .piePag{
 	width:98%;
 	height:30px;
 	padding:0% 0% 0% 2%;
@@ -187,7 +194,7 @@ body{
     color:#fff;
 	}
 							
-#content .contenedor1 #slider div #descripcionSlide, #contentDetail #slider #descripcionSlide {
+#content .contenedor1 #slider div #descripcionSlide{
 	position:absolute;
 	top:10px;
 	right:0px;
@@ -199,7 +206,7 @@ body{
     text-align:right;
 	}
 								
-#content .contenedor1 #slider div #descripcionSlide a, #contentDetail #slider #descripcionSlide a{
+#content .contenedor1 #slider div #descripcionSlide a{
 	margin:10px auto 10px auto;
 	width:100%;
 	max-height:60px;
@@ -278,7 +285,7 @@ body{
     cursor:pointer;
 }
 				
-#content .secciones, #contentDetail .secciones{
+#content .secciones{
 	width:95%;
 	height:auto;
 	margin:2.5%;
@@ -286,7 +293,7 @@ body{
     background:#f0f;	
 }
 
-#content .secciones a, #contentDetail .secciones a{
+#content .secciones a{
 	display:inline-block;
 	padding:0px 10px 0px 10px;
 	height:30px;
@@ -302,20 +309,8 @@ body{
 	color:#fff;
     float:left;
 }
-
-#content .secciones a[id^="joder"] {background:#00BFFF;}
-#content .secciones a[id^="joder2"] {background:#FF4000;}
-#content .secciones a[id^="joder3"] {background:#088A68;}
-#content .secciones a[id^="joder4"] {background:#AC58FA;}
-#content .secciones a[id^="joder5"] {background:#DF0101;}
-#content .secciones a[id^="joder6"] {background:#86B404;}
-#content .secciones a[id^="joder7"] {background:#0B3861;}
-#content .secciones a[id^="joder8"] {background:#848484;}
-#content .secciones a[id^="joder9"] {background:#D7DF01; color:#0B3861;}
-#content .secciones a[id^="joder10"] {background:#dedede; color:#000;}
-
 			
-#content .secciones article, #contentDetail .secciones article{
+#content .secciones article{
 	width:50%;
 	height:220px;
     clear:both;
@@ -386,6 +381,8 @@ body{
     font-size:15px;
     line-height:20px;
     color:#00BFFF;
+    text-overflow: ellipsis;
+    overflow: auto;
 }
 
 .notaInd p {
@@ -402,7 +399,7 @@ body{
 
 
 
-#content .secciones article .noticiaPrin, #contentDetail .secciones article .noticiaDest{
+#content .secciones article .noticiaPrin{
 	display: inline-block;
 	width: 100%;
 	height:200px;
@@ -413,13 +410,13 @@ body{
     position:relative;
 }
 
-#content .secciones article .imagenNotiPrin, #contentDetail .secciones article .imagenNotiDest{
+#content .secciones article .imagenNotiPrin{
 	width:100px;
 	height:100px;
 	float: left;
 }
 
-#content .secciones article .parrEnlacePrin, #contentDetail .secciones article .parrEnlaceDest{
+#content .secciones article .parrEnlacePrin{
 	width:90px;
     margin:10px;
 	height:20%;
@@ -439,7 +436,7 @@ body{
     font-weight:normal;
 }
 
-#content .secciones article .imagenNoti, #contentDetail .secciones article .imagenNoti{
+#content .secciones article .imagenNoti{
 	width:95%;
 	margin: 2.5% 2.5% 0% 2.5%;
 	height:65%;
@@ -467,7 +464,7 @@ body{
 
 
 				
-#content .redesSocial, #contentDetail .redesSocial{
+#content .redesSocial{
 	width:80%;
 	height:350px;
 	margin:2.5% 10% 2.5% 10%;
@@ -476,13 +473,13 @@ body{
 	background: #fff;
 }
 			
-#content .redesSocial #redesSpace, #contentDetail .redesSocial #redesSpace{
+#content .redesSocial #redesSpace{
 	width:550px !important;
 	height:350px !important;
 	float:left !important;
     }
 
-#content .redesSocial .twitter-timeline, #contentDetail .redesSocial .twitter-timeline {
+#content .redesSocial .twitter-timeline{
 	height:350px !important;
 	float:right !important;
     }						
@@ -696,3 +693,151 @@ footer p a:nth-of-type(1){
 	border-right:1px solid #fff;
 	}
 
+/*----------------------------------------------Estilos del Detalle de Noticia------------------------------------*/
+
+.notaDetail {
+    width:100%;
+    margin:70px 0px 70px 0px;
+    text-align:center;
+}
+
+.notaDetail h1 {
+    width:90%;
+    margin:0% 2.5% 0% 2.5%;
+    height:50px;
+    color:#000;
+    text-align:center;
+    line-height:50px;
+    font-family:bebas;
+    font-size:30px;
+}
+
+.notaDetail h6 {
+    width:680px;
+    padding:10px;
+    margin:0 auto;
+    height:10px;
+    color:#000;
+    text-align:left;
+    line-height:10px;
+    font-size:12px;
+    font-family:Century;
+}
+
+.notaDetail .parrafoNota {
+    width:80%;
+    margin:20px auto 10px auto;
+    height:300px;
+    overflow:auto;
+    background:#f0f;
+    color:#000;
+    text-align:left;
+    font-size:17px;
+    font-family:Helvetica;
+}
+
+.SliderNotas {
+    width:700px;
+    height:450px;
+    margin:0 auto;
+}
+
+.imagenSliderNotas {
+    width:700px;
+    height:410px;
+    float:left;
+    background:#fff;
+}
+
+.listaMin2 {
+    width:700px;
+    height:40px;
+    float:left;
+}
+
+.controlesDiv2 {
+    width:50px;
+    height:40px;
+    float:left; 
+    background:rgba(0, 0, 0, 0.6);
+}
+
+.controlesDiv2 a {
+    margin-top:7px;
+    width:25px;
+    height:40px;
+    float:left; 
+    background:url(../images/arrowA.png); background-size:100%; background-repeat:no-repeat;
+}
+
+.controlesDiv2 a:last-of-type{
+    background:url(../images/arrowS.png); background-size:100%; background-repeat:no-repeat;
+	}
+
+.miniaturas2 {
+    width:650px;
+    height:40px;
+    float:left; 
+    background:rgba(0, 0, 0, 0.6);
+    margin:0px;
+    padding:0px; 
+}
+
+.miniaturas2 li {
+    display:inline-block;
+    width:50px;
+    height:30px;
+    background:#fff;
+    float:left; 
+    margin:5px 10px 5px 10px;
+}
+
+.relacionadas {
+    width:90%;
+    margin:20px 5% 0px 5%;
+    height:200px;
+    background:#D7DF01;
+}
+
+.relacionadas h3 {
+    width:100%;
+    height:30px;
+    background:#ccc;
+    text-align:left;
+    font-family:bebas;
+    line-height:30px;
+    color:#333;
+    border-top:2px solid #333;
+    margin:0px;
+    padding:0px;
+}
+
+.notasRelac {
+    width:400px;
+    height:110px;
+    background:#f0f;
+    color:#333;
+    float:left;
+    margin:0px;
+    padding:0px;
+}
+
+.notasRelac img {
+    width:100px;
+    height:100px;
+    background:#fff;
+    color:#333;
+    float:left;
+    margin:0 10px 0 10px;
+    padding:0px;
+}
+
+.notasRelac p {
+    width:100px;
+    height:100px;
+    background:#333;
+    color:#333;
+    float:left;
+    margin:0 10px 0 10px;
+    padding:0px;
+}
