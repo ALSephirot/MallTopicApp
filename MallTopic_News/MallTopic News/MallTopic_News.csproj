@@ -173,6 +173,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\ConsumirWebApi.cs" />
+    <Compile Include="Controllers\ConsumirWebApiMall.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="General\GlobalVar.cs" />
@@ -183,6 +184,7 @@
     <Compile Include="Models\Categorias.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ImagenesNoticias.cs" />
+    <Compile Include="Models\Malls.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\NoticiasImagenes.cs" />
     <Compile Include="Models\Noticias.cs" />

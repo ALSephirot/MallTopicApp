@@ -8,7 +8,11 @@
 @font-face{
  	font-family:bebas;
    	font-style:normal;
+<<<<<<< HEAD
    	src:url(../fonts/BEBAS.TTF);
+=======
+    src:url(../fonts/BEBAS.TTF);
+>>>>>>> 9425473450a8cd0d196e30f0c371685bc0bdb634
  }
 
 @font-face{

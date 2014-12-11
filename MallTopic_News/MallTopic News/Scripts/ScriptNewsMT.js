@@ -13,6 +13,7 @@ function MostrarMalls() {
 function OcultarMalls() {
     $(".ListaMalls").css("display", "none");
 }
+<<<<<<< HEAD
 
 
 function OnMall(miDivsito) {
@@ -37,6 +38,28 @@ function OutMall(miDivsito) {
     $(hijos[1]).animate({ opacity: '0' });
     $(hijos[2]).animate({ opacity: '0' });
 }
+=======
+
+//function OnMall() {
+
+//    $(".logoCC").animate({ width: '65px', height: '65px', top: '10px', left: '10px' });
+//    $(".headerCC").animate({ opacity: '1' });
+//    $(".parrafoCentroCC").animate({ opacity: '1' });
+//}
+
+//function OutMall() {
+
+//    $(".logoCC").animate({ width:'100px', height: '100px', top: '20px', left: '100px' });
+//    $(".headerCC").animate({ opacity: '0' });
+//    $(".parrafoCentroCC").animate({ opacity: '0' });
+//}
+
+
+$("#LinkCC").mouseover(function () {
+    
+    OnMall();
+});
+>>>>>>> 9425473450a8cd0d196e30f0c371685bc0bdb634
 
 $("a[data-id=contenedor]").hover(function () { OnMall(this); }, function () { OutMall(this); });
 
@@ -99,39 +122,7 @@ function scroll10() {
     $("html, body").animate({ scrollTop: (section.offset().top - 100) }, 600);
 }
 
-function monterrey() {
-    window.open("http://www.monterrey.com.co/home/");
-}
-function camino() {
-    window.open("http://www.caminoreal.com.co/");
-}
-function movicentro() {
-    window.open("http://www.movicentro.co/");
-}
-function molinos() {
-    window.open("http://www.losmolinos.com.co/");
-}
-function sandiego() {
-    window.open("http://www.sandiego.com.co/");
-}
-function fundadores() {
-    window.open("http://www.centrocomercialfundadores.com/");
-}
-function mayorca(){
-    window.open("http://www.mayorca.com.co/");
-}
-function tesoro() {
-    window.open("http://www.eltesoro.com.co/es/");
-}
-function premium() {
-    window.open("http://www.ccpremiumplaza.com/home.asp");
-}
-function cityplaza() {
-    window.open("http://www.cityplaza.co/");
-}
-function sannicolas() {
-    window.open("http://www.sannicolas.co/");
-}
-function malltopic() {
-    window.open("http://www.malltopic.com/");
+function abrirentana(ruta)
+{
+    window.open("http://" + ruta);
 }

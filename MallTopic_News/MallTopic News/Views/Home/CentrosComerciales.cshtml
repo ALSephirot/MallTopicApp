@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<section class="contenedorCentros">
     <h1>Centros Comerciales</h1>
     <div class="cuadrosCC">
@@ -16,4 +17,30 @@
             </div>
         </a>
     </div>
+=======
+﻿@model IEnumerable<MallTopic_News.Models.Malls>
+
+@{
+
+	var NoticiasRecientes = Model.Where(mm => mm.publicar == true).ToList<MallTopic_News.Models.Malls>();
+}
+<section class="contenedorCentros">
+	<h1>Centros Comerciales</h1>
+	<div class="cuadrosCC">
+		@foreach (var item in NoticiasRecientes)
+		{
+			<a href="#" id="LinkCC" onclick="abrirentana('@item.web');" >
+				<div class="centroCC">
+					<h2>@item.nombre</h2>
+					@{var header = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersMalls/" + @item.id + ".png";
+					var logo = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Logos/Malls/" + @item.id + ".png";
+					}
+					<img src="@logo" class="logoCC" />
+					<img src="@header" class="headerCC" />
+					<p class="parrafoCentroCC">@item.descripcion</p>
+				</div>
+			</a>
+		}
+	</div>
+>>>>>>> 9425473450a8cd0d196e30f0c371685bc0bdb634
 </section>
