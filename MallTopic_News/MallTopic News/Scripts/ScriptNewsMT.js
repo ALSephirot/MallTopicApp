@@ -12,24 +12,24 @@ function MostrarMalls() {
 function OcultarMalls() {
     $(".ListaMalls").css("display", "none");
 }
-function OnMall() {
-    if (c == 0) {
-        $(".logoCC").animate({ width: '65px', height: '65px', top: '10px', left: '10px' });
-        $(".headerCC").animate({ opacity: '1' });
-        $(".parrafoCentroCC").animate({ opacity: '1' });
 
-        c=1;
-    }
-}
+//function OnMall() {
 
-function OutMall() {
-    c = 0;
-    $(".logoCC").animate({ width:'100px', height: '100px', top: '20px', left: '100px' });
-    $(".headerCC").animate({ opacity: '0' });
-    $(".parrafoCentroCC").animate({ opacity: '0' });
-}
+//    $(".logoCC").animate({ width: '65px', height: '65px', top: '10px', left: '10px' });
+//    $(".headerCC").animate({ opacity: '1' });
+//    $(".parrafoCentroCC").animate({ opacity: '1' });
+//}
+
+//function OutMall() {
+
+//    $(".logoCC").animate({ width:'100px', height: '100px', top: '20px', left: '100px' });
+//    $(".headerCC").animate({ opacity: '0' });
+//    $(".parrafoCentroCC").animate({ opacity: '0' });
+//}
+
 
 $("#LinkCC").mouseover(function () {
+    
     OnMall();
 });
 
@@ -96,39 +96,7 @@ function scroll10() {
     $("html, body").animate({ scrollTop: (section.offset().top - 100) }, 600);
 }
 
-function monterrey() {
-    window.open("http://www.monterrey.com.co/home/");
-}
-function camino() {
-    window.open("http://www.caminoreal.com.co/");
-}
-function movicentro() {
-    window.open("http://www.movicentro.co/");
-}
-function molinos() {
-    window.open("http://www.losmolinos.com.co/");
-}
-function sandiego() {
-    window.open("http://www.sandiego.com.co/");
-}
-function fundadores() {
-    window.open("http://www.centrocomercialfundadores.com/");
-}
-function mayorca(){
-    window.open("http://www.mayorca.com.co/");
-}
-function tesoro() {
-    window.open("http://www.eltesoro.com.co/es/");
-}
-function premium() {
-    window.open("http://www.ccpremiumplaza.com/home.asp");
-}
-function cityplaza() {
-    window.open("http://www.cityplaza.co/");
-}
-function sannicolas() {
-    window.open("http://www.sannicolas.co/");
-}
-function malltopic() {
-    window.open("http://www.malltopic.com/");
+function abrirentana(ruta)
+{
+    window.open("http://" + ruta);
 }

@@ -173,6 +173,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\ConsumirWebApi.cs" />
+    <Compile Include="Controllers\ConsumirWebApiMall.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="General\GlobalVar.cs" />
@@ -183,6 +184,7 @@
     <Compile Include="Models\Categorias.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ImagenesNoticias.cs" />
+    <Compile Include="Models\Malls.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\NoticiasImagenes.cs" />
     <Compile Include="Models\Noticias.cs" />
@@ -207,8 +209,8 @@
     <Content Include="fonts\coolvetica.ttf" />
     <Content Include="fonts\EnglishTowne.ttf" />
     <Content Include="fonts\GravityLight.ttf" />
-    <Content Include="fonts\BebasNeue.otf" />
     <Content Include="fonts\GOTHIC.TTF" />
+    <Content Include="fonts\BEBAS.TTF" />
     <None Include="Properties\PublishProfiles\MTNews - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - FTP %284%29.pubxml" />
