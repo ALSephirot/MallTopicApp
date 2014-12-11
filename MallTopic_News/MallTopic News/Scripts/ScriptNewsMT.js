@@ -12,6 +12,30 @@ function MostrarMalls() {
 function OcultarMalls() {
     $(".ListaMalls").css("display", "none");
 }
+function OnMall() {
+    if (c == 0) {
+        $(".logoCC").animate({ width: '65px', height: '65px', top: '10px', left: '10px' });
+        $(".headerCC").animate({ opacity: '1' });
+        $(".parrafoCentroCC").animate({ opacity: '1' });
+
+        c=1;
+    }
+}
+
+function OutMall() {
+    c = 0;
+    $(".logoCC").animate({ width:'100px', height: '100px', top: '20px', left: '100px' });
+    $(".headerCC").animate({ opacity: '0' });
+    $(".parrafoCentroCC").animate({ opacity: '0' });
+}
+
+$("#LinkCC").mouseover(function () {
+    OnMall();
+});
+
+$("#LinkCC").mouseout(function () {
+    OutMall();
+});
 
 $("#desplegable1").on("click", scroll1);
 $("#desplegable2").on("click", scroll2);

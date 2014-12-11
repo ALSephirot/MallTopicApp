@@ -851,3 +851,89 @@ footer p a:nth-of-type(1){
     font-family:bebas;
     font-size:16px;
 }
+
+/*----------------------------------Estilos Vista de Centros comerciales--------------------------*/
+
+.contenedorCentros {
+    margin:80px 2.5% 0px 2.5%;
+    width:95%;
+    height:700px;
+}
+
+.contenedorCentros h1 {
+    margin:10px 0% 10px 0%;
+    width:100%;
+    height:50px;
+    font-family:bebas;
+    font-size:30px;
+    text-align:center;
+    line-height:50px;
+    border-bottom:1px dashed #ccc;
+}
+
+.cuadrosCC {
+    margin:0 auto;
+    width:100%;
+    height:500px;
+    overflow:auto;
+}
+
+.centroCC {
+    display:inline-block;
+    width:23.5%;
+    height:210px;
+    margin:0% 0% 30px 1%;
+    position:relative;
+}
+
+.centroCC:hover {
+    box-shadow:0px 2px 10px #666;
+}
+
+/*.logoCC {
+    width:65px;
+    height:65px;
+    background:#0B3861;
+    position:absolute;
+    top:10px;
+    left:10px;
+    z-index:4;
+    border-radius:50px;
+}*/
+
+.logoCC {
+    width:100px;
+    height:100px;
+    background:#0B3861;
+    position:absolute;
+    top:20px;
+    left:100px;
+    z-index:4;
+    border-radius:50px;
+}
+
+.headerCC {
+    width:100%;
+    height:140px;
+    background:#dedede;
+    position:absolute;
+    top:0px;
+    left:0px;
+    z-index:3;
+    opacity:0;
+}
+
+.parrafoCentroCC {
+    width: 95%;
+    padding:0% 2.5% 0% 2.5%;
+    height: 65px;
+    position: absolute;
+    top: 140px;
+    left: 0px;
+    z-index:2;
+    margin: 5px 0px 0px 0px;
+    font-family:Helvetica;
+    color:#333;
+    font-size:13px;
+    opacity:0;
+}
