@@ -36,7 +36,10 @@ function OutMall(miDivsito) {
     $(hijos[1]).animate({ opacity: '0' });
     $(hijos[2]).animate({ opacity: '0' });
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/master
 
 $("a[data-id=contenedor]").hover(function () { OnMall(this); }, function () { OutMall(this); });
 
