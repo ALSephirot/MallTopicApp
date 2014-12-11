@@ -3,6 +3,7 @@ var f = new Date();
 var contenedor = window.document.getElementById("daTime");
 var html = '<p class="parrafoFecha">' + 'Fecha: ' + f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear() + '</p>'
 contenedor.innerHTML = html;
+var entro = false;
 
 var estado = false;
 
@@ -12,30 +13,32 @@ function MostrarMalls() {
 function OcultarMalls() {
     $(".ListaMalls").css("display", "none");
 }
-function OnMall() {
-    if (c == 0) {
-        $(".logoCC").animate({ width: '65px', height: '65px', top: '10px', left: '10px' });
-        $(".headerCC").animate({ opacity: '1' });
-        $(".parrafoCentroCC").animate({ opacity: '1' });
 
-        c=1;
-    }
+
+function OnMall(miDivsito) {
+
+        console.log("entro");
+        var link = $(miDivsito);
+        var Divhijo = link.children();
+        var hijos = Divhijo.children();
+
+        $(hijos[0]).animate({ width: '65px', height: '65px', top: '10px', left: '10px' });
+        $(hijos[1]).animate({ opacity: '1' });
+        $(hijos[2]).animate({ opacity: '1' });
 }
 
-function OutMall() {
-    c = 0;
-    $(".logoCC").animate({ width:'100px', height: '100px', top: '20px', left: '100px' });
-    $(".headerCC").animate({ opacity: '0' });
-    $(".parrafoCentroCC").animate({ opacity: '0' });
+function OutMall(miDivsito) {
+    console.log("salgo");
+    var link = $(miDivsito);
+    var Divhijo = link.children();
+    var hijos = Divhijo.children();
+
+    $(hijos[0]).animate({ width: '100px', height: '100px', top: '20px', left: '100px' });
+    $(hijos[1]).animate({ opacity: '0' });
+    $(hijos[2]).animate({ opacity: '0' });
 }
 
-$("#LinkCC").mouseover(function () {
-    OnMall();
-});
-
-$("#LinkCC").mouseout(function () {
-    OutMall();
-});
+$("a[data-id=contenedor]").hover(function () { OnMall(this); }, function () { OutMall(this); });
 
 $("#desplegable1").on("click", scroll1);
 $("#desplegable2").on("click", scroll2);

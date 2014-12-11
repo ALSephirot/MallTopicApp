@@ -8,7 +8,7 @@
 @font-face{
  	font-family:bebas;
    	font-style:normal;
-   	src:url(../fonts/BebasNeue.otf);
+   	src:url(../fonts/BEBAS.TTF);
  }
 
 @font-face{
@@ -75,7 +75,6 @@ body{
 	height:414px;
 	float:left;
 	position:relative;
-    background:#ccc;
 	}
 
 #contentDetail #slider{
@@ -154,10 +153,9 @@ body{
 
 .miniaturas li{
     display:inline-block;
- width:9% !important;
- height:30px !important;
-    margin:5px 0.5% 5px 1% !important;
-    background:#000;                
+    width:9% !important;
+    height:30px !important;
+    margin:5px 0.5% 5px 1% !important;               
     float:left;
     padding:0px;
     margin:0px;
@@ -208,9 +206,11 @@ body{
 								
 #content .contenedor1 #slider div #descripcionSlide a{
 	margin:10px auto 10px auto;
-	width:100%;
-	max-height:60px;
-	font-size:1.7em;
+	width:95%;
+    padding:0% 2.5% 0% 2.5%;
+	height:60px;
+    line-height:60px;
+	font-size:1.5em;
     text-align:right;
     text-decoration:none;
 	overflow:hidden;
@@ -219,6 +219,8 @@ body{
     color:#fff;
     font-family:coolvetica;
     text-shadow:1px 2px 5px #000;
+    background:rgba(0, 0, 0, 0.5);
+    border-radius:10px;
 }
 
 .controPie{
@@ -342,7 +344,7 @@ body{
     text-align:left;
     line-height:36px;
     margin:0px;
-    font-size:27px;
+    font-size:20px;
     letter-spacing:0.5px !important;
     padding:0px;
  	font-family:bebas;
@@ -378,7 +380,7 @@ body{
  	font-family:century;
     font-weight:bold;
     text-transform:uppercase;
-    font-size:15px;
+    font-size:14px;
     line-height:20px;
     color:#00BFFF;
 }
@@ -592,9 +594,9 @@ header h1{
 	width:400px;
 	height:60px;
 	margin:0 auto;
-	line-height:65px;
+	line-height:55px;
 	text-align:center;
-	font-size:4em;
+	font-size:3em;
 	font-family:bebas;
 	letter-spacing:normal;
     font-weight:normal;
@@ -865,7 +867,7 @@ footer p a:nth-of-type(1){
     width:100%;
     height:50px;
     font-family:bebas;
-    font-size:30px;
+    font-size:25px;
     text-align:center;
     line-height:50px;
     border-bottom:1px dashed #ccc;
