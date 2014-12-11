@@ -23,8 +23,8 @@
 		<img id="Imagen" data-ocultar="true" data-count="0" class="imagenSliderNotas" />
 		<div class="listaMin2">
 			<div class="controlesDiv2">
-				<a href="#" onclick="Atras()"></a>
-				<a href="#" onclick="Siguiente()"></a>
+				<a style="cursor: pointer;" onclick="Atras()" ></a>
+				<a style="cursor: pointer;" onclick="Siguiente()"></a>
 			</div>
 
 			<ul id="miniaturas" class="miniaturas2">
@@ -52,11 +52,11 @@
 							if (c == 0)
 							{
 
-								<li data-select="true" onclick="CambiarImagen(this)"><img id="@item.id" data-count="@c" data-src="@img" data-nombreimagen="@item.nombre" data-pieimagen="@item.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@item.id" data-titulo="@item.nombre" /></li>
+								<li data-select="true" onclick="CambiarImagen(this)"><img src="@img" id="@item.id" data-count="@c" data-src="@img" data-nombreimagen="@item.nombre" data-pieimagen="@item.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@item.id" data-titulo="@item.nombre" /></li>
 							}
 							else
 							{
-								<li data-select="false" onclick="CambiarImagen(this)"><img id="@item.id" data-count="@c" data-src="@img" data-nombreimagen="@item.nombre" data-pieimagen="@item.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@item.id" data-titulo="@item.nombre" /></li>
+								<li data-select="false" onclick="CambiarImagen(this)"><img src="@img" id="@item.id" data-count="@c" data-src="@img" data-nombreimagen="@item.nombre" data-pieimagen="@item.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@item.id" data-titulo="@item.nombre" /></li>
 							}
 							c++;
 						}
@@ -65,12 +65,12 @@
 					{
 						var AImagen = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.ImagenesNoticias>(modelo.imagenes);
 						img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + AImagen.id + ".png";
-						<li data-select="true" onclick="CambiarImagen(this)"><img id="@AImagen.id" data-count="0" data-src="@img" src="#" alt="Alternate Text" data-nombreimagen="@AImagen.nombre" data-pieimagen="@AImagen.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@AImagen.id" data-titulo="@AImagen.nombre" /></li>
+						<li data-select="true" onclick="CambiarImagen(this)"><img id="@AImagen.id" data-count="0" data-src="@img" src="@img" alt="Alternate Text" data-nombreimagen="@AImagen.nombre" data-pieimagen="@AImagen.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@AImagen.id" data-titulo="@AImagen.nombre" /></li>
 					}
 					if (SubsImg == "")
 					{
 						img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + modelo.id + ".png";
-						<li data-select="true" onclick="CambiarImagen(this)"><img id="@modelo.id" data-count="0" data-src="@img" src="#" alt="Alternate Text" /></li>
+						<li data-select="true" onclick="CambiarImagen(this)"><img id="@modelo.id" data-count="0" data-src="@img" src="@img" alt="Alternate Text" /></li>
 					}
 
 
@@ -85,9 +85,16 @@
 	@{
 		var descripciones = modelo.descripcion.Replace("[","<b>");
 			descripciones = descripciones.Replace("]","</b>");
-			descripciones = descripciones.Replace("*", "<br>");
+			descripciones = descripciones.Replace("*", "<br/><br/>");
 	  }
-	<p class="parrafoNota" id="parrafoNota">@descripciones</p>
+	<div class="parrafoNota" id="parrafoNota">@descripciones</div>
+	<script>
+		var p = $('#parrafoNota');
+		$('#parrafoNota').html(p.text());
+	</script>
+
+	
+
 	<article class="relacionadas">
 		<h3>Notas relacionadas</h3>
 		@foreach (var item in ModeloCategorias)
@@ -98,7 +105,7 @@
 			else
 			{
 				img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
-				<a href="#">
+				<a href="@item.id">
 					<div class="notasRelac">
 						<img src="@img" />
 						<h4>@item.titulo</h4>

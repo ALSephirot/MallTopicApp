@@ -88,8 +88,3 @@ $(document).ready(function () {
 });
 
 
-function cambiarTexto()
-{
-    var parrafo = document.getElementById("parrafoNota");
-
-}
