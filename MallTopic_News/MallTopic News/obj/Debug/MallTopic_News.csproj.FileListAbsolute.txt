@@ -351,3 +351,4 @@ C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\b
 C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Optimization.xml
 C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\obj\Debug\MallTopic News.dll
 C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\obj\Debug\MallTopic News.pdb
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\obj\Debug\MallTopic_News.csprojResolveAssemblyReference.cache
