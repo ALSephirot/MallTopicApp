@@ -789,6 +789,12 @@ footer p a:nth-of-type(1){
     background:#fff;
     float:left; 
     margin:5px 10px 5px 10px;
+    cursor:pointer;
+}
+
+.miniaturas2 li img {
+    width:100% !important;
+    height:100% !important;
 }
 
 .relacionadas {
