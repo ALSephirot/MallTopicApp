@@ -8,11 +8,8 @@
 @font-face{
  	font-family:bebas;
    	font-style:normal;
-<<<<<<< HEAD
    	src:url(../fonts/BEBAS.TTF);
-=======
-    src:url(../fonts/BEBAS.TTF);
->>>>>>> 9425473450a8cd0d196e30f0c371685bc0bdb634
+
  }
 
 @font-face{
@@ -33,7 +30,7 @@ body{
 	margin:105px 0px 110px 0px;
 		}
 
-#contentDetail{/*Este es el que cambia el background*/
+#contentDetail{
 	margin:95px 0px 110px 0px;
 		}
 
@@ -902,21 +899,12 @@ footer p a:nth-of-type(1){
     box-shadow:0px 2px 10px #666;
 }
 
-/*.logoCC {
-    width:65px;
-    height:65px;
-    background:#0B3861;
-    position:absolute;
-    top:10px;
-    left:10px;
-    z-index:4;
-    border-radius:50px;
-}*/
+
 
 .logoCC {
     width:100px;
     height:100px;
-    background:#0B3861;
+
     position:absolute;
     top:20px;
     left:100px;

@@ -13,8 +13,6 @@ function MostrarMalls() {
 function OcultarMalls() {
     $(".ListaMalls").css("display", "none");
 }
-<<<<<<< HEAD
-
 
 function OnMall(miDivsito) {
 
@@ -38,28 +36,7 @@ function OutMall(miDivsito) {
     $(hijos[1]).animate({ opacity: '0' });
     $(hijos[2]).animate({ opacity: '0' });
 }
-=======
 
-//function OnMall() {
-
-//    $(".logoCC").animate({ width: '65px', height: '65px', top: '10px', left: '10px' });
-//    $(".headerCC").animate({ opacity: '1' });
-//    $(".parrafoCentroCC").animate({ opacity: '1' });
-//}
-
-//function OutMall() {
-
-//    $(".logoCC").animate({ width:'100px', height: '100px', top: '20px', left: '100px' });
-//    $(".headerCC").animate({ opacity: '0' });
-//    $(".parrafoCentroCC").animate({ opacity: '0' });
-//}
-
-
-$("#LinkCC").mouseover(function () {
-    
-    OnMall();
-});
->>>>>>> 9425473450a8cd0d196e30f0c371685bc0bdb634
 
 $("a[data-id=contenedor]").hover(function () { OnMall(this); }, function () { OutMall(this); });
 
