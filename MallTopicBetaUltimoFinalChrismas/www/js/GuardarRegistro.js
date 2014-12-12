@@ -75,35 +75,46 @@ function HandleError(error) {
 
 function RegistroCorrecto() {
 	alert('Tus datos han sido guardados correctamente.');
+	$.mobile.changePage('#registro2','slide');
 }
 
 function captura(){
-	var hijos = $("#ContentRegistro").children('input');
-	var DatosUsuarioManual = {
+	var notifi = $("#Notificaciones");
+	var terminos = $("#Terminos");
 
-	    	nombres: $(hijos[0]).val(),
-	    	alias: $(hijos[1]).val(),
-			telefono: $(hijos[2]).val(),
-			edad: $(hijos[3]).val(),
-			fecha_de_nacimiento: $(hijos[4]).val(),
-			email: $(hijos[5]).val(),
-			pais: $(hijos[6]).val(),
-			ciudad: $(hijos[7]).val(),
-			//Gustos
-			cines: ValidarGustos("Cines"),
-			eventos:ValidarGustos("Eventos"),
-			promos:ValidarGustos("Promos"),
-			comidas:ValidarGustos("Comidas"),
-			tecnologia:ValidarGustos("Tecnología"),
-			deportes:ValidarGustos("Deportes"),
-			arte:ValidarGustos("Arte"),
-			musica:ValidarGustos("Música"),
-			turismo:ValidarGustos("Turismo"),
-			idcelular: localStorage.getItem("IdCelular")
-	    };
-	
-	InsertRegis('regis_users', DatosUsuarioManual);
+	if(terminos.is(':checked'))
+	{
+		var hijos = $("#ContentRegistro").children('input');
+		var DatosUsuarioManual = {
 
+		    	nombres: $(hijos[0]).val(),
+		    	alias: $(hijos[1]).val(),
+				telefono: $(hijos[2]).val(),
+				edad: $(hijos[3]).val(),
+				fecha_de_nacimiento: $(hijos[4]).val(),
+				email: $(hijos[5]).val(),
+				pais: $(hijos[6]).val(),
+				ciudad: $(hijos[7]).val(),
+				//Gustos
+				cines: ValidarGustos("Cines"),
+				eventos:ValidarGustos("Eventos"),
+				promos:ValidarGustos("Promos"),
+				comidas:ValidarGustos("Comidas"),
+				tecnologia:ValidarGustos("Tecnología"),
+				deportes:ValidarGustos("Deportes"),
+				arte:ValidarGustos("Arte"),
+				musica:ValidarGustos("Música"),
+				turismo:ValidarGustos("Turismo"),
+				idcelular: localStorage.getItem("IdCelular"),
+				notificaciones: notifi.is(':checked')
+		    };
+
+		    InsertRegis('regis_users', DatosUsuarioManual);
+	}
+	else
+	{
+		alert('Debes de aceptar los Términos y Condiciones.');
+	}
 }
 
 

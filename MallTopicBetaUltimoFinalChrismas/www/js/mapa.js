@@ -1,5 +1,6 @@
 //Variables generales
 var map;
+var mapComoLlegar;
 var PosicionInicial;
 var PosicionFinal;
 var directionsService = new google.maps.DirectionsService();
@@ -94,29 +95,29 @@ function EstablecerMapaComoLlegar()
 
 		    };
 
-		    map = new google.maps.Map(document.getElementById("map_canvasComoLlegar"), {
+		    mapComoLlegar = new google.maps.Map(document.getElementById("map_canvasComoLlegar"), {
 
 																			    	center: Center,
 																			        zoom: 15,
 																			        mapTypeId: google.maps.MapTypeId.ROADMAP
 
 																			    });
-		    directionsDisplay.setMap(map);
+		    directionsDisplay.setMap(mapComoLlegar);
 
 		    //directionsDisplay.setMap(map);
 		    directionsDisplay.setPanel(document.getElementById('directions-panel'));
 
 		    var control = document.getElementById('Cont_Buttons');
 		    control.style.display = 'block';
-		    map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(control);
+		    mapComoLlegar.controls[google.maps.ControlPosition.RIGHT_CENTER].push(control);
 
 		    var Medios = document.getElementById('ButtonMedios');
 		    Medios.style.display = 'block';
-		    map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(Medios);
+		    mapComoLlegar.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(Medios);
 
 		    var Rutas = document.getElementById('ButtonInstrucciones');
 		    Rutas.style.display = 'block';
-		    map.controls[google.maps.ControlPosition.LEFT_CENTER].push(Rutas);
+		    mapComoLlegar.controls[google.maps.ControlPosition.LEFT_CENTER].push(Rutas);
 		    
 		    CargadoMapsMall = true;
 
