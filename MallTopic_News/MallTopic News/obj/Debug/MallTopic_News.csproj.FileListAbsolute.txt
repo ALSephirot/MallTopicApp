@@ -1,0 +1,354 @@
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\obj\Debug\MallTopic_News.csprojResolveAssemblyReference.cache
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\MallTopic News.dll.config
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\MallTopic News.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\MallTopic News.pdb
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\EntityFramework.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\EntityFramework.SqlServer.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Core.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Cookies.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Facebook.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Google.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.OAuth.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Twitter.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Web.Infrastructure.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Newtonsoft.Json.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Owin.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Net.Http.Formatting.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Helpers.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Http.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Http.WebHost.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Mvc.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Optimization.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Razor.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Deployment.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.WebPages.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Razor.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\WebGrease.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\EntityFramework.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\EntityFramework.SqlServer.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Core.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Cookies.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Facebook.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Google.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.OAuth.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Twitter.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\Newtonsoft.Json.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Net.Http.Formatting.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Helpers.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Http.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Http.WebHost.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Mvc.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Razor.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.WebPages.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Deployment.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Razor.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Optimization.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\obj\Debug\MallTopic News.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic News\obj\Debug\MallTopic News.pdb
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\MallTopic News.dll.config
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\MallTopic News.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\MallTopic News.pdb
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\EntityFramework.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\EntityFramework.SqlServer.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Core.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Cookies.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Facebook.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Google.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.OAuth.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Twitter.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Web.Infrastructure.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Newtonsoft.Json.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Owin.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Net.Http.Formatting.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Helpers.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Http.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Http.WebHost.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Mvc.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Optimization.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Razor.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Deployment.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.WebPages.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Razor.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\WebGrease.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\EntityFramework.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\EntityFramework.SqlServer.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Core.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Cookies.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Facebook.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Google.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.OAuth.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Twitter.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\Newtonsoft.Json.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Net.Http.Formatting.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Helpers.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Http.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Http.WebHost.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Mvc.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Razor.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.WebPages.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Deployment.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Razor.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\bin\System.Web.Optimization.xml
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\obj\Debug\MallTopic_News.csprojResolveAssemblyReference.cache
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\obj\Debug\MallTopic News.dll
+C:\repository news\MallTopicNews\MallTopic_News\MallTopic News\obj\Debug\MallTopic News.pdb
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\MallTopic News.dll.config
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\MallTopic News.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\MallTopic News.pdb
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\EntityFramework.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\EntityFramework.SqlServer.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Core.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Owin.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Cookies.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Facebook.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Google.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.OAuth.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Twitter.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Web.Infrastructure.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Newtonsoft.Json.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Owin.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Net.Http.Formatting.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Web.Helpers.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Web.Http.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Web.Http.WebHost.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Web.Mvc.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Web.Optimization.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Web.Razor.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Deployment.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Web.WebPages.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Razor.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\WebGrease.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\EntityFramework.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\EntityFramework.SqlServer.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Core.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Owin.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Cookies.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Facebook.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Google.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.OAuth.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Twitter.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\Newtonsoft.Json.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Net.Http.Formatting.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Web.Helpers.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Web.Http.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Web.Http.WebHost.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Web.Mvc.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Web.Razor.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Web.WebPages.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Deployment.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Razor.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\bin\System.Web.Optimization.xml
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\obj\Debug\MallTopic_News.csprojResolveAssemblyReference.cache
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\obj\Debug\MallTopic News.dll
+C:\RepositoryMallTopic\MallTopic\RespositoryMTNews\MallTopicNews\MallTopic_News\MallTopic_News\MallTopic News\obj\Debug\MallTopic News.pdb
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\MallTopic News.dll.config
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\MallTopic News.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\MallTopic News.pdb
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\EntityFramework.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\EntityFramework.SqlServer.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Owin.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Newtonsoft.Json.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Owin.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Net.Http.Formatting.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Web.Helpers.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Web.Http.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Web.Http.WebHost.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Web.Mvc.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Web.Optimization.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Web.Razor.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Web.WebPages.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Razor.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\WebGrease.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\EntityFramework.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\EntityFramework.SqlServer.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Owin.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\Newtonsoft.Json.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Net.Http.Formatting.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Web.Helpers.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Web.Http.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Web.Http.WebHost.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Web.Mvc.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Web.Razor.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Web.WebPages.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Razor.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\bin\System.Web.Optimization.xml
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\obj\Debug\MallTopic_News.csprojResolveAssemblyReference.cache
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\obj\Debug\MallTopic News.dll
+C:\Users\Alexander\Documents\Falta hacer el fileupload\MallTopic_News\MallTopic News\obj\Debug\MallTopic News.pdb
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\MallTopic News.dll.config
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\MallTopic News.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\MallTopic News.pdb
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\EntityFramework.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\EntityFramework.SqlServer.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Newtonsoft.Json.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Owin.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Net.Http.Formatting.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Helpers.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Http.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Http.WebHost.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Mvc.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Optimization.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Razor.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Deployment.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.WebPages.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Razor.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\WebGrease.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\EntityFramework.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\EntityFramework.SqlServer.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Newtonsoft.Json.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Net.Http.Formatting.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Helpers.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Http.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Http.WebHost.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Mvc.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Razor.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.WebPages.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Deployment.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Razor.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Optimization.xml
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\obj\Debug\MallTopic_News.csprojResolveAssemblyReference.cache
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\obj\Debug\MallTopic News.dll
+C:\Users\camilo\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\obj\Debug\MallTopic News.pdb
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\MallTopic News.dll.config
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\MallTopic News.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\MallTopic News.pdb
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\EntityFramework.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\EntityFramework.SqlServer.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Newtonsoft.Json.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Owin.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Net.Http.Formatting.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Helpers.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Http.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Http.WebHost.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Mvc.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Optimization.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Razor.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.WebPages.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Razor.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\WebGrease.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\EntityFramework.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\EntityFramework.SqlServer.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\Newtonsoft.Json.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Net.Http.Formatting.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Helpers.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Http.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Http.WebHost.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Mvc.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Razor.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.WebPages.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.WebPages.Razor.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\bin\System.Web.Optimization.xml
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\obj\Debug\MallTopic News.dll
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\obj\Debug\MallTopic News.pdb
+C:\Users\Alexander\Documents\GitHub\MallTopicApp\MallTopic_News\MallTopic News\obj\Debug\MallTopic_News.csprojResolveAssemblyReference.cache
