@@ -12,7 +12,7 @@ var arrayInfo = null;
 var arrayInfoAsync = null;
 var WebService = "http://Administrator:malltopic2014!@MallTopicServiceApp.azurewebsites.net/malltopicWcf.svc/";	//Variable que almacena la URL del WebService con Autenticacion
 var url = "";//Variable para armar las respesctivas URL para las consultas
-var MallCheckIn = 'CaminoReal';
+var MallCheckIn = '';
 var Usuarios = {"Facebook":"ASephirot","Twitter": "LuisOquendoDev"};
 var RutaRecursos = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/";
 
@@ -21,9 +21,6 @@ jQuery(document).ready(function($) {
 
 	try
 	{
-
-		VerificarConexion();
-
 		OAuth.initialize('QS1KdtPIJXpYmqxJmHW1xRew5t4');
 
 		var TextosSocial = {
@@ -72,26 +69,18 @@ jQuery(document).ready(function($) {
 });
 
 function VerificarRegistro() {
-	var id = localStorage.getItem('IdCelular');
-    var TablaInsert = client.getTable("regis_users");
-    var queryMalls = TablaInsert.where({ idcelular: id});
-
-        queryMalls.read().then(function(argument) {
-            if(argument.length == 0)
-            {
-                localStorage.setItem("VR", "false");
-                $.mobile.changePage('#Index','slide');
-                TodosFooter(false);
-            }
-            else
-            {
-                localStorage.setItem("VR", "true");
-                $.mobile.changePage('#Index','slide');
-               // TodosFooter();
-
-            }
-        });
-    
+	var id = localStorage.getItem('VR');
+	if(id == "false")
+	{
+	    localStorage.setItem("VR", "false");
+	    $.mobile.changePage('#Index','slide');
+	    TodosFooter(false);
+	}
+	else
+	{
+	    localStorage.setItem("VR", "true");
+	    $.mobile.changePage('#Index','slide');
+	}
 }
 
 function TodosFooter (Registro) {
@@ -114,8 +103,6 @@ function TodosFooter (Registro) {
 		});
 	}
 }
-
-		
 
 function VerificarConexion() {
     var TC = localStorage.getItem('TC');
@@ -1780,6 +1767,8 @@ function CargarCines()
 		ConfigurarHeadersModulos("Colecciones");
 		ConfigurarHeadersModulos("Cines");
 		ConfigurarHeadersModulos("Galerias");
+		directionsService = new google.maps.DirectionsService();
+		directionsDisplay = new google.maps.DirectionsRenderer();
 
 		/*if(VerConexion)
 		{
@@ -2536,4 +2525,4 @@ function CargarCines()
 	});
 
 
-		
+

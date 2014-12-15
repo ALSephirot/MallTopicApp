@@ -55,32 +55,40 @@ function PublicarTweet(Opcion){
 
 	try
 	{
-		var item = Opcion.name;
-		var Texto = getTSocial();
-		var Mensaje = Texto[item];
+		if(MallCheckIn == '')
+		{
+			alert('Debes de hacer Check In antes de publicar un tweet!');
+		}
+		else
+		{
+			var item = Opcion.name;
+			var Texto = getTSocial();
+			var Mensaje = Texto[item];
 
-		OAuth.popup('twitter',{cache: true})
-			.done(function(result) {
+			OAuth.popup('twitter',{cache: true})
+				.done(function(result) {
 
-				result.post("https://api.twitter.com/1.1/statuses/update.json", {data:{
-			            'status' : Mensaje,
-                        'trim_user' : true
-			        }
-			    })
-			    .done(function (response) {
-			    	//alert('Bienvenido: ' + response.name + '\nTu usuario es:' response.user);
-			        alert('Tu tweet se ha publicado correctamente');
-			    })
-			    .fail(function (err) {
-			        alert('No hemos podido publicar tu Tweet.\nIntentalo de nuevo mas tarde.');
-			    });
-				//use result.access_token in your API request 
-				//or use result.get|post|put|del|patch|me methods (see below)
-				
-			})
-			.fail(function (err) {
-			  //handle error with err
-		});
+					result.post("https://api.twitter.com/1.1/statuses/update.json", {data:{
+				            'status' : Mensaje,
+	                        'trim_user' : true
+				        }
+				    })
+				    .done(function (response) {
+				    	//alert('Bienvenido: ' + response.name + '\nTu usuario es:' response.user);
+				        alert('Tu tweet se ha publicado correctamente');
+				    })
+				    .fail(function (err) {
+				        alert('No hemos podido publicar tu Tweet.\nIntentalo de nuevo mas tarde.');
+				    });
+					//use result.access_token in your API request 
+					//or use result.get|post|put|del|patch|me methods (see below)
+					
+				})
+				.fail(function (err) {
+				  //handle error with err
+			});
+		}
+		
 	}
 	catch(error)
 	{
