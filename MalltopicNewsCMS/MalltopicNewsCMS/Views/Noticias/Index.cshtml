@@ -49,6 +49,9 @@
 				<th>
 					@Html.DisplayNameFor(model => model.fecha_publicado)
 				</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.autor)
+                </th>
 				<th>
 					@Html.DisplayNameFor(model => model.destacado)
 				</th>
@@ -123,6 +126,9 @@
 						}
 
 					</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.autor)
+                    </td>
 					<td>
 						@if (lg.BuscarPermiso("Noticias", "Edit"))
 						{

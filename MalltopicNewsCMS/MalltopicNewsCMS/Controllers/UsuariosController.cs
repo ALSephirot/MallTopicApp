@@ -61,6 +61,8 @@ namespace MalltopicNewsCMS.Controllers
                             Session["User"] = UserEncontrado[0].id;
                             Session["Login"] = true;
 
+                            var se = Session["Login"].ToString();
+
                             var rolxpermisos = JsonConvert.DeserializeObject<MalltopicNewsCMS.Models.rolesxpermisos[]>(cws.Peticion("rolesxpermisos"));
                             var rolxpermiso = new List<MalltopicNewsCMS.Models.rolesxpermisos>();
 

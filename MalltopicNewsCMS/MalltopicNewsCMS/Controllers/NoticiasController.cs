@@ -56,7 +56,7 @@ namespace MalltopicNewsCMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "id,titulo,descripcion,pie_de_imagen,link,fk_idcategoria,usuario_creado,usuario_modificado,publicar,destacado,fecha_publicado,creado,modificado,idimgs,nombimgs")] Noticias noticias)
+        public async Task<ActionResult> Create([Bind(Include = "id,titulo,descripcion,pie_de_imagen,link,fk_idcategoria,usuario_creado,usuario_modificado,publicar,destacado,fecha_publicado,creado,modificado,idimgs,nombimgs,autor")] Noticias noticias)
         {
             HttpCookie myCookie = new HttpCookie("Imagen");
             myCookie = Request.Cookies["Imagen"];
@@ -143,7 +143,7 @@ namespace MalltopicNewsCMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "id,titulo,descripcion,pie_de_imagen,link,fk_idcategoria,usuario_creado,usuario_modificado,publicar,destacado,fecha_publicado,creado,modificado")] Noticias noticias)
+        public async Task<ActionResult> Edit([Bind(Include = "id,titulo,descripcion,pie_de_imagen,link,fk_idcategoria,usuario_creado,usuario_modificado,publicar,destacado,fecha_publicado,creado,modificado,autor")] Noticias noticias)
         {
             noticias.modificado = DateTime.Now;
             noticias.usuario_modificado = (string)Session["User"];
