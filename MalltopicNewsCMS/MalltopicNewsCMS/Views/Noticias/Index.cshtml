@@ -1,0 +1,151 @@
+﻿@model IEnumerable<MalltopicNewsCMS.Models.Noticias>
+
+@using MalltopicNewsCMS.Controllers;
+@using Newtonsoft.Json;
+@using MalltopicNewsCMS.Models;
+
+@{Login_Logout lg = new Login_Logout();}
+
+@if (lg.VerificarSesion())
+{
+	if (lg.BuscarPermiso("Noticias", "Index"))
+	{
+		ConsumirWebApi cw = new ConsumirWebApi();
+		ViewBag.Title = "Noticias";
+		Layout = "~/Views/Shared/_Layout.cshtml";
+		var rol = Session["Rol"];
+
+		if (ViewData["Message"] != null)
+		{
+			<script>
+				alert('@ViewData["Message"]');
+			</script>
+		}
+
+
+		<h2>Noticias</h2>
+		if (lg.BuscarPermiso("Noticias", "Create"))
+		{
+			<p>
+				@Html.ActionLink("Agregar noticia", "Create")
+			</p>
+		}
+		<table class="table">
+			<tr>
+				<th>
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.titulo)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.descripcion)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.link)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.fk_idcategoria)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.fecha_publicado)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.destacado)
+				</th>
+				<th>
+					<label>Publicado</label>
+				</th>
+				<th></th>
+			</tr>
+			@{var Modelocat = JsonConvert.DeserializeObject<MalltopicNewsCMS.Models.Categorias[]>(cw.Peticion("Categorias"));}
+
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@{var loimg = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";}
+						<div>
+							<img id="LogoPortada" src="@loimg" class="logo" style="width:100px !important; height:auto !important">
+							<br />
+							@Html.DisplayFor(modelItem => item.pie_de_imagen)
+						</div>
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.titulo)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.descripcion)
+					</td>
+					<td>
+						<a href="@item.link" target="_blank">@Html.DisplayFor(modelItem => item.link)</a>
+					</td>
+					@{
+						var nombcategoria = new List<MalltopicNewsCMS.Models.Categorias>();
+						nombcategoria = Modelocat.Where(mm => mm.id == item.fk_idcategoria).ToList<MalltopicNewsCMS.Models.Categorias>();
+					}
+
+					<td>
+						@if (nombcategoria.Count() > 0)
+						{
+
+							@Html.DisplayFor(modelItem => nombcategoria[0].nombre)
+
+						}
+						else { }
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.fecha_publicado)
+					</td>
+					<td>
+						@{
+					var fav = item.destacado;
+
+					if (fav == true)
+					{
+						<img id="destacado" title="Es destacado" src="~/images/Favorito.png" style="width:20px; height:20px;" />
+					}
+					else
+					{
+						<img id="destacado" title="No destacado" src="~/images/No_Favorito.png" style="width:20px; height:20px;" />
+					}
+						}
+					</td>
+					<td>
+						@if (item.publicar == true)
+						{
+							<p>Si</p>
+						}
+						else
+						{
+
+							<p>No</p>
+
+						}
+
+					</td>
+					<td>
+						@if (lg.BuscarPermiso("Noticias", "Edit"))
+						{
+							@Html.ActionLink("Editar", "Edit", new { id = item.id })
+						}
+						@if (lg.BuscarPermiso("Noticias", "Delete"))
+						{
+							@Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+						}
+					</td>
+				</tr>
+			}
+
+		</table>
+
+	}
+
+	else
+	{
+		Response.Redirect("~/Error/Error.aspx?noLogin=false&noPermiso=true");
+	}
+}
+else
+{
+	Response.Redirect("~/Error/Error.aspx?noLogin=true&noPermiso=false");
+}

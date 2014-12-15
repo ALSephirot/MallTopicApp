@@ -1,0 +1,67 @@
+﻿@model MalltopicNewsCMS.Models.Categorias
+@using MalltopicNewsCMS.Controllers;
+@{Login_Logout lg = new Login_Logout();}
+
+@if (lg.VerificarSesion())
+{
+    if (lg.BuscarPermiso("Categorias", "Delete"))
+    {
+
+        ViewBag.Title = "Eliminar";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+        <h2>Eliminar</h2>
+
+        <h3>¿Está seguro de eliminar esta categoría?</h3>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.nombre)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.nombre)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.estilo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.estilo)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Eliminar" class="btn btn-default" /> 
+                    @if (lg.BuscarPermiso("Categorias", "Index"))
+                    {
+                        <div>
+                            @Html.ActionLink("Volver a las categorías", "Index")
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+    }
+
+    else
+    {
+        Response.Redirect("~/Error/Error.aspx?noLogin=false&noPermiso=true");
+    }
+
+}
+else
+{
+
+    Response.Redirect("~/Error/Error.aspx?noLogin=true&noPermiso=false");
+
+}

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MalltopicNewsCMS.Models.Categorias>
+
+@using MalltopicNewsCMS.Controllers;
+@{Login_Logout lg = new Login_Logout();}
+
+@if (lg.VerificarSesion())
+{
+    if (lg.BuscarPermiso("Categorias", "Index"))
+    {
+        ViewBag.Title = "Categorías";
+
+
+        <h2>Categorías</h2>
+
+        if (lg.BuscarPermiso("Categorias", "Create"))
+        {
+            <p>
+                @Html.ActionLink("Agregar categoría", "Create")
+            </p>
+        }
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.estilo)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.estilo)
+                    </td>
+                    <td>
+                        @if (lg.BuscarPermiso("Categorias", "Edit"))
+                        {
+                            @Html.ActionLink("Editar", "Edit", new { id = item.id })
+                        }
+                        @if (lg.BuscarPermiso("Categorias", "Delete"))
+                        {
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+                        }
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    }
+
+    else
+    {
+        Response.Redirect("~/Error/Error.aspx?noLogin=false&noPermiso=true");
+    }
+
+}
+else
+{
+
+    Response.Redirect("~/Error/Error.aspx?noLogin=true&noPermiso=false");
+
+}

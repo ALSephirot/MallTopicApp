@@ -19,7 +19,7 @@ function CambiarImagen(ListItem, AtrasSiguiente) {
     var Contador = ImagenJQ.attr("data-count");
     var titulo = ImagenJQ.attr("data-titulo");
 
-    $("#SelectImages li").each(function () {
+    $("#miniaturas li").each(function () {
         $(this).attr("data-select", "false");
     });
 
@@ -49,7 +49,7 @@ function Atras()
     var Actual = $("#Imagen").attr("data-count");
     if(Actual == 0)
     {
-        var Imagenes = $("#SelectImages li img");
+        var Imagenes = $("#miniaturas li img");
         var Imagen = $("[data-count=" + (Imagenes.length - 1) + "]");
         CambiarImagen(Imagen.parent(), true);
     }
@@ -63,7 +63,7 @@ function Atras()
 
 function Siguiente() {
     var Actual = $("#Imagen").attr("data-count");
-    var Imagenes = $("#SelectImages li img");
+    var Imagenes = $("#miniaturas li img");
 
     if (Actual == (Imagenes.length - 1)) {
         var Imagen = $("[data-count=0]");
@@ -86,3 +86,5 @@ $(document).ready(function () {
     }, 5000);
 
 });
+
+

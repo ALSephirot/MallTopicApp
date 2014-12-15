@@ -1,0 +1,65 @@
+﻿@model MalltopicNewsCMS.Models.Noticias
+@using MalltopicNewsCMS.Controllers;
+@using Newtonsoft.Json;
+@using MalltopicNewsCMS.Models;
+@{Login_Logout lg = new Login_Logout();}
+
+@if (lg.VerificarSesion())
+{
+    if (lg.BuscarPermiso("Noticias", "Delete"))
+    {
+
+
+        ViewBag.Title = "Eliminar";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+        <h2>Eliminar noticia</h2>
+
+        <h3>¿Está seguro de eliminar esta noticia?</h3>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.titulo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.titulo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.descripcion)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.descripcion)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Eliminar" class="btn btn-default" />
+                    @if (lg.BuscarPermiso("Noticias", "Index"))
+                    {
+                        @Html.ActionLink("Volver a la lista", "Index")
+                    }
+                </div>
+            }
+        </div>
+    }
+
+    else
+    {
+        Response.Redirect("~/Error/Error.aspx?noLogin=false&noPermiso=true");
+    }
+}
+else
+{
+    Response.Redirect("~/Error/Error.aspx?noLogin=true&noPermiso=false");
+}

@@ -1,0 +1,76 @@
+﻿@model MalltopicNewsCMS.Models.Categorias
+@using MalltopicNewsCMS.Controllers;
+@{Login_Logout lg = new Login_Logout();}
+
+@if (lg.VerificarSesion())
+{
+    Response.Redirect("~/Error/Error.aspx?noLogin=false&noPermiso=true");
+    ViewBag.Title = "Details";
+
+
+    <h2>Details</h2>
+
+    <div>
+        <h4>Categorías</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.estilo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.estilo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.creado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.creado)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.modificado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.modificado)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.usuario_creado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.usuario_creado)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.usuario_modificado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.usuario_modificado)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+}
+else
+{
+    Response.Redirect("~/Error/Error.aspx?noLogin=true&noPermiso=false");
+}

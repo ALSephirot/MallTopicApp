@@ -1,0 +1,163 @@
+﻿@model MalltopicNewsCMS.Models.Noticias
+@using MalltopicNewsCMS.Controllers;
+@using Newtonsoft.Json;
+@using MalltopicNewsCMS.Models;
+@{Login_Logout lg = new Login_Logout();}
+
+@if (lg.VerificarSesion())
+{
+    if (lg.BuscarPermiso("Noticias", "Create"))
+    {
+
+        ViewBag.Title = "Agregar noticia";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+        ConsumirWebApi cw = new ConsumirWebApi();
+        
+        if (ViewData["Message"] != null)
+			{
+				<script>
+					alert('@ViewData["Message"]');
+				</script>
+			}
+
+
+        <h2>Agregar noticia</h2>
+
+
+        using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.titulo, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.titulo)
+                        @Html.ValidationMessageFor(model => model.titulo)
+                    </div>
+					<label><br/>
+						Imagen portada
+						<input type="button" value="cargar imagen" id="btnCargarportada" class="botonAzul" onclick="window.open('../File_Upload/FileUpload.aspx?coleccion=false&update=false', 'Subir Imagen', 'width=1350,height=650')" />
+						<a href="#" class="imagen"></a>
+					</label>
+					<div id="ContenedorIMGportada" style="display:inline-block;">
+
+					</div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.pie_de_imagen, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.pie_de_imagen)
+                        @Html.ValidationMessageFor(model => model.pie_de_imagen)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.descripcion, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.descripcion, new { cols = 42, @rows = 12 })
+                        @Html.ValidationMessageFor(model => model.descripcion)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.link, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.link)
+                        @Html.ValidationMessageFor(model => model.link)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.fk_idcategoria, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <select id="fk_idcategoria" name="fk_idcategoria">
+                            @{
+            var Modelocat = JsonConvert.DeserializeObject<MalltopicNewsCMS.Models.Categorias[]>(cw.Peticion("Categorias"));
+            <option value="">---Seleccionar categoría---</option>
+            foreach (var item in Modelocat)
+            {
+                <option value="@item.id">@item.nombre</option>
+            }
+                            }
+                        </select>@Html.ValidationMessageFor(model => model.fk_idcategoria)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.publicar, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.publicar)
+                    </div>
+                    
+                </div>
+				<div id="idsimgarray">
+					
+				</div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.destacado, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+
+                        <img id="IcoFavorito" data-select="false" title="NoEsFavorito" src="../images/No_Favorito.png" style="width:20px; height:20px;" />
+                            @Html.HiddenFor(model => model.destacado)
+                         @Html.ValidationMessageFor(model => model.destacado)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.fecha_publicado, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.fecha_publicado)
+                        @Html.ValidationMessageFor(model => model.fecha_publicado)
+                    </div>
+                </div>
+
+				<label>
+					Imágenes
+					<input type="button" value="cargar mas imagenes" id="btnCargarportada" class="botonAzul" onclick="window.open('../File_Upload/FileUpload.aspx?coleccion=true&update=false', 'Subir Imagen', 'width=1350,height=650')" />
+					<a href="#" class="imagen"></a>
+				</label>
+				<div id="ContenedorIMG" style="display:inline-block;">
+					
+				</div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Publicar" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+
+        }
+        <script>
+            var update = false;
+        </script>
+        if (lg.BuscarPermiso("Noticias", "Index"))
+        {
+            <div>
+                @Html.ActionLink("Ver todas las noticias", "Index")
+            </div>
+        }
+
+        @section Scripts {
+            @Scripts.Render("~/Scripts/jquery-2.1.1.min.js")
+            @Scripts.Render("~/Scripts/Favorito.js")
+			@Scripts.Render("~/Scripts/MostrarImg.js")
+        }
+
+    }
+
+    else
+    {
+        Response.Redirect("~/Error/Error.aspx?noLogin=false&noPermiso=true");
+    }
+}
+else
+{
+    Response.Redirect("~/Error/Error.aspx?noLogin=true&noPermiso=false");
+}

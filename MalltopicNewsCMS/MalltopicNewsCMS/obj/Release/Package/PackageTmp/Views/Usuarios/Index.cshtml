@@ -1,0 +1,258 @@
+﻿<link rel="shortcut icon" href="~/favicon1.ico" />
+@{
+    var script = "";
+    var valor = ViewBag.message;
+
+    if (valor == "LoginFailed")
+    {
+        script = "Fallo";
+    }
+}
+<script src="~/Scripts/jquery-2.1.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        var result = "@script";
+        if(result == "Fallo")
+        {
+            $(".errosValidation").fadeIn(1000);
+        }
+        else
+        {
+            $(".errosValidation").fadeOut(1000);
+        }
+
+    });
+
+</script>
+
+<style>
+    body {
+        width: 100%;
+        height: auto;
+        background: -webkit-radial-gradient(#fff, #D3E7F5);
+        background: -moz-radial-gradient(#fff, #D3E7F5);
+        background: -ms-radial-gradient(#fff, #D3E7F5);
+        background: -ms-radial-gradient(#fff, #D3E7F5);
+    }
+
+    .content {
+        position: relative;
+        width: 500px;
+        height: 300px;
+        background: #dadada;
+        margin: 210px auto 0px auto;
+        box-shadow: 0px 0px 20px #666;
+        text-align:center;
+    }
+
+    .bolsaError {
+        width: 410px;
+        height: 236px;
+        position: absolute;
+        z-index: 9;
+        top: 0px;
+        left: 480px;
+        background: url(images/LoginBolsita.png);
+        background-size: 100%;
+    }
+
+    .content h2 {
+        width: 494px;
+        height: 100px;
+        background: #999;
+        color: #fff;
+        font-family: Bebas;
+        font-weight: bold;
+        font-size: 3em;
+        line-height: 2.3em;
+        text-align: center;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-top: 3px solid #d4e7f5;
+        border-left: 3px solid #d4e7f5;
+        border-right: 3px solid #d4e7f5;
+        margin: 0px 0px 10px 0px;
+    }
+
+    #nombreusuario, #contrase_a {
+        border-radius: 7px;
+        border: none;
+        padding: 5px;
+        color: #666;
+        background: #fff;
+        margin: 5px 0px 10px 0px;
+    }
+
+    label {
+        font-family: Arial;
+        font-size: 0.9em;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .botonAzul {
+        padding: 3px;
+        background: #1476B6;
+        font-family: FreightSans;
+        font-size: 1em;
+        color: #fff !important;
+        border-radius: 7px;
+        margin: 10px 0px 0px 0px;
+    }
+
+    .descr {
+        width: 470px;
+        height: 60px;
+        position: absolute;
+        top: 170px;
+        left: 10px;
+        padding-top: 15px;
+        text-align: center;
+        font-family: Helvetica;
+        font-size: 1em;
+        color: #999;
+    }
+
+    .volver {
+        width: 100%;
+        height: 60px;
+        position: absolute;
+        top: 240px;
+        left: 0px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        text-align: center;
+    }
+
+    #btnVolver {
+        padding: 7px;
+        border-radius: 5px;
+        background: -webkit-linear-gradient(#37A3EB, #0779C7);
+        background: -moz-linear-gradient(#37A3EB, #0779C7);
+        background: -ms-linear-gradient(#37A3EB, #0779C7);
+        background: -ms-linear-gradient(#37A3EB, #0779C7);
+        border: none;
+        font-family: Helvetica;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        color: #fff;
+        border: 1px solid #ccc;
+    }
+
+        #btnVolver:hover {
+            background: -webkit-linear-gradient(#0779C7, #37A3EB);
+            background: -moz-linear-gradient(#0779C7, #37A3EB);
+            background: -ms-linear-gradient(#0779C7, #37A3EB);
+            background: -ms-linear-gradient(#0779C7, #37A3EB);
+        }
+
+    .campos {
+        text-align: center;
+    }
+
+    select {
+        padding: 5px;
+        border-radius: 5px;
+        font-family: Helvetica;
+        font-style: italic;
+        color: #333;
+    }
+
+    #btnCargar {
+        width: 120px;
+        background: #0779C7;
+        color: #fff;
+        border: none;
+    }
+
+    #btnCargar:hover {
+    cursor:pointer;
+    }
+
+        #btnCargar:focus {
+            width: 120px;
+            -webkit-box-shadow: inset 0 0 10px #00415B;
+            -moz-box-shadow: inset 0 0 10px #00415B;
+            -ms-box-shadow: inset 0 0 10px #00415B;
+            box-shadow: inset 0 0 10px #00415B;
+        }
+
+    .errosValidation {
+        width: 300px;
+        height: 25px;
+        padding: 10px;
+        display: none;
+        border-bottom-left-radius: 70px;
+        border-bottom-right-radius: 70px;
+        background: #ff0000;
+        margin: 0 auto;
+        text-align:center;
+        line-height:22px;
+        font-family: Helvetica;
+        font-size: 1em;
+        font-weight: bold;
+        font-style: italic;
+        color: #fff;
+        white-space: nowrap;
+        text-shadow: 0px 0px 5px #333;
+    }
+</style>
+@model MalltopicNewsCMS.Models.usuarios
+@using MalltopicNewsCMS.Controllers;
+@{ViewBag.Title = "Iniciar sesión";
+Login_Logout lg = new Login_Logout();}
+
+@if (lg.VerificarSesion() == false)
+{
+    using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="bolsaError"></div>
+        <div class="content">
+            <h2>Iniciar sesión</h2>
+            <div class="form-group">
+                @Html.LabelFor(model => model.nombreusuario, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.nombreusuario)
+                    <br />
+                    @Html.ValidationMessageFor(model => model.nombreusuario)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.contrasena, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.contrasena)
+                    <br />
+                    @Html.ValidationMessageFor(model => model.contrasena)
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Iniciar sesión" id="btnCargar" class="botonAzul" />
+                </div>
+            </div>
+        </div>
+        <div class="errosValidation">
+            @Html.ValidationSummary(true)
+        </div>
+
+    }
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/Scripts/jquery-2.1.1.min.js")
+    }
+
+}
+else
+{
+
+    Response.Redirect("~/Home/Index");
+
+}

@@ -214,10 +214,12 @@
     <None Include="Properties\PublishProfiles\MTNews - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - FTP %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\MTNews - FTP %285%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - Web Deploy %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\MTNews - Web Deploy %285%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="images\arrowA.png" />

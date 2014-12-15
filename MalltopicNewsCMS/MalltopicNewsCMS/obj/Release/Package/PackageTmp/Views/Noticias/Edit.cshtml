@@ -1,0 +1,196 @@
+﻿@model MalltopicNewsCMS.Models.Noticias
+@using MalltopicNewsCMS.Controllers;
+@using Newtonsoft.Json;
+@using MalltopicNewsCMS.Models;
+@{Login_Logout lg = new Login_Logout();
+MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controllers.ConsumirWebApi();
+}
+
+@if (lg.VerificarSesion())
+{
+	if (lg.BuscarPermiso("Noticias", "Edit"))
+	{
+
+		ViewBag.Title = "Editar";
+		Layout = "~/Views/Shared/_Layout.cshtml";
+		ConsumirWebApi cw = new ConsumirWebApi();
+
+		if (ViewData["Message"] != null)
+		{
+			<script>
+				alert('@ViewData["Message"]');
+			</script>
+		}
+
+		<h2>Editar noticia</h2>
+
+		using (Html.BeginForm())
+		{
+			@Html.AntiForgeryToken()
+
+			<div class="form-horizontal">
+				<hr />
+				@Html.ValidationSummary(true)
+				@Html.HiddenFor(model => model.id)
+				@Html.HiddenFor(model => model.creado)
+				@Html.HiddenFor(model => model.usuario_creado)
+
+				<div class="form-group">
+					@Html.LabelFor(model => model.titulo, new { @class = "control-label col-md-2" })
+					<div class="col-md-10">
+						@Html.EditorFor(model => model.titulo)
+						@Html.ValidationMessageFor(model => model.titulo)
+					</div>
+					<label>
+						<br />
+						Imagen portada
+						<input type="button" value="cargar imagen" id="btnCargarportada" class="botonAzul" onclick="window.open('../../File_Upload/FileUpload.aspx?coleccion=false&update=true', 'Subir Imagen', 'width=1350,height=650')" />
+						<a href="#" class="imagen"></a>
+					</label>
+					@{ var idimg = Session["EditGuid"];
+					 var img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + ".png";}
+					<div id="ContenedorIMGportada" style="display:inline-block;">
+						<img src="@img" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					@Html.LabelFor(model => model.descripcion, new { @class = "control-label col-md-2" })
+					<div class="col-md-10">
+						@Html.TextAreaFor(model => model.descripcion, new { cols = 42, @rows = 12 })
+						@Html.ValidationMessageFor(model => model.descripcion)
+					</div>
+				</div>
+
+				<div class="form-group">
+					@Html.LabelFor(model => model.pie_de_imagen, new { @class = "control-label col-md-2" })
+					<div class="col-md-10">
+						@Html.EditorFor(model => model.pie_de_imagen)
+						@Html.ValidationMessageFor(model => model.pie_de_imagen)
+					</div>
+				</div>
+
+				<div class="form-group">
+					@Html.LabelFor(model => model.link, new { @class = "control-label col-md-2" })
+					<div class="col-md-10">
+						@Html.EditorFor(model => model.link)
+						@Html.ValidationMessageFor(model => model.link)
+					</div>
+				</div>
+
+				<div class="form-group">
+					@Html.LabelFor(model => model.fk_idcategoria, new { @class = "control-label col-md-2" })
+					<div class="col-md-10">
+						<select id="fk_idcategoria" name="fk_idcategoria">
+							@{
+			var Modelocat = JsonConvert.DeserializeObject<MalltopicNewsCMS.Models.Categorias[]>(cw.Peticion("Categorias"));
+			<option value="">---Seleccionar categoría---</option>
+			foreach (var item in Modelocat)
+			{
+				if (item.id == Model.fk_idcategoria)
+				{
+					<option value="@item.id" selected>@item.nombre</option>
+				}
+				else
+				{
+
+					<option value="@item.id">@item.nombre</option>
+				}
+
+			}
+							}
+						</select>@Html.ValidationMessageFor(model => model.fk_idcategoria)
+					</div>
+				</div>
+
+				<div class="form-group">
+					@Html.LabelFor(model => model.publicar, new { @class = "control-label col-md-2" })
+					<div class="col-md-10">
+						@Html.EditorFor(model => model.publicar)
+						@Html.ValidationMessageFor(model => model.publicar)
+					</div>
+				</div>
+				<div class="form-group">
+					@Html.LabelFor(model => model.destacado, new { @class = "control-label col-md-2" })
+					<div class="col-md-10">
+						@Html.HiddenFor(model => model.destacado)
+						@{
+			var fav = Model.destacado;
+
+			if (fav == true)
+			{
+				<img id="IcoFavorito" title="EsFavorito" data-select="true" src="~/images/Favorito.png" style="width:20px; height:20px;" />
+			}
+			else
+			{
+				<img id="IcoFavorito" title="NoEsFavorito" data-select="false" src="~/images/No_Favorito.png" style="width:20px; height:20px;" />
+			}
+						}
+					</div>
+				</div>
+
+				<div class="form-group">
+					@Html.LabelFor(model => model.fecha_publicado, new { @class = "control-label col-md-2" })
+					<div class="col-md-10">
+						@Html.EditorFor(model => model.fecha_publicado)
+						@Html.ValidationMessageFor(model => model.fecha_publicado)
+					</div>
+				</div>
+
+				<label>
+					Imágenes
+					<input type="button" value="cargar mas imagenes" id="btnCargarportada" class="botonAzul" onclick="window.open('../../File_Upload/FileUpload.aspx?coleccion=true&update=true', 'Subir Imagen', 'width=1350,height=650')" />
+					<a href="#" class="imagen"></a>
+				</label>
+				<div id="ContenedorIMG" style="display:inline-block;">
+
+				</div>
+
+				<div >
+					@{
+						var id = Session["EditGuid"];
+						var modelo = JsonConvert.DeserializeObject<MalltopicNewsCMS.Models.Noticias>(cw.Peticion("Noticias/" + id));
+						var c = modelo.imagenes;
+						c = c.Replace("'\'", " ");
+						var CookieArray = JsonConvert.DeserializeObject<MalltopicNewsCMS.Models.Cookieupdate[]>(c);
+
+						foreach (var item in CookieArray)
+						{
+							var imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+							<img src="@imagen" />
+						}
+					}
+				</div>
+
+				<div class="form-group">
+					<div class="col-md-offset-2 col-md-10">
+						<input type="submit" value="Guardar" class="btn btn-default" />
+					</div>
+				</div>
+			</div>
+			<script>
+				var update = true;
+			</script>
+		}
+		if (lg.BuscarPermiso("Noticias", "Index"))
+		{
+			<div>
+				@Html.ActionLink("Volver a la lista", "Index")
+			</div>
+		}
+
+		@section Scripts {
+			@Scripts.Render("~/Scripts/jquery-2.1.1.min.js")
+			@Scripts.Render("~/Scripts/Favorito.js")
+		}
+
+	}
+	else
+	{
+		Response.Redirect("~/Error/Error.aspx?noLogin=false&noPermiso=true");
+	}
+}
+else
+{
+	Response.Redirect("~/Error/Error.aspx?noLogin=true&noPermiso=false");
+}

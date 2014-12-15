@@ -1,0 +1,110 @@
+﻿@model MalltopicNewsCMS.Models.Noticias
+@using MalltopicNewsCMS.Controllers;
+@{Login_Logout lg = new Login_Logout();}
+
+@if (lg.VerificarSesion())
+{
+    Response.Redirect("~/Error/Error.aspx?noLogin=false&noPermiso=true");
+
+    ViewBag.Title = "Details";
+
+
+    <h2>Details</h2>
+
+    <div>
+        <h4>Noticias</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.titulo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.titulo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.descripcion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.pie_de_imagen)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.pie_de_imagen)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.link)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.link)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.fk_idcategoria)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fk_idcategoria)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.usuario_creado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.usuario_creado)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.usuario_modificado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.usuario_modificado)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.publicar)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.publicar)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.destacado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.destacado)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.fecha_publicado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fecha_publicado)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+}
+else
+{
+    Response.Redirect("~/Error/Error.aspx?noLogin=true&noPermiso=false");
+}
