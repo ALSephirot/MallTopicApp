@@ -4,24 +4,7 @@
 }
 <section class="contenedorCentros">
 	<h1>Centros Comerciales</h1>
-	<div class="cuadrosCC">
 		@foreach (var item in NoticiasRecientes)
-<<<<<<< HEAD
-        {
-            <a href="#" id="LinkCC" onclick="abrirentana('@item.web');" data-id="contenedor">
-                <div class="centroCC">
-                    @{
-                        var header = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersMalls/" + @item.id + ".png";
-                        var logo = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Logos/Malls/" + @item.id + ".png";
-                    }
-                    <img src="@logo" class="logoCC" />
-                    <img src="@header" class="headerCC" />
-                    <p class="parrafoCentroCC">@item.descripcion</p>
-                </div>
-            </a>
-        }
-	</div>
-=======
 		{
 			<a href="#" id="LinkCC" onclick="abrirentana('@item.web');" data-id="contenedor">
 				<div class="centroCC">
@@ -34,6 +17,4 @@
 				</div>
 			</a>
 		}
-	</div>	
->>>>>>> origin/master
 </section>

@@ -21,6 +21,7 @@ function OnMall(miDivsito) {
         var Divhijo = link.children();
         var hijos = Divhijo.children();
 
+
         $(hijos[0]).animate({ width: '65px', height: '65px', top: '10px', left: '10px' });
         $(hijos[1]).animate({ opacity: '1' });
         $(hijos[2]).animate({ opacity: '1' });
@@ -32,14 +33,10 @@ function OutMall(miDivsito) {
     var Divhijo = link.children();
     var hijos = Divhijo.children();
 
-    $(hijos[0]).animate({ width: '100px', height: '100px', top: '20px', left: '100px' });
+    $(hijos[0]).animate({ width: '150px', height: '150px', top: '20px', left: '50px' });
     $(hijos[1]).animate({ opacity: '0' });
     $(hijos[2]).animate({ opacity: '0' });
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
 
 $("a[data-id=contenedor]").hover(function () { OnMall(this); }, function () { OutMall(this); });
 

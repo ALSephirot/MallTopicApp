@@ -9,10 +9,6 @@
  	font-family:bebas;
    	font-style:normal;
    	src:url(../fonts/BEBAS.TTF);
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
  }
 
 @font-face{
@@ -387,6 +383,9 @@ body{
     font-size:14px;
     line-height:20px;
     color:#00BFFF;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
 }
 
 .notaInd p {
@@ -712,8 +711,10 @@ footer p a:nth-of-type(1){
     color:#000;
     text-align:center;
     line-height:50px;
-    font-family:bebas;
-    font-size:30px;
+    font-family:Arial;
+    font-weight:bold;
+    font-size:20px;
+    text-transform:uppercase;
 }
 
 .notaDetail h6 {
@@ -881,6 +882,7 @@ footer p a:nth-of-type(1){
     text-align:center;
     line-height:50px;
     border-bottom:1px dashed #ccc;
+    color:#666;
 }
 
 .cuadrosCC {
@@ -898,19 +900,18 @@ footer p a:nth-of-type(1){
     position:relative;
 }
 
-.centroCC:hover {
+/*.centroCC:hover {
     box-shadow:0px 2px 10px #666;
-}
+}*/
 
 
 
 .logoCC {
-    width:100px;
-    height:100px;
-
+    width:150px;
+    height:150px;
     position:absolute;
     top:20px;
-    left:100px;
+    left:50px;
     z-index:4;
     border-radius:50px;
 }
