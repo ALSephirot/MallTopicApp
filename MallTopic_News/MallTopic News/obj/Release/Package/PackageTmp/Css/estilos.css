@@ -282,7 +282,7 @@ body{
 	width:29%;
 	margin:0% 0.5% 0.5% 0.5%;				
 	height:155px;
-	background:#f0f /*url(../images/Download.png)*/;
+	background:url(../images/DescargarNews.png);
 	float:left;
     cursor:pointer;
 }

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="MTNewsCMS" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Alexander\\Documents\\GitHub\\MallTopicApp\\MalltopicNewsCMS\\MalltopicNewsCMS\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Alexander\\Documents\\GitHub\\MallTopicApp\\MalltopicNewsCMS\\MalltopicNewsCMS\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="MalltopicNewsCMSContext-Web.config Connection String" description="" value="Data Source=(localdb)\v11.0; Initial Catalog=MalltopicNewsCMSContext-20141113114441; Integrated Security=True; MultipleActiveResultSets=True; AttachDbFilename=|DataDirectory|MalltopicNewsCMSContext-20141113114441.mdf" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Alexander\\Documents\\GitHub\\MallTopicApp\\MalltopicNewsCMS\\MalltopicNewsCMS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MalltopicNewsCMSContext']/@connectionString" />
+  </parameter>
+</parameters>

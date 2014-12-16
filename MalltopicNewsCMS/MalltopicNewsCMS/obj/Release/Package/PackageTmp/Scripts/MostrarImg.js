@@ -3,14 +3,16 @@ function IMG(logo,id) {
     var d = new Date();
    
     var div = window.opener.document.getElementById("ContenedorIMG");
-    var etiqueta = '<img  src="' + logo + '?' + d.getSeconds() + '" ><br/>' +
+    var etiqueta = '<div id="'+id+'"><img  src="' + logo + '?' + d.getSeconds() + '" ><br/>' +
         '<label>Pie de imagen</label>'+
-		'<input name="nombimgs" id="' + id + '" type="text" onchange="PieChange(this)"/><br/>';
+		'<input name="nombimgs" id="' + id + '" type="text" onchange="PieChange(this)"/>'+
+        '<button id="' + id + '"type="button" onclick="borrar(\''+id+'\');">Eliminar</button><br/></div>';
     var ids = new Array;
     ids.push(id);
 
     var idsimg = window.opener.document.getElementById("idsimgarray")
     var machete = '<input style="display:none;" name="idimgs" type="text" value="' + ids + '"/>';
+                  
 
     var guardar = {};
     guardar["Id"] = id;
@@ -94,4 +96,13 @@ function IMG2(logo, id) {
     var etiqueta = '<img  src="' + logo + '?' + d.getSeconds() + '" ><br/>';
     div.innerHTML = etiqueta;   
     setCookie();
+}
+
+function borrar(id) {
+    $("#" + id).remove();
+    var im = Imagenes;
+    var cam = document.cookie.replace(id, '');
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = "Imagen" + "=" + cam + "; " + expires + "; path=/";
 }

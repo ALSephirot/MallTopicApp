@@ -46,8 +46,15 @@
 						var c = 0;
 						foreach (var item in AImagenes)
 						{
-
 							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+							if (Existente.RemoteFileExists(img, 500))
+							{
+								img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";	
+							}else
+							{
+								img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
+							}
+							
 
 							if (c == 0)
 							{
@@ -65,11 +72,27 @@
 					{
 						var AImagen = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.ImagenesNoticias>(modelo.imagenes);
 						img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + AImagen.id + ".png";
+						if (Existente.RemoteFileExists(img,500))
+						{
+							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + AImagen.id + ".png";
+						}
+						else
+						{
+							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + AImagen.id + ".jpg";
+						}
 						<li data-select="true" onclick="CambiarImagen(this)"><img id="@AImagen.id" data-count="0" data-src="@img" src="@img" alt="Alternate Text" data-nombreimagen="@AImagen.nombre" data-pieimagen="@AImagen.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@AImagen.id" data-titulo="@AImagen.nombre" /></li>
 					}
 					if (SubsImg == "")
 					{
 						img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + modelo.id + ".png";
+						if (Existente.RemoteFileExists(img, 500))
+						{
+							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + modelo.id + ".png";	
+						}
+						else
+						{
+							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + modelo.id + ".jpg";
+						}
 						<li data-select="true" onclick="CambiarImagen(this)"><img id="@modelo.id" data-count="0" data-src="@img" src="@img" alt="Alternate Text" /></li>
 					}
 

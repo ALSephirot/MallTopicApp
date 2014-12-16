@@ -150,14 +150,21 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 					@{
 						var id = Session["EditGuid"];
 						var modelo = JsonConvert.DeserializeObject<MalltopicNewsCMS.Models.Noticias>(cw.Peticion("Noticias/" + id));
-						var c = modelo.imagenes;
-						c = c.Replace("'\'", " ");
-						var CookieArray = JsonConvert.DeserializeObject<MalltopicNewsCMS.Models.Cookieupdate[]>(c);
-
-						foreach (var item in CookieArray)
+						if (modelo.imagenes == null)
 						{
-							var imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
-							<img src="@imagen" />
+							
+						}
+						else
+						{
+							var c = modelo.imagenes;
+							c = c.Replace("'\'", " ");
+							var CookieArray = JsonConvert.DeserializeObject<MalltopicNewsCMS.Models.Cookieupdate[]>(c);
+
+							foreach (var item in CookieArray)
+							{
+								var imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+								<img src="@imagen" />
+							}
 						}
 					}
 				</div>
@@ -194,3 +201,4 @@ else
 {
 	Response.Redirect("~/Error/Error.aspx?noLogin=true&noPermiso=false");
 }
+
