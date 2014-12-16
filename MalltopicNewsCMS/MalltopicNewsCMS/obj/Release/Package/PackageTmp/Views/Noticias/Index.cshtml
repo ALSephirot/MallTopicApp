@@ -49,6 +49,9 @@
 				<th>
 					@Html.DisplayNameFor(model => model.fecha_publicado)
 				</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.autor)
+                </th>
 				<th>
 					@Html.DisplayNameFor(model => model.destacado)
 				</th>
@@ -63,7 +66,16 @@
 			{
 				<tr>
 					<td>
-						@{var loimg = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";}
+						@{var loimg = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+						  if (MalltopicNewsCMS.Controllers.Existente.RemoteFileExists(loimg, 500))
+						  {
+							  loimg = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+						  }
+						  else
+						  {
+							  loimg = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
+						  }
+						  }
 						<div>
 							<img id="LogoPortada" src="@loimg" class="logo" style="width:100px !important; height:auto !important">
 							<br />
@@ -97,6 +109,9 @@
 						@Html.DisplayFor(modelItem => item.fecha_publicado)
 					</td>
 					<td>
+						@Html.DisplayFor(modelItem => item.autor)
+					</td>
+					<td>
 						@{
 					var fav = item.destacado;
 
@@ -123,6 +138,9 @@
 						}
 
 					</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.autor)
+                    </td>
 					<td>
 						@if (lg.BuscarPermiso("Noticias", "Edit"))
 						{

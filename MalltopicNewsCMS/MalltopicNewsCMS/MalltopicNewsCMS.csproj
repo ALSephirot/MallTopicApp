@@ -234,6 +234,7 @@
     <Compile Include="Models\Categorias.cs" />
     <Compile Include="Models\Cookie.cs" />
     <Compile Include="Models\Cookieupdate.cs" />
+    <Compile Include="Controllers\Existente.cs" />
     <Compile Include="Models\MalltopicNewsCMSContext.cs" />
     <Compile Include="Models\Noticias.cs" />
     <Compile Include="Models\permisos.cs" />

@@ -53,5 +53,9 @@ namespace MalltopicNewsCMS.Models
         public Nullable<System.DateTimeOffset> creado { get; set; }
         public Nullable<System.DateTimeOffset> modificado { get; set; }
         public string imagenes { get; set; }
+
+        [Required(ErrorMessage = "Debe ingresar una autor")]
+        [Display(Name = "Autor")]
+        public string autor { get; set; }
     }
 }

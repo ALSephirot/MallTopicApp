@@ -106,11 +106,16 @@
 	</section>
 	<h6>@modelo.pie_de_imagen</h6>
 	@{
-		var descripciones = modelo.descripcion.Replace("[","<b>");
-			descripciones = descripciones.Replace("]","</b>");
+		if (modelo.descripcion != null)
+		{
+			var descripciones = modelo.descripcion.Replace("[", "<b>");
+			descripciones = descripciones.Replace("]", "</b>");
 			descripciones = descripciones.Replace("*", "<br/><br/>");
-	  }
-	<div class="parrafoNota" id="parrafoNota">@descripciones</div>
+			<div class="parrafoNota" id="parrafoNota">@descripciones</div>
+		}
+	}
+	
+
 	<script>
 		var p = $('#parrafoNota');
 		$('#parrafoNota').html(p.text());
@@ -128,6 +133,14 @@
 			else
 			{
 				img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+				if (MallTopic_News.Controllers.Existente.RemoteFileExists(img, 500))
+				{
+					img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+				}
+				else
+				{
+					img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
+				}
 				<a href="@item.id">
 					<div class="notasRelac">
 						<img src="@img" />

@@ -46,7 +46,7 @@
 		<li><a href="#" id="desplegable8">Movilidad</a></li>
 		<li><a href="#" id="desplegable9">Especiales MT</a></li>
 		<li id="desplegable10" onmouseover="MostrarMalls()" onmouseout="OcultarMalls()">
-            <a href="Home/CentrosComerciales">Centros Comerciales</a>
+			<a href="Home/CentrosComerciales">Centros Comerciales</a>
 		</li>
 	</ul>
 </div>
@@ -74,11 +74,11 @@
 						var img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
 						if (MallTopic_News.Controllers.Existente.RemoteFileExists(img, 500))
 						{
-							 img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
 						}
 						else
 						{
-							 img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
+							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
 						}
 						if (c == 0)
 						{
@@ -104,25 +104,26 @@
 	<div id="notasPage" class="tag1">
 		<h2>Recientes</h2>
 		@{var cre = 0;
-		  }
+		}
 		@foreach (var item in ModeloNoticiasRecientes)
 		{
-			var ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/"+item.id+".png";
+			var ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
 			if (MallTopic_News.Controllers.Existente.RemoteFileExists(ruta, 500))
 			{
-				 ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";	
-			}else
-			{
-				 ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
+				ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
 			}
-			if (cre < 3) 
-			{ 
-			<aside>
-				<a href="~/Home/NoticiaDetalle/@item.id">
-					<div class="notaInd">
-						<img src="@ruta" />
-						<h3>@item.titulo</h3>
-						@{var descripcion="";
+			else
+			{
+				ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
+			}
+			if (cre < 3)
+			{
+				<aside>
+					<a href="~/Home/NoticiaDetalle/@item.id">
+						<div class="notaInd">
+							<img src="@ruta" />
+							<h3>@item.titulo</h3>
+							@{var descripcion = "";
 							var largo = item.descripcion.Length;
 							if (largo >= 300)
 							{
@@ -132,34 +133,35 @@
 							{
 								descripcion = item.descripcion.Substring(0, largo);
 							}
-						}
-						<p id="recientesParrafo">@descripcion</p>
-					</div>
-				</a>
-			</aside>
-			}else if(cre >= 3)
-			{ 
-			<aside>	
-				<a href="~/Home/NoticiaDetalle/@item.id">
-					<div class="notaInd">
-						<img src="@ruta" />
-						<h3>@item.titulo</h3>
-						@{var descripcion = "";
-						var largo = item.descripcion.Length;
-						if (largo >= 300)
-						{
-							descripcion = item.descripcion.Substring(0, 296) + "...";
-						}
-						else
-						{
-							descripcion = item.descripcion.Substring(0, largo);
-						}
-						}
-						<p>@descripcion</p>
-					</div>
-				</a>
-			</aside>
-		}
+							}
+							<p id="recientesParrafo">@descripcion</p>
+						</div>
+					</a>
+				</aside>
+			}
+			else if (cre >= 3)
+			{
+				<aside>
+					<a href="~/Home/NoticiaDetalle/@item.id">
+						<div class="notaInd">
+							<img src="@ruta" />
+							<h3>@item.titulo</h3>
+							@{var descripcion = "";
+							var largo = item.descripcion.Length;
+							if (largo >= 300)
+							{
+								descripcion = item.descripcion.Substring(0, 296) + "...";
+							}
+							else
+							{
+								descripcion = item.descripcion.Substring(0, largo);
+							}
+							}
+							<p>@descripcion</p>
+						</div>
+					</a>
+				</aside>
+			}
 			cre++;
 		}
 	</div>
@@ -173,11 +175,11 @@
 			var ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
 			if (MallTopic_News.Controllers.Existente.RemoteFileExists(ruta, 500))
 			{
-				ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";	
+				ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
 			}
 			else
 			{
-				 ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
+				ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
 			}
 			if (cpr < 3)
 			{
@@ -240,11 +242,11 @@
 			var ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
 			if (MallTopic_News.Controllers.Existente.RemoteFileExists(ruta, 500))
 			{
-				 ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+				ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
 			}
 			else
 			{
-				 ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
+				ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
 			}
 			if (cev < 3)
 			{
@@ -307,11 +309,11 @@
 			var ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
 			if (MallTopic_News.Controllers.Existente.RemoteFileExists(ruta, 500))
 			{
-				 ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+				ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
 			}
 			else
 			{
-				 ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
+				ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
 			}
 			if (csyb < 3)
 			{
@@ -374,11 +376,11 @@
 			var ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
 			if (MallTopic_News.Controllers.Existente.RemoteFileExists(ruta, 500))
 			{
-				 ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+				ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
 			}
 			else
 			{
-				 ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
+				ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
 			}
 			if (cmod < 3)
 			{
@@ -442,7 +444,8 @@
 			if (MallTopic_News.Controllers.Existente.RemoteFileExists(ruta, 500))
 			{
 				ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
-			}else
+			}
+			else
 			{
 				ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
 			}
@@ -641,11 +644,11 @@
 			var ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
 			if (MallTopic_News.Controllers.Existente.RemoteFileExists(ruta, 500))
 			{
-				 ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+				ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
 			}
 			else
 			{
-				 ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
+				ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
 			}
 			if (cemt < 3)
 			{
@@ -654,18 +657,25 @@
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
-							@{var descripcion = "";
-							var largo = item.descripcion.Length;
-							if (largo >= 300)
-							{
-								descripcion = item.descripcion.Substring(0, 296) + "...";
+
+							@{
+				if (item.descripcion != null)
+				{
+					var descripcion = "";
+					var largo = item.descripcion.Length;
+					if (largo >= 300)
+					{
+						descripcion = item.descripcion.Substring(0, 296) + "...";
+					}
+					else
+					{
+						descripcion = item.descripcion.Substring(0, largo);
+					}
+
+					<p>@descripcion</p>
+				}
 							}
-							else
-							{
-								descripcion = item.descripcion.Substring(0, largo);
-							}
-							}
-							<p>@descripcion</p>
+
 						</div>
 					</a>
 				</aside>
@@ -716,4 +726,3 @@
 		<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
 	</article>
 </section>
-

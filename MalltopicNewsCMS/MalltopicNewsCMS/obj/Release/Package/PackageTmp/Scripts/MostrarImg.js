@@ -100,9 +100,15 @@ function IMG2(logo, id) {
 
 function borrar(id) {
     $("#" + id).remove();
-    var im = Imagenes;
-    var cam = document.cookie.replace(id, '');
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    var expires = "expires=" + d.toUTCString();
-    document.cookie = "Imagen" + "=" + cam + "; " + expires + "; path=/";
+
+    var ima = Imagenes;
+    
+    $.each(ima, function (index, item) {
+        if (item.Id == id) {
+            item.Pie = " ";
+            item.Id = " ";
+        }
+    });
+    var String = JSON.stringify(ima);
+    setCookie("Imagen", String, 1);
 }

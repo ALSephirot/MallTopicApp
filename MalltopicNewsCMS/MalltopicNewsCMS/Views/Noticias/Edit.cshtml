@@ -48,7 +48,16 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 						<a href="#" class="imagen"></a>
 					</label>
 					@{ var idimg = Session["EditGuid"];
-					 var img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + ".png";}
+					 var img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + ".png";
+					 if (MalltopicNewsCMS.Controllers.Existente.RemoteFileExists(img, 500))
+					 {
+						 img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + ".png";
+					 }
+					 else
+					 {
+						 img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + ".jpg";
+					 }
+					 }
 					<div id="ContenedorIMGportada" style="display:inline-block;">
 						<img src="@img" />
 					</div>
@@ -150,13 +159,36 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 					@{
 						var id = Session["EditGuid"];
 						var modelo = JsonConvert.DeserializeObject<MalltopicNewsCMS.Models.Noticias>(cw.Peticion("Noticias/" + id));
+						
+						//-------------------------------------------
+						var cont = 0;
+						var totalcomas = 0;
+						var cam = "";
+						if (modelo.imagenes != null)
+						{
+						    cam = modelo.imagenes;
+							cam = cam.Replace('"', '\'');
+							cam = cam.Replace("[{", "{'Foto" + cont + "':{");
+							for (int i = 0; i < cam.Length - 3; i++)
+							{
+								var b = cam.Substring(i, 3);
+								if (b == "},{")
+								{
+									totalcomas++;
+									cam = cam.Replace("},{", "},'Foto0" + totalcomas + "':{");
+								}
+							}
+							cam = cam.Replace("}]", "}}");
+						}
+				
+						//------------------------------------------------
+						
+						
 
-						HttpCookie addCookie = new HttpCookie("Imagen", modelo.imagenes);
-
-						// fecha de expiración: mañana
+						HttpCookie addCookie = new HttpCookie("Imagen", cam);
+						
 						addCookie.Expires = DateTime.Today.AddDays(1).AddSeconds(-1);
-
-						// AñadiR la cookie a nuestro usuario
+						
 						Response.Cookies.Add(addCookie);
 						
 						if (modelo.imagenes == null)
@@ -171,8 +203,21 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 
 							foreach (var item in CookieArray)
 							{
-								var imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
-								<img src="@imagen" />
+								<div id="@item.id">
+									@{var imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+									  if (MalltopicNewsCMS.Controllers.Existente.RemoteFileExists(imagen, 500))
+									  {
+										  imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+									  }
+									  else
+									  {
+										  imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
+									  }
+									  }
+									<img src="@imagen" /><br/>
+									<input name="nombimgs" id="' + id + '" type="text" onchange="PieChange(this)" /><br />
+									<button id="@item.id" type="button" onclick="borrar('@item.id');">Eliminar</button><br/>		
+								</div>
 							}
 						}
 					}
