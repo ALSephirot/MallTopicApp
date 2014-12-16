@@ -63,10 +63,8 @@ namespace MalltopicNewsCMS.Controllers
             
             if (myCookie!=null)
             {
-
                 var c = myCookie.Value;
                 c = c.Replace('"', '\'');
-
                 var CookieArray = JsonConvert.DeserializeObject<Cookie2>(c);
 
                 var ACookie = concatenar(CookieArray);
@@ -83,11 +81,8 @@ namespace MalltopicNewsCMS.Controllers
                 {
                     StringJson = JsonConvert.SerializeObject(ACookie);
                 }
-
                 noticias.imagenes = StringJson;
             }
-           
-          
             
             noticias.id=Convert.ToString(Session["newGuid"]);
             MalltopicNewsCMS.File_Upload.FileUpload obj = new File_Upload.FileUpload();
@@ -145,6 +140,47 @@ namespace MalltopicNewsCMS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "id,titulo,descripcion,pie_de_imagen,link,fk_idcategoria,usuario_creado,usuario_modificado,publicar,destacado,fecha_publicado,creado,modificado,autor")] Noticias noticias)
         {
+
+            HttpCookie myCookie = new HttpCookie("Imagen");
+            myCookie = Request.Cookies["Imagen"];
+            var cont = 0;
+            var totalcomas = 0; 
+            if (myCookie != null)
+            {
+                var c = myCookie.Value;
+                c = c.Replace('"', '\'');
+                c=c.Replace("[{","{'Foto"+cont+"':{");
+                for (int i = 0; i < c.Length-3; i++)
+                {
+                    var b = c.Substring(i, 3);
+                    if (b == "},{")
+                    {
+                        totalcomas++;
+                        c = c.Replace("},{", "},'Foto0" +totalcomas+ "':{");
+                    }
+                }
+                c = c.Replace("}]", "}}");
+                
+                
+                var CookieArray = JsonConvert.DeserializeObject<Cookie2>(c);
+
+                var ACookie = concatenar(CookieArray);
+                var JCookie = new MalltopicNewsCMS.Models.Cookie();
+                var StringJson = "";
+
+                if (ACookie.Count == 1)
+                {
+                    JCookie = new MalltopicNewsCMS.Models.Cookie();
+                    JCookie = concatenar(ACookie);
+                    StringJson = JsonConvert.SerializeObject(JCookie);
+                }
+                else
+                {
+                    StringJson = JsonConvert.SerializeObject(ACookie);
+                }
+                noticias.imagenes = StringJson;
+            }
+
             noticias.modificado = DateTime.Now;
             noticias.usuario_modificado = (string)Session["User"];
 

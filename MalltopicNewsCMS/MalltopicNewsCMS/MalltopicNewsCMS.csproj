@@ -162,7 +162,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -235,6 +234,7 @@
     <Compile Include="Models\Categorias.cs" />
     <Compile Include="Models\Cookie.cs" />
     <Compile Include="Models\Cookieupdate.cs" />
+    <Compile Include="Controllers\Existente.cs" />
     <Compile Include="Models\MalltopicNewsCMSContext.cs" />
     <Compile Include="Models\Noticias.cs" />
     <Compile Include="Models\permisos.cs" />
@@ -257,6 +257,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Error\BebasNeue.otf" />
+    <Content Include="Images\Favorito.png" />
+    <Content Include="Images\No_Favorito.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Crypto.js" />

@@ -282,7 +282,7 @@ body{
 	width:29%;
 	margin:0% 0.5% 0.5% 0.5%;				
 	height:155px;
-	background:#f0f /*url(../images/Download.png)*/;
+	background:url(../images/DescargarNews.png);
 	float:left;
     cursor:pointer;
 }
@@ -336,6 +336,7 @@ body{
     margin:0% 7.5% 2.5% 7.5%;
     height:460px;
     position:relative;
+    overflow:auto;
 }
 
 #notasPage h2 {
@@ -861,7 +862,8 @@ footer p a:nth-of-type(1){
     margin:0 10px 0 0px;
     padding:0px;
     text-align:left;
-    font-family:bebas;
+    font-family:Arial;
+    text-transform:uppercase;
     font-size:16px;
 }
 

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="MalltopicNewsCMSContext-Web.config Connection String" description="MalltopicNewsCMSContext Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Data Source=(localdb)\v11.0; Initial Catalog=MalltopicNewsCMSContext-20141113114441; Integrated Security=True; MultipleActiveResultSets=True; AttachDbFilename=|DataDirectory|MalltopicNewsCMSContext-20141113114441.mdf" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\Alexander\\Documents\\Malltopic\ news\\MalltopicNewsCMS\\MalltopicNewsCMS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MalltopicNewsCMSContext']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Alexander\\Documents\\GitHub\\MallTopicApp\\MalltopicNewsCMS\\MalltopicNewsCMS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MalltopicNewsCMSContext']/@connectionString" />
   </parameter>
 </parameters>

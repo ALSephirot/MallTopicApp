@@ -102,7 +102,7 @@ namespace MalltopicNewsCMS.File_Upload
 
             StreamReader sourceStream = new StreamReader(Session["URL"] + "\\" + nombreArchivo);
             string extText = System.IO.Path.GetExtension(TextBox1.Text);
-            if (ext == ".png")
+            if (ext == ".png" || ext == ".jpg")
             {
                 string ne = TextBox1.Text;
 
