@@ -161,24 +161,27 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 						var modelo = JsonConvert.DeserializeObject<MalltopicNewsCMS.Models.Noticias>(cw.Peticion("Noticias/" + id));
 						
 						//-------------------------------------------
-						var cont = 0;
-						var totalcomas = 0;
-						var cam = "";
+                        //var cont = 0;
+                        //var totalcomas = 0;
+                        var cam = "";
+                        var cam2 = "";
 						if (modelo.imagenes != null)
 						{
+                            cam2 = modelo.imagenes;
 						    cam = modelo.imagenes;
-							cam = cam.Replace('"', '\'');
-							cam = cam.Replace("[{", "{'Foto" + cont + "':{");
-							for (int i = 0; i < cam.Length - 3; i++)
-							{
-								var b = cam.Substring(i, 3);
-								if (b == "},{")
-								{
-									totalcomas++;
-									cam = cam.Replace("},{", "},'Foto0" + totalcomas + "':{");
-								}
-							}
-							cam = cam.Replace("}]", "}}");
+                            //cam = cam.Replace('"', '\'');
+                            //cam = cam.Replace("[{", "{'Foto" + cont + "':{");
+                            //cam2 = cam2.Replace("[{", "{\"Foto" + cont + "\":{");
+                            
+                            //for (int i = 0; i < cam.Length - 3; i++)
+                            //{
+                            //    var b = cam.Substring(i, 3);
+                            //    if (b == "},{")
+                            //    {
+                            //        totalcomas++;
+                            //        cam = cam.Replace("},{", "},'Foto0" + totalcomas + "':{");
+                            //    }
+                            //}
 						}
 				
 						//------------------------------------------------
@@ -186,10 +189,12 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 						
 
 						HttpCookie addCookie = new HttpCookie("Imagen", cam);
+                        HttpCookie addCookie2 = new HttpCookie("Imagen2", cam2);
 						
-						addCookie.Expires = DateTime.Today.AddDays(1).AddSeconds(-1);
+						//addCookie.Expires = DateTime.Today.AddDays(1).AddSeconds(-1);
 						
 						Response.Cookies.Add(addCookie);
+                        Response.Cookies.Add(addCookie2);
 						
 						if (modelo.imagenes == null)
 						{
@@ -198,8 +203,8 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 						else
 						{
 							var c = modelo.imagenes;
-							c = c.Replace("'\'", " ");
-							var CookieArray = JsonConvert.DeserializeObject<MalltopicNewsCMS.Models.Cookieupdate[]>(c);
+							//c = c.Replace("'\'", " ");
+                            var CookieArray = Json.Decode(c);// JsonConvert.DeserializeObject<MalltopicNewsCMS.Models.Cookieupdate[]>(c);
 
 							foreach (var item in CookieArray)
 							{
@@ -215,7 +220,7 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 									  }
 									  }
 									<img src="@imagen" /><br/>
-									<input name="nombimgs" id="' + id + '" type="text" onchange="PieChange(this)" /><br />
+                                    <input name="nombimgs" id="@item.id" type="text" onchange="PieChange(this)" value="@item.pie" /><br />
 									<button id="@item.id" type="button" onclick="borrar('@item.id');">Eliminar</button><br/>		
 								</div>
 							}
@@ -230,7 +235,8 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 				</div>
 			</div>
 			<script>
-				var update = true;
+                var update = true;
+                var imagen =  @cam2;
 			</script>
 		}
 		if (lg.BuscarPermiso("Noticias", "Index"))
@@ -243,6 +249,7 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 		@section Scripts {
 			@Scripts.Render("~/Scripts/jquery-2.1.1.min.js")
 			@Scripts.Render("~/Scripts/Favorito.js")
+            @Scripts.Render("~/Scripts/MostrarImg.js")
 		}
 
 	}

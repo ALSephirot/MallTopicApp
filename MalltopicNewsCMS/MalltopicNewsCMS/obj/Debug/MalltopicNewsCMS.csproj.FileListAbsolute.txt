@@ -406,7 +406,6 @@ C:\Users\Alexander\Documents\Malltopic news\MalltopicNewsCMS\MalltopicNewsCMS\ob
 C:\Users\Alexander\Documents\Malltopic news\MalltopicNewsCMS\MalltopicNewsCMS\obj\Debug\MalltopicNewsCMS.csprojResolveAssemblyReference.cache
 C:\Users\Alexander\Documents\Malltopic news\MalltopicNewsCMS\MalltopicNewsCMS\obj\Debug\MalltopicNewsCMS.dll
 C:\Users\Alexander\Documents\Malltopic news\MalltopicNewsCMS\MalltopicNewsCMS\obj\Debug\MalltopicNewsCMS.pdb
-<<<<<<< HEAD
 C:\Users\Alexander\Documents\GitHub\MallTopicApp\MalltopicNewsCMS\MalltopicNewsCMS\bin\MalltopicNewsCMS.dll.config
 C:\Users\Alexander\Documents\GitHub\MallTopicApp\MalltopicNewsCMS\MalltopicNewsCMS\bin\MalltopicNewsCMS.dll
 C:\Users\Alexander\Documents\GitHub\MallTopicApp\MalltopicNewsCMS\MalltopicNewsCMS\bin\MalltopicNewsCMS.pdb
@@ -594,7 +593,6 @@ C:\Github - Repositorio\MallTopicApp\MalltopicNewsCMS\MalltopicNewsCMS\obj\Debug
 C:\Github - Repositorio\MallTopicApp\MalltopicNewsCMS\MalltopicNewsCMS\obj\Debug\MalltopicNewsCMS.csprojResolveAssemblyReference.cache
 C:\Github - Repositorio\MallTopicApp\MalltopicNewsCMS\MalltopicNewsCMS\obj\Debug\MalltopicNewsCMS.dll
 C:\Github - Repositorio\MallTopicApp\MalltopicNewsCMS\MalltopicNewsCMS\obj\Debug\MalltopicNewsCMS.pdb
-<<<<<<< HEAD
 C:\Users\Luis Oquendo\Documents\GitHub\MallTopicApp\MalltopicNewsCMS\MalltopicNewsCMS\bin\MalltopicNewsCMS.dll.config
 C:\Users\Luis Oquendo\Documents\GitHub\MallTopicApp\MalltopicNewsCMS\MalltopicNewsCMS\bin\MalltopicNewsCMS.dll
 C:\Users\Luis Oquendo\Documents\GitHub\MallTopicApp\MalltopicNewsCMS\MalltopicNewsCMS\bin\MalltopicNewsCMS.pdb
@@ -688,6 +686,3 @@ C:\Users\Luis Oquendo\Documents\GitHub\MallTopicApp\MalltopicNewsCMS\MalltopicNe
 C:\Users\Luis Oquendo\Documents\GitHub\MallTopicApp\MalltopicNewsCMS\MalltopicNewsCMS\obj\Debug\MalltopicNewsCMS.csprojResolveAssemblyReference.cache
 C:\Users\Luis Oquendo\Documents\GitHub\MallTopicApp\MalltopicNewsCMS\MalltopicNewsCMS\obj\Debug\MalltopicNewsCMS.dll
 C:\Users\Luis Oquendo\Documents\GitHub\MallTopicApp\MalltopicNewsCMS\MalltopicNewsCMS\obj\Debug\MalltopicNewsCMS.pdb
-=======
->>>>>>> origin/master
->>>>>>> d4ab0fc3657e0f8ed0768c48b0179138b3855ce3

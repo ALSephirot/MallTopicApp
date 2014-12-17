@@ -15,13 +15,27 @@ function IMG(logo, id) {
 
     
         var guardar = {};
-        guardar["Id"] = id;
-        guardar["Pie"] = 'null';
+        guardar["id"] = id;
+        guardar["pie"] = 'null';
 
         if (window.opener.Imagenes == undefined)
         {
-            window.opener.Imagenes = {};
-            window.opener.Imagenes["Foto0"] = guardar;
+            window.opener.Imagenes = JSON.parse(getCookie("Imagen"));
+
+            if (window.opener.Imagenes == "")
+            {
+                window.opener.Imagenes = {};
+                window.opener.Imagenes[0] = guardar;
+            }
+            else
+            {
+                var i;
+                $.each(window.opener.Imagenes, function (index, item) {
+                    i = index;
+                });
+
+                window.opener.Imagenes[(i + 1)] = guardar;
+            }
         }
         else
         {
@@ -67,17 +81,38 @@ function IMG(logo, id) {
 
     function PieChange(input)
     {
-        var AImagenes = Imagenes;
+        var AImagenes;
+
+        if (Imagenes == undefined)
+        {
+            var i = getCookie("Imagen2");
+            AImagenes = JSON.parse(i);
+        }
+        else
+        {
+            AImagenes = Imagenes
+        }
 
         try
         {
             var idinput = $(input).attr("id");
 
             $.each(AImagenes, function (index, item) {
-                if (item.Id == idinput)
+                if (Imagenes == undefined)
                 {
-                    item.Pie = $(input).val();
+                    if (item.id == idinput)
+                    {
+                        item.pie = $(input).val();
+                    }
                 }
+                else
+                {
+                    if (item.id == idinput)
+                    {
+                        item.pie = $(input).val();
+                    }
+                }
+                
             });
             var String = JSON.stringify(AImagenes);
             setCookie("Imagen", String, 1);
@@ -88,7 +123,7 @@ function IMG(logo, id) {
             alert(StringError);
         }
     }
-}
+
 
 function IMG2(logo, id) {
     var d = new Date();
@@ -104,9 +139,9 @@ function borrar(id) {
     var ima = Imagenes;
     
     $.each(ima, function (index, item) {
-        if (item.Id == id) {
-            item.Pie = " ";
-            item.Id = " ";
+        if (item.id == id) {
+            item.pie = " ";
+            item.id = " ";
         }
     });
     var String = JSON.stringify(ima);
