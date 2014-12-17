@@ -218,7 +218,7 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 									  }
 									  }
 									<img src="@imagen" /><br/>
-									<input name="nombimgs" id="' + id + '" type="text" onchange="PieChange(this)" /><br />
+									<input name="nombimgs" id="@item.id" type="text" onchange="PieChange(this)" /><br />
 									<button id="@item.id" type="button" onclick="borrar('@item.id');">Eliminar</button><br/>		
 								</div>
 							}
