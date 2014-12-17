@@ -157,6 +157,7 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 
 				<div >
 					@{
+<<<<<<< HEAD
 			var id = Session["EditGuid"];
 			var modelo = JsonConvert.DeserializeObject<MalltopicNewsCMS.Models.Noticias>(cw.Peticion("Noticias/" + id));
 
@@ -224,6 +225,71 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 							}
 						}
 					}
+=======
+                        var id = Session["EditGuid"];
+                        var modelo = JsonConvert.DeserializeObject<MalltopicNewsCMS.Models.Noticias>(cw.Peticion("Noticias/" + id));
+
+                        //var cont = 0;
+                        //var totalcomas = 0;
+                        var cam = "";
+                        var cam2 = "";
+                        if (modelo.imagenes != null)
+                        {
+                            cam2 = modelo.imagenes;
+                            cam = modelo.imagenes;
+                            //cam = cam.Replace('"', '\'');
+                            //cam = cam.Replace("[{", "{'Foto" + cont + "':{");
+                            //cam2 = cam2.Replace("[{", "{\"Foto" + cont + "\":{");
+
+                            //for (int i = 0; i < cam.Length - 3; i++)
+                            //{
+                            //    var b = cam.Substring(i, 3);
+                            //    if (b == "},{")
+                            //    {
+                            //        totalcomas++;
+                            //        cam = cam.Replace("},{", "},'Foto0" + totalcomas + "':{");
+                            //    }
+                            //}
+                        }
+
+
+                        HttpCookie addCookie = new HttpCookie("Imagen", cam);
+                        HttpCookie addCookie2 = new HttpCookie("Imagen2", cam2);
+
+                        //addCookie.Expires = DateTime.Today.AddDays(1).AddSeconds(-1);
+
+                        Response.Cookies.Add(addCookie);
+                        Response.Cookies.Add(addCookie2);
+
+                        if (modelo.imagenes != null)
+                        {
+                            var c = modelo.imagenes;
+                            //c = c.Replace("'\'", " ");
+                            var CookieArray = Json.Decode(c);// JsonConvert.DeserializeObject<MalltopicNewsCMS.Models.Cookieupdate[]>(c);
+
+
+
+                            foreach (var item in CookieArray)
+                            {
+                                <div id="@item.id">
+                                    @{var imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+                                    if (MalltopicNewsCMS.Controllers.Existente.RemoteFileExists(imagen, 500))
+                                    {
+                                        imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+                                    }
+                                    else
+                                    {
+                                        imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
+                                    }
+                                    }
+                                    <img src="@imagen" /><br />
+                                    <input name="nombimgs" id="@item.id" type="text" onchange="PieChange(this)" value="@item.pie" /><br />
+                                    <button id="@item.id" type="button" onclick="borrar('@item.id');">Eliminar</button><br />
+                                </div>
+                            }
+                        }
+                    }
+>>>>>>> origin/master
 				</div>
 
 				<div class="form-group">
@@ -233,7 +299,7 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 				</div>
 			</div>
 			<script>
-				var update = true;
+                var update = true;
 			</script>
 		}
 		if (lg.BuscarPermiso("Noticias", "Index"))
