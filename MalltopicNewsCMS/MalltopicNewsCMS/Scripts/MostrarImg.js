@@ -1,4 +1,4 @@
-﻿var Imagenes;
+﻿var AImagenes = Imagenes;
 function IMG(logo, id) {
     var d = new Date();
 
@@ -67,8 +67,8 @@ function IMG(logo, id) {
 
     function PieChange(input)
     {
-        var AImagenes = Imagenes;
-
+         AImagenes = Imagenes;
+         
         try
         {
             var idinput = $(input).attr("id");
@@ -88,7 +88,7 @@ function IMG(logo, id) {
             alert(StringError);
         }
     }
-}
+
 
 function IMG2(logo, id) {
     var d = new Date();
