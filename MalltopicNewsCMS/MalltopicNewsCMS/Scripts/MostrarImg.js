@@ -1,5 +1,4 @@
-﻿var Imagenes;
-function IMG(logo, id) {
+﻿function IMG(logo, id) {
     var d = new Date();
 
     var div = window.opener.document.getElementById("ContenedorIMG");
@@ -92,7 +91,6 @@ function IMG(logo, id) {
         {
             AImagenes = Imagenes
         }
-
         try
         {
             var idinput = $(input).attr("id");
@@ -140,8 +138,7 @@ function borrar(id) {
     
     $.each(ima, function (index, item) {
         if (item.id == id) {
-            item.pie = " ";
-            item.id = " ";
+            ima.remove(index);
         }
     });
     var String = JSON.stringify(ima);

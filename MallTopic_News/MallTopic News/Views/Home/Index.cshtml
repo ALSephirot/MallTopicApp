@@ -688,17 +688,21 @@
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
 							@{var descripcion = "";
-							var largo = item.descripcion.Length;
-							if (largo >= 300)
+							if (item.descripcion != null)
 							{
-								descripcion = item.descripcion.Substring(0, 296) + "...";
+								var largo = item.descripcion.Length;
+								if (largo >= 300)
+								{
+									descripcion = item.descripcion.Substring(0, 296) + "...";
+								}
+								else
+								{
+									descripcion = item.descripcion.Substring(0, largo);
+								}
+								<p>@descripcion</p>
 							}
-							else
-							{
-								descripcion = item.descripcion.Substring(0, largo);
+
 							}
-							}
-							<p>@descripcion</p>
 						</div>
 					</a>
 				</aside>
