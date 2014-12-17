@@ -1,4 +1,5 @@
-﻿function IMG(logo, id) {
+﻿var Imagenes;
+function IMG(logo, id) {
     var d = new Date();
 
     var div = window.opener.document.getElementById("ContenedorIMG");
@@ -17,34 +18,20 @@
         guardar["id"] = id;
         guardar["pie"] = 'null';
 
-        if (window.opener.Imagenes == undefined)
-        {
-            window.opener.Imagenes = JSON.parse(getCookie("Imagen"));
+   
+            var cookiee = getCookie("Imagen");
 
-            if (window.opener.Imagenes == "")
+            if (cookiee == "")
             {
-                window.opener.Imagenes = {};
-                window.opener.Imagenes[0] = guardar;
+                window.opener.Imagenes = [];
+                window.opener.Imagenes.push(guardar);
             }
             else
             {
-                var i;
-                $.each(window.opener.Imagenes, function (index, item) {
-                    i = index;
-                });
-
-                window.opener.Imagenes[(i + 1)] = guardar;
+                window.opener.Imagenes = JSON.parse(getCookie("Imagen"));
+                window.opener.Imagenes.push(guardar);
             }
-        }
-        else
-        {
-            var i;
-            $.each(window.opener.Imagenes, function (index,item) {
-                i = index;
-            });
-
-            window.opener.Imagenes[(i+1)] = guardar;
-        }
+    
 
         $(idsimg).append(machete);
         $(div).append(etiqueta);
@@ -81,16 +68,9 @@
     function PieChange(input)
     {
         var AImagenes;
+        var i = getCookie("Imagen");
+        AImagenes = JSON.parse(i);
 
-        if (Imagenes == undefined)
-        {
-            var i = getCookie("Imagen2");
-            AImagenes = JSON.parse(i);
-        }
-        else
-        {
-            AImagenes = Imagenes
-        }
         try
         {
             var idinput = $(input).attr("id");
@@ -114,6 +94,7 @@
             });
             var String = JSON.stringify(AImagenes);
             setCookie("Imagen", String, 1);
+            Imagenes = AImagenes;
         }
         catch (error)
         {
@@ -134,13 +115,16 @@ function IMG2(logo, id) {
 function borrar(id) {
     $("#" + id).remove();
 
-    var ima = Imagenes;
+    var ima = JSON.parse(getCookie("Imagen"));
     
     $.each(ima, function (index, item) {
         if (item.id == id) {
-            ima.remove(index);
+            delete ima[index];
         }
     });
     var String = JSON.stringify(ima);
+    String = String.replace(",null", "");
+    String = String.replace("[null]", "");
+    String = String.replace("null,", "");
     setCookie("Imagen", String, 1);
 }

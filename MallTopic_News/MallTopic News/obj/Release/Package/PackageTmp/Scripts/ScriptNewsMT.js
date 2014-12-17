@@ -1,8 +1,13 @@
 ﻿
 var f = new Date();
 var contenedor = window.document.getElementById("daTime");
-var html = '<p class="parrafoFecha">' + 'Fecha: ' + f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear() + '</p>'
-contenedor.innerHTML = html;
+//var html = '<p class="parrafoFecha">' + 'Fecha: ' + f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear() + '</p>'
+
+var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+var diasSemana = new Array("Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado");
+var fechaLetras = (diasSemana[f.getDay()] + ", " + f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
+
+contenedor.innerHTML = fechaLetras;
 var entro = false;
 
 var estado = false;
