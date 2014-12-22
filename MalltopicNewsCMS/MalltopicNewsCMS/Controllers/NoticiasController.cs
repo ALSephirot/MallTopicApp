@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using MalltopicNewsCMS.Models;
@@ -48,6 +49,15 @@ namespace MalltopicNewsCMS.Controllers
         {
             var id = Guid.NewGuid();
             Session["newGuid"] = id;
+            HttpCookie myCookie = new HttpCookie("Imagen");
+            myCookie = Request.Cookies["Imagen"];
+            if (myCookie != null)
+            {
+                var Hoy = DateTime.Today;
+                var ayer = Hoy.AddDays(-1);
+                myCookie.Expires = ayer;
+                Response.Cookies.Add(myCookie);
+            }
             return View();
         }
 
@@ -64,24 +74,33 @@ namespace MalltopicNewsCMS.Controllers
             if (myCookie!=null)
             {
                 var c = myCookie.Value;
-                c = c.Replace('"', '\'');
-                var CookieArray = JsonConvert.DeserializeObject<Cookie2>(c);
+                //c = c.Replace('"', '\'');
+                //var CookieArray = JsonConvert.DeserializeObject<Cookie2>(c);
 
-                var ACookie = concatenar(CookieArray);
-                var JCookie = new MalltopicNewsCMS.Models.Cookie();
-                var StringJson = "";
+                //var ACookie = concatenar(CookieArray);
+                //var JCookie = new MalltopicNewsCMS.Models.Cookie();
+                //var StringJson = "";
 
-                if (ACookie.Count == 1)
+                //if (ACookie.Count == 1)
+                //{
+                //    JCookie = new MalltopicNewsCMS.Models.Cookie();
+                //    JCookie = concatenar(ACookie);
+                //    StringJson = JsonConvert.SerializeObject(JCookie);
+                //}
+                //else
+                //{
+                //    StringJson = JsonConvert.SerializeObject(ACookie);
+                //}
+
+                if(c == "")
                 {
-                    JCookie = new MalltopicNewsCMS.Models.Cookie();
-                    JCookie = concatenar(ACookie);
-                    StringJson = JsonConvert.SerializeObject(JCookie);
+                    noticias.imagenes = null;
                 }
                 else
                 {
-                    StringJson = JsonConvert.SerializeObject(ACookie);
+                    noticias.imagenes = c;
                 }
-                noticias.imagenes = StringJson;
+                
             }
             
             noticias.id=Convert.ToString(Session["newGuid"]);
@@ -143,42 +162,28 @@ namespace MalltopicNewsCMS.Controllers
 
             HttpCookie myCookie = new HttpCookie("Imagen");
             myCookie = Request.Cookies["Imagen"];
-            var cont = 0;
-            var totalcomas = 0; 
             if (myCookie != null)
             {
                 var c = myCookie.Value;
-                c = c.Replace('"', '\'');
-                c=c.Replace("[{","{'Foto"+cont+"':{");
-                for (int i = 0; i < c.Length-3; i++)
+                //var CookieArray =  JsonConvert.DeserializeObject<Cookie2>(c);
+                //if (ACookie.Count == 1)
+                //{
+                //    JCookie = new MalltopicNewsCMS.Models.Cookie();
+                //    JCookie = concatenar(ACookie);
+                //    StringJson = JsonConvert.SerializeObject(JCookie);
+                //}
+                //else
+                //{
+                //    StringJson = JsonConvert.SerializeObject(ACookie);
+                //}
+                if (c == "")
                 {
-                    var b = c.Substring(i, 3);
-                    if (b == "},{")
-                    {
-                        totalcomas++;
-                        c = c.Replace("},{", "},'Foto0" +totalcomas+ "':{");
-                    }
-                }
-                c = c.Replace("}]", "}}");
-                
-                
-                var CookieArray = JsonConvert.DeserializeObject<Cookie2>(c);
-
-                var ACookie = concatenar(CookieArray);
-                var JCookie = new MalltopicNewsCMS.Models.Cookie();
-                var StringJson = "";
-
-                if (ACookie.Count == 1)
-                {
-                    JCookie = new MalltopicNewsCMS.Models.Cookie();
-                    JCookie = concatenar(ACookie);
-                    StringJson = JsonConvert.SerializeObject(JCookie);
+                    noticias.imagenes = null;
                 }
                 else
                 {
-                    StringJson = JsonConvert.SerializeObject(ACookie);
+                    noticias.imagenes = c;
                 }
-                noticias.imagenes = StringJson;
             }
 
             noticias.modificado = DateTime.Now;

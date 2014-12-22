@@ -68,7 +68,7 @@
 				</div>
 				<ul id="miniaturas" class="miniaturas">
 					@{var c = 0;
-					var detalle = "NoticiaDetalle";}
+					  var detalle = "Home/NoticiaDetalle/";}
 					@foreach (var item in modelotodos)
 					{
 						var img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
@@ -124,17 +124,20 @@
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
 							@{var descripcion = "";
-							var largo = item.descripcion.Length;
-							if (largo >= 300)
+							if (item.descripcion != null)
 							{
-								descripcion = item.descripcion.Substring(0, 296) + "...";
-							}
-							else
-							{
-								descripcion = item.descripcion.Substring(0, largo);
-							}
+								var largo = item.descripcion.Length;
+								if (largo >= 300)
+								{
+									descripcion = item.descripcion.Substring(0, 296) + "...";
+								}
+								else
+								{
+									descripcion = item.descripcion.Substring(0, largo);
+								}
 							}
 							<p id="recientesParrafo">@descripcion</p>
+							}
 						</div>
 					</a>
 				</aside>
@@ -147,17 +150,20 @@
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
 							@{var descripcion = "";
-							var largo = item.descripcion.Length;
-							if (largo >= 300)
+							if (item.descripcion != null)
 							{
-								descripcion = item.descripcion.Substring(0, 296) + "...";
-							}
-							else
-							{
-								descripcion = item.descripcion.Substring(0, largo);
-							}
+								var largo = item.descripcion.Length;
+								if (largo >= 300)
+								{
+									descripcion = item.descripcion.Substring(0, 296) + "...";
+								}
+								else
+								{
+									descripcion = item.descripcion.Substring(0, largo);
+								}
 							}
 							<p>@descripcion</p>
+							}
 						</div>
 					</a>
 				</aside>
@@ -189,17 +195,20 @@
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
 							@{var descripcion = "";
-							var largo = item.descripcion.Length;
-							if (largo >= 300)
+							if (item.descripcion != null)
 							{
-								descripcion = item.descripcion.Substring(0, 296) + "...";
-							}
-							else
-							{
-								descripcion = item.descripcion.Substring(0, largo);
-							}
+								var largo = item.descripcion.Length;
+								if (largo >= 300)
+								{
+									descripcion = item.descripcion.Substring(0, 296) + "...";
+								}
+								else
+								{
+									descripcion = item.descripcion.Substring(0, largo);
+								}
 							}
 							<p>@descripcion</p>
+							}
 						</div>
 					</a>
 				</aside>
@@ -212,17 +221,20 @@
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
 							@{var descripcion = "";
-							var largo = item.descripcion.Length;
-							if (largo >= 300)
+							if (item.descripcion != null)
 							{
-								descripcion = item.descripcion.Substring(0, 296) + "...";
-							}
-							else
-							{
-								descripcion = item.descripcion.Substring(0, largo);
-							}
+								var largo = item.descripcion.Length;
+								if (largo >= 300)
+								{
+									descripcion = item.descripcion.Substring(0, 296) + "...";
+								}
+								else
+								{
+									descripcion = item.descripcion.Substring(0, largo);
+								}
 							}
 							<p>@descripcion</p>
+							}
 						</div>
 					</a>
 				</aside>
@@ -279,17 +291,20 @@
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
 							@{var descripcion = "";
-							var largo = item.descripcion.Length;
-							if (largo >= 300)
+							if (item.descripcion != null)
 							{
-								descripcion = item.descripcion.Substring(0, 296) + "...";
-							}
-							else
-							{
-								descripcion = item.descripcion.Substring(0, largo);
-							}
+								var largo = item.descripcion.Length;
+								if (largo >= 300)
+								{
+									descripcion = item.descripcion.Substring(0, 296) + "...";
+								}
+								else
+								{
+									descripcion = item.descripcion.Substring(0, largo);
+								}
 							}
 							<p>@descripcion</p>
+							}
 						</div>
 					</a>
 				</aside>
@@ -323,17 +338,20 @@
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
 							@{var descripcion = "";
-							var largo = item.descripcion.Length;
-							if (largo >= 300)
+							if (item.descripcion != null)
 							{
-								descripcion = item.descripcion.Substring(0, 296) + "...";
-							}
-							else
-							{
-								descripcion = item.descripcion.Substring(0, largo);
-							}
+								var largo = item.descripcion.Length;
+								if (largo >= 300)
+								{
+									descripcion = item.descripcion.Substring(0, 296) + "...";
+								}
+								else
+								{
+									descripcion = item.descripcion.Substring(0, largo);
+								}
 							}
 							<p>@descripcion</p>
+							}
 						</div>
 					</a>
 				</aside>
@@ -346,17 +364,20 @@
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
 							@{var descripcion = "";
-							var largo = item.descripcion.Length;
-							if (largo >= 300)
+							if (item.descripcion != null)
 							{
-								descripcion = item.descripcion.Substring(0, 296) + "...";
-							}
-							else
-							{
-								descripcion = item.descripcion.Substring(0, largo);
-							}
+								var largo = item.descripcion.Length;
+								if (largo >= 300)
+								{
+									descripcion = item.descripcion.Substring(0, 296) + "...";
+								}
+								else
+								{
+									descripcion = item.descripcion.Substring(0, largo);
+								}
 							}
 							<p>@descripcion</p>
+							}
 						</div>
 					</a>
 				</aside>
@@ -390,17 +411,20 @@
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
 							@{var descripcion = "";
-							var largo = item.descripcion.Length;
-							if (largo >= 300)
+							if (item.descripcion != null)
 							{
-								descripcion = item.descripcion.Substring(0, 296) + "...";
-							}
-							else
-							{
-								descripcion = item.descripcion.Substring(0, largo);
-							}
+								var largo = item.descripcion.Length;
+								if (largo >= 300)
+								{
+									descripcion = item.descripcion.Substring(0, 296) + "...";
+								}
+								else
+								{
+									descripcion = item.descripcion.Substring(0, largo);
+								}
 							}
 							<p>@descripcion</p>
+							}
 						</div>
 					</a>
 				</aside>
@@ -413,17 +437,20 @@
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
 							@{var descripcion = "";
-							var largo = item.descripcion.Length;
-							if (largo >= 300)
+							if (item.descripcion != null)
 							{
-								descripcion = item.descripcion.Substring(0, 296) + "...";
-							}
-							else
-							{
-								descripcion = item.descripcion.Substring(0, largo);
-							}
+								var largo = item.descripcion.Length;
+								if (largo >= 300)
+								{
+									descripcion = item.descripcion.Substring(0, 296) + "...";
+								}
+								else
+								{
+									descripcion = item.descripcion.Substring(0, largo);
+								}
 							}
 							<p>@descripcion</p>
+							}
 						</div>
 					</a>
 				</aside>
@@ -457,17 +484,20 @@
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
 							@{var descripcion = "";
-							var largo = item.descripcion.Length;
-							if (largo >= 300)
+							if (item.descripcion != null)
 							{
-								descripcion = item.descripcion.Substring(0, 296) + "...";
-							}
-							else
-							{
-								descripcion = item.descripcion.Substring(0, largo);
-							}
+								var largo = item.descripcion.Length;
+								if (largo >= 300)
+								{
+									descripcion = item.descripcion.Substring(0, 296) + "...";
+								}
+								else
+								{
+									descripcion = item.descripcion.Substring(0, largo);
+								}
 							}
 							<p>@descripcion</p>
+							}
 						</div>
 					</a>
 				</aside>
@@ -480,17 +510,20 @@
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
 							@{var descripcion = "";
-							var largo = item.descripcion.Length;
-							if (largo >= 300)
+							if (item.descripcion != null)
 							{
-								descripcion = item.descripcion.Substring(0, 296) + "...";
-							}
-							else
-							{
-								descripcion = item.descripcion.Substring(0, largo);
-							}
+								var largo = item.descripcion.Length;
+								if (largo >= 300)
+								{
+									descripcion = item.descripcion.Substring(0, 296) + "...";
+								}
+								else
+								{
+									descripcion = item.descripcion.Substring(0, largo);
+								}
 							}
 							<p>@descripcion</p>
+							}
 						</div>
 					</a>
 				</aside>
@@ -524,17 +557,20 @@
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
 							@{var descripcion = "";
-							var largo = item.descripcion.Length;
-							if (largo >= 300)
+							if (item.descripcion != null)
 							{
-								descripcion = item.descripcion.Substring(0, 296) + "...";
-							}
-							else
-							{
-								descripcion = item.descripcion.Substring(0, largo);
-							}
+								var largo = item.descripcion.Length;
+								if (largo >= 300)
+								{
+									descripcion = item.descripcion.Substring(0, 296) + "...";
+								}
+								else
+								{
+									descripcion = item.descripcion.Substring(0, largo);
+								}
 							}
 							<p>@descripcion</p>
+							}
 						</div>
 					</a>
 				</aside>
@@ -547,17 +583,20 @@
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
 							@{var descripcion = "";
-							var largo = item.descripcion.Length;
-							if (largo >= 300)
+							if (item.descripcion != null)
 							{
-								descripcion = item.descripcion.Substring(0, 296) + "...";
-							}
-							else
-							{
-								descripcion = item.descripcion.Substring(0, largo);
-							}
+								var largo = item.descripcion.Length;
+								if (largo >= 300)
+								{
+									descripcion = item.descripcion.Substring(0, 296) + "...";
+								}
+								else
+								{
+									descripcion = item.descripcion.Substring(0, largo);
+								}
 							}
 							<p>@descripcion</p>
+							}
 						</div>
 					</a>
 				</aside>
@@ -591,17 +630,20 @@
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
 							@{var descripcion = "";
-							var largo = item.descripcion.Length;
-							if (largo >= 300)
+							if (item.descripcion != null)
 							{
-								descripcion = item.descripcion.Substring(0, 296) + "...";
-							}
-							else
-							{
-								descripcion = item.descripcion.Substring(0, largo);
-							}
+								var largo = item.descripcion.Length;
+								if (largo >= 300)
+								{
+									descripcion = item.descripcion.Substring(0, 296) + "...";
+								}
+								else
+								{
+									descripcion = item.descripcion.Substring(0, largo);
+								}
 							}
 							<p>@descripcion</p>
+							}
 						</div>
 					</a>
 				</aside>
@@ -614,17 +656,20 @@
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
 							@{var descripcion = "";
-							var largo = item.descripcion.Length;
-							if (largo >= 300)
+							if (item.descripcion != null)
 							{
-								descripcion = item.descripcion.Substring(0, 296) + "...";
-							}
-							else
-							{
-								descripcion = item.descripcion.Substring(0, largo);
-							}
+								var largo = item.descripcion.Length;
+								if (largo >= 300)
+								{
+									descripcion = item.descripcion.Substring(0, 296) + "...";
+								}
+								else
+								{
+									descripcion = item.descripcion.Substring(0, largo);
+								}
 							}
 							<p>@descripcion</p>
+							}
 						</div>
 					</a>
 				</aside>
@@ -659,9 +704,10 @@
 							<h3>@item.titulo</h3>
 
 							@{
+				var descripcion = "";
 				if (item.descripcion != null)
 				{
-					var descripcion = "";
+
 					var largo = item.descripcion.Length;
 					if (largo >= 300)
 					{
