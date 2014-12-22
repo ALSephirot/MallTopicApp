@@ -72,6 +72,9 @@ function onDeviceReady() {
     // detect for network access
     PhoneGap_networkDetection();
 
+    //Detecto la plataforma
+    deviceDetection();
+
     localStorage.setItem("TC", TipoConexion);
 }
 
@@ -133,6 +136,33 @@ function PhoneGap_networkDetection() {
     }
 }
 
+function deviceDetection() {
+    if (isPhoneGapReady) {
+        switch (device.platform) {
+            case "Android":
+                localStorage.setItem("Platform","Android");
+                console.log('is android');
+                break;
+            case "Blackberry":
+                localStorage.setItem("Platform","BlackBerry");
+                console.log('is bb');
+                break;
+            case "iOS":
+                localStorage.setItem("Platform","iOS");
+                console.log('is iphone');
+                break;
+            case "WinCE":
+                localStorage.setItem("Platform","WinCE");
+                console.log('is WinCE');
+                break;
+            default:
+                localStorage.setItem("Platform",device.platform);
+                console.log(device.platform);
+                break;
+        }
+    }
+}
+
 function GetTipoConexion() {
     return TipoConexion;
 }
@@ -144,3 +174,4 @@ function GetIdCel() {
 function GetRegistro() {
     return Regis;
 }
+

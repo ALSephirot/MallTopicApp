@@ -237,7 +237,7 @@
 		<h2>Eventos</h2>
 		@{var cev = 0;
 		}
-		@foreach (var item in ModeloNoticiasRecientes)
+		@foreach (var item in ModeloNoticiaseventos)
 		{
 			var ruta = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
 			if (MallTopic_News.Controllers.Existente.RemoteFileExists(ruta, 500))

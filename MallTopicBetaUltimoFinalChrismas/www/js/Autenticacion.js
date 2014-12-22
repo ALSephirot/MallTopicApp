@@ -117,3 +117,37 @@ function c (argument) {
 	console.log(argument);
 }
 //<!-----------------------------------Chekin Social------------------------------------->
+
+function ConsultarTweet(){
+
+	 try
+	 {
+		  var url = "http://twitterphp.azurewebsites.net/pruebaphp.php";
+		  loadDataArray(url,false,"");
+		  var ATweets = arrayInfo;
+
+		  var ResultadosTwitter = JSON.stringify(ATweets);
+		  var jsontwitter = JSON.parse(ResultadosTwitter);
+		  var twetts="";
+		  $.each(jsontwitter, function(index, item) {
+			   var inapp = 'InAppBrowserOpen("https://twitter.com/'+item.user.screen_name +'")';
+			   twetts +=" <li ><img id='ImgTwitter' src="+item.user.profile_image_url+"/><div class='parrafoPrin'>"+
+			     "<a id='UsuarioTwitter' class='enlaceTweet' onclick='"+inapp+"'>"+item.user.name+"</a>"+
+			     "<p id='MensajeTwitter' class='cuerpotwet'>"+item.text+"</p>"+
+			     "</div>"+
+			     "</li>";
+		  });
+
+		   $("#TwitterContenedor").fadeOut(1000);
+
+		   setTimeout(function () {
+		   $("#TwitterContenedor").html(twetts);
+		   },1000);
+		   
+		  $("#TwitterContenedor").fadeIn(1000);
+	 }
+	 catch(error)
+	 {
+	  //alert(error);
+	 }
+}

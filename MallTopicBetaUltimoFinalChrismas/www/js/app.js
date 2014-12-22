@@ -273,7 +273,7 @@ function FormatearFecha(Fecha)
 				success: function (results) {
 
 					//se almacena objeto resultados en variable global
-					if(asincrono)
+					/*if(asincrono)
 					{
 						if($.mobile.activePage.is('#IndexMall') || $.mobile.activePage.is('#SplashScreen'))
 						{
@@ -290,9 +290,18 @@ function FormatearFecha(Fecha)
 						}
 					}
 					else
-					{
+					{*/
 						arrayInfo=results;
-					}
+						/*if(consulta == "AMall")
+						{
+							arrayInfoAsync=results;
+						}
+						else if(consulta == "StoresxCategories")
+						{
+							arrayInfo=results;
+							setStoresxCategories(arrayInfo);
+						}
+					}*/
 		   					
 
 				},
@@ -963,8 +972,8 @@ function CargarCines()
 		}
 		else
 		{
-			url = WebService + "Gallery";
-			//url = WebService + "Malls(guid'"+ Mall +"')/Gallery";
+			//url = WebService + "Gallery";
+			url = WebService + "Malls(guid'"+ Mall +"')/Gallery";
 		}
 
 		loadDataArray(url);
@@ -1769,6 +1778,8 @@ function CargarCines()
 		ConfigurarHeadersModulos("Galerias");
 		directionsService = new google.maps.DirectionsService();
 		directionsDisplay = new google.maps.DirectionsRenderer();
+		PosicionInicial = undefined;
+		PosicionFinal = undefined;
 
 		/*if(VerConexion)
 		{
@@ -2465,20 +2476,7 @@ function CargarCines()
 		setTimeout(function(){
 			CargarSelect("#social");
 			CargarCheckIn();
-			$.mobile.loading("hide");
-		}, 2000);	
-	});	
-
-	$( document ).on( "pageshow", "#social", function() {
-		$.mobile.loading("show",{
-		  text: "Cargando Social...",
-		  textVisible: true,
-		  theme: "b",
-		  html: ""
-		});
-
-		setTimeout(function(){
-			CargarSelect("#social");
+			ConsultarTweet();
 			$.mobile.loading("hide");
 		}, 2000);	
 	});

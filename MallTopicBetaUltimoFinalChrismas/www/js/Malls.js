@@ -40,42 +40,39 @@ function CargarIndexMall() {
 	var botoncines = "";
 	var botongalerias = "";
 	var url = WebService + "Malls(guid'"+ Mall +"')/";
-	loadDataArray(url,true,"AMall");
-	setTimeout(function  (argument) {
+	loadDataArray(url,false,"AMall");
+	
+	var AMall = arrayInfo;
+	$('#NumLocales').html(AMall.cantLocales);
+	$('#NumEstaciona').html(AMall.cantParqueadero);
+	$('#NumTelefono').html(AMall.telefono);
 
-		var AMall = arrayInfoAsync;
-		$('#NumLocales').html(AMall.cantLocales);
-		$('#NumEstaciona').html(AMall.cantParqueadero);
-		$('#NumTelefono').html(AMall.telefono);
-
-		if (AMall.facebook)  
-		{
-			$('#LinkFacebookMall').attr("onclick","InAppBrowserOpen('"+ AMall.facebook +"')");
-		}else{
-			$('#LinkFacebookMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
-		}
-		if(AMall.twitter)
-		{
-			$('#LinkTwitterMall').attr("onclick","InAppBrowserOpen('"+ AMall.twitter +"')");
-		}else{
-			$('#LinkTwitterMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
-		}
-		if (AMall.youtube ) 
-			{
-			$('#LinkInstagramMall').attr("onclick","InAppBrowserOpen('"+ AMall.youtube +"')");	
-		}else
-		{
-			$('#LinkInstagramMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
-		}
-		if (AMall.Instagram ) 
-		{
-			$('#LinkYoutubeMall').attr("onclick","InAppBrowserOpen('"+ AMall.Instagram +"')");
-		}else
-		{
-			$('#LinkYoutubeMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
-		}
-
-	},5000);
+	if (AMall.facebook)  
+	{
+		$('#LinkFacebookMall').attr("onclick","InAppBrowserOpen('"+ AMall.facebook +"')");
+	}else{
+		$('#LinkFacebookMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+	}
+	if(AMall.twitter)
+	{
+		$('#LinkTwitterMall').attr("onclick","InAppBrowserOpen('"+ AMall.twitter +"')");
+	}else{
+		$('#LinkTwitterMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+	}
+	if (AMall.youtube ) 
+	{
+		$('#LinkInstagramMall').attr("onclick","InAppBrowserOpen('"+ AMall.youtube +"')");	
+	}else
+	{
+		$('#LinkInstagramMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+	}
+	if (AMall.Instagram ) 
+	{
+		$('#LinkYoutubeMall').attr("onclick","InAppBrowserOpen('"+ AMall.Instagram +"')");
+	}else
+	{
+		$('#LinkYoutubeMall').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");
+	}
 	
 	var idserviciosprofe = "'FD62AD02-B232-49E4-ABF6-A79EFBA7B117'";
 
@@ -134,8 +131,8 @@ function CargarIndexMall() {
 	$('#IconoEspecial2').html(botongalerias);
 
 	url = WebService + "StoresXCategories";
-	loadDataArray(url, true,"StoresXCategories");
-
+	loadDataArray(url, false,"StoresXCategories");
+	setStoresxCategories(arrayInfo);
 }
 
 function CargarSplashScreen() {

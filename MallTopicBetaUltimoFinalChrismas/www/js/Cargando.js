@@ -4,6 +4,7 @@ $(document).ready(function() {
         setTimeout(function() {
         	VerificarConexion();
         	VerificarRegistro();
+            var GlovalParameters =  localStorage.getItem("GlovalParameters");
         },5000);
 });
 
