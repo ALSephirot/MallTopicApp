@@ -48,6 +48,15 @@
 	var IsFavorito = false;
 	var Token = "";
 	var StoresxCategories;
+	var StoresBuscar;
+
+	function setStoresBuscar (pStoresBuscar) {
+		StoresBuscar = pStoresBuscar;
+	}
+
+	function getStoresBuscar () {
+		return StoresBuscar;
+	}
 
 	function setStoresxCategories(pStoresxCategories) {
 		StoresxCategories = pStoresxCategories;
@@ -494,3 +503,5 @@
 	window.getToken = getToken;
 	window.setStoresxCategories = setStoresxCategories;
 	window.getStoresxCategories = getStoresxCategories;
+	window.setStoresBuscar = setStoresBuscar;
+	window.getStoresBuscar = getStoresBuscar;

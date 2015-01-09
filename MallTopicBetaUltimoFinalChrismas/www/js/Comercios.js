@@ -560,7 +560,7 @@ function CargarDetalleLoc()
 	Acordeon += "<p>"+ArrayComercios.ubicacion+" - Local:"+ ArrayComercios.numLocal +"</p>";
 	Acordeon += "<h3>Teléfono</h3>";
 	Acordeon += "<p>"+ tele +"</p>";
-	Acordeon +="<h3>Descripcion</h3>";
+	Acordeon +="<h3>Descripción</h3>";
 	Acordeon += "<p>"+ ArrayComercios.descripcion +"</p>";
 		
 

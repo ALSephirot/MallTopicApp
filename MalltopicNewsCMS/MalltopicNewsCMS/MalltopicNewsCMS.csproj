@@ -287,7 +287,11 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="Properties\PublishProfiles\MTNewsCMS - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\MTNewsCMS - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNewsCMS - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\MTNewsCMS - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\MTNewsCMS - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNewsCMS - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />

@@ -4,9 +4,9 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phonegap.malltopic"
-        version   = "1.0.16">
+        version   = "1.0.19">
 
-    <name>MallTopic</name>
+    <name>MallTopic</name>s
 
     <description>
         Aplicacion de Centros Comercioles.

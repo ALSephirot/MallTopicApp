@@ -145,6 +145,13 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 						@Html.ValidationMessageFor(model => model.fecha_publicado)
 					</div>
 				</div>
+				<div class="form-group">
+					@Html.LabelFor(model => model.autor, new { @class = "control-label col-md-2" })
+					<div class="col-md-10">
+						@Html.EditorFor(model => model.autor)
+						@Html.ValidationMessageFor(model => model.autor)
+					</div>
+				</div>
 
 				<label>
 					Imágenes

@@ -3,7 +3,7 @@ var valorselectbuscar = '*';
 function Buscar() {
 
 	$.mobile.loading("show",{
-		  text: "Cargando Buscar...",
+		  text: "Buscando...",
 		  textVisible: true,
 		  theme: "b",
 		  html: ""
@@ -51,6 +51,7 @@ function Buscar() {
 			var ArrayLocalesBuscar = arrayInfo;
 			var htmls;
 			var estado = false;
+			setStoresBuscar(ArrayLocalesBuscar);
 
 			htmls = '<ul id="ListaLocales">';
 
@@ -104,7 +105,7 @@ function Buscar() {
 		}	
 		
 		$.mobile.loading("hide");
-	}, 000);	
+	}, 2000);	
 }
 
 function LlenarSelectsBuscar() {
@@ -152,4 +153,33 @@ function limpiarTodo()
         $("#NombreComercioBuscar").val("");
 		$("#ContenedorResultado" ).empty();
     }
-	
+
+$(document).ready(function() {
+	$("#ContenedorResultado").bind('scrollstop', function() {
+		var locales = getStoresBuscar();
+		var IndexIni = getLLControl();
+		var IndexFin = IndexIni + CantItemLazyLoad;
+		setLLControl(IndexFin + 1);
+		var htmls = '';
+		var LengthArray = locales.value.length;
+
+		if(IndexIni <= LengthArray)
+		{
+			//recorre y muestra todos los locales consultados
+			$.each(locales.value, function(index, item) {
+
+				if(index >= IndexIni && index <= IndexFin)
+				{
+					var logotemp = RutaRecursos + "Logos/Locales/"+ item.id + ".png";
+					var LogoFinal = VerificarArchivo("LogosTiendas",logotemp,"");
+
+					htmls += '<li class="listaTipo1"><a id="'+item.id+'"  href="#DetalleComercio" data-transition="slide"  ><img src="'+ LogoFinal +'" /><div class="textolistaTipo1"><h3>' + item.nombre+ '</h3><p>Local: '+item.numLocal+' - Tel: ' + item.telefono +'</p><p>'+ item.nombreMall +'</p><p>'+ item.NombreCategoria +'</p></div><div class="FlechaLocales">Ir</div></a></li>';							
+					estado=true;
+				}
+			});
+			
+			var contenedor = $("div.contenedor div#ContenedorResultado ul#ListaLocales");		
+			contenedor.append(htmls);
+		}
+	});
+});

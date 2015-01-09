@@ -148,9 +148,9 @@ function FormatoFecha(Fechai,Fechaf)
 	{
 		var retorno = '';
 
-	  	if(Fechai != null || Fechai != '')
+	  	if(Fechai != null && Fechai != '')
 	  	{
-		   if(Fechaf!=null || Fechaf!='' )
+		   if(Fechaf!=null && Fechaf !='' )
 		   {
 			    if(Fechai!=Fechaf )
 			    {
@@ -168,7 +168,7 @@ function FormatoFecha(Fechai,Fechaf)
 		}
 		else
 		{
-	   		if(Fechaf!=null || Fechaf!='' )
+	   		if(Fechaf!=null && Fechaf!='' )
 	   		{
 		    	retorno='Hasta el ' + FormatearFecha(Fechaf); 
 			}
@@ -191,7 +191,7 @@ function FormatearFecha(Fecha)
 {
 	try
 	{
-		var MesArray = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+		var MesArray = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
 
 
 		var fecha = new Date(Fecha);
@@ -1701,6 +1701,81 @@ function CargarCines()
 	function LlamarCompartir() {
 		$( "#modCompartir" ).dialog( "open" );
 	}
+	//Cambiar iconos de Index mall
+	function cambiariconosCompartirMall(){
+		$("#ContenedorMalls").html('<div class="divRedesSocial">'+
+                        '<p>¡Comparte!</p>'+
+	                    '<a data-red="Facebook" id="lf" href="#" onclick="CompatirFTWMMall(this)" class="socialNet1"></a>'+
+	                    '<a data-red="Twitter"id="lt" href="#" onclick="CompatirFTWMMall(this)" class="socialNet2"></a>'+
+	                    '<a data-red="WhatsApp"id="li" href="#" onclick="CompatirFTWMMall(this)" class="socialNetWhats"></a>'+
+	                    '<a data-red="Correo"id="ly" href="#" onclick="CompatirFTWMMall(this)" class="socialNetMail"></a>'+
+	                    //'<a data-red="Correo" id="ly" href="#" onclick="CompatirFTWMMall(this)" class="socialNetMail"></a>'+
+
+	                    '<a date-red="Volver" href="#" onclick="volverBotonMall()" class="socialNetAtras"></a>'+
+	                    '</div>');
+	}
+
+	function volverBotonMall(){
+		$("#ContenedorMalls").html('<div class="divRedesSocial" id="ContenedorMalls">'+
+				                    '<p>¡Síguenos!</p>'+
+				                    '<a id="LinkFacebookMall" href="#" onclick="InAppBrowserOpen("http://www.facebook.com")" class="socialNet1"></a>'+
+				                    '<a id="LinkTwitterMall" href="#" onclick="InAppBrowserOpen("http://www.twittwer.com")" class="socialNet2"></a>'+
+				                    '<a id="LinkInstagramMall" href="#" onclick="InAppBrowserOpen("http://www.instagram.com/")" class="socialNet3"></a>'+
+				                    '<a id="LinkYoutubeMall" href="#" onclick="InAppBrowserOpen("http://www.youtube.com")" class="socialNet4"></a>'+
+				                    '<a href="#modCompartir" onclick="cambiariconosCompartirMall()" class="socialNet5"></a>'+
+				                '</div>');
+	}
+	//Cambiar iconos de infogeneral
+	function cambiariconosCompartirInfoGeneral(){
+		$("#ContenedorinfoGeneralMall").html('<div class="divRedesSocial">'+
+            '<p>¡Comparte!</p>'+
+            '<a data-red="Facebook" id="lf" href="#" onclick="CompatirFTWMInfoGeneral(this)" class="socialNet1"></a>'+
+            '<a data-red="Twitter"id="lt" href="#" onclick="CompatirFTWMInfoGeneral(this)" class="socialNet2"></a>'+
+            '<a data-red="WhatsApp"id="li" href="#" onclick="CompatirFTWMInfoGeneral(this)" class="socialNetWhats"></a>'+
+            '<a data-red="Correo" id="ly" href="#" onclick="CompatirFTWMInfoGeneral(this)" class="socialNetMail"></a>'+
+            '<a date-red="Volver" href="#" onclick="volverBotonInfoGeneral()" class="socialNetAtras"></a>'+
+            '</div>');
+	}
+
+	function volverBotonInfoGeneral()
+	{
+		$("#ContenedorinfoGeneralMall").html('<div class="divRedesSocial" id="ContenedorinfoGeneralMall">'+
+			'<p>¡Comparte!</p>'+
+		    '<a id="facebookinfogeneral" onclick="InAppBrowserOpen("http://www.facebook.com")" href="#" class="socialNet1"></a>'+
+		    '<a id="twitterinforgeneral" onclick="InAppBrowserOpen("http://www.twitter.com")" href="#" class="socialNet2"></a>'+
+		    '<a id="instagrraminfogeneral" onclick="InAppBrowserOpen("http://www.instagram.com")" href="#" class="socialNet3"></a>'+
+		    '<a id="youtubeinfogeneral" onclick="InAppBrowserOpen("http://www.youtube.com")" href="#" class="socialNet4"></a>'+
+		    '<a id="compartirinfogeneral" onclick="cambiariconosCompartirInfoGeneral()"  href="#modCompartir" class="socialNet5"></a>'+
+		    '</div>');
+	}
+
+	// cambiar iconos de detalle local
+
+	function cambiariconocompartirlocal()
+	{
+		$("#ContenedorDetallelocal").html('<div class="divRedesSocial">'+
+            '<p>¡Comparte!</p>'+
+            '<a data-red="Facebook" id="lf" href="#" onclick="CompatirFTWMlocal(this)" class="socialNet1"></a>'+
+            '<a data-red="Twitter"id="lt" href="#" onclick="CompatirFTWMlocal(this)" class="socialNet2"></a>'+
+            '<a data-red="WhatsApp"id="li" href="#" onclick="CompatirFTWMlocal(this)" class="socialNetWhats"></a>'+
+            '<a data-red="Correo" id="ly" href="#" onclick="CompatirFTWMlocal(this)" class="socialNetMail"></a>'+
+            '<a date-red="Volver" href="#" onclick="volverBotonCompartirlocal()" class="socialNetAtras"></a>'+
+            '</div>');
+	}
+
+	function volverBotonCompartirlocal()
+	{
+		$("#ContenedorDetallelocal").html('<div class="divRedesSocial" id="ContenedorDetallelocal">'+
+            '<p>¡Síguenos!</p>'+
+                '<a id="lf" href="#" onclick="InAppBrowserOpen("http://www.facebook.com")" class="socialNet1"></a>'+
+                '<a id="lt" href="#" onclick="InAppBrowserOpen("http://www.twitter.com")"" class="socialNet2"></a>'+
+                '<a id="li" href="#" onclick="InAppBrowserOpen("http://www.instagram.com")" class="socialNet3"></a>'+
+                '<a id="ly" href="#" onclick="InAppBrowserOpen("http://www.youtube.com")" class="socialNet4"></a>'+
+                '<a href="#modCompartir" onclick="cambiariconocompartirlocal()"  class="socialNet5"></a>'+
+    			'</div>');
+	}
+
+	// Fin 
 
 	function InAppBrowserOpen(LinkSite) {
 		var ref = window.open(LinkSite, '_blank', 'location=yes');

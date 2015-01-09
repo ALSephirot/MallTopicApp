@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--
     Licensed to the Apache Software Foundation (ASF) under one
     or more contributor license agreements.  See the NOTICE file
@@ -193,7 +193,7 @@
         <!------------------------------------Index Ppal------------------------------------>
         <section data-role="page" id="Index">
             <div class="contenedor"> 
-                <div class="luces"></div>
+                <!--<div class="luces"></div>-->
                 <header>
                     <img src="images/LogoMT1.png" class="logo"/>
                     <img src="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Headers/HeadersModulos/headerIndex1.png" class="header"/>
@@ -277,7 +277,7 @@
                     </select>
                 </label>
                 <a  href="#" class="BBuscar" onclick="Buscar()">Buscar</a>
-                <button onclick="limpiarTodo()">Limpiar</button>    
+                <a class="BBuscar" onclick="limpiarTodo()">Limpiar</a>    
             </div>
             <div id="ContenedorResultado" onclick="c(this)"></div>
             <footer class="footer">
@@ -531,13 +531,13 @@
                         
                     </div>
                     <div class="separadorRedes"></div>
-                    <div class="divRedesSocial">
-                        <p>¡Síguenos y Comparte!</p>
+                    <div class="divRedesSocial" id="ContenedorDetallelocal">
+                        <p>¡Síguenos!</p>
                             <a id="lf" href="#" onclick='InAppBrowserOpen("http://www.facebook.com")' class="socialNet1"></a>
                             <a id="lt" href="#" onclick='InAppBrowserOpen("http://www.twitter.com")' class="socialNet2"></a>
                             <a id="li" href="#" onclick='InAppBrowserOpen("http://www.instagram.com")' class="socialNet3"></a>
                             <a id="ly" href="#" onclick='InAppBrowserOpen("http://www.youtube.com")' class="socialNet4"></a>
-                            <a href="#modCompartir" class="socialNet5"></a>
+                            <a href="#modCompartir" onclick='cambiariconocompartirlocal()'  class="socialNet5"></a>
                     </div>
                     <footer class="footer">
                         <a href="#Index" class="btnHome" data-transition="slide">Home</a>
@@ -726,9 +726,18 @@
                     <div id="AcordeonPromo" class="acordion">
                         
                     </div>
-                        <div class="organCompartir">
-                            <button class="compartir2" onclick='LlamarCompartir()'>Compartir</button>
+                       <div class="organCompartir" id="contenedorCompartir">
+                            <!--<button id="compartirboton" class="compartir2" onclick="cambiariconosCompartir()">Compartir</button>-->
+                        <div class="divRedesSocial">
+                            <p>¡Comparte!</p> 
+                            <a data-red="Facebook" id="lf" href="#" onclick="CompartirFTWMPromos(this)" class="socialNet1"></a>
+                            <a data-red="Twitter"id="lt" href="#" onclick="CompartirFTWMPromos(this)" class="socialNet2"></a>
+                            <a data-red="WhatsApp"id="li" href="#" onclick="CompartirFTWMPromos(this)" class="socialNetWhats"></a>
+                            <a data-red="Correo" id="ly" href="#" onclick="CompartirFTWMPromos(this)" class="socialNetMail"></a>
+                                <!--<a data-red="WhatsApp" href="#" onclick="CompartirFTWMPromos(this)" class="socialNet5"></a>-->
                         </div>
+                       </div>
+
                     <div class="separadorEsp"></div>
                     <footer class="footer">
                         <a href="#Index" class="btnHome">Home</a>
@@ -792,6 +801,8 @@
         </section>
         
         <!------------------------------------Detalles Eventos------------------------------------>
+
+
         <section id="DetalleEventos" data-role="page">
             <div class="contenedor">
                 <header data-id="Header" class="header2"> 
@@ -821,8 +832,17 @@
                             odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
                         </div>
                     </div>
-                    <div class="organCompartir">
+         <!--            <div class="organCompartir">
                             <button class="compartir2" onclick='LlamarCompartir()'>Compartir</button>
+                    </div> -->
+
+                    <div class="divRedesSocial">
+                    <p>¡Comparte!</p>
+                        <a data-red="Facebook" id="lf" href="#" onclick="CompartirFTWMEvents(this)" class="socialNet1"></a>
+                        <a data-red="Twitter"id="lt" href="#" onclick="CompartirFTWMEvents(this)" class="socialNet2"></a>
+                        <a data-red="WhatsApp"id="li" href="#" onclick="CompartirFTWMEvents(this)" class="socialNetWhats"></a>
+                        <a data-red="Correo" id="ly" href="#" onclick="CompartirFTWMEvents(this)" class="socialNetMail"></a>
+                        <!--<a data-red="WhatsApp" href="#" onclick="CompartirFTWMEvents(this)" class="socialNet5"></a>-->
                     </div>
                     <div class="separadorEsp"></div>
                     <footer class="footer">
@@ -911,8 +931,17 @@
                         <div id="caption" class="caption-container"></div>
                     </div>
                     <div id="thumbs" class="navigation"></div>
-                    <div class="organCompartir">
+                   <!--  <div class="organCompartir">
                            <button class="compartir2" onclick='LlamarCompartir()'>Compartir</button>
+                    </div> -->
+
+                     <div class="divRedesSocial">
+                        <p>¡Comparte!</p>
+                        <a data-red="Facebook" id="lf" href="#" onclick="CompartirFTWMColecciones(this)" class="socialNet1"></a>
+                        <a data-red="Twitter"id="lt" href="#" onclick="CompartirFTWMColecciones(this)" class="socialNet2"></a>
+                        <a data-red="WhatsApp"id="li" href="#" onclick="CompartirFTWMColecciones(this)" class="socialNetWhats"></a>
+                        <a data-red="Correo" id="ly" href="#" onclick="CompartirFTWMColecciones(this)" class="socialNetMail"></a>
+                        <!--<a data-red="WhatsApp" href="#" onclick="CompartirFTWMColecciones(this)" class="socialNet5"></a>-->
                     </div>
                     <div class="separadorEsp"></div>
                     <footer class="footer">
@@ -1148,13 +1177,13 @@
                     </div>
                 </div>
                 <div class="separadorRedes"></div>
-                <div class="divRedesSocial">
-                    <p>¡Síguenos y Comparte!</p>
-            <a id="LinkFacebookMall" href="#" onclick='InAppBrowserOpen("http://www.facebook.com")' class="socialNet1"></a>
-            <a id="LinkTwitterMall" href="#" onclick='InAppBrowserOpen("http://www.twittwer.com")' class="socialNet2"></a>
-            <a id="LinkInstagramMall" href="#" onclick='InAppBrowserOpen("http://www.instagram.com/")' class="socialNet3"></a>
-            <a id="LinkYoutubeMall" href="#" onclick='InAppBrowserOpen("http://www.youtube.com")' class="socialNet4"></a>
-            <a href="#modCompartir" class="socialNet5"></a>
+                <div class="divRedesSocial" id="ContenedorMalls">
+                    <p>¡Síguenos!</p>
+                    <a id="LinkFacebookMall" href="#" onclick='InAppBrowserOpen("http://www.facebook.com")' class="socialNet1"></a>
+                    <a id="LinkTwitterMall" href="#" onclick='InAppBrowserOpen("http://www.twittwer.com")' class="socialNet2"></a>
+                    <a id="LinkInstagramMall" href="#" onclick='InAppBrowserOpen("http://www.instagram.com/")' class="socialNet3"></a>
+                    <a id="LinkYoutubeMall" href="#" onclick='InAppBrowserOpen("http://www.youtube.com")' class="socialNet4"></a>
+                    <a href="#modCompartir" onclick='cambiariconosCompartirMall()' class="socialNet5"></a>
                 </div>
                 <footer class="footer">
                     <a href="#Index" class="btnHome">Home</a>
@@ -1187,13 +1216,13 @@
 
                     </div>
                     <div class="separadorRedes"></div>
-                    <div class="divRedesSocial">
-                        <p>¡Síguenos y Comparte!</p>
+                    <div class="divRedesSocial" id="ContenedorinfoGeneralMall">
+                        <p>¡Síguenos!</p>
                             <a id="facebookinfogeneral" onclick='InAppBrowserOpen("http://www.facebook.com")' href="#" class="socialNet1"></a>
                             <a id="twitterinforgeneral" onclick='InAppBrowserOpen("http://www.twitter.com")' href="#" class="socialNet2"></a>
                             <a id="instagrraminfogeneral" onclick='InAppBrowserOpen("http://www.instagram.com")' href="#" class="socialNet3"></a>
                             <a id="youtubeinfogeneral" onclick='InAppBrowserOpen("http://www.youtube.com")' href="#" class="socialNet4"></a>
-                            <a id="compartirinfogeneral"  href="#modCompartir" class="socialNet5"></a>
+                            <a id="compartirinfogeneral" onclick='cambiariconosCompartirInfoGeneral()'  href="#modCompartir" class="socialNet5"></a>
                     </div>
                     <footer class="footer">
                         <a href="#Index" class="btnHome">Home</a>
@@ -2109,5 +2138,174 @@
                 </footer>
             </div><!--Cierro Contenedor-->          
         </section>
+          <script type="text/javascript">
+                function CompartirFTWMPromos(LinkRed) 
+                {
+                    var Red = $(LinkRed).attr("data-red");
+                    var id = getPromo();
+
+                    if($.mobile.activePage.is('#DetallePromos'))
+                    {
+                        CompartirContenidos(Red,"Promos",id);
+
+                        if (Red=="Facebook")
+                        {
+                            CompartirFacebook("Alex");
+                        }
+                        if (Red=="WhatsApp") 
+                        {
+                            CompartirWhatsApp(Red,"Promos",id);
+                        }
+                        if (Red=="Twitter")
+                        {
+                            CompartirTwitter();
+                        }
+                        if (Red=="Correo") 
+                        {
+                            CompartirEmail(Red,"Promos", id)
+                        }
+                    }
+                }
+
+                 function CompartirFTWMEvents(LinkRed) 
+                {
+                    var Red = $(LinkRed).attr("data-red");
+                    var id = getEvento();
+
+                    if($.mobile.activePage.is('#DetalleEventos'))
+                    {
+                        CompartirContenidos(Red,"Eventos",id);
+
+                        if (Red=="Facebook")
+                        {
+                            CompartirFacebook("Alex");
+                        }
+                        if (Red=="WhatsApp") 
+                        {
+                            CompartirWhatsApp(Red,"Eventos",id);
+                        }
+                        if (Red=="Twitter")
+                        {
+                            CompartirTwitter();
+                        }
+                        if (Red=="Correo") 
+                        {
+                            CompartirEmail(Red,"Eventos", id)
+                        }
+                    }
+                }
+
+                 function CompartirFTWMColecciones(LinkRed) 
+                {
+                    var Red = $(LinkRed).attr("data-red");
+                    var id = getColeccion();
+
+                    if($.mobile.activePage.is('#DetalleColecciones'))
+                    {
+                        CompartirContenidos(Red,"Colecciones",id);
+
+                        if (Red=="Facebook")
+                        {
+                            CompartirFacebook("Alex");
+                        }
+                        if (Red=="WhatsApp") 
+                        {
+                            CompartirWhatsApp(Red,"Colecciones",id);
+                        }
+                        if (Red=="Twitter")
+                        {
+                            CompartirTwitter();
+                        }
+                        if (Red=="Correo") 
+                        {
+                            CompartirEmail(Red,"Colecciones", id)
+                        }
+                    }
+                }
+
+                function CompatirFTWMMall(LinkRed)
+                {
+                    var Red = $(LinkRed).attr("data-red");
+                    var id = getCC();
+
+                    if($.mobile.activePage.is('#IndexMall'))
+                    {
+                        CompartirContenidos(Red,"Malls",id);
+
+                        if (Red=="Facebook")
+                        {
+                            CompartirFacebook("Alex");
+                        }
+                        if (Red=="WhatsApp") 
+                        {
+                            CompartirWhatsApp(Red,"Malls",id);
+                        }
+                        if (Red=="Twitter")
+                        {
+                            CompartirTwitter();
+                        }
+                        if (Red=="Correo") 
+                        {
+                            CompartirEmail(Red,"Malls", id)
+                        }
+                    }
+                }
+
+                function CompatirFTWMInfoGeneral(LinkRed)
+                {
+                    var Red = $(LinkRed).attr("data-red");
+                    var id = getCC();
+
+                    if($.mobile.activePage.is('#InfoGeneral'))
+                    {
+                        CompartirContenidos(Red,"Malls",id);
+
+                        if (Red=="Facebook")
+                        {
+                            CompartirFacebook("Alex");
+                        }
+                        if (Red=="WhatsApp") 
+                        {
+                            CompartirWhatsApp(Red,"Malls",id);
+                        }
+                        if (Red=="Twitter")
+                        {
+                            CompartirTwitter();
+                        }
+                        if (Red=="Correo") 
+                        {
+                            CompartirEmail(Red,"Malls", id)
+                        }
+                    }
+                }
+
+                function CompatirFTWMlocal(LinkRed)
+                {
+                    var Red = $(LinkRed).attr("data-red");
+                    var id = GetLocal();
+
+                    if($.mobile.activePage.is('#DetalleComercio'))
+                    {
+                        CompartirContenidos(Red,"Comercios",id);
+
+                        if (Red=="Facebook")
+                        {
+                            CompartirFacebook("Alex");
+                        }
+                        if (Red=="WhatsApp") 
+                        {
+                            CompartirWhatsApp(Red,"Comercios",id);
+                        }
+                        if (Red=="Twitter")
+                        {
+                            CompartirTwitter();
+                        }
+                        if (Red=="Correo") 
+                        {
+                            CompartirEmail(Red,"Comercios", id)
+                        }
+                    }
+                }
+            </script>
     </body>
 </html>

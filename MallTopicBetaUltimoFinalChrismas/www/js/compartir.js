@@ -26,117 +26,121 @@ function CompartirContenidos (Pred, Pmodulo, Pid) {
 	  };
 	}
 
-	if(Pred == "WhatsApp")
-	{
-		CompartirWhatsApp(Pred, Pmodulo, Pid);
-	}
-	else if(Pred == "E-Mail")
+	// if(Pred == "WhatsApp")
+	// {
+	// 	CompartirWhatsApp(Pred, Pmodulo, Pid);
+	// }
+	// else
+	 if(Pred == "E-Mail")
 	{
 		CompartirEmail(Pred, Pmodulo, Pid);
 	}
 }
 
 function CompartirWhatsApp (red, modulo, id) {
-	var ShareText = Mensajes[modulo];
-	switch (modulo)
-	{
-		case "Promos":
+ var ShareText = Mensajes[modulo];
+ switch (modulo)
+ {
+  case "Promos":
 
-			var url = WebService + "Promos(guid'"+ id +"')?$expand=Malls,Stores";
-			loadDataArray(url);
-			var APromo = arrayInfo;
-			var Mall = APromo.Malls;
-			var Store = APromo.Stores;
+   var url = WebService + "Promos(guid'"+ id +"')?$expand=Malls,Stores";
+   loadDataArray(url);
+   var APromo = arrayInfo;
+   var Mall = APromo.Malls;
+   var Store = APromo.Stores;
 
-			if(Mall == null)
-			{
-				ShareText = ShareText.format(APromo.nombre,Store.nombre);
-			}
-			else
-			{
-				ShareText = ShareText.format(APromo.nombre,Mall.nombre);
-			}
+   if(Mall == null)
+   {
+    ShareText = ShareText.format(APromo.nombre,Store.nombre);
+   }
+   else
+   {
+    ShareText = ShareText.format(APromo.nombre,Mall.nombre);
+   }
 
-				
-			$(window.location).attr('href','whatsapp://send?text='+ShareText);
-			break;
-		case "Eventos":
+    
+   $(window.location).attr('href','whatsapp://send?text='+ShareText);
 
-			var url = WebService + "Events(guid'"+ id +"')?$expand=Malls,Stores";
-			loadDataArray(url);
-			var AEvento = arrayInfo;
-			var Mall = AEvento.Malls;
-			var Store = AEvento.Stores;
+  
+   break;
+  case "Eventos":
 
-			if(Mall == null)
-			{
-				ShareText = ShareText.format(AEvento.nombre,Store.nombre);
-			}
-			else
-			{
-				ShareText = ShareText.format(AEvento.nombre,Mall.nombre);
-			}
+   var url = WebService + "Events(guid'"+ id +"')?$expand=Malls,Stores";
+   loadDataArray(url);
+   var AEvento = arrayInfo;
+   var Mall = AEvento.Malls;
+   var Store = AEvento.Stores;
 
-			$(window.location).attr('href','whatsapp://send?text='+ShareText);
-			break;
-		case "Colecciones":
+   if(Mall == null)
+   {
+    ShareText = ShareText.format(AEvento.nombre,Store.nombre);
+   }
+   else
+   {
+    ShareText = ShareText.format(AEvento.nombre,Mall.nombre);
+   }
 
-			var url = WebService + "Colections(guid'"+ id +"')?$expand=Malls,Stores";
-			loadDataArray(url);
-			var AColecc = arrayInfo;
-			var Mall = AColecc.Malls;
-			var Store = AColecc.Stores;
+   $(window.location).attr('href','whatsapp://send?text='+ShareText);
+   break;
+  case "Colecciones":
 
-			if(Mall == null)
-			{
-				ShareText = ShareText.format(AColecc.nombre,Store.nombre);
-			}
-			else
-			{
-				ShareText = ShareText.format(AColecc.nombre,Mall.nombre);
-			}
+   var url = WebService + "Colections(guid'"+ id +"')?$expand=Malls,Stores";
+   loadDataArray(url);
+   var AColecc = arrayInfo;
+   var Mall = AColecc.Malls;
+   var Store = AColecc.Stores;
 
-			$(window.location).attr('href','whatsapp://send?text='+ShareText);
-			break;
-		case "Comercios":
+   if(Mall == null)
+   {
+    ShareText = ShareText.format(AColecc.nombre,Store.nombre);
+   }
+   else
+   {
+    ShareText = ShareText.format(AColecc.nombre,Mall.nombre);
+   }
 
-			var url = WebService + "Stores(guid'"+ id +"')?$expand=Malls";
-			loadDataArray(url);
-			var AStores = arrayInfo;
-			var Mall = AStores.Malls;
-			var Store = AStores.Stores;
+   $(window.location).attr('href','whatsapp://send?text='+ShareText);
+   break;
+  case "Comercios":
 
-			if(Mall == null)
-			{
-				ShareText = ShareText.format(AStores.nombre,Store.nombre);
-			}
-			else
-			{
-				ShareText = ShareText.format(AStores.nombre,Mall.nombre);
-			}
+   var url = WebService + "Stores(guid'"+ id +"')?$expand=Malls";
+   loadDataArray(url);
+   var AStores = arrayInfo;
+   var Mall = AStores.Malls;
+   var Store = AStores.Stores;
 
-			$(window.location).attr('href','whatsapp://send?text='+ShareText);
-			break;
-		case "Malls":
+   if(Mall == null)
+   {
+    ShareText = ShareText.format(AStores.nombre,Store.nombre);
+   }
+   else
+   {
+    ShareText = ShareText.format(AStores.nombre,Mall.nombre);
+   }
 
-			var url = WebService + "Malls(guid'"+ id +"')";
-			loadDataArray(url);
-			var AMall = arrayInfo;
-			var Mall = AMall.Malls;
-			var Store = AMall.Stores;
+   $(window.location).attr('href','whatsapp://send?text='+ShareText);
+   break;
+  case "Malls":
 
-			if(Mall == null)
-			{
-				ShareText = ShareText.format(AMall.nombre,Store.nombre);
-			}
-			else
-			{
-				ShareText = ShareText.format(AMall.nombre,Mall.nombre);
-			}
+   var url = WebService + "Malls(guid'"+ id +"')";
+   loadDataArray(url);
+   var AMall = arrayInfo;
+   var Mall = AMall.Malls;
+   var Store = AMall.Stores;
 
-			$(window.location).attr('href','whatsapp://send?text='+ShareText);
-			break;
-	}
+   if(Mall == null)
+   {
+    //ShareText = ShareText.format(AMall.nombre,Store.nombre);
+    ShareText = ShareText.format(AMall.nombre);
+   }
+   else
+   {
+    ShareText = ShareText.format(AMall.nombre,Mall.nombre);
+   }
+
+   $(window.location).attr('href','whatsapp://send?text='+ShareText);
+   break;
+ }
 }
 
 function CompartirFacebook (Mensaje) {
@@ -146,7 +150,7 @@ function CompartirFacebook (Mensaje) {
 			.done(function(result) {
 
 				result.post("http://graph.facebook.com/{user-id}/feed", {data:{
-			            'message' : Mensaje,
+			            'message' : Mensajes["Promos"],
                         'access_token' : AccesToken
 			        }
 			    })
@@ -259,7 +263,8 @@ function CompartirEmail (red, modulo, id) {
 
 			if(Mall == null)
 			{
-				ShareText = ShareText.format(AMall.nombre,Store.nombre);
+//				ShareText = ShareText.format(AMall.nombre,Store.nombre);
+				ShareText = ShareText.format(AMall.nombre);
 			}
 			else
 			{
@@ -269,4 +274,30 @@ function CompartirEmail (red, modulo, id) {
 			$(window.location).attr('href','mailto:Coloca_tu_destinatario?subject=Mira este super Centro Comercial&body='+ShareText);
 			break;
 	}
+}
+
+function CompartirTwitter(){
+
+			OAuth.popup('twitter',{cache: true})
+				.done(function(result) {
+
+					result.post("https://api.twitter.com/1.1/statuses/update.json", {data:{
+				            'status' : Mensajes["Promos"],
+	                        'trim_user' : true
+				        }
+				    })
+				    .done(function (response) {
+				    	//alert('Bienvenido: ' + response.name + '\nTu usuario es:' response.user);
+				        alert('Tu tweet se ha publicado correctamente');
+				    })
+				    .fail(function (err) {
+				        alert('No hemos podido publicar tu Tweet.\nIntentalo de nuevo mas tarde.');
+				    });
+					//use result.access_token in your API request 
+					//or use result.get|post|put|del|patch|me methods (see below)
+					
+				})
+				.fail(function (err) {
+				  //handle error with err
+			});
 }
