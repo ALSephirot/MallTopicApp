@@ -171,7 +171,7 @@ function CargarInfoGeneral () {
 	url = WebService + "Malls(guid'"+ Mall +"')?$expand=Cities";
 	loadDataArray(url);
 	var AMall = arrayInfo;
-	var web = "'"+ AMall.web +"'";
+	var web = "'http://"+ AMall.web +"'";
 	var htmlMall = "<h2>"+ AMall.nombre +"</h2>";
 	htmlMall += "<h3>Dirección</h3>";
 	htmlMall += "<p>"+ AMall.direccion +"</p>";

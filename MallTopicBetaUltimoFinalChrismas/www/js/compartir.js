@@ -26,121 +26,133 @@ function CompartirContenidos (Pred, Pmodulo, Pid) {
 	  };
 	}
 
-	// if(Pred == "WhatsApp")
-	// {
-	// 	CompartirWhatsApp(Pred, Pmodulo, Pid);
-	// }
-	// else
-	 if(Pred == "E-Mail")
+	if(Pred == "WhatsApp")
+	{
+		CompartirWhatsApp(Pred, Pmodulo, Pid);
+	}
+	else if(Pred == "E-Mail")
 	{
 		CompartirEmail(Pred, Pmodulo, Pid);
 	}
 }
 
 function CompartirWhatsApp (red, modulo, id) {
- var ShareText = Mensajes[modulo];
- switch (modulo)
- {
-  case "Promos":
+	var ShareText = Mensajes[modulo];
+	switch (modulo)
+	{
+		case "Promos":
 
-   var url = WebService + "Promos(guid'"+ id +"')?$expand=Malls,Stores";
-   loadDataArray(url);
-   var APromo = arrayInfo;
-   var Mall = APromo.Malls;
-   var Store = APromo.Stores;
+			var url = WebService + "Promos(guid'"+ id +"')?$expand=Malls,Stores";
+			loadDataArray(url);
+			var APromo = arrayInfo;
+			var Mall = APromo.Malls;
+			var Store = APromo.Stores;
 
-   if(Mall == null)
-   {
-    ShareText = ShareText.format(APromo.nombre,Store.nombre);
-   }
-   else
-   {
-    ShareText = ShareText.format(APromo.nombre,Mall.nombre);
-   }
+			if(Mall == null)
+			{
+				ShareText = ShareText.format(APromo.nombre,Store.nombre);
+			}
+			else
+			{
+				ShareText = ShareText.format(APromo.nombre,Mall.nombre);
+			}
 
-    
-   $(window.location).attr('href','whatsapp://send?text='+ShareText);
+				
+			$(window.location).attr('href','whatsapp://send?text='+ShareText);
+			break;
+		case "Eventos":
 
-  
-   break;
-  case "Eventos":
+			var url = WebService + "Events(guid'"+ id +"')?$expand=Malls,Stores";
+			loadDataArray(url);
+			var AEvento = arrayInfo;
+			var Mall = AEvento.Malls;
+			var Store = AEvento.Stores;
 
-   var url = WebService + "Events(guid'"+ id +"')?$expand=Malls,Stores";
-   loadDataArray(url);
-   var AEvento = arrayInfo;
-   var Mall = AEvento.Malls;
-   var Store = AEvento.Stores;
+			if(Mall == null)
+			{
+				ShareText = ShareText.format(AEvento.nombre,Store.nombre);
+			}
+			else
+			{
+				ShareText = ShareText.format(AEvento.nombre,Mall.nombre);
+			}
 
-   if(Mall == null)
-   {
-    ShareText = ShareText.format(AEvento.nombre,Store.nombre);
-   }
-   else
-   {
-    ShareText = ShareText.format(AEvento.nombre,Mall.nombre);
-   }
+			$(window.location).attr('href','whatsapp://send?text='+ShareText);
+			break;
+		case "Colecciones":
 
-   $(window.location).attr('href','whatsapp://send?text='+ShareText);
-   break;
-  case "Colecciones":
+			var url = WebService + "Colections(guid'"+ id +"')?$expand=Malls,Stores";
+			loadDataArray(url);
+			var AColecc = arrayInfo;
+			var Mall = AColecc.Malls;
+			var Store = AColecc.Stores;
 
-   var url = WebService + "Colections(guid'"+ id +"')?$expand=Malls,Stores";
-   loadDataArray(url);
-   var AColecc = arrayInfo;
-   var Mall = AColecc.Malls;
-   var Store = AColecc.Stores;
+			if(Mall == null)
+			{
+				ShareText = ShareText.format(AColecc.nombre,Store.nombre);
+			}
+			else
+			{
+				ShareText = ShareText.format(AColecc.nombre,Mall.nombre);
+			}
 
-   if(Mall == null)
-   {
-    ShareText = ShareText.format(AColecc.nombre,Store.nombre);
-   }
-   else
-   {
-    ShareText = ShareText.format(AColecc.nombre,Mall.nombre);
-   }
+			$(window.location).attr('href','whatsapp://send?text='+ShareText);
+			break;
+		case "Comercios":
 
-   $(window.location).attr('href','whatsapp://send?text='+ShareText);
-   break;
-  case "Comercios":
+			var url = WebService + "Stores(guid'"+ id +"')?$expand=Malls";
+			loadDataArray(url);
+			var AStores = arrayInfo;
+			var Mall = AStores.Malls;
+			var Store = AStores.Stores;
 
-   var url = WebService + "Stores(guid'"+ id +"')?$expand=Malls";
-   loadDataArray(url);
-   var AStores = arrayInfo;
-   var Mall = AStores.Malls;
-   var Store = AStores.Stores;
+			if(Mall == null)
+			{
+				ShareText = ShareText.format(AStores.nombre,Store.nombre);
+			}
+			else
+			{
+				ShareText = ShareText.format(AStores.nombre,Mall.nombre);
+			}
 
-   if(Mall == null)
-   {
-    ShareText = ShareText.format(AStores.nombre,Store.nombre);
-   }
-   else
-   {
-    ShareText = ShareText.format(AStores.nombre,Mall.nombre);
-   }
+			$(window.location).attr('href','whatsapp://send?text='+ShareText);
+			break;
+		case "Malls":
 
-   $(window.location).attr('href','whatsapp://send?text='+ShareText);
-   break;
-  case "Malls":
+			var url = WebService + "Malls(guid'"+ id +"')";
+			loadDataArray(url);
+			var AMall = arrayInfo;
+			var Mall = AMall.Malls;
+			var Store = AMall.Stores;
 
-   var url = WebService + "Malls(guid'"+ id +"')";
-   loadDataArray(url);
-   var AMall = arrayInfo;
-   var Mall = AMall.Malls;
-   var Store = AMall.Stores;
+			if(Mall == null)
+			{
+				if(Store == null)
+				{
+					ShareText = ShareText.format(AMall.nombre);
+				}
+				else
+				{
+					ShareText = ShareText.format(AMall.nombre,Store.nombre);
+				}
+				
+			}
+			else
+			{
+				if(Store == null)
+				{
+					ShareText = ShareText.format(Mall.nombre);
+				}
+				else
+				{
+					ShareText = ShareText.format(Mall.nombre,Store.nombre);
+				}
+				
+			}
 
-   if(Mall == null)
-   {
-    //ShareText = ShareText.format(AMall.nombre,Store.nombre);
-    ShareText = ShareText.format(AMall.nombre);
-   }
-   else
-   {
-    ShareText = ShareText.format(AMall.nombre,Mall.nombre);
-   }
-
-   $(window.location).attr('href','whatsapp://send?text='+ShareText);
-   break;
- }
+			$(window.location).attr('href','whatsapp://send?text='+ShareText);
+			break;
+	}
 }
 
 function CompartirFacebook (Mensaje) {
@@ -150,7 +162,7 @@ function CompartirFacebook (Mensaje) {
 			.done(function(result) {
 
 				result.post("http://graph.facebook.com/{user-id}/feed", {data:{
-			            'message' : Mensajes["Promos"],
+			            'message' : Mensaje,
                         'access_token' : AccesToken
 			        }
 			    })
@@ -263,7 +275,7 @@ function CompartirEmail (red, modulo, id) {
 
 			if(Mall == null)
 			{
-//				ShareText = ShareText.format(AMall.nombre,Store.nombre);
+				//ShareText = ShareText.format(AMall.nombre,Store.nombre);
 				ShareText = ShareText.format(AMall.nombre);
 			}
 			else

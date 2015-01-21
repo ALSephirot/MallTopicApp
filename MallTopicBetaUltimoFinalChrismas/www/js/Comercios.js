@@ -176,6 +176,7 @@ function cargarListaloc(idcate, idpaginacontenedor){
 	//$('#titleg').append("Centros comerciales");
 	var Mall = getCC();
 	var MallFiltro = getFiltroMalls();
+	setCate(idcate);
 		
 	$('#contentloc').html('');
 
@@ -555,9 +556,18 @@ function CargarDetalleLoc()
 	{
 		tele = ArrayComercios.telefono
 	}
-	
+	var categoria =  getCate();
+
 	Acordeon += "<h3>Ubicación</h3>";
-	Acordeon += "<p>"+ArrayComercios.ubicacion+" - Local:"+ ArrayComercios.numLocal +"</p>";
+
+	if(categoria.toLowerCase() == 'FD62AD02-B232-49E4-ABF6-A79EFBA7B117'.toLowerCase() || categoria.toLowerCase() == '9BA14D6A-83E0-4726-B41B-52080A75AFE5'.toLowerCase())
+	{
+		Acordeon += "<p>"+ArrayComercios.ubicacion+" - "+ ArrayComercios.numLocal +"</p>";	
+	}
+	else
+	{
+		Acordeon += "<p>"+ArrayComercios.ubicacion+" - Local:"+ ArrayComercios.numLocal +"</p>";
+	}
 	Acordeon += "<h3>Teléfono</h3>";
 	Acordeon += "<p>"+ tele +"</p>";
 	Acordeon +="<h3>Descripción</h3>";
