@@ -6,6 +6,7 @@ function CargarAMalls() {
 }
 
 window.cargarListaCC=cargarListaCC;
+
 function cargarListaCC(){
 
 	var html='';
@@ -14,6 +15,7 @@ function cargarListaCC(){
 
 	//Consulta todos los locales pertenecientes a una ciudad
 	var malls= getGlovalAMalls();
+	InstrumentacionGuardarInicio("Inicia pintar malls","Malls","Inicia pintar lista de malls");
 
 	html = '<ul>';
 
@@ -23,6 +25,8 @@ function cargarListaCC(){
 		estado=true;
 	});
 
+
+
 	if(!estado)
 	{
 		html += '<li>No se encontraron centros comerciales</li>';
@@ -31,6 +35,9 @@ function cargarListaCC(){
 	html+='</ul>';
 	$('#ContentListCC').html(html);
 	$('#ContentListCC').trigger('create');
+
+	InstrumentacionGuardarFinal("Finalisa pintar malls","Malls","Finalisa pintar lista de malls");
+	
 }
 
 function CargarIndexMall() {
@@ -136,6 +143,9 @@ function CargarIndexMall() {
 }
 
 function CargarSplashScreen() {
+
+
+
 	setFiltroMalls('');
 	var centro = getCC();
 	var Imagensplash = '';
@@ -348,3 +358,46 @@ $( document ).on( "pageshow", "#IndexMall", function(){
 		setCargarInfo(true);
 	}
 });
+
+
+function NewGuid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+               .toString(16)
+               .substring(1);
+  }
+  return function() {
+    return s4() + s4() + '-' + s4() + '-' + s4();
+  };
+}
+
+var idnew="";
+function InstrumentacionGuardarInicio(pevento,pmodulo,pdetalleevento)
+{
+	 idnew = NewGuid()();	
+	var DatosInicio ={
+        evento: pevento,
+        modulo: pmodulo,
+        detalleevento: pdetalleevento,
+        plataforma: localStorage.getItem("Platform"),
+        idCelular: localStorage.getItem("idCelular"),
+		idControl: idnew
+    }
+    	InsertData('DatosInstrumentacion', DatosInicio);
+}
+
+
+function InstrumentacionGuardarFinal(pevento,pmodulo,pdetalleevento)
+{
+	
+	var DatosFin ={
+        evento: pevento,
+        modulo: pmodulo,
+        detalleevento: pdetalleevento,
+        plataforma: localStorage.getItem("Platform"),
+        idCelular: localStorage.getItem("idCelular"),
+		idControl: idnew
+    }
+    	InsertData('DatosInstrumentacion', DatosFin);
+}
+

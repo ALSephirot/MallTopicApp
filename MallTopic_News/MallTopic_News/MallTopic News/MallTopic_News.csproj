@@ -197,6 +197,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Css\estilos.css" />
+    <Content Include="Css\estilos2.css" />
     <Content Include="Css\estilosEspecialesMt.css" />
     <Content Include="Css\estilosEstilodeVida.css" />
     <Content Include="Css\estilosEventos.css" />
@@ -204,7 +206,6 @@
     <Content Include="Css\estilosMovilidad.css" />
     <Content Include="Css\estilosPromociones.css" />
     <Content Include="Css\estilosRecientes.css" />
-    <Content Include="Css\estilos.css" />
     <Content Include="Css\estilosSaludBelleza.css" />
     <Content Include="Css\estilosTecnologia.css" />
     <Content Include="favicon.ico" />
@@ -221,6 +222,7 @@
     <Content Include="fonts\GravityLight.ttf" />
     <Content Include="fonts\GOTHIC.TTF" />
     <Content Include="fonts\BEBAS.TTF" />
+    <Content Include="Css\estilos.styl" />
     <None Include="Properties\PublishProfiles\MTNews - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - FTP %284%29.pubxml" />

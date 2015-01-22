@@ -229,13 +229,14 @@ function FormatearFecha(Fecha)
 	//objectUser= Objeto con los datos a ingresar
 	//url= direccion con la consulta 
   	function insertDataArray(objectUser, url) {
-
+  		$.support.corps = true;
 		$.ajax({
 			type: "POST",
 			url: url,
             contentType: "application/json; charset=utf-8",
 			traditional: true,
 		    data: JSON.stringify(objectUser),
+		    async:true,
 			success: function (msg) {
 				if(msg){
 					console.log("objeto ingresado en BD suscriptores");
@@ -656,10 +657,14 @@ function CargarCines()
 			url = WebService + "GetPromos?IdPromo=''&IdMall='"+ Mall +"'";
 		}
 
+		InstrumentacionGuardarInicio("Inicia Buscar Promociones","Promociones","Inicia Buscar lista de promociones");
 		loadDataArray(url);
+		InstrumentacionGuardarFinal("Finalisa Buscar Promociones","Promociones","finalisa la Busquda de promociones");
+
 		APromociones = arrayInfo;
 
 		var htmlPromos = '<ul>';
+		InstrumentacionGuardarInicio("Inicia pintar Promociones","Promociones","Inicia pintar lista de promociones");
 
 		if(Mall == "" || Mall == undefined)
 		{
@@ -706,6 +711,7 @@ function CargarCines()
 		htmlPromos += '</ul>';
 
 		$('#PromosList').html(htmlPromos);
+		InstrumentacionGuardarFinal("Finalisa pintar Promociones","Promociones","finalisa de pintar las promociones");
 	}
 
 	function CargarDetallePromo()
@@ -770,10 +776,13 @@ function CargarCines()
 		 	url = WebService + "GetEventos?IdEvento=''&IdMall='"+ Mall +"'";
 		 }
 
-
+ 		 InstrumentacionGuardarInicio("Buscar Eventos","Eventos","Inicia Buscar los eventos");
 		 loadDataArray(url);
+		 InstrumentacionGuardarFinal("Busqueda evetos","Eventos","Finalisa Busqueda eventos");
 		 AEventos = arrayInfo;
 		 var htmlEventos = '<ul>';
+
+		 InstrumentacionGuardarInicio("Inicia pintar Eventos","Eventos","Inicia pintar los eventos");
 
 		$.each(AEventos.value, function(index, item) {
 			var Store = item.fk_idStore;
@@ -803,6 +812,7 @@ function CargarCines()
 
 		htmlEventos += '</ul>';
 		$("#EventList").html(htmlEventos);
+		InstrumentacionGuardarFinal("Finalisa pintar evetos","Eventos","Finalisa pintar eventos");
 	}
 
 	function CargarDetalleEventos() 

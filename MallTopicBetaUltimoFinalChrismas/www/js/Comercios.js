@@ -19,10 +19,14 @@ function CargarCategorias(idpaginacontent)
 		url= WebService + "Categories?$select= id,nombre,icono,descripcion,especial,fk_idCC&$orderby=descripcion";				
 	}
 		
+	InstrumentacionGuardarInicio("ConsultaCategorias","Categorias","Inicia Busqueda");
 	loadDataArray(url);
+	InstrumentacionGuardarFinal("ConsultaCategorias","Categorias","Final Busqueda");
+	
 	var Categorias= arrayInfo;
 
 	//Pinto el Unordered List
+
 	var htmlList = '<p>Categorias Generales</p>';
 	var htmlCatEspe = '<p>Categorias Especiales</p>';
 	var htmlMovicentro = '<p>Categorias Movicentro</p>';
@@ -35,7 +39,7 @@ function CargarCategorias(idpaginacontent)
 	{
 		LinkLocal = "#ComerciosxLocalesMall";
 	}
-
+	InstrumentacionGuardarInicio("Inicia Pintar Categorias","Categorias","Inicia PintarCategorias");
 	$.each(Categorias.value, function(index, item) {
 		if(ActividadCiclo != ActividadControl)
 		{
@@ -160,14 +164,17 @@ function CargarCategorias(idpaginacontent)
 		loadDataArray(url,true);
 		setStoresxCategories(arrayInfo);
 	}
+	InstrumentacionGuardarFinal("Finalisa Pintar Categorias","Categorias","Finalisa PintarCategorias");
 }
+
+
 
 //FUNCION PARA CARGAR LISTAS DE LOCALES
 //Recibe el id de la categoria, si este esta en blanco los carga todos.
 //Recibe el id de la pagina que necesita la lista,
 window.cargarListaloc=cargarListaloc;
 function cargarListaloc(idcate, idpaginacontenedor){
-		
+
 	var html='';
 	console.log("cargandoListaLoc..");
 	$('.removec').empty();
@@ -232,7 +239,9 @@ function cargarListaloc(idcate, idpaginacontenedor){
 	var localestemp;
 
 	//Consulta todos los locales pertenecientes a una ciudad
+	InstrumentacionGuardarInicio("Inicia Busqueda locales","Locales","Inicia Busqueda lista de locales");
 	loadDataArray(url);
+	InstrumentacionGuardarFinal("Finalisa Busqueda locales","Locales","Finalisa Busqueda lista de locales por categoria");
 
 	if(idcate != "")
 	{
@@ -277,7 +286,7 @@ function cargarListaloc(idcate, idpaginacontenedor){
 	var MasCercanos = getMasCercanos();
 	var ALocalesFinal = new Array();
 	var DistanciaAsignada = false;
-
+	
 	$.each(localestemp, function(index, item) {
 		var atemp = localestemp[index];
 		var atemp2 = new Array();
@@ -352,6 +361,7 @@ function cargarListaloc(idcate, idpaginacontenedor){
 	            return n.fk_idCategory == stringCons;
 	        });
 	//recorre y muestra todos los locales consultados
+	InstrumentacionGuardarInicio("Inicia Pintar locales","Locales","Inicia Listar lista de locales");
 	$.each(ALocalesFinal, function(index, item) {
 
 		if(index >= IndexIni && index <= IndexFin)
@@ -472,6 +482,7 @@ function cargarListaloc(idcate, idpaginacontenedor){
 			}
 		}
 	});
+	InstrumentacionGuardarFinal("Finalisa Pintar locales","Locales","Finalisa pintar lista de locales");
 
 	if(estado==false){
 

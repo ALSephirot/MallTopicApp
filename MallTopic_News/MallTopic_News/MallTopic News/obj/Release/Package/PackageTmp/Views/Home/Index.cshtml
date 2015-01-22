@@ -54,7 +54,7 @@
 <section id="content">
 	<article class="contenedor1">
 		<section id="slider">
-			
+
 			<div>
 				<a id="LinkNoticia" href="#">
 					<img id="Imagen" data-ocultar="true" data-count="0" />
@@ -121,7 +121,8 @@
 			if (cre < 3)
 			{
 				<aside>
-					<a href="~/Home/NoticiaDetalle/@item.id">
+					@{var idd = "/" + item.id;}
+					<a href="~/Home/NoticiaDetalle/@idd">
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
@@ -150,7 +151,8 @@
 			else if (cre >= 3)
 			{
 				<aside>
-					<a href="~/Home/NoticiaDetalle/@item.id">
+					@{var idd = "/" + item.id;}
+					<a href="~/Home/NoticiaDetalle/@idd">
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
@@ -198,7 +200,8 @@
 			if (cpr < 3)
 			{
 				<aside>
-					<a href="~/Home/NoticiaDetalle/@item.id">
+					@{var idd = "/" + item.id;}
+					<a href="~/Home/NoticiaDetalle/@idd">
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
@@ -227,7 +230,8 @@
 			else if (cpr >= 3)
 			{
 				<aside>
-					<a href="~/Home/NoticiaDetalle/@item.id">
+					@{var idd = "/" + item.id;}
+					<a href="~/Home/NoticiaDetalle/@idd">
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
@@ -277,25 +281,31 @@
 			if (cev < 3)
 			{
 				<aside>
-					<a href="~/Home/NoticiaDetalle/@item.id">
+					@{var idd = "/" + item.id;}
+					<a href="~/Home/NoticiaDetalle/@idd">
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
 							@{var descripcion = "";
-							var largo = item.descripcion.Length;
-							if (largo >= 300)
+							if (item.descripcion != null)
 							{
-								descripcion = item.descripcion.Substring(0, 296) + "...";
-							}
-							else
-							{
-								descripcion = item.descripcion.Substring(0, largo);
-							}
-							descripcion = descripcion.Replace("*", " ");
-							descripcion = descripcion.Replace("[", " ");
-							descripcion = descripcion.Replace("]", " ");
+
+
+								var largo = item.descripcion.Length;
+								if (largo >= 300)
+								{
+									descripcion = item.descripcion.Substring(0, 296) + "...";
+								}
+								else
+								{
+									descripcion = item.descripcion.Substring(0, largo);
+								}
+								descripcion = descripcion.Replace("*", " ");
+								descripcion = descripcion.Replace("[", " ");
+								descripcion = descripcion.Replace("]", " ");
 							}
 							<p>@descripcion</p>
+							}
 						</div>
 					</a>
 				</aside>
@@ -303,7 +313,8 @@
 			else if (cev >= 3)
 			{
 				<aside>
-					<a href="~/Home/NoticiaDetalle/@item.id">
+					@{var idd = "/" + item.id;}
+					<a href="~/Home/NoticiaDetalle/@idd">
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
@@ -353,7 +364,8 @@
 			if (csyb < 3)
 			{
 				<aside>
-					<a href="~/Home/NoticiaDetalle/@item.id">
+					@{var idd = "/" + item.id;}
+					<a href="~/Home/NoticiaDetalle/@idd">
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
@@ -382,7 +394,8 @@
 			else if (csyb >= 3)
 			{
 				<aside>
-					<a href="~/Home/NoticiaDetalle/@item.id">
+					@{var idd = "/" + item.id;}
+					<a href="~/Home/NoticiaDetalle/@idd">
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
@@ -432,7 +445,8 @@
 			if (cmod < 3)
 			{
 				<aside>
-					<a href="~/Home/NoticiaDetalle/@item.id">
+					@{var idd = "/" + item.id;}
+					<a href="~/Home/NoticiaDetalle/@idd">
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
@@ -461,7 +475,8 @@
 			else if (cmod >= 3)
 			{
 				<aside>
-					<a href="~/Home/NoticiaDetalle/@item.id">
+					@{var idd = "/" + item.id;}
+					<a href="~/Home/NoticiaDetalle/@idd">
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
@@ -511,7 +526,8 @@
 			if (cedv < 3)
 			{
 				<aside>
-					<a href="~/Home/NoticiaDetalle/@item.id">
+					@{var idd = "/" + item.id;}
+					<a href="~/Home/NoticiaDetalle/@idd">
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
@@ -540,7 +556,8 @@
 			else if (cedv >= 3)
 			{
 				<aside>
-					<a href="~/Home/NoticiaDetalle/@item.id">
+					@{var idd = "/" + item.id;}
+					<a href="~/Home/NoticiaDetalle/@idd">
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
@@ -590,7 +607,8 @@
 			if (ctec < 3)
 			{
 				<aside>
-					<a href="~/Home/NoticiaDetalle/@item.id">
+					@{var idd = "/" + item.id;}
+					<a href="~/Home/NoticiaDetalle/@idd">
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
@@ -619,7 +637,8 @@
 			else if (ctec >= 3)
 			{
 				<aside>
-					<a href="~/Home/NoticiaDetalle/@item.id">
+					@{var idd = "/" + item.id;}
+					<a href="~/Home/NoticiaDetalle/@idd">
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
@@ -669,7 +688,8 @@
 			if (cmov < 3)
 			{
 				<aside>
-					<a href="~/Home/NoticiaDetalle/@item.id">
+					@{var idd = "/" + item.id;}
+					<a href="~/Home/NoticiaDetalle/@idd">
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
@@ -698,7 +718,8 @@
 			else if (cmov >= 3)
 			{
 				<aside>
-					<a href="~/Home/NoticiaDetalle/@item.id">
+					@{var idd = "/" + item.id;}
+					<a href="~/Home/NoticiaDetalle/@idd">
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
@@ -748,7 +769,8 @@
 			if (cemt < 3)
 			{
 				<aside>
-					<a href="~/Home/NoticiaDetalle/@item.id">
+					@{var idd = "/" + item.id;}
+					<a href="~/Home/NoticiaDetalle/@idd">
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>
@@ -782,7 +804,8 @@
 			else if (cemt >= 3)
 			{
 				<aside>
-					<a href="~/Home/NoticiaDetalle/@item.id">
+					@{var idd = "/" + item.id;}
+					<a href="~/Home/NoticiaDetalle/@idd">
 						<div class="notaInd">
 							<img src="@ruta" />
 							<h3>@item.titulo</h3>

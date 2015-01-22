@@ -68,9 +68,44 @@ function InsertRegis(tabla, object)
     
 }
 
+function InsertData(tabla, object)
+{
+    if(tabla == "" || tabla == undefined)
+    {
+        alert('No hay tabla en que guardar');
+    }
+    else
+    {
+        if(object == "" || object == undefined)
+        {
+            alert('No hay datos que guardar');
+
+        }
+        else
+        {
+            var TablaInsert = client.getTable(tabla);
+            TablaInsert.insert(object).then(SaveSucess, SaveError);
+        }
+        
+    }
+    
+}
+
 function HandleError(error) {
     var text = error + (error.request ? ' - ' + error.request.status : '');
     //alert(text);
+}
+function SaveSucess()
+{
+	console.log("Guardado correctamente!");
+	//alert("Guardado correctamente!");
+}
+
+function SaveError(err)
+{
+	var text = error + (error.request ? ' - ' + error.request.status : '');
+	console.log(text);
+	//alert(text);
 }
 
 function RegistroCorrecto() {
