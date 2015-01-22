@@ -64,7 +64,7 @@ function AgregarMarcadoresMalls()
 		            //contenido de recuadro de informacion del cc 
 		        google.maps.event.addListener(marker, 'click', (function (marker) {
 		            return function () {
-			            infowindow.setContent('<img ALIGN="Left" width="50" height="50" SRC="http://malltopic.azurewebsites.net/Images/Uploads/Icons/SplashMalls/Logosmall/'+item.id+'.png"/>Centro comercial '+ item.nombre+'<p>Direccion:'+item.direccion+'</p><p>Telefono:'+item.telefono+'</p>');
+			            infowindow.setContent('<img ALIGN="Left" width="50" height="50" SRC="http://malltopic.azurewebsites.net/Images/Uploads/MallTopicApp/Logos/Malls/'+item.id+'.png"/>Centro comercial '+ item.nombre+'<p>Direccion:'+item.direccion+'</p><p>Telefono:'+item.telefono+'</p>');
 			            infowindow.open(map, marker);
 		            }
 		        })(marker));

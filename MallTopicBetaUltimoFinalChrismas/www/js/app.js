@@ -249,7 +249,7 @@ function FormatearFecha(Fecha)
 			},
 			error: function (msg) {
 			  
-				ServiceFailed(msg);
+				alert(JSON.stringify(msg.error()));
 			}
 		});
 

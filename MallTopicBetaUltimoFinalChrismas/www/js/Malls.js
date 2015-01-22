@@ -17,6 +17,20 @@ function cargarListaCC(){
 	var malls= getGlovalAMalls();
 	InstrumentacionGuardarInicio("Inicia pintar malls","Malls","Inicia pintar lista de malls");
 
+	var Datos =
+	{
+	    "Informacion": {
+	        "evento": "prueba2",
+	        "modulo": "prueba2",
+	        "detalleevento": "prueba2",
+	        "plataforma": "prueba2",
+	        "idCelular": "prueba2",
+	        "Datetime": "2014/05/06"
+	    }
+	}
+
+	insertDataArray(Datos,"http://instrumentacionmt.azurewebsites.net/api/user");
+
 	html = '<ul>';
 
 	//recorre y muestra todos los locales consultados
