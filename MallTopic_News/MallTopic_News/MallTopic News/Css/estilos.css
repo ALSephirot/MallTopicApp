@@ -140,11 +140,13 @@ body{
 	}
 
 #content .contenedor1 #slider .listaMin{
-	width:100%;
+	width:300px;
 	height:40px;
     clear:both;
     bottom:0px;
     position:absolute;
+    border-top-right-radius:50px;
+    border-bottom-right-radius:50px;
     background:rgba(0, 0, 0, 0.6);
 	}
 
@@ -158,9 +160,9 @@ body{
     margin:0px;
 	}
 
-#content .contenedor1 #slider .listaMin .controlesDiv a{
-	width:50%;
-	height:35px;
+#atras{
+	width:40px;
+	height:40px;
     bottom:0px;
     background:url(../images/arrowA.png); background-size:100%;
     float:left;
@@ -168,30 +170,30 @@ body{
     margin:0px;
 	}
 
-#content .contenedor1 #slider .listaMin .controlesDiv a:last-of-type{
-	width:50%;
-	height:35px;
+#siguiente{
+	width:40px;
+	height:40px;
     bottom:0px;
     background:url(../images/arrowS.png); background-size:100%;
-    float:left;
+    float:right;
     padding:0px;
     margin:0px;
 	}
 
 #content .contenedor1 #slider .listaMin .miniaturas{
-	width:90% !important;
+	width:200px !important;
 	height:40px !important;
     bottom:0px;
     float:left;
     padding:0px;
-    margin:0px;
+    margin:0px 10px 0px 10px;
 	}
 
 .miniaturas li{
     display:inline-block;
-    width:9% !important;
-    height:30px !important;
-    margin:5px 0.5% 5px 1% !important;               
+    width:12px !important;
+    height:12px !important;
+    margin:15px 5px 0px 5px !important;               
     float:left;
     padding:0px;
     margin:0px;
@@ -202,6 +204,7 @@ body{
 .miniaturas li img{
  width:100% !important;
  height:100% !important;
+ border-radius:50px;
 
  }
 
@@ -230,11 +233,14 @@ body{
 							
 #content .contenedor1 #slider div #descripcionSlide{
 	position:absolute;
+    bottom:50px;
 	right:0px;
 	list-style-type:none;
 	width:90%;
-	height:60px;
-	/*background:rgba(0, 0, 0, 0.5);*/
+	height:50px;
+    border-top-left-radius:50px;
+    border-bottom-left-radius:50px;
+	background:rgba(0, 0, 0, 0.5);
     text-align:right;
 	}
 								
@@ -242,9 +248,6 @@ body{
 .TNoticia{
 	margin:10px auto 10px auto;
 	width:95%;
-    padding:0% 2.5% 0% 2.5%;
-	height:60px;
-    line-height:60px;
 	font-size:1.5em;
     text-align:right;
     text-decoration:none;
@@ -253,8 +256,6 @@ body{
 	text-overflow: ellipsis;
     color:#fff;
     font-family:coolvetica;
-    text-transform:uppercase;
-    text-shadow:0px 0px 5px #000;
 }
 
 .controPie{
@@ -315,7 +316,7 @@ body{
     display:inline-block;
 	width:29%;
 	margin:0% 0.5% 0.5% 0.5%;				
-	height:155px;
+	height:160px;
 	background:url(../images/DescargarNews.png);
 	float:left;
     cursor:pointer;
@@ -553,14 +554,14 @@ body{
 	left:0px;
 	position:fixed;
 	z-index:9;
-    background:#F0F0F0;
-    box-shadow:0px 0px 5px #999;
+    background:#BAC7D3;
+    box-shadow:0px 0px 10px #333;
 }
 			
 .botonera ul {
 	margin:0px;
 	padding:0px;
-    background:#F4F4F2;
+    background:none;
 }
 			
 .botonera ul li{
@@ -602,8 +603,8 @@ body{
 	line-height:30px;
 	border-top:1px solid #E6E6E6;
 	text-decoration:none;
-	color:#666;
-    background:#fff;
+	color:#001959;
+    background:#CAD7E5;
 	font-size:0.7em;
 	font-family:"Segoe UI Light","Segoe WP Light","Segoe WP","Segoe UI",Arial,Sans-Serif;
     font-weight:bold;
@@ -616,7 +617,7 @@ body{
 header{
 	width:100%;
 	height:60px;
-	background:url(../images/header.png);
+	/*background:url(../images/header.png);*/
     background-size:100%;
 	margin:0px;
 	padding:0px;
@@ -624,6 +625,12 @@ header{
 	top:0px;
 	left:0px;
 	z-index:10;
+    background: #08298A;
+    background:-webkit-linear-gradient(#3a5795, #001959);
+	background:-moz-linear-gradient(#3a5795, #001959);
+	background:-o-linear-gradient(#3a5795, #001959);
+	background:-ms-linear-gradient(#3a5795, #001959);
+	background:linear-gradient(#3a5795, #001959);
 }
 			
 header .logoMT{
@@ -646,7 +653,7 @@ header h1{
 	text-align:center;
 	font-size:3em;
 	font-family:coolvetica;
-    text-transform:uppercase;
+    /*text-transform:uppercase;*/
     letter-spacing:-1px;
 	letter-spacing:normal;
     font-weight:normal;
@@ -755,7 +762,7 @@ footer p a:nth-of-type(1){
 
 .notaDetail h1 {
     width:90%;
-    margin:0px auto 10px auto;
+    margin:120px auto 10px auto;
     height:50px;
     color:#000;
     text-align:center;

@@ -44,6 +44,7 @@ namespace MallTopic_News.Models
         public string H_lunes_a_viernes { get; set; }
         public string H_sabado { get; set; }
         public string H_domingos_y_festivos { get; set; }
+        public Nullable<int> orden { get; set; }
 
     }
 }

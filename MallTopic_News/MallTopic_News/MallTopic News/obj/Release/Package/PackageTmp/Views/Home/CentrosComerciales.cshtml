@@ -1,6 +1,13 @@
-﻿@model IEnumerable<MallTopic_News.Models.Malls>
+﻿<link id="Link2" runat="server" rel="icon" href="favicon.ico" type="image/ico" />
+
+@model IEnumerable<MallTopic_News.Models.Malls>
 @{
+	
+	
 	var NoticiasRecientes = Model.Where(mm => mm.publicar == true).ToList<MallTopic_News.Models.Malls>();
+
+	NoticiasRecientes = NoticiasRecientes.OrderBy(mm => mm.orden).ToList<MallTopic_News.Models.Malls>();
+	
 }
 <section class="contenedorCentros">
 	<h1>Centros Comerciales</h1>

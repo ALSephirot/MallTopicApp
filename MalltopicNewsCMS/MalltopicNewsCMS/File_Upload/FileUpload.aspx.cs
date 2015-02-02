@@ -16,6 +16,8 @@ namespace MalltopicNewsCMS.File_Upload
     {
         public bool coleccion { get; set; }
         public bool update { get; set; }
+        public string contenedor { get; set; }
+        public string tipo { get; set; }
 
         public static ArrayList idimgenes = new ArrayList();
         public  Guid idd { get; set; }
@@ -24,6 +26,8 @@ namespace MalltopicNewsCMS.File_Upload
         {
             coleccion = Convert.ToBoolean(Request.QueryString["coleccion"]);
             update = Convert.ToBoolean(Request.QueryString["update"]);
+            contenedor = Convert.ToString(Request.QueryString["contenedor"]);
+            tipo = Convert.ToString(Request.QueryString["tipo"]);
         }
 
         public void llenararray()
@@ -123,32 +127,121 @@ namespace MalltopicNewsCMS.File_Upload
 
                     int anchoo = img.Width;
                     int altoo = img.Height;
-
-
-                    FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://waws-prod-blu-007.ftp.azurewebsites.windows.net/site/wwwroot/Images/Uploads/MallTopicNews/" + idd + ext);
-                    request.Method = WebRequestMethods.Ftp.UploadFile;
-                    request.Credentials = new NetworkCredential("malltopic\\malltopic", "topic2014!");
-
-                    sourceStream.Close();
-                    request.ContentLength = fileContents.Length;
-                    Stream requestStream = request.GetRequestStream();
-                    requestStream.Write(fileContents, 0, fileContents.Length);
-                    requestStream.Close();
-                    FtpWebResponse response = (FtpWebResponse)request.GetResponse();
-                    ShowNotification("Subir archivo completado");
-                    llenararray();
-                    var imgen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idd + ext;
-
-                    string script = "";
-                    if (coleccion)
-                    {
-                        script = "IMG('" + imgen + "','" + idd + "');window.close();";
-                    }else
-                    {
-                        script = "IMG2('" + imgen + "','" + idd + "');window.close();";
-                    }
                     
-                    Page.ClientScript.RegisterStartupScript(typeof(Page), "closewindow", script, true);
+                    
+                    //inicio
+                    if (tipo == "portada")
+                    {
+                        if(anchoo == 770 && altoo == 414)
+                        {
+                            FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://waws-prod-blu-007.ftp.azurewebsites.windows.net/site/wwwroot/Images/Uploads/MallTopicNews/" + idd + "-slider" + ext);
+                            request.Method = WebRequestMethods.Ftp.UploadFile;
+                            request.Credentials = new NetworkCredential("malltopic\\malltopic", "Topic2014!");
+
+                            sourceStream.Close();
+                            request.ContentLength = fileContents.Length;
+                            Stream requestStream = request.GetRequestStream();
+                            requestStream.Write(fileContents, 0, fileContents.Length);
+                            requestStream.Close();
+                            FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+                            ShowNotification("Subir archivo completado");
+                            llenararray();
+                            var imgen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idd + "-slider" + ext;
+
+                            string script = "";
+                            if (coleccion)
+                            {
+                                script = "IMG('" + imgen + "','" + idd + "');window.close();";
+                            }
+                            else
+                            {
+                                script = "IMG2('" + imgen + "','" + idd + "','" + contenedor + "');window.close();";
+                            }
+
+                            Page.ClientScript.RegisterStartupScript(typeof(Page), "closewindow", script, true);
+                        }
+                        else
+                        {
+                            ShowNotification("Error, la imagen debe de ser 770*414 pixeles");
+                        }
+                    }
+                    else
+                    {
+                        if (tipo == "miniatura")
+                        {
+                            if(anchoo == 109 && altoo == 109)
+                            {
+                                FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://waws-prod-blu-007.ftp.azurewebsites.windows.net/site/wwwroot/Images/Uploads/MallTopicNews/" + idd + "-miniatura" + ext);
+                                request.Method = WebRequestMethods.Ftp.UploadFile;
+                                request.Credentials = new NetworkCredential("malltopic\\malltopic", "Topic2014!");
+
+                                sourceStream.Close();
+                                request.ContentLength = fileContents.Length;
+                                Stream requestStream = request.GetRequestStream();
+                                requestStream.Write(fileContents, 0, fileContents.Length);
+                                requestStream.Close();
+                                FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+                                ShowNotification("Subir archivo completado");
+                                llenararray();
+                                var imgen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idd + "-miniatura" + ext;
+
+                                string script = "";
+                                if (coleccion)
+                                {
+                                    script = "IMG('" + imgen + "','" + idd + "');window.close();";
+                                }
+                                else
+                                {
+                                    script = "IMG2('" + imgen + "','" + idd + "','" + contenedor + "');window.close();";
+                                }
+
+                                Page.ClientScript.RegisterStartupScript(typeof(Page), "closewindow", script, true);
+                            }else
+                            {
+                                ShowNotification("Error, la imagen debe de ser 109*109 pixeles");
+                            }
+                        }
+                        else
+                        {
+                            if(tipo == "detalle")
+                            {
+                                if(anchoo == 700 && altoo == 450)
+                                {
+                                    FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://waws-prod-blu-007.ftp.azurewebsites.windows.net/site/wwwroot/Images/Uploads/MallTopicNews/" + idd + "-detalle" + ext);
+                                    request.Method = WebRequestMethods.Ftp.UploadFile;
+                                    request.Credentials = new NetworkCredential("malltopic\\malltopic", "Topic2014!");
+
+                                    sourceStream.Close();
+                                    request.ContentLength = fileContents.Length;
+                                    Stream requestStream = request.GetRequestStream();
+                                    requestStream.Write(fileContents, 0, fileContents.Length);
+                                    requestStream.Close();
+                                    FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+                                    ShowNotification("Subir archivo completado");
+                                    llenararray();
+                                    var imgen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idd + "-detalle" + ext;
+
+                                    string script = "";
+                                    if (coleccion)
+                                    {
+                                        script = "IMG('" + imgen + "','" + idd + "');window.close();";
+                                    }
+                                    else
+                                    {
+                                        script = "IMG2('" + imgen + "','" + idd + "','" + contenedor + "');window.close();";
+                                    }
+
+                                    Page.ClientScript.RegisterStartupScript(typeof(Page), "closewindow", script, true);
+                                }else
+                                {
+                                    ShowNotification("Error, la imagen debe de ser 700*450 pixeles");
+                                }
+                            }
+                        }
+                    }
+                   
+                
+                //Fin 
                 }
                 else
                 {

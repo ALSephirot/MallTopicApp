@@ -29,6 +29,7 @@ namespace MallTopic_News.Models
         public string imagenes { get; set; }
         public string autor { get; set; }
         public string idportada { get; set; }
+        public DateTime creado { get; set; }
         public Nullable<bool> publicar { get; set; }
         public Nullable<bool> destacado { get; set; }
         public Nullable<System.DateTimeOffset> fecha_publicado { get; set; }

@@ -104,9 +104,9 @@ function IMG(logo, id) {
     }
 
 
-function IMG2(logo, id) {
+function IMG2(logo, id,contenedor) {
     var d = new Date();
-    var div = window.opener.document.getElementById("ContenedorIMGportada");
+    var div = window.opener.document.getElementById(contenedor);
     var etiqueta = '<img  src="' + logo + '?' + d.getSeconds() + '" ><br/>';
     div.innerHTML = etiqueta;   
     setCookie();

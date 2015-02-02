@@ -1,4 +1,5 @@
-﻿@{
+﻿<link id="Link2" runat="server" rel="icon" href="favicon.ico" type="image/ico" />
+@{
 	ViewBag.Title = "";
 }
 @model MallTopic_News.Models.Noticias
@@ -10,7 +11,7 @@
 	var modelo = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias>(ca.Peticion("Noticias/" + Convert.ToString(@Html.DisplayFor(model => model.id))));
 	var idcategoria = modelo.fk_idcategoria;
 	var ModeloCategorias = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/" + idcategoria));
-
+	var Fecha = new DateTime(2015, 01, 29);
 }
 
 @if (modelo.fk_idcategoria == "4db72003-685f-47b1-8855-8e468bff1f6b")//Estilos de recientes
@@ -96,116 +97,169 @@ else
 	<h1>@modelo.titulo</h1>
 
 	<section class="SliderNotas">
-		<img id="Imagen" data-ocultar="true" data-count="0" class="imagenSliderNotas" />
-		<div class="listaMin2">
-			<div class="controlesDiv2">
-				<a style="cursor: pointer;" onclick="Atras()"></a>
-				<a style="cursor: pointer;" onclick="Siguiente()"></a>
+		<div class="contenidoTodo">
+			<img id="Imagen" data-ocultar="true" data-count="0" class="imagenSliderNotas" />
+			<div class="listaMin2">
+				<a id="atras" style="cursor: pointer;" onclick="Atras()"></a>
+				<div id="fb-root"></div>
+				<script>
+					(function (d, s, id) {
+						var js, fjs = d.getElementsByTagName(s)[0];
+						if (d.getElementById(id)) return;
+						js = d.createElement(s); js.id = id;
+						js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.0";
+						fjs.parentNode.insertBefore(js, fjs);
+					}(document, 'script', 'facebook-jssdk'));
+				</script>
+
+				<ul id="miniaturas" class="miniaturas2">
+					@{
+
+						var SubsImg = "";
+						var Imagenes = modelo.imagenes;
+						if (Imagenes != null)
+						{
+							SubsImg = Imagenes.Substring(0, 1);
+						}
+
+
+						var detalle = "Home/NoticiaDetalle";
+						var img = "";
+						if (SubsImg == "[")
+						{
+							var AImagenes = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.ImagenesNoticias[]>(modelo.imagenes);
+							var c = 0;
+							foreach (var item in AImagenes)
+							{
+								if (modelo.creado < Fecha)
+								{
+									img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+									if (Existente.RemoteFileExists(img, 600))
+									{
+										img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+									}
+									else
+									{
+										img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
+									}
+
+
+									if (c == 0)
+									{
+
+										<li data-select="true" onclick="CambiarImagen(this)"><img src="@img" id="@item.id" data-count="@c" data-src="@img" data-nombreimagen="@item.nombre" data-pieimagen="@item.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@item.id" data-titulo="@item.nombre" /></li>
+									}
+									else
+									{
+										<li data-select="false" onclick="CambiarImagen(this)"><img src="@img" id="@item.id" data-count="@c" data-src="@img" data-nombreimagen="@item.nombre" data-pieimagen="@item.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@item.id" data-titulo="@item.nombre" /></li>
+									}
+									c++;
+								}
+								else
+								{
+									img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + "-detalle"+ ".png";
+									if (Existente.RemoteFileExists(img, 600))
+									{
+										img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + "-detalle" + ".png";
+									}
+									else
+									{
+										img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + "-detalle" + ".jpg";
+									}
+
+
+									if (c == 0)
+									{
+
+										<li data-select="true" onclick="CambiarImagen(this)"><img src="@img" id="@item.id" data-count="@c" data-src="@img" data-nombreimagen="@item.nombre" data-pieimagen="@item.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@item.id" data-titulo="@item.nombre" /></li>
+									}
+									else
+									{
+										<li data-select="false" onclick="CambiarImagen(this)"><img src="@img" id="@item.id" data-count="@c" data-src="@img" data-nombreimagen="@item.nombre" data-pieimagen="@item.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@item.id" data-titulo="@item.nombre" /></li>
+									}
+									c++;
+								}
+							}
+						}
+						else if (SubsImg == "{")
+						{
+							if (modelo.creado < Fecha)
+							{
+								var AImagen = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.ImagenesNoticias>(modelo.imagenes);
+								img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + AImagen.id + ".png";
+								if (Existente.RemoteFileExists(img, 600))
+								{
+									img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + AImagen.id + ".png";
+								}
+								else
+								{
+									img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + AImagen.id + ".jpg";
+								}
+								<li data-select="true" onclick="CambiarImagen(this)"><img id="@AImagen.id" data-count="0" data-src="@img" src="@img" alt="Alternate Text" data-nombreimagen="@AImagen.nombre" data-pieimagen="@AImagen.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@AImagen.id" data-titulo="@AImagen.nombre" /></li>
+							}
+							else
+							{
+								var AImagen = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.ImagenesNoticias>(modelo.imagenes);
+								img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + AImagen.id + "-detalle" + ".png";
+								if (Existente.RemoteFileExists(img, 600))
+								{
+									img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + AImagen.id + "-detalle" + ".png";
+								}
+								else
+								{
+									img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + AImagen.id + "-detalle" + ".jpg";
+								}
+								<li data-select="true" onclick="CambiarImagen(this)"><img id="@AImagen.id" data-count="0" data-src="@img" src="@img" alt="Alternate Text" data-nombreimagen="@AImagen.nombre" data-pieimagen="@AImagen.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@AImagen.id" data-titulo="@AImagen.nombre" /></li>
+							}
+
+						}
+						if (SubsImg == "")
+						{
+							if (modelo.creado < Fecha)
+							{
+								img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + modelo.id + ".png";
+								if (Existente.RemoteFileExists(img, 600))
+								{
+									img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + modelo.id + ".png";
+								}
+								else
+								{
+									img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + modelo.id + ".jpg";
+								}
+								<li data-select="true" onclick="CambiarImagen(this)"><img id="@modelo.id" data-count="0" data-src="@img" src="@img" alt="Alternate Text" data-pieimagen="@modelo.pie_de_imagen" /></li>
+							}
+							else
+							{
+								img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + modelo.id + "-detalle" + ".png";
+								if (Existente.RemoteFileExists(img, 600))
+								{
+									img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + modelo.id + "-detalle" + ".png";
+								}
+								else
+								{
+									img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + modelo.id + "-detalle" + ".jpg";
+								}
+								<li data-select="true" onclick="CambiarImagen(this)"><img id="@modelo.id" data-count="0" data-src="@img" src="@img" alt="Alternate Text" data-pieimagen="@modelo.pie_de_imagen" /></li>
+							}
+						}
+}
+				</ul>
+				<a id="siguiente" style="cursor: pointer;" onclick="Siguiente()"></a>
 			</div>
-
-
-			<div id="fb-root"></div>
-			<script>
-				(function (d, s, id) {
-					var js, fjs = d.getElementsByTagName(s)[0];
-					if (d.getElementById(id)) return;
-					js = d.createElement(s); js.id = id;
-					js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.0";
-					fjs.parentNode.insertBefore(js, fjs);
-				}(document, 'script', 'facebook-jssdk'));
-			</script>
-
-
-
-
-
-			<div class="compartirNota" id="DivCompartir">
-				<h1>Compartir nota</h1>
-                <div class="EnlaceCompar">
-                     <div class="fb-share-button" data-href="http://mtnews.azurewebsites.net/Home/NoticiaDetalle/@modelo.id" data-layout="button"></div>
-                </div>
-                <div class="EnlaceCompar">
-                     <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://mtnews.azurewebsites.net/Home/NoticiaDetalle/@modelo.id">Tweet</a>
-                     <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
-                </div>
-                </div>
-
-			<ul id="miniaturas" class="miniaturas2">
-				@{
-
-					var SubsImg = "";
-					var Imagenes = modelo.imagenes;
-					if (Imagenes != null)
-					{
-						SubsImg = Imagenes.Substring(0, 1);
-					}
-
-
-					var detalle = "Home/NoticiaDetalle";
-					var img = "";
-					if (SubsImg == "[")
-					{
-						var AImagenes = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.ImagenesNoticias[]>(modelo.imagenes);
-						var c = 0;
-						foreach (var item in AImagenes)
-						{
-							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
-							if (Existente.RemoteFileExists(img, 500))
-							{
-								img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
-							}
-							else
-							{
-								img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
-							}
-
-
-							if (c == 0)
-							{
-
-								<li data-select="true" onclick="CambiarImagen(this)"><img src="@img" id="@item.id" data-count="@c" data-src="@img" data-nombreimagen="@item.nombre" data-pieimagen="@item.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@item.id" data-titulo="@item.nombre" /></li>
-							}
-							else
-							{
-								<li data-select="false" onclick="CambiarImagen(this)"><img src="@img" id="@item.id" data-count="@c" data-src="@img" data-nombreimagen="@item.nombre" data-pieimagen="@item.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@item.id" data-titulo="@item.nombre" /></li>
-							}
-							c++;
-						}
-					}
-					else if (SubsImg == "{")
-					{
-						var AImagen = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.ImagenesNoticias>(modelo.imagenes);
-						img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + AImagen.id + ".png";
-						if (Existente.RemoteFileExists(img, 500))
-						{
-							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + AImagen.id + ".png";
-						}
-						else
-						{
-							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + AImagen.id + ".jpg";
-						}
-						<li data-select="true" onclick="CambiarImagen(this)"><img id="@AImagen.id" data-count="0" data-src="@img" src="@img" alt="Alternate Text" data-nombreimagen="@AImagen.nombre" data-pieimagen="@AImagen.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@AImagen.id" data-titulo="@AImagen.nombre" /></li>
-					}
-					if (SubsImg == "")
-					{
-
-						img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + modelo.id + ".png";
-						if (Existente.RemoteFileExists(img, 500))
-						{
-							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + modelo.id + ".png";
-						}
-						else
-						{
-							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + modelo.id + ".jpg";
-						}
-						<li data-select="true" onclick="CambiarImagen(this)"><img id="@modelo.id" data-count="0" data-src="@img" src="@img" alt="Alternate Text" data-pieimagen="@modelo.pie_de_imagen" /></li>
-					}
-				}
-			</ul>
-
-
 		</div>
 	</section>
+
+	<div class="compartirNota" id="DivCompartir">
+		<h1>Compartir nota</h1>
+		<div class="EnlaceCompar">
+			<div class="fb-share-button" data-href="http://mtnews.azurewebsites.net/Home/NoticiaDetalle/@modelo.id" data-layout="button"></div>
+		</div>
+		<div class="EnlaceCompar">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://mtnews.azurewebsites.net/Home/NoticiaDetalle/@modelo.id">Tweet</a>
+			<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+		</div>
+	</div>
+
 	<h6 id="PieImagen" data-ocultar="true"></h6>
 	@{
 		if (modelo.descripcion != null)
@@ -246,22 +300,45 @@ else
 			}
 			else
 			{
-				img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
-				if (MallTopic_News.Controllers.Existente.RemoteFileExists(img, 500))
+				if (item.creado < Fecha)
 				{
 					img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+					if (MallTopic_News.Controllers.Existente.RemoteFileExists(img, 600))
+					{
+						img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+					}
+					else
+					{
+						img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
+					}
+					<a href="@item.id">
+						<div class="notasRelac">
+							<img src="@img" />
+							<h4>@item.titulo</h4>
+
+						</div>
+					</a>
 				}
 				else
 				{
-					img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
-				}
-				<a href="@item.id">
-					<div class="notasRelac">
-						<img src="@img" />
-						<h4>@item.titulo</h4>
+					img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + "-miniatura" +  ".png";
+					if (MallTopic_News.Controllers.Existente.RemoteFileExists(img, 600))
+					{
+						img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + "-miniatura" + ".png";
+					}
+					else
+					{
+						img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + "-miniatura" + ".jpg";
+					}
+					<a href="@item.id">
+						<div class="notasRelac">
+							<img src="@img" />
+							<h4>@item.titulo</h4>
 
-					</div>
-				</a>
+						</div>
+					</a>
+				}
+
 			}
 		}
 

@@ -375,6 +375,8 @@ body{
 #desplegable9:hover{color:#9498AF;}
 #desplegable10:hover{color:#074060;}
 
+#MenuModa{background:#C7ACE4;}
+
 #notasPage {
     width:85%;
     margin:0% 7.5% 2.5% 7.5%;
@@ -603,7 +605,7 @@ body{
 	border-top:1px solid #E6E6E6;
 	text-decoration:none;
 	color:#666;
-    background:#fff;
+    background:#ECE6F3;
 	font-size:0.7em;
 	font-family:"Segoe UI Light","Segoe WP Light","Segoe WP","Segoe UI",Arial,Sans-Serif;
     font-weight:bold;
@@ -645,7 +647,7 @@ header h1{
 	text-align:center;
 	font-size:3em;
 	font-family:coolvetica;
-    text-transform:uppercase;
+    /*text-transform:uppercase;*/
     letter-spacing:-1px;
 	letter-spacing:normal;
     font-weight:normal;
@@ -754,7 +756,7 @@ footer p a:nth-of-type(1){
 
 .notaDetail h1 {
     width:90%;
-    margin:0px auto 10px auto;
+    margin:120px auto 10px auto;
     height:50px;
     color:#000;
     text-align:center;
@@ -773,6 +775,7 @@ footer p a:nth-of-type(1){
     font-size:13px;
     font-family:"Segoe UI Light","Segoe WP Light","Segoe WP","Segoe UI",Arial,Sans-Serif;
 }
+
 .notaDetail .parrafoNota {
     width:60%;
     margin:0px auto 70px auto;
@@ -795,8 +798,14 @@ footer p a:nth-of-type(1){
     }
 
 
-
 .SliderNotas {
+    width:100%;
+    height:450px;
+    /*background:#1e1e1e;*/
+    margin:0 auto;
+}
+
+.contenidoTodo {
     width:700px;
     height:450px;
     margin:0 auto;
@@ -804,19 +813,23 @@ footer p a:nth-of-type(1){
 }
 
 .imagenSliderNotas {
-    width:700px;
-    height:450px;
-    float:left;
+    width:100%;
+    height:100%;
+    margin:0 auto !important;
+    float:none !important;
     background:#fff;
 }
 
 .listaMin2 {
-    width:700px;
+    min-width:160px;
+    width:auto;
     height:40px;
     float:left;
     position:absolute;
     bottom:0px;
     left:0px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
     background:rgba(0, 0, 0, 0.6);
 }
 
@@ -839,26 +852,30 @@ footer p a:nth-of-type(1){
 	}
 
 .miniaturas2 {
-    width:650px;
+    width:auto;
     height:40px;
     float:left; 
     margin:0px;
-    padding:0px; 
+    padding:0px 5px 0px 5px; 
 }
 
-.miniaturas2 li {
+.miniaturas2 li{
     display:inline-block;
-    width:50px;
-    height:30px;
-    background:#fff;
-    float:left; 
-    margin:5px 10px 5px 10px;
+    width:12px !important;
+    height:12px !important;
+    margin:15px 5px 0px 5px !important;               
+    float:left;
+    padding:0px;
+    margin:0px;
+    list-style:none;
     cursor:pointer;
-}
+    border-radius:50px;
+ }
 
 .miniaturas2 li img {
     width:100% !important;
     height:100% !important;
+    border-radius:50px;
 }
 
 .relacionadas {

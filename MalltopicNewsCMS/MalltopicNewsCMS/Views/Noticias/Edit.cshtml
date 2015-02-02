@@ -4,6 +4,7 @@
 @using MalltopicNewsCMS.Models;
 @{Login_Logout lg = new Login_Logout();
 MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controllers.ConsumirWebApi();
+var Fecha = new DateTime(2015, 01, 29);
 }
 
 @if (lg.VerificarSesion())
@@ -41,26 +42,91 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 						@Html.EditorFor(model => model.titulo)
 						@Html.ValidationMessageFor(model => model.titulo)
 					</div>
+
 					<label>
 						<br />
 						Imagen portada
-						<input type="button" value="cargar imagen" id="btnCargarportada" class="botonAzul" onclick="window.open('../../File_Upload/FileUpload.aspx?coleccion=false&update=true', 'Subir Imagen', 'width=1350,height=650')" />
+						<input type="button" value="cargar imagen" id="btnCargarportada" class="botonAzul" onclick="window.open('../../File_Upload/FileUpload.aspx?coleccion=false&update=true&contenedor=ContenedorIMGportada&tipo=portada', 'Subir Imagen', 'width=1350,height=650')" />
 						<a href="#" class="imagen"></a>
 					</label>
-					@{ var idimg = Session["EditGuid"];
-					 var img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + ".png";
-					 if (MalltopicNewsCMS.Controllers.Existente.RemoteFileExists(img, 500))
-					 {
-						 img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + ".png";
-					 }
-					 else
-					 {
-						 img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + ".jpg";
-					 }
+					@{var img = "";}
+					@{
+			if (Model.creado < Fecha)
+			{
+				var idimg = Session["EditGuid"];
+				img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + ".png";
+				if (MalltopicNewsCMS.Controllers.Existente.RemoteFileExists(img, 500))
+				{
+					img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + ".png";
+				}
+				else
+				{
+					img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + ".jpg";
+				}
+			}
+			else
+			{
+				var idimg = Session["EditGuid"];
+				img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + "-slider" + ".png";
+				if (MalltopicNewsCMS.Controllers.Existente.RemoteFileExists(img, 500))
+				{
+					img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + "-slider" + ".png";
+				}
+				else
+				{
+					img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + "-slider" + ".jpg";
+				}
+			}
+
+
 					}
 					<div id="ContenedorIMGportada" style="display:inline-block;">
 						<img src="@img" />
 					</div>
+
+
+					@*Imagen miniatura*@
+					<br />
+					<label>
+						<br />
+						Imagen Miniatura
+						<input type="button" value="cargar imagen" id="btnCargarportada" class="botonAzul" onclick="window.open('../../File_Upload/FileUpload.aspx?coleccion=false&update=true&contenedor=ContenedorIMGminiatura&tipo=miniatura', 'Subir Imagen', 'width=1350,height=650')" />
+						<a href="#" class="imagen"></a>
+					</label>
+					@{var img2 = "";}
+					@{
+						if (Model.creado < Fecha)
+						{
+							var idimg = Session["EditGuid"];
+							img2 = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + ".png";
+							if (MalltopicNewsCMS.Controllers.Existente.RemoteFileExists(img, 500))
+							{
+								img2 = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + ".png";
+							}
+							else
+							{
+								img2 = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + ".jpg";
+							}
+						}
+						else
+						{
+							var idimg = Session["EditGuid"];
+							img2 = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + "-miniatura" + ".png";
+							if (MalltopicNewsCMS.Controllers.Existente.RemoteFileExists(img, 500))
+							{
+								img2 = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + "-miniatura" + ".png";
+							}
+							else
+							{
+								img2 = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + idimg + "-miniatura" + ".jpg";
+							}
+						}
+
+					}
+					<div id="ContenedorIMGminiatura" style="display:inline-block;">
+						<img src="@img2" />
+					</div>
+
 				</div>
 
 				<div class="form-group">
@@ -155,7 +221,7 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 
 				<label>
 					Imágenes
-					<input type="button" value="cargar mas imagenes" id="btnCargarportada" class="botonAzul" onclick="window.open('../../File_Upload/FileUpload.aspx?coleccion=true&update=true', 'Subir Imagen', 'width=1350,height=650')" />
+					<input type="button" value="cargar mas imagenes" id="btnCargarportada" class="botonAzul" onclick="window.open('../../File_Upload/FileUpload.aspx?coleccion=true&update=true&contenedor=ContenedorIMG&tipo=detalle', 'Subir Imagen', 'width=1350,height=650')" />
 					<a href="#" class="imagen"></a>
 				</label>
 				<div id="ContenedorIMG" style="display:inline-block;">
@@ -210,7 +276,9 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 					{
 						<div id="@item.id">
 							@{
-						var imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+						var imagen = "";	
+							
+						imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
 						if (MalltopicNewsCMS.Controllers.Existente.RemoteFileExists(imagen, 500))
 						{
 							imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
@@ -218,7 +286,28 @@ MalltopicNewsCMS.Controllers.ConsumirWebApi ca = new MalltopicNewsCMS.Controller
 						else
 						{
 							imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
+							if (MalltopicNewsCMS.Controllers.Existente.RemoteFileExists(imagen, 500))
+							{
+								imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";	
+							}
+							else
+							{
+								imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id +"-detalle"+ ".jpg";	
+								if (MalltopicNewsCMS.Controllers.Existente.RemoteFileExists(imagen, 500))
+								{
+									imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + "-detalle" + ".jpg";
+								}
+								else
+								{
+									imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + "-detalle" + ".png";
+									if (MalltopicNewsCMS.Controllers.Existente.RemoteFileExists(imagen, 500))
+									{
+										imagen = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + "-detalle" + ".png";	
+									}	
+								}	
+							}
 						}
+						
 							}
 							<img src="@imagen" /><br />
 							<input name="nombimgs" id="@item.id" type="text" onchange="PieChange(this)" value="@item.pie" /><br />

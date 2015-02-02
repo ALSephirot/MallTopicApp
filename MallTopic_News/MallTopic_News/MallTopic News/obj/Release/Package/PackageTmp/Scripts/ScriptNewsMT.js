@@ -56,7 +56,6 @@ $("#desplegable8").on("click", scroll8);
 $("#desplegable9").on("click", scroll9);
 $("#desplegable10").on("click", scroll10);
 
-//Esto es del menu de detalle
 
 function scroll1() {
 var section = $(".tag1");
@@ -109,5 +108,3 @@ function abrirentana(ruta)
 {
     window.open("http://" + ruta);
 }
-
-

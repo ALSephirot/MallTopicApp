@@ -1,0 +1,287 @@
+﻿@{
+	ViewBag.Title = "";
+}
+@model MallTopic_News.Models.Noticias
+@using MallTopic_News.Controllers;
+@using System.Web.Script.Serialization;
+
+@{
+	MallTopic_News.Controllers.ConsumirWebApi ca = new MallTopic_News.Controllers.ConsumirWebApi();
+	var modelo = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias>(ca.Peticion("Noticias/" + Convert.ToString(@Html.DisplayFor(model => model.id))));
+	var idcategoria = modelo.fk_idcategoria;
+	var ModeloCategorias = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/false/true/" + idcategoria));
+
+}
+
+@if (modelo.fk_idcategoria == "4db72003-685f-47b1-8855-8e468bff1f6b")//Estilos de recientes
+{
+	<link href="~/Css/estilosRecientes.css" type="text/css" rel="stylesheet" />
+}
+else
+{
+	if (modelo.fk_idcategoria == "730240e3-fa51-47ed-94aa-4ca8667b38cb")//Estilos de promociones
+	{
+		<link href="~/Css/estilosPromociones.css" type="text/css" rel="stylesheet" />
+	}
+	else
+	{
+		if (modelo.fk_idcategoria == "b05987a1-5427-4eb3-92ea-406650eb3e56")//Estilos de Eventos
+		{
+			<link href="~/Css/estilosEventos.css" type="text/css" rel="stylesheet" />
+		}
+		else
+		{
+			if (modelo.fk_idcategoria == "c5e9d6f6-2d90-48d9-93e0-a22b007dc0d5")//Estilos de salud y belleza
+			{
+				<link href="~/Css/estilosSaludBelleza.css" type="text/css" rel="stylesheet" />
+			}
+			else
+			{
+				if (modelo.fk_idcategoria == "bc954551-d1ef-4147-8058-0edba592c5a2")//Estilo de moda
+				{
+					<link href="~/Css/estilosModa.css" type="text/css" rel="stylesheet" />
+				}
+				else
+				{
+					if (modelo.fk_idcategoria == "91680296-517a-4be1-9588-8ca25f6355cf")//Estilos de estilo de vida
+					{
+						<link href="~/Css/estilosEstilodeVida.css" type="text/css" rel="stylesheet" />
+					}
+					else
+					{
+						if (modelo.fk_idcategoria == "cd064eba-f934-4b64-b386-eef027591171")//Estilos de tecnologia
+						{
+							<link href="~/Css/estilosTecnologia.css" type="text/css" rel="stylesheet" />
+						}
+						else
+						{
+							if (modelo.fk_idcategoria == "71c1b9b5-99ad-48b0-a602-fde2fd74136d")//Estilos de movilidad
+							{
+								<link href="~/Css/estilosMovilidad.css" type="text/css" rel="stylesheet" />
+							}
+							else
+							{
+								if (modelo.fk_idcategoria == "644f7bfe-4ed4-4bd2-a379-081b8a6811fa")//Estilos de especiales mt
+								{
+									<link href="~/Css/estilosEspecialesMt.css" type="text/css" rel="stylesheet" />
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+<script src="~/Scripts/SliderMT.js"></script>
+<script src="~/Scripts/ScriptNewsMT.js"></script>
+<div class="botonera">
+	<ul>
+		<li><a href="~/" id="MenuReciente">Recientes</a></li>
+		<li><a href="~/" id="MenuPromociones">Promociones</a></li>
+		<li><a href="~/" id="MenuEventos">Eventos</a></li>
+		<li><a href="~/" id="MenuSaludBelleza">Salud y belleza</a></li>
+		<li><a href="~/" id="MenuModa">Moda</a></li>
+		<li><a href="~/" id="MenuEstilosVida">Estilo de vida</a></li>
+		<li><a href="~/" id="MenuTecnologia">Tecnología</a></li>
+		<li><a href="~/" id="MenuMovilidad">Movilidad</a></li>
+		<li><a href="~/" id="MenuEspeciales">Especiales MT</a></li>
+		<li id="desplegable10" onmouseover="MostrarMalls()" onmouseout="OcultarMalls()">
+			<a href="../../CentrosComerciales">Centros Comerciales</a>
+		</li>
+	</ul>
+</div>
+<section class="notaDetail">
+	<h1>@modelo.titulo</h1>
+
+	<section class="SliderNotas">
+		<img id="Imagen" data-ocultar="true" data-count="0" class="imagenSliderNotas" />
+		<div class="listaMin2">
+			<div class="controlesDiv2">
+				<a style="cursor: pointer;" onclick="Atras()"></a>
+				<a style="cursor: pointer;" onclick="Siguiente()"></a>
+			</div>
+
+
+			<div id="fb-root"></div>
+			<script>
+				(function (d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.0";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+			</script>
+
+
+
+
+
+			<div class="compartirNota" id="DivCompartir">
+				<h1>Compartir nota</h1>
+                <div class="EnlaceCompar">
+                     <div class="fb-share-button" data-href="http://mtnews.azurewebsites.net/Home/NoticiaDetalle/@modelo.id" data-layout="button"></div>
+                </div>
+                <div class="EnlaceCompar">
+                     <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://mtnews.azurewebsites.net/Home/NoticiaDetalle/@modelo.id">Tweet</a>
+                     <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+                </div>
+                </div>
+
+			<ul id="miniaturas" class="miniaturas2">
+				@{
+
+					var SubsImg = "";
+					var Imagenes = modelo.imagenes;
+					if (Imagenes != null)
+					{
+						SubsImg = Imagenes.Substring(0, 1);
+					}
+
+
+					var detalle = "Home/NoticiaDetalle";
+					var img = "";
+					if (SubsImg == "[")
+					{
+						var AImagenes = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.ImagenesNoticias[]>(modelo.imagenes);
+						var c = 0;
+						foreach (var item in AImagenes)
+						{
+							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+							if (Existente.RemoteFileExists(img, 500))
+							{
+								img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+							}
+							else
+							{
+								img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
+							}
+
+
+							if (c == 0)
+							{
+
+								<li data-select="true" onclick="CambiarImagen(this)"><img src="@img" id="@item.id" data-count="@c" data-src="@img" data-nombreimagen="@item.nombre" data-pieimagen="@item.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@item.id" data-titulo="@item.nombre" /></li>
+							}
+							else
+							{
+								<li data-select="false" onclick="CambiarImagen(this)"><img src="@img" id="@item.id" data-count="@c" data-src="@img" data-nombreimagen="@item.nombre" data-pieimagen="@item.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@item.id" data-titulo="@item.nombre" /></li>
+							}
+							c++;
+						}
+					}
+					else if (SubsImg == "{")
+					{
+						var AImagen = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.ImagenesNoticias>(modelo.imagenes);
+						img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + AImagen.id + ".png";
+						if (Existente.RemoteFileExists(img, 500))
+						{
+							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + AImagen.id + ".png";
+						}
+						else
+						{
+							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + AImagen.id + ".jpg";
+						}
+						<li data-select="true" onclick="CambiarImagen(this)"><img id="@AImagen.id" data-count="0" data-src="@img" src="@img" alt="Alternate Text" data-nombreimagen="@AImagen.nombre" data-pieimagen="@AImagen.pie" data-descripcionnoticia="" data-linknoticia="@detalle/@AImagen.id" data-titulo="@AImagen.nombre" /></li>
+					}
+					if (SubsImg == "")
+					{
+
+						img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + modelo.id + ".png";
+						if (Existente.RemoteFileExists(img, 500))
+						{
+							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + modelo.id + ".png";
+						}
+						else
+						{
+							img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + modelo.id + ".jpg";
+						}
+						<li data-select="true" onclick="CambiarImagen(this)"><img id="@modelo.id" data-count="0" data-src="@img" src="@img" alt="Alternate Text" data-pieimagen="@modelo.pie_de_imagen" /></li>
+					}
+				}
+			</ul>
+
+
+		</div>
+	</section>
+	<h6 id="PieImagen" data-ocultar="true"></h6>
+	@{
+		if (modelo.descripcion != null)
+		{
+			var uno = modelo.descripcion.IndexOf("$") + 1;
+			var link = modelo.descripcion.Substring(uno);
+			var dos = link.IndexOf("%");
+			var descripciones = modelo.descripcion.Replace("[", "<b>");
+			if (dos > 0)
+			{
+				link = link.Substring(0, dos);
+				var s = link.Split(';');
+				descripciones = descripciones.Replace("$" + link, "<a href=" + s[1]);
+				descripciones = descripciones.Replace("%", " target='_blank'>" + s[0] + "</a>");
+			}
+
+			descripciones = descripciones.Replace("]", "</b>");
+			descripciones = descripciones.Replace("*", "<br/><br/>");
+			<div id="autorparrafo">@modelo.autor</div>
+
+			<div class="parrafoNota" id="parrafoNota">@descripciones</div>
+		}
+	}
+
+	<script>
+		var p = $('#parrafoNota');
+		$('#parrafoNota').html(p.text());
+	</script>
+
+
+
+	<article class="relacionadas">
+		<h3 id="Nrelacionadas">Notas relacionadas</h3>
+		@foreach (var item in ModeloCategorias)
+		{
+			if (item.id == Model.id)
+			{
+			}
+			else
+			{
+				img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+				if (MallTopic_News.Controllers.Existente.RemoteFileExists(img, 500))
+				{
+					img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".png";
+				}
+				else
+				{
+					img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id + ".jpg";
+				}
+				<a href="@item.id">
+					<div class="notasRelac">
+						<img src="@img" />
+						<h4>@item.titulo</h4>
+
+					</div>
+				</a>
+			}
+		}
+
+	</article>
+	<article class="redesSocial">
+		<div id="fb-root"></div>
+		<script>
+			(function (d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.0";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+		<div class="fb-comments" id="redesSpace" data-href="http://www.malltopic.com/mt/" data-numposts="5" data-colorscheme="light"></div>
+		@{
+			var perfil = "@MallTopic";
+		}
+		<a class="twitter-timeline" href="https://twitter.com/search?q=%40MallTopic" data-widget-id="505952244089384960">Tweets sobre @perfil</a>
+		<script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+	</article>
+</section>

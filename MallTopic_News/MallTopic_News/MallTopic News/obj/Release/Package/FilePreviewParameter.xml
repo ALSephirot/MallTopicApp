@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="MTNews" tags="IisApp">
+  <parameter name="IIS Web Application Name" description="" value="mtnews" tags="IisApp">
     <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Desarrollo\\Documents\\GitHub\\MallTopicApp\\MallTopic_News\\MallTopic_News\\MallTopic\ News\\obj\\Release\\Package\\PackageTmp$" />
     <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Desarrollo\\Documents\\GitHub\\MallTopicApp\\MallTopic_News\\MallTopic_News\\MallTopic\ News\\obj\\Release\\Package\\PackageTmp$" />
   </parameter>

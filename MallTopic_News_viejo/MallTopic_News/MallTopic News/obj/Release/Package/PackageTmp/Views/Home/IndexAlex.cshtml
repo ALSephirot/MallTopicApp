@@ -1,0 +1,126 @@
+﻿@{
+	ViewBag.Title = "Index News";
+}
+
+@{
+	MallTopic_News.Controllers.ConsumirWebApi ca = new MallTopic_News.Controllers.ConsumirWebApi();
+	var ModeloNoticias = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/true/false/''"));
+	var ModeloCategorias = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Categorias[]>(ca.Peticion("categorias"));
+	var NoticiasRecientes = ModeloNoticias.Where(mm => mm.fk_idcategoria == "4db72003-685f-47b1-8855-8e468bff1f6b").ToList<MallTopic_News.Models.Noticias>();
+}
+
+<script src="~/Scripts/SliderMT.js"></script>
+<style>
+	img[data-select=true] {
+		background: red !important;
+	}
+
+	img[data-select=false] {
+		background: green !important;
+	}
+</style>
+<div class="botonera">
+	<ul>
+		<li><a href="#" id="desplegable1">Recientes</a></li>
+		<li><a href="#" id="desplegable2">Promociones</a></li>
+		<li><a href="#" id="desplegable3">Eventos</a></li>
+		<li><a href="#" id="desplegable4">Salud y belleza</a></li>
+		<li><a href="#" id="desplegable5">Moda</a></li>
+		<li><a href="#" id="desplegable6">Estilo de vida</a></li>
+		<li><a href="#" id="desplegable7">Tecnología</a></li>
+		<li><a href="#" id="desplegable8">Movilidad</a></li>
+		<li><a href="#" id="desplegable9">Especiales MT</a></li>
+		<li><a href="#" id="desplegable10">Centros Comerciales</a></li>
+	</ul>
+</div>
+<section id="content">
+	<article class="contenedor1">
+		<section id="slider">
+			<div>
+				<img id="Imagen" data-ocultar="true" src="#" data-count="0" />
+				<p id="PieImagen" data-ocultar="true" class="piePag"></p>
+				<div id="descripcionSlide" data-ocultar="true">
+					<h3 id="NombreImagen"></h3>
+					<p id="DescripcionNoticia"></p>
+					<a id="LinkNoticia" href="#" class="botonSlider"> Ver más</a>
+				</div>
+			</div>
+
+			<div class="listaMin">
+				<a href="#" onclick="Atras()">Anterior</a>
+				<ul id="SelectImages">
+					@{
+						
+						var modelotodos = Newtonsoft.Json.JsonConvert.DeserializeObject<MallTopic_News.Models.Noticias[]>(ca.Peticion("NoticiasDestacadas_Result/true/false/''"));
+						var c = 0;
+					}
+					@foreach (var item in modelotodos)
+					{
+						var select = false;
+						if (c == 0)
+						{
+							select = true;
+						}
+						var img = "http://malltopic.azurewebsites.net/Images/Uploads/MallTopicNews/" + item.id+ ".png";
+						<li><img id="@item.id" data-count="@c" data-src="@img" src="#" alt="Alternate Text" onclick="CambiarImagen(this)" data-nombreimagen="@item.titulo" data-pieimagen="@item.pie_de_imagen" data-descripcionnoticia="@item.descripcion" data-linknoticia="NoticiaDetalle/@item.id" data-select="@select" /></li>
+						c++;
+					}
+
+				</ul>
+
+				<a href="#" onclick="Siguiente()">Siguiente</a>
+			</div>
+		</section>
+		<div class="videoPlaylist"></div>
+	</article>
+
+	<div class="secciones" id="seccion1">
+		<a href="#">Recientes</a>
+		<article>
+			<div class="noticia">
+				<img src="#" class="imagenNoti" />
+				<a href="#" class="parrEnlace">ñflgkdfñglkdfgñldfkgñdflgkdfñglkñglk</a>
+			</div>
+			<div class="noticia">
+				<img src="#" class="imagenNoti" />
+				<a href="#" class="parrEnlace">ñflgkdfñglkdfgñldfkgñdflgkdfñglkñglk</a>
+			</div>
+			<div class="noticia">
+				<img src="#" class="imagenNoti" />
+				<a href="#" class="parrEnlace">ñflgkdfñglkdfgñldfkgñdflgkdfñglkñglk</a>
+			</div>
+			<div class="noticia">
+				<img src="#" class="imagenNoti" />
+				<a href="#" class="parrEnlace">ñflgkdfñglkdfgñldfkgñdflgkdfñglkñglk</a>
+			</div>
+			<div class="noticia">
+				<img src="#" class="imagenNoti" />
+				<a href="#" class="parrEnlace">ñflgkdfñglkdfgñldfkgñdflgkdfñglkñglk</a>
+			</div>
+			<div class="noticia">
+				<img src="#" class="imagenNoti" />
+				<a href="#" class="parrEnlace">ñflgkdfñglkdfgñldfkgñdflgkdfñglkñglk</a>
+			</div>
+			<div class="noticia">
+				<img src="#" class="imagenNoti" />
+				<a href="#" class="parrEnlace">ñflgkdfñglkdfgñldfkgñdflgkdfñglkñglk</a>
+			</div>
+			<div class="noticia">
+				<img src="#" class="imagenNoti" />
+				<a href="#" class="parrEnlace">ñflgkdfñglkdfgñldfkgñdflgkdfñglkñglk</a>
+			</div>
+			<div class="noticia">
+				<img src="#" class="imagenNoti" />
+				<a href="#" class="parrEnlace">ñflgkdfñglkdfgñldfkgñdflgkdfñglkñglk</a>
+			</div>
+		</article>
+	</div>
+
+	<article class="redesSocial">
+		<div class="redesSpace"></div>
+		<div class="redesSpace"></div>
+	</article>
+</section>
+@*@section script{
+		@Scripts.Render("~/Scripts/SliderMT.js")
+	}*@
