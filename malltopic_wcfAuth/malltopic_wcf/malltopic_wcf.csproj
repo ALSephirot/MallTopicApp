@@ -69,6 +69,10 @@
     <Reference Include="Microsoft.OData.EntityFrameworkProvider">
       <HintPath>..\packages\Microsoft.OData.EntityFrameworkProvider.1.0.0-alpha2\lib\net40\Microsoft.OData.EntityFrameworkProvider.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Downloads\json.net-4.5.11.1\json.net-4.5.11.1\lib\android\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -161,6 +165,7 @@
     <Compile Include="malltopicWcf.svc.cs">
       <DependentUpon>malltopicWcf.svc</DependentUpon>
     </Compile>
+    <Compile Include="ModeloInformacionLocal.cs" />
     <Compile Include="Movies.cs">
       <DependentUpon>MallTopicdb.tt</DependentUpon>
     </Compile>
@@ -244,6 +249,7 @@
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %2814%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %2815%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %2816%29.pubxml" />
+    <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %2817%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - FTP %284%29.pubxml" />
@@ -260,6 +266,7 @@
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %2814%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %2815%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %2816%29.pubxml" />
+    <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %2817%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\MallTopicServiceApp - Web Deploy %284%29.pubxml" />

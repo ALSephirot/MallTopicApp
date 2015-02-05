@@ -48,7 +48,15 @@
 					<div id="ContenedorIMGportada" style="display:inline-block;">
 
 					</div>
+
 					<br />
+					<div class="form-group">
+						@Html.LabelFor(model => model.pie_de_imagen, new { @class = "control-label col-md-2" })
+						<div class="col-md-10">
+							@Html.EditorFor(model => model.pie_de_imagen)
+							@Html.ValidationMessageFor(model => model.pie_de_imagen)
+						</div>
+					</div>
 					@*Imagen miniatura*@
 					<label>
 						<br />
@@ -62,13 +70,7 @@
 					<br />
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.pie_de_imagen, new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.pie_de_imagen)
-                        @Html.ValidationMessageFor(model => model.pie_de_imagen)
-                    </div>
-                </div>
+
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.descripcion, new { @class = "control-label col-md-2" })

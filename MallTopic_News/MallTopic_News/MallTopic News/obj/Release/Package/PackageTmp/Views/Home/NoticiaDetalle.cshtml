@@ -272,7 +272,7 @@ else
 			{
 				link = link.Substring(0, dos);
 				var s = link.Split(';');
-				descripciones = descripciones.Replace("$" + link, "<a href=" + s[1]);
+				descripciones = descripciones.Replace("$" + link, "<a href='"+"http://"+ s[1]+"'");
 				descripciones = descripciones.Replace("%", " target='_blank'>" + s[0] + "</a>");
 			}
 

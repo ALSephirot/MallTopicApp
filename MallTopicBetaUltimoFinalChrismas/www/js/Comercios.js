@@ -519,9 +519,9 @@ function CargarDetalleLoc()
 	var Comercio = GetLocal();
 
 	//Consulto la info de ese local
-	url = WebService + "Stores(guid'"+ Comercio +"')/";
+	url = WebService + "getinfoComercio?idComercio='"+Comercio+"'";
 	loadDataArray(url);
-	var ArrayComercios = arrayInfo;
+	var ArrayComercios = JSON.parse(arrayInfo.value);
 
 	//Configuro el Header
 	ConfigurarHeaders("DetalleComercio","#HeaderDetalleComercio", "#DetelleComercio", ArrayComercios.fk_idCC);
@@ -589,13 +589,12 @@ function CargarDetalleLoc()
 	Acordeon += "</p></div>";
 
 	//Cargo las Promociones
-	Acordeon += "<h3>Promociones</h3><div><ul>";
+	Acordeon += "<h3>Promociones</h3><div id='ContentPromosLocal'><ul>";
 	estado = false;
-	url = WebService + "Stores(guid'"+ Comercio +"')/Promos";
-	loadDataArray(url);
-	var APromociones = arrayInfo;
-	$.each(APromociones.value, function(index, item) {
-		Acordeon += "<li>"+ item.nombre +"</li>"
+
+	var APromociones = ArrayComercios.Promos;
+	$.each(APromociones, function(index, item) {
+		Acordeon += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetallePromos" data-select="Promos" onclick="SelPromos(this)" data-transition="slide"><img src="'+ RutaRecursos +'Promociones/'+item.id+'.jpg"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3></div><div class="FlechaLocales">Ir</div></a></li>';
 		estado = true;
 	});
 
@@ -607,33 +606,16 @@ function CargarDetalleLoc()
 	Acordeon +="</ul></div>";
 
 	//Productos
-	url = WebService + "Stores(guid'"+ Comercio +"')/Products";
-	loadDataArray(url);
-	var AProductos = arrayInfo;
+
+	var AProductos = ArrayComercios.Products;
 	Acordeon += "<h3>Productos/Servicios</h3><div><ul>";
 	var marcas = "<h3>Marcas</h3><div><p></p><ul>";
 	var ControlMarcas = "";
 	var estado = false;
 	var estadoMarcas = false;
 
-	$.each(AProductos.value, function(index, item) {
-			 
-		Acordeon += "<li>"+ item.nombre +"</li>";
-
-		url = WebService + "Trademark(guid'"+ item.fk_idMarca +"')/"
-		loadDataArray(url);
-		var AMarcas = arrayInfo;
-		estado = true;
-
-		$.each(AMarcas.value, function(index, Marca) {
-		 	if(ControlMarcas != Marca.id)
-		 	{
-		 		marcas +="<li>"+ Marca.nombre +"</li>";
-		 		ControlMarcas = Marca.id;
-		 		estadoMarcas = true;
-		 	}
-			 	
-		});
+	$.each(AProductos, function(index, item) {
+		Acordeon += "";
 	});
 
 	if(!estado)
@@ -653,13 +635,28 @@ function CargarDetalleLoc()
 	//Cargo los Eventos
 	Acordeon += "<h3>Eventos</h3><div><ul>";
 	estado = false;
-	url = WebService + "Stores(guid'"+ Comercio +"')/Events";
-	loadDataArray(url);
-	var AEventos = arrayInfo;
-	$.each(AEventos.value, function(index, item) {
-		Acordeon += "<li>"+ item.nombre +"</li>"
-		estado = true;
-	});
+
+	var AEventos = ArrayComercios.Events;
+	$.each(AEventos, function(index, item) {
+			var Store = item.fk_idStore;
+		 	var imagen = item.imagen;
+		 	var urlimagen = '';
+		 	var TempImagen = '';
+
+			if(Store == 'null' || Store == '' || Store == undefined)
+			{
+				TempImagen = RutaRecursos + 'Eventos/Malls/' + item.id + '.jpg';
+				urlimagen = VerificarArchivo("EventosLogos",TempImagen,"");
+			}
+			else
+			{
+				TempImagen = RutaRecursos + 'Eventos/Locales/' + item.id + '.jpg';
+				urlimagen = VerificarArchivo("EventosLogos",TempImagen,"");
+			}
+
+			Acordeon += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetalleEventos" data-select="Eventos"  onclick="SelPromos(this)" data-transition="slide"><img src="'+ urlimagen +'"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p>- '+ item.descripcion +'</p></div><div class="FlechaLocales">Ir</div></li>'; 
+			estado = true;
+		});
 
 	if(!estado)
 	{
@@ -669,8 +666,14 @@ function CargarDetalleLoc()
 	Acordeon +="</ul></div>";
 
 	//Cargo las Colecciones
-	Acordeon += "<h3>Colecciones</h3><div></div>";
+	Acordeon += "<h3>Colecciones</h3><div><ul>";
+	estado = false;
 
+	var AColections = ArrayComercios.Colections;
+	$.each(AColections, function(index, item) {
+		Acordeon += '<li class="listaTipo1"><a id="'+ item.id +'" href="#DetalleColecciones" data-select="Colecciones"  onclick="SelPromos(this)" data-transition="slide"><img src="'+ RutaRecursos + "Colecciones/Portadas/"+ item.id +'.jpg"/><div class="textolistaTipo1"><h3>'+ item.nombre +'</h3><p></p><p></p></div><div class="FlechaLocales">Ir</div></li>';
+	});
+	Acordeon +="</ul></div>";
 	$("#AcordeonLocales").html(Acordeon);
 	$("#AcordeonLocales").accordion({collapsible: true});
 	$( "#AcordeonLocales" ).accordion( "refresh" );
@@ -703,4 +706,22 @@ function CargarDetalleLoc()
 	{
 		$('#ly').attr("onclick","InAppBrowserOpen('http://www.malltopic.com/errorApp/')");	
 	}
+}
+
+function SelPromos(Promo) {
+    var Cual = $(Promo).attr('data-select');
+
+    if(Cual == "Promos")
+    {
+        setPromo($(Promo).attr('id'));
+    }
+    else if(Cual == "Eventos")
+    {
+    	setEvento($(Promo).attr('id'));
+    }
+    else if(Cual == "Colecciones")
+    {
+    	setColeccion($(Promo).attr('id'));
+    }
+
 }

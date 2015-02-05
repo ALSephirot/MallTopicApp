@@ -26,6 +26,7 @@ using System.Data.Services.Providers;
 using System.Linq;
 using System.ServiceModel.Web;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace malltopic_wcf
 {
@@ -84,6 +85,32 @@ namespace malltopic_wcf
             MallTopicFinalEntities1 entities = new MallTopicFinalEntities1();
             return entities.SP_Colecciones(idmall).ToList();
         }
-     
+
+        [WebGet]
+        public string getinfoComercio(string idComercio)
+        {
+            var id = Guid.Parse(idComercio);
+            MallTopicFinalEntities1 entities = new MallTopicFinalEntities1();
+            var modeloPromos = entities.Promos.Where(mm => mm.fk_idLocal == id).ToList<Promos>();
+            var modeloEventos = entities.Events.Where(mm=> mm.fk_idStore == id).ToList<Events>();
+            var modeloProductos = entities.Products.Where(mm=>mm.fk_idLocal == id).ToList<Products>();
+            var modeloColecciones= entities.Colections.Where(mm=> mm.fk_IdStore==id).ToList<Colections>();
+            var modeloStores = entities.Stores.Where(mm=> mm.id==id).ToList<Stores>();
+            var modeloCategorias = entities.StoresXCategories.Where(mm=>mm.fk_idstore == id).ToList<StoresXCategories>();
+
+            modeloStores[0].Events = modeloEventos;
+            modeloStores[0].Colections = modeloColecciones;
+            modeloStores[0].Products = modeloProductos;
+            modeloStores[0].Promos = modeloPromos;
+            modeloStores[0].StoresXCategories = modeloCategorias;
+
+            var JsonString = JsonConvert.SerializeObject(modeloStores[0], Formatting.None,
+                        new JsonSerializerSettings()
+                        {
+                            ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                        });
+
+            return JsonString;
+        }     
     }
 }

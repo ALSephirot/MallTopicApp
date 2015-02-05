@@ -233,6 +233,7 @@
     <None Include="Properties\PublishProfiles\malltopicCMS - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\malltopicNews - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\malltopicNews - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\mtnews - FTP %2810%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - FTP %284%29.pubxml" />
@@ -240,7 +241,9 @@
     <None Include="Properties\PublishProfiles\MTNews - FTP %286%29.pubxml" />
     <None Include="Properties\PublishProfiles\mtnews - FTP %287%29.pubxml" />
     <None Include="Properties\PublishProfiles\mtnews - FTP %288%29.pubxml" />
+    <None Include="Properties\PublishProfiles\mtnews - FTP %289%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\mtnews - Web Deploy %2810%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - Web Deploy %284%29.pubxml" />
@@ -248,6 +251,7 @@
     <None Include="Properties\PublishProfiles\MTNews - Web Deploy %286%29.pubxml" />
     <None Include="Properties\PublishProfiles\mtnews - Web Deploy %287%29.pubxml" />
     <None Include="Properties\PublishProfiles\mtnews - Web Deploy %288%29.pubxml" />
+    <None Include="Properties\PublishProfiles\mtnews - Web Deploy %289%29.pubxml" />
     <None Include="Properties\PublishProfiles\MTNews - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="images\arrowA.png" />

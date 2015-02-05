@@ -478,6 +478,8 @@ function CargarCines()
 		}
 
 		$('#ContentMovies').html(htmlCines);
+
+		
 	}
 
 	function InfoMovie() {

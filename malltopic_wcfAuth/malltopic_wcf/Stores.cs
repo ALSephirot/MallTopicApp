@@ -9,8 +9,8 @@
 
 namespace malltopic_wcf
 {
-    using System;
-    using System.Collections.Generic;
+        using System;
+        using System.Collections.Generic;
     
     public partial class Stores
     {
@@ -50,7 +50,7 @@ namespace malltopic_wcf
         public string NombreCategoria { get; set; }
         public string youtube { get; set; }
         public string Instagram { get; set; }
-    
+        public string eventos { get; set; }
         public ICollection<Colections> Colections { get; set; }
         public ICollection<Events> Events { get; set; }
         public ICollection<Favorites> Favorites { get; set; }
